@@ -1,20 +1,20 @@
 drop database if exists zootest;
 create database zootest;
 use zootest;
-create table if not exists employee(
-employee_ID int not null,
-employee_firstname varchar2(15),
-employee_lastname varchar2(15),
-street_address varchar2(25),
-city varchar2(22),
-state varchar2(2),
-zipcode int not null,
-phone_number varchar2(12),
-email varchar2(40),
-national_id varchar2(20),
-manager_id int not null,
-salary int not null,
-role varchar2(10)
+CREATE TABLE IF NOT EXISTS employee(
+	employee_ID int not null,
+	employee_firstname varchar(15),
+	employee_lastname varchar(15),
+	street_address varchar(25),
+	city varchar(22),
+	state varchar(2),
+	zipcode int not null,
+	phone_number varchar(12),
+	email varchar(40),
+	national_id varchar(20),
+	manager_id int not null,
+	salary int not null,
+	role varchar(10)
 );
 insert into employee
 values (000001,
