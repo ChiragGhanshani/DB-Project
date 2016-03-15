@@ -1,32 +1,54 @@
-drop database if exists zootest;
-create database zootest;
-use zootest;
+DROP DATABASE IF EXISTS zootest;
+CREATE DATABASE zootest;
+USE zootest;
 CREATE TABLE IF NOT EXISTS employee(
-	employee_ID int not null,
+	employee_id int(6) NOT NULL, --added length specification for id
 	employee_firstname varchar(15),
 	employee_lastname varchar(15),
 	street_address varchar(25),
 	city varchar(22),
 	state varchar(2),
-	zipcode int not null,
+	zipcode int(5) NOT NULL, --interested only in the 5 digit portion of the zip...
 	phone_number varchar(12),
 	email varchar(40),
 	national_id varchar(20),
-	manager_id int not null,
-	salary int not null,
-	role varchar(10)
+	manager_id int(6) NOT NULL,
+	salary int NOT NULL,
+	role varchar(10),
+
+	PRIMARY KEY (employee_ID) --had forgotten to designate primary key, added this
 );
-insert into employee
-values (000001,
-'Clifford',
-'The Dog',
-'1234 Imaginary Ln.',
-'Made Up Ville',
-'ZZ',
-12345,
-'000-000-0000',
-'nothing@nothing.com',
-'123456789',
-000001,
-12,
-'Mascot');
+
+INSERT INTO employee
+VALUES (000001,
+	'Clifford',
+	'The Dog',
+	'1234 Imaginary Ln.',
+	'Made Up Ville',
+	'ZZ',
+	12345,
+	'000-000-0000',
+	'nothing@nothing.com',
+	'123456789',
+	000001,
+	12,
+	'Mascot');
+
+/* So I was confused with the given specification as to what the following table was meant to represent.
+I assume here that it refers to specific physical habitats in which animals are shown/live and
+which are cared for by (apparently) a single keeper. To this end, I added habitat_id as primary key
+and use the keeper's id as foreign key relating this physical habitat to a keeper employee...
+This is all very much subject to change and discussion!*/
+
+CREATE TABLE IF NOT EXISTS zookeeper_habitats(
+	habitat_id int NOT NULL
+	zookeep_id int(6) NOT NULL,
+	species varchar(20) NOT NULL,
+
+	PRIMARY KEY (habitat_id),
+	FOREIGN KEY (zookeep_id) REFERENCES employee(employee_id)
+	--may want to also add species as a key referencing the species table once that table exists...
+);
+
+INSERT INTO zookeeper_habitats
+VALUES (0001, 000001, 'Cougar');
