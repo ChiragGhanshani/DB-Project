@@ -52,3 +52,27 @@ CREATE TABLE IF NOT EXISTS zookeeper_habitats(
 
 INSERT INTO zookeeper_habitats
 VALUES (0001, 000001, 'Cougar');
+
+
+
+/*Species table inserted by Ana*/
+
+CREATE TABLE IF NOT EXISTS species(
+	scientific_name varchar(50) NOT NULL,
+	population int NOT NULL,
+	habitat varchar(20) NOT NULL,
+	diet varchar(10) NOT NULL,
+	last_time_fed datetime NOT NULL,
+	behavior varchar(10),
+
+	PRIMARY KEY(scientific_name)
+);
+
+INSERT INTO species
+VALUES ('Ailurus fulgens', 
+	5,
+	'Mountain forest',
+	'Omnivore',
+	'2016-03-15 05:13:00',
+	'Solitary');
+
