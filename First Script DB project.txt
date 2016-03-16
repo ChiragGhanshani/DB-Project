@@ -76,7 +76,6 @@ VALUES ('Ailurus fulgens',
 	'2016-03-15 05:13:00',
 	'Solitary');
 
-DROP TABLE IF EXISTS customers;
 CREATE TABLE IF NOT EXISTS customers(
 	membership_ID int NOT NULL,
 	customer_firstName varchar(20),
@@ -94,4 +93,19 @@ VALUES(
 	'Simpson',
 	'1960-05-14',
 	'thesimpsons@springfield.com'
+);
+
+CREATE TABLE IF NOT EXISTS transactions(
+	transaction_ID int NOT NULL,
+	member_ID int NOT NULL,
+	items varchar(50),
+	total int NOT NULL
+);
+
+INSERT INTO transactions
+VALUES(
+	123,
+	123564364,
+	'pointless things',
+	50
 );
