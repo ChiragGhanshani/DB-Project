@@ -121,11 +121,11 @@ CREATE TABLE IF NOT EXISTS animals(
 	date_diseased date,
 	date_of_departure date,
 	blood_type varchar(3) NOT NULL,
-	species varchar(30) NOT NULL,
+	species varchar(30) NOT NULL
 
-	PRIMARY KEY (tag_number),
-	FOREIGN KEY (species) REFERENCES species(scientific_name))
-;
+/*	PRIMARY KEY (tag_number),
+	FOREIGN KEY (species) REFERENCES species(scientific_name)) */
+);
 
 INSERT INTO animals 
 VALUES(
