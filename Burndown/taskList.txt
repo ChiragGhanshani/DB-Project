@@ -1,10 +1,13 @@
 1.) Make index page for the zoo
 	- Jade
 		- This is converted to HTML at runtime and served to the users
+		- docs: <http://jade-lang.com/tutorial/>
 	- Bootstrap
 		- Styling Framework for webpages
+		- docs: <https://www.andreagrandi.it/2013/02/24/using-twitter-bootstrap-with-node-js-express-and-jade/>
 	- Angular
 		- Used to serve dynamic content (JS framework)
+		- docs: <http://briantford.com/blog/angular-express>
 
 2.) Make our own ORMs
 	- we need to make our own ORMs to make DB calls easier
