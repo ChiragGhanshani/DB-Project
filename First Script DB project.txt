@@ -76,3 +76,23 @@ VALUES ('Ailurus fulgens',
 	'2016-03-15 05:13:00',
 	'Solitary');
 
+drop database if exists zootest;
+create database zootest;
+use zootest;
+CREATE TABLE IF NOT EXISTS customers(
+membership_ID int NOT NULL,
+customer_firstName varchar(20),
+customer_middleInitial char,
+customer_LastName varchar(20),
+customer_DOB date NOT NULL
+customer_email varchar(40)
+);
+INSERT INTO customers
+values(
+0123456789,
+'Homer',
+'J',
+'Simpson',
+05-05-1960,
+'thesimpsons@springfield.com'
+);
