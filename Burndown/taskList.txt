@@ -1,0 +1,34 @@
+1.) Make index page for the zoo
+	- Jade
+		- This is converted to HTML at runtime and served to the users
+	- Bootstrap
+		- Styling Framework for webpages
+	- Angular
+		- Used to serve dynamic content (JS framework)
+
+2.) Make our own ORMs
+	- we need to make our own ORMs to make DB calls easier
+	- see <https://en.wikipedia.org/wiki/Object-relational_mapping>
+
+3.) Animal Managment
+	- keepers page
+		- list of animals the keeper is responsible
+		- can click on a particular animal to get to its health and overview page
+			- edit animal feeding times
+	- vet page
+		- list of animals the vet is responsible
+		- can click on a particular animal to get to its health and overview page
+			- edit general health of the animal
+	- acquisitions
+		- list of animals that are at the zoo
+		- can edit acquistion date and departure date
+	- visitors page
+		- basic catalogue about the animals at the zoo
+	
+
+4.) Transactions
+	- requires merchendise page
+	- 
+	- Multiple items can be purchased
+
+5.) HR
