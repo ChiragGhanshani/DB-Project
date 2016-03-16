@@ -11,8 +11,24 @@
 	- see <https://en.wikipedia.org/wiki/Object-relational_mapping>
 
 3.) Animal Managment
+	- keepers page
+		- list of animals the keeper is responsible
+		- can click on a particular animal to get to its health and overview page
+			- edit animal feeding times
+	- vet page
+		- list of animals the vet is responsible
+		- can click on a particular animal to get to its health and overview page
+			- edit general health of the animal
+	- acquisitions
+		- list of animals that are at the zoo
+		- can edit acquistion date and departure date
+	- visitors page
+		- basic catalogue about the animals at the zoo
+	
 
 4.) Transactions
+	- requires merchendise page
+	- 
 	- Multiple items can be purchased
 
 5.) HR
