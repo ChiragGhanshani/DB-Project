@@ -109,3 +109,35 @@ VALUES(
 	'pointless things',
 	50
 );
+
+CREATE TABLE IF NOT EXISTS animals(
+	tag_number int(7) NOT NULL,
+	gender varchar(1) NOT NULL,
+	temperament varchar(50) NOT NULL,
+	last_checkup date NOT NULL,
+	illnesses varchar(50),
+	date_of_birth date NOT NULL, 
+	date_of_arrival date NOT NULL,
+	date_diseased date,
+	date_of_departure date,
+	blood_type varchar(3) NOT NULL,
+	species varchar(30) NOT NULL,
+
+	PRIMARY KEY (tag_number),
+	FOREIGN KEY (species) REFERENCES species(scientific_name))
+;
+
+INSERT INTO animals 
+VALUES(
+	7777777,
+	'm',
+	'angry',
+	'2001-09-11',
+	'ebola',
+	'1980-01-02',
+	'2010-03-05',
+	'2011-02-07',
+	'2015-11-31',
+	'O-',
+	'Homo Sapien'
+);
