@@ -106,9 +106,10 @@ CREATE TABLE IF NOT EXISTS transactions(
 	items varchar(50),
 	total int NOT NULL,
 
-	PRIMARY KEY(transaction_ID)
+	PRIMARY KEY(transaction_ID),
+	FOREIGN KEY(member_ID) REFERENCES customers(membership_ID)
 );
-
+/*
 INSERT INTO transactions
 VALUES(
 	123,
@@ -116,7 +117,7 @@ VALUES(
 	'pointless things',
 	50
 );
-
+*/
 CREATE TABLE IF NOT EXISTS animals(
 	tag_number int(7) NOT NULL,
 	gender varchar(1) NOT NULL,
@@ -128,11 +129,14 @@ CREATE TABLE IF NOT EXISTS animals(
 	date_diseased date,
 	date_of_departure date,
 	blood_type varchar(3) NOT NULL,
-	species varchar(30) NOT NULL,
+	species varchar(50) NOT NULL,
+	habitat_id int NOT NULL,
 
-	PRIMARY KEY (tag_number)
+	PRIMARY KEY (tag_number),
+	FOREIGN KEY (species) REFERENCES species(scientific_name),
+	FOREIGN KEY (habitat_id) REFERENCES habitats(habitat_id)
 );
-
+/*
 INSERT INTO animals 
 VALUES(
 	7777777,
@@ -147,7 +151,7 @@ VALUES(
 	'O-',
 	'Homo Sapien'
 );
-
+*/
 CREATE TABLE IF NOT EXISTS users(
 	username varchar(20) NOT NULL,
 	password varchar(20) NOT NULL,
