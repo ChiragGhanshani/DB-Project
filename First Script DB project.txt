@@ -40,18 +40,19 @@ which are cared for by (apparently) a single keeper. To this end, I added habita
 and use the keeper's id as foreign key relating this physical habitat to a keeper employee...
 This is all very much subject to change and discussion!*/
 
-CREATE TABLE IF NOT EXISTS zookeeper_habitats(
+CREATE TABLE IF NOT EXISTS habitats(
 	habitat_id int NOT NULL,
-	zookeep_id int(6) NOT NULL,
+	employee_id int(6) NOT NULL,
 	species varchar(20) NOT NULL,
+	area varchar(20),
 
 	PRIMARY KEY (habitat_id),
-	FOREIGN KEY (zookeep_id) REFERENCES employee(employee_id)
+	FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
 	#may want to also use species as a foreign key referencing species table (once it exists)...
 );
 
-INSERT INTO zookeeper_habitats
-VALUES (0001, 000001, 'Cougar');
+INSERT INTO habitats
+VALUES (0001, 000001, 'Cougar', 'Savannah');
 
 
 
@@ -77,29 +78,35 @@ VALUES ('Ailurus fulgens',
 	'Solitary');
 
 CREATE TABLE IF NOT EXISTS customers(
-	membership_ID int NOT NULL,
-	customer_firstName varchar(20),
-	customer_middleInitial char,
-	customer_LastName varchar(20),
+	membership_ID int(6) NOT NULL,
+	customer_firstName varchar(20) NOT NULL,
+	customer_middleInitial varchar(1) NOT NULL,
+	customer_LastName varchar(20) NOT NULL,
 	customer_DOB date NOT NULL,
-	customer_email varchar(40)
+	customer_email varchar(40) NOT NULL,
+	membership_type varchar(20) NOT NULL,
+
+	PRIMARY KEY(membership_ID)
 );
 
 INSERT INTO customers
 VALUES(
-	0123456789,
+	012345,
 	'Homer',
 	'J',
 	'Simpson',
 	'1960-05-14',
-	'thesimpsons@springfield.com'
+	'thesimpsons@springfield.com',
+	'employee'
 );
 
 CREATE TABLE IF NOT EXISTS transactions(
 	transaction_ID int NOT NULL,
-	member_ID int NOT NULL,
+	member_ID int(6) NOT NULL,
 	items varchar(50),
-	total int NOT NULL
+	total int NOT NULL,
+
+	PRIMARY KEY(transaction_ID)
 );
 
 INSERT INTO transactions
@@ -121,10 +128,9 @@ CREATE TABLE IF NOT EXISTS animals(
 	date_diseased date,
 	date_of_departure date,
 	blood_type varchar(3) NOT NULL,
-	species varchar(30) NOT NULL
+	species varchar(30) NOT NULL,
 
-/*	PRIMARY KEY (tag_number),
-	FOREIGN KEY (species) REFERENCES species(scientific_name)) */
+	PRIMARY KEY (tag_number)
 );
 
 INSERT INTO animals 
@@ -132,7 +138,7 @@ VALUES(
 	7777777,
 	'm',
 	'angry',
-	'2001-09-11',
+	'2001-06-11',
 	'ebola',
 	'1980-01-02',
 	'2010-03-05',
@@ -141,3 +147,25 @@ VALUES(
 	'O-',
 	'Homo Sapien'
 );
+
+CREATE TABLE IF NOT EXISTS users(
+	username varchar(20) NOT NULL,
+	password varchar(20) NOT NULL,
+	date_created date NOT NULL,
+	active varchar(1) NOT NULL,
+	user_id varchar(6) NOT NULL,
+	role varchar(20) NOT NULL,
+
+	PRIMARY KEY (username)
+);
+
+INSERT INTO users
+VALUES(
+	'khoffee',
+	'abc123',
+	'2016-03-14',
+	'Y',
+	'ABD590',
+	'customer'
+);
+
