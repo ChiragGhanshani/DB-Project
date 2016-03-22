@@ -1,6 +1,9 @@
+USE zootest;
 
-INSERT INTO employee
-VALUES (000001,
+
+INSERT INTO employees
+VALUES (
+	000001,
 	'Clifford',
 	'The Dog',
 	'1234 Imaginary Ln.',
@@ -12,57 +15,29 @@ VALUES (000001,
 	'123456789',
 	000001,
 	12,
-	'Mascot');
+	'00'
+);
 	
-INSERT INTO habitats
-VALUES (0001, 000001, 'Cougar', 'Savannah');
-
-
-INSERT INTO species
-VALUES ('Ailurus fulgens', 
-	5,
-	'Mountain forest',
-	'Omnivore',
-	'2016-03-15 05:13:00',
-	'Solitary');
-	
-	INSERT INTO customers
+INSERT INTO customers
 VALUES(
-	012345,
+	123456,
 	'Homer',
 	'J',
 	'Simpson',
 	'1960-05-14',
 	'thesimpsons@springfield.com',
-	'employee'
+	01
 );
 
-/*
 INSERT INTO transactions
 VALUES(
 	123,
-	123564364,
-	'pointless things',
+	123456,
+	00,
+	'2016-01-02 00:00:00.000',
+	02,
 	50
 );
-*/
-
-/*
-INSERT INTO animals 
-VALUES(
-	7777777,
-	'm',
-	'angry',
-	'2001-06-11',
-	'ebola',
-	'1980-01-02',
-	'2010-03-05',
-	'2011-02-07',
-	'2015-11-30',
-	'O-',
-	'Homo Sapien'
-);
-*/
 
 INSERT INTO users
 VALUES(
@@ -71,5 +46,41 @@ VALUES(
 	'2016-03-14',
 	'Y',
 	'ABD590',
-	'customer'
+	00
 );
+
+INSERT INTO species
+VALUES (
+	'Ailurus fulgens', 
+	5,
+	/*'Mountain forest',*/
+	03,
+	04
+);
+
+INSERT INTO habitats
+VALUES (
+	1,
+	000001,
+	'Cougar',
+	'2016-03-15 05:13:00',
+	01
+);
+
+INSERT INTO animals 
+VALUES(
+	1234567,
+	'M',
+	01,
+	'2001-06-11',
+	77,
+	'1980-01-02',
+	'2010-03-05',
+	'2011-02-07',
+	'2015-11-30',
+	'O-',
+	'Ailurus fulgens',
+	1
+);
+
+

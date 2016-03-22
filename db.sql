@@ -3,8 +3,7 @@ CREATE DATABASE zootest;
 USE zootest;
 
 
-
-CREATE TABLE IF NOT EXISTS employee(
+CREATE TABLE IF NOT EXISTS employees(
 	employee_id int(6) NOT NULL,
 	employee_firstname varchar(15),
 	employee_lastname varchar(15),
@@ -81,7 +80,6 @@ CREATE TABLE IF NOT EXISTS habitats(
 
 	PRIMARY KEY (habitat_id),
 	FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
-	#may want to also use species as a foreign key referencing species table (once it exists)...
 );
 
 
