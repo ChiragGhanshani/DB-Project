@@ -34,9 +34,15 @@ VALUES(
 	123,
 	123456,
 	00,
-	'2016-01-02 00:00:00.000',
-	02,
-	50
+	'2016-01-02 00:00:00.000'
+);
+
+INSERT INTO transaction_items
+VALUES(
+	123,
+	000000,
+	'Khoiffee',
+	100
 );
 
 INSERT INTO users
@@ -53,7 +59,7 @@ INSERT INTO species
 VALUES (
 	'Ailurus fulgens', 
 	5,
-	/*'Mountain forest',*/
+	'Mountain forest',
 	03,
 	04
 );
@@ -62,7 +68,6 @@ INSERT INTO habitats
 VALUES (
 	1,
 	000001,
-	'Cougar',
 	'2016-03-15 05:13:00',
 	01
 );
