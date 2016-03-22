@@ -18,12 +18,12 @@ CREATE TABLE IF NOT EXISTS employees(
 	salary int NOT NULL,
 	role int(2),
 
-	PRIMARY KEY (employee_ID) #had forgotten completely to add this constraint
+	PRIMARY KEY (employee_id)
 );
 
 
 CREATE TABLE IF NOT EXISTS customers(
-	membership_ID int(6) NOT NULL,
+	membership_id int(6) NOT NULL,
 	customer_firstName varchar(20) NOT NULL,
 	customer_middleInitial varchar(1) NOT NULL,
 	customer_LastName varchar(20) NOT NULL,
@@ -31,20 +31,31 @@ CREATE TABLE IF NOT EXISTS customers(
 	customer_email varchar(40) NOT NULL,
 	membership_type int(2) NOT NULL,
 
-	PRIMARY KEY(membership_ID)
+	PRIMARY KEY(membership_id)
 );
 
 
 CREATE TABLE IF NOT EXISTS transactions(
-	transaction_ID int NOT NULL,
-	member_ID int(6) NOT NULL,
+	transaction_id int NOT NULL,
+	member_id int(6) NOT NULL,
 	transaction_type int(2) NOT NULL,
 	transaction_time datetime NOT NULL,
-	items int(2), /*mutli valued?*/
+	/*items int(2), multivalued -- see items table*/
 	total int NOT NULL,
 
-	PRIMARY KEY(transaction_ID),
-	FOREIGN KEY(member_ID) REFERENCES customers(membership_ID)
+	PRIMARY KEY(transaction_id),
+	FOREIGN KEY(member_id) REFERENCES customers(membership_id)
+);
+
+
+CREATE TABLE IF NOT EXISTS transaction_items(
+	trans_id int NOT NULL,
+	item_id int(6) NOT NULL,
+	item_name varchar(20) NOT NULL,
+	cost int NOT NULL,
+	
+	PRIMARY KEY(trans_id, item_id),
+	FOREIGN KEY(trans_id) REFERENCES transactions(transaction_id)
 );
 
 
@@ -61,9 +72,9 @@ CREATE TABLE IF NOT EXISTS users(
 
 
 CREATE TABLE IF NOT EXISTS species(
-	scientific_name varchar(50) NOT NULL, /*revisit this*/
+	scientific_name varchar(50) NOT NULL, /*maybe replace with surrogate key?*/
 	population int NOT NULL,
-	/*habitat varchar(20) NOT NULL,  #gotta rename this, decide what it means first*/
+	natural_habitat varchar(20) NOT NULL, /*maybe rename?*/
 	diet int(2) NOT NULL,
 	behavior int(2),
 
@@ -74,7 +85,6 @@ CREATE TABLE IF NOT EXISTS species(
 CREATE TABLE IF NOT EXISTS habitats(
 	habitat_id int NOT NULL,
 	employee_id int(6) NOT NULL,
-	species varchar(20) NOT NULL,
 	last_time_fed datetime NOT NULL,
 	area int(2),
 
@@ -88,13 +98,13 @@ CREATE TABLE IF NOT EXISTS animals(
 	gender varchar(1) NOT NULL,
 	temperament int(2) NOT NULL,
 	last_checkup date NOT NULL,
-	illnesses int(2),			/*multi value?*/
+	illnesses varchar(50),
 	date_of_birth date NOT NULL,
 	date_of_arrival date NOT NULL,
 	date_deceased date,
 	date_of_departure date,
 	blood_type varchar(3) NOT NULL,
-	species varchar(50) NOT NULL,	/*work on this as key*/
+	species varchar(50) NOT NULL,
 	habitat_id int NOT NULL,
 
 	PRIMARY KEY (tag_number),
