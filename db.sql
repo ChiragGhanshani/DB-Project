@@ -41,7 +41,6 @@ CREATE TABLE IF NOT EXISTS transactions(
 	transaction_type int(2) NOT NULL,
 	transaction_time datetime NOT NULL,
 	/*items int(2), multivalued -- see items table*/
-	total int NOT NULL,
 
 	PRIMARY KEY(transaction_id),
 	FOREIGN KEY(member_id) REFERENCES customers(membership_id)
@@ -89,7 +88,7 @@ CREATE TABLE IF NOT EXISTS habitats(
 	area int(2),
 
 	PRIMARY KEY (habitat_id),
-	FOREIGN KEY (employee_id) REFERENCES employee(employee_id)
+	FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
 
 
