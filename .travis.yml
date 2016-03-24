@@ -4,5 +4,9 @@ node_js:
 
 notifications:
   email:
-    - chiragghanshani@gmail.com
-    - khoipham7501@gmail.com
+    recipients:
+      - chiragghanshani@gmail.com
+      - khoipham7501@gmail.com
+      - achernan5@uh.edu
+    on_success: always 
+    on_failure: always
