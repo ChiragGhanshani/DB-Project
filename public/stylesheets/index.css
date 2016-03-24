@@ -1,0 +1,16 @@
+.navbar-default {
+  border-color: transparent;
+}
+
+.navbar-default .navbar-brand {
+  color: red;
+  font-weight: bold;
+  font-size: 40px;
+  margin: 10px;
+  font-family: Ubuntu, sans-serif;
+}
+
+.navbar-default .navbar-collapse {
+  background-color: transparent; /*changes nav background color*/
+
+}

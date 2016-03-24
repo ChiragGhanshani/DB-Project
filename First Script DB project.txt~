@@ -1,0 +1,78 @@
+DROP DATABASE IF EXISTS zootest;
+CREATE DATABASE zootest;
+USE zootest;
+CREATE TABLE IF NOT EXISTS employee(
+	employee_id int(6) NOT NULL, #added length constraint for id values
+	employee_firstname varchar(15),
+	employee_lastname varchar(15),
+	street_address varchar(25),
+	city varchar(22),
+	state varchar(2),
+	zipcode int(5) NOT NULL, #limited zip to 5 digits - this is all we need to care about
+	phone_number varchar(12),
+	email varchar(40),
+	national_id varchar(20),
+	manager_id int(6) NOT NULL,
+	salary int NOT NULL,
+	role varchar(10),
+
+	PRIMARY KEY (employee_ID) #had forgotten completely to add this constraint
+);
+
+INSERT INTO employee
+VALUES (000001,
+	'Clifford',
+	'The Dog',
+	'1234 Imaginary Ln.',
+	'Made Up Ville',
+	'ZZ',
+	12345,
+	'000-000-0000',
+	'nothing@nothing.com',
+	'123456789',
+	000001,
+	12,
+	'Mascot');
+
+/* So I was confused with the given specification as to what the following table was meant to represent.
+I assume here that it refers to specific physical habitats in which animals are shown/live and
+which are cared for by (apparently) a single keeper. To this end, I added habitat_id as primary key
+and use the keeper's id as foreign key relating this physical habitat to a keeper employee...
+This is all very much subject to change and discussion!*/
+
+CREATE TABLE IF NOT EXISTS zookeeper_habitats(
+	habitat_id int NOT NULL,
+	zookeep_id int(6) NOT NULL,
+	species varchar(20) NOT NULL,
+
+	PRIMARY KEY (habitat_id),
+	FOREIGN KEY (zookeep_id) REFERENCES employee(employee_id)
+	#may want to also use species as a foreign key referencing species table (once it exists)...
+);
+
+INSERT INTO zookeeper_habitats
+VALUES (0001, 000001, 'Cougar');
+
+
+
+/*Species table inserted by Ana*/
+
+CREATE TABLE IF NOT EXISTS species(
+	scientific_name varchar(50) NOT NULL,
+	population int NOT NULL,
+	habitat varchar(20) NOT NULL,
+	diet varchar(10) NOT NULL,
+	last_time_fed datetime NOT NULL,
+	behavior varchar(10),
+
+	PRIMARY KEY(scientific_name)
+);
+
+INSERT INTO species
+VALUES ('Ailurus fulgens', 
+	5,
+	'Mountain forest',
+	'Omnivore',
+	2016-03-15 05:13:00,
+	'Solitary');
+
