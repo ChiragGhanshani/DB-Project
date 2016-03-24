@@ -20,6 +20,7 @@
     "karma-mocha": "^0.2.2",
     "mocha": "^2.4.5",
     "morgan": "^1.6.1",
+    "mysql": "^2.10.2",
     "serve-favicon": "^2.3.0",
     "swig": "^1.4.2"
   }
