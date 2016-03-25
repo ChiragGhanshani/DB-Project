@@ -24,5 +24,8 @@
     "mysql": "^2.10.2",
     "serve-favicon": "^2.3.0",
     "swig": "^1.4.2"
+  },
+  "scripts": {
+    "test" : "./build.sh"
   }
 }
