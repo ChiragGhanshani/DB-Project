@@ -15,7 +15,5 @@ describe('login ORM test', function(){
     }
 
     loginORM.getUserID('khoffee', 'abc123', parser);
-
-    expect(1).to.eql(1);
   })
 })
