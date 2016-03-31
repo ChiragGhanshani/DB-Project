@@ -1,4 +1,5 @@
 var expect = require('chai').expect;
+var db = require('../models/db.js');
 var loginORM = require('../models/login.js');
 
 describe('canary test', function(){
@@ -9,10 +10,12 @@ describe('canary test', function(){
 
 describe('login ORM test', function(){
   it('getUserID should return list', function(){
-    //console.log(LoginORM.getUserID('khoffee','abc123'));
-    console.log(loginORM.getUserID('khoffee','abc123',function(err, result){
-      return result;
-    }));
+    var parser = function(error, result){
+      expect(result[0].user_id).to.eql('ABD590');
+    }
+
+    loginORM.getUserID('khoffee', 'abc123', parser);
+
     expect(1).to.eql(1);
   })
 })
