@@ -1,5 +1,7 @@
 .navbar-default {
-  border-color: transparent;
+  background-color: black;
+  background: rgba(255, 255, 255,0.40);
+  border: none;
 }
 
 .navbar-default .navbar-brand {
@@ -11,8 +13,7 @@
 }
 
 .navbar-default .navbar-collapse {
-  background-color: transparent; /*changes nav background color*/
-
+  background: none; /*changes nav background color*/
 }
 
 .fullscreen-bg {
