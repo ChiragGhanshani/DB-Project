@@ -1,47 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Jade</title>
+  <title>Zoo Name</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!--Bootstrap, CSS stylesheets-->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <!--Font-Awesome stylesheet-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!--Ubuntu font-family-->
+  <!--fonts-->
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+
   <link rel="stylesheet" type="text/css" href="static/stylesheets/index.css">
+
+  <!--Enables page scroll-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script>
+     $(function() {
+       $('a[href*="#"]:not([href="#"])').click(function() {
+         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+           var target = $(this.hash);
+           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+           if (target.length) {
+             $('html, body').animate({
+               scrollTop: target.offset().top
+             }, 1000);
+             return false;
+           }
+         }
+       });
+     });
+   </script>
 
 </head>
 
 <body>
-  <div class="container">
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="navbar-header" >
-        <a class="navbar-brand" href="#">zooName</a>
-      </div>
-
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Animals</a></li>
-          <li><a href="#">Visit Us</a></li>
-          <li><a href="#">Tickets</a></li>
-          <li><a href="#">Membership</a></li>
-        </ul>
-      </div>
-    </nav>
+  <!--NavBar -->
+  <div class="navbar" id="top">
+    <ul>
+      <li><a href="#top"> Zoo Name </a></li>
+      <li><a href="#members"> Membership </a></li>
+      <li><a href="#tickets"> Tickets </a></li>
+      <li><a href="#visit"> Visit Us </a></li>
+      <li><a href="#animals"> Animals </a></li>
+    </ul>
   </div>
 
-  <div class="fullscreen-bg">
-    <video loop muted autoplay poster "img/videoframe.jpg" class="fullscreen-bg__video">
+  <!--Video -->
+  <div id="video-container">
+    <video id="bgVid" class="fillWidth" loop muted autoplay > <!--"img/videoframe.jpg"-->
       <source src="static/images/test2.mp4" type="video/mp4">
     </video>
   </div>
 
 
+  <!-- Animals Section-->
+  <div id="animals" class="animalSection">
+    <h1>Animals</h1>
+    <h2 align="center">Will add tiles of animal pics</h2>
+  </div>
+
+  <!-- Visit Us Section-->
+  <div id="visit" class="visitSection">
+    <h1>Visit Us</h1>
+    <div class="row">
+      <div class="col-6 hours">
+        <ul>
+          <li><h3>TODAY'S DATE HERE</h3></li>
+          <li>Open: 9 am Close: 6 pm</li>
+          <li>Last Entry: 5 pm</li>
+          <br>
+          <br>
+          <li><h3>TODAY AT THE ZOO</h3></li>
+          <li>12 pm Animal Encounters: Red Panda Talk </li>
+          <li>2 pm Meet the keeper talk at Sealions </li>
+          <li>4 pm Giraffee feeding</li>
+          <li><button>See full schedule</button></li>
+        </ul>
+      </div>
+      <div class="col-6 directions">
+        <ul>
+          <li><img src="static/images/UHmap.png" alt="UH map"></li>
+          <li>4800 Calhoun Rd</li>
+          <li>Houston, TX 77004</li>
+          <li><button>Get Directions</button></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Tickets Section -->
+  <div id="tickets" class="ticketSection">
+    <h1>Tickets</h1>
+    <div class="row">
+      <div class="col-6 ticket-type">
+        <ul>
+          <li>Adults 12-64: $15</li>
+          <li>Children under 12: $10</li>
+          <li>Senior 65+: $8</li>
+          <li><button>Buy Tickets</button></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Member Section -->
+  <div id="members" class="memberSection">
+    <h1>Membership</h1>
+
+  </div>
+
 </body>
+
+<footer>
+  <p>Contact Us About Us Connect with us Copyright</p>
+</footer>
 </html>

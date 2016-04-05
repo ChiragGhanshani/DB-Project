@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - 5.6
+
+notifications:
+  email:
+    recipients:
+      - chiragghanshani@gmail.com
+      - khoipham7501@gmail.com
+      - achernan5@uh.edu
+    on_success: always 
+    on_failure: always
