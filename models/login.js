@@ -11,9 +11,10 @@ module.exports = {
 		  var query = db.query(queryString, [username, password], function(err, rows, fields) {
 			  if (err)
           sendResultBack(new Error('Invalid Credentials'), null);
-
         else if (rows.length > 0)
           sendResultBack(null, rows);
+        else
+          sendResultBack(new Error('Invalid Crednetials'), null);
 		  });
 	  }
   }
