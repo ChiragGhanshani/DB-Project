@@ -8,6 +8,7 @@ var cons = require('consolidate');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var aboutPage = require('./routes/aboutPage');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/static', express.static('public/'));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/about', aboutPage);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
