@@ -15,22 +15,21 @@
   <!--Enables page scroll-->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script>
-     $(function() {
-       $('a[href*="#"]:not([href="#"])').click(function() {
-         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-           var target = $(this.hash);
-           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-           if (target.length) {
-             $('html, body').animate({
-               scrollTop: target.offset().top
-             }, 1000);
-             return false;
-           }
-         }
-       });
-     });
-   </script>
-
+  $(function() {
+    $('a[href*="#"]:not([href="#"])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      }
+    });
+  });
+</script>
 </head>
 
 <body>
@@ -56,7 +55,31 @@
   <!-- Animals Section-->
   <div id="animals" class="animalSection">
     <h1>Animals</h1>
-    <h2 align="center">Will add tiles of animal pics</h2>
+    <h2 align="center"></h2>
+    <ul id="onHover">
+      <li><img src="static/images/RedPanda.jpg" alt="Red Panda"><p>Red Panda</p></li>
+      <li><img src="static/images/LionCubs.jpg" alt="Lion cubs"></li>
+      <li><img src="static/images/Gorilla.jpg" alt="Gorilla"></li>
+      <li><img src="static/images/Giraffe2.jpg" alt="Giraffe"></li>
+      <li><img src="static/images/Elephants.jpg" alt="Elephants"></li>
+    </ul>
+    <!--<div class="row animals">-->
+      <!--<div class="col-2">-->
+        <!--<li><img src="static/images/RedPanda.jpg" alt="Red Panda"></li>-->
+      <!--</div>-->
+      <!--<div class="col-2">-->
+        <!--<li><img src="static/images/LionCubs.jpg" alt="Lion cubs"></li>-->
+      <!--</div>-->
+      <!--<div class="col-2">-->
+        <!--<li><img src="static/images/Gorilla.jpg" alt="Gorilla"></li>-->
+      <!--</div>-->
+      <!--<div class="col-2">-->
+        <!--<li><img src="static/images/Giraffe2.jpg" alt="Giraffe"></li>-->
+      <!--</div>-->
+      <!--<div class="col-2">-->
+        <!--<li><img src="static/images/Elephants.jpg" alt="Elephants"></li>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 
   <!-- Visit Us Section-->
@@ -82,7 +105,10 @@
           <li><img src="static/images/UHmap.png" alt="UH map"></li>
           <li>4800 Calhoun Rd</li>
           <li>Houston, TX 77004</li>
-          <li><button>Get Directions</button></li>
+          <li>
+            <form action="https://www.google.com/maps/dir//University+of+Houston,+Calhoun+Road,+Houston,+TX/@29.7199443,-95.3772529,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x8640be5a8ebea199:0xc9f387eca8247e7!2m2!1d-95.3422334!2d29.7199489" method="get" target="_blank">
+              <button>Get Directions</button>
+            </form></li>
         </ul>
       </div>
     </div>
@@ -93,16 +119,16 @@
   <div id="tickets" class="ticketSection">
     <h1>Tickets</h1>
     <div class="row">
-      <div class="col-6 ticket-type">
+      <div class="col-6">
         <ul>
           <li>Adults 12-64: $15</li>
           <li>Children under 12: $10</li>
+          <li>Children under 2: FREE</li>
           <li>Senior 65+: $8</li>
           <li><button>Buy Tickets</button></li>
         </ul>
       </div>
     </div>
-
   </div>
 
   <!-- Member Section -->
@@ -114,6 +140,12 @@
 </body>
 
 <footer>
-  <p>Contact Us About Us Connect with us Copyright</p>
+  <p>Contact Us <a href="/about">About Us</a>  Connect with us Copyright</p>
+  <span>
+    <a href="https://www.instagram.com/universityofhouston/">Instagram</a>
+    <a href="https://twitter.com/UHouston?lang=en">Twitter</a>
+    <a href="https://www.facebook.com/universityofhouston/">Facebook</a>
+    <a href="https://www.pinterest.com/univofhouston/">Pinterest</a>
+  </span>
 </footer>
 </html>
