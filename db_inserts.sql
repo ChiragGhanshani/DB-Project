@@ -8,7 +8,7 @@ VALUES (
 	'The Dog',
 	'1234 Imaginary Ln.',
 	'Made Up Ville',
-	'ZZ',
+	01,
 	12345,
 	'000-000-0000',
 	'nothing@nothing.com',
@@ -22,7 +22,6 @@ INSERT INTO customers
 VALUES(
 	123456,
 	'Homer',
-	'J',
 	'Simpson',
 	'1960-05-14',
 	'thesimpsons@springfield.com',
@@ -42,6 +41,7 @@ VALUES(
 	123,
 	000000,
 	'Khoiffee',
+	1,
 	100
 );
 
@@ -52,7 +52,7 @@ VALUES(
 	'2016-03-14',
 	'Y',
 	'ABD590',
-	00
+	'Customer'
 );
 
 INSERT INTO species
@@ -60,7 +60,7 @@ VALUES (
 	'Ailurus fulgens', 
 	5,
 	'Mountain forest',
-	03,
+	'Herbivore',
 	04
 );
 
@@ -75,10 +75,8 @@ VALUES (
 INSERT INTO animals 
 VALUES(
 	1234567,
-	'M',
-	01,
+	'Male',
 	'2001-06-11',
-	77,
 	'1980-01-02',
 	'2010-03-05',
 	'2011-02-07',
