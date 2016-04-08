@@ -5,6 +5,11 @@
 
 body {
   background-color: whitesmoke;
+  font-family: Ubuntu, sans-serif;
+}
+
+button {
+  font-family: Ubuntu, sans-serif;
 }
 
 * { /*padding and border included in total width and height of elements*/
@@ -109,6 +114,49 @@ h1 {
 /*Animals Section*/
 .animalSection {
   height: 600px;
+  text-align: center;
+}
+
+.animalSection ul {
+  list-style-type: none;
+  /*display: inline;*/
+}
+
+.animalSection li {
+  display: inline;
+  padding: 2px;
+  position: relative;
+
+}
+
+.animalSection li img {
+  position: relative;
+  max-width: 25%;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+.animalSection li img:hover {
+  opacity: 0.4;
+  /*display: block;*/
+}
+
+.animalSection li p{
+  position: absolute;
+  visibility: hidden;
+  /*top: 0; */
+  bottom: 50px;
+  left: 0; right: 0;
+  /*vertical-align: middle;*/
+  font-size: 20px;
+  opcacity: 0;
+}
+
+.animalSection li:hover p {
+  visibility: visible;
+  opacity: 1;
+  z-index: 100;
 }
 
 /*Visit Us Section*/
@@ -126,9 +174,8 @@ h1 {
 .hours li {
   padding-left: 200px;
   margin-bottom: 5px;
-  color: turquoise;
+  color: #0b97c4;
   font-size: 20px;
-  font-family: sans-serif;
 }
 
 .hours li:first-child {
@@ -173,7 +220,7 @@ h1 {
   border-radius: 4px;
 }
 
-img {
+.directions li img {
   position: relative;
   width: 48%;
   height: 75%;
@@ -184,15 +231,18 @@ img {
 .ticketSection {
   height: 600px;
 }
-.ticket-type ul {
+.ticketSection ul {
   list-style-type: none;
   margin: 0;
   padding:0;
 }
 
-.ticket-type li {
-  /*padding-left: 10px;*/
-  text-align: center;
+.ticketSection li {
+  /*text-align: center;*/
+  color: #0b97c4;
+  font-size: 20px;
+  padding-left: 200px;
+  margin-bottom: 5px;
 }
 
 /*Membership Section*/
