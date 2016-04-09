@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS habitats(
 CREATE TABLE IF NOT EXISTS animal_illnesses(
 	tag_number int(7) NOT NULL,
 	illness varchar(25) NOT NULL,
-	description varchar(100),
+	description varchar(300),
 	
 	PRIMARY KEY (tag_number, illness)
 );
