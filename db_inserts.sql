@@ -1,37 +1,14 @@
 USE zootest;
 
-INSERT INTO employee_roles
-VALUES(
-	01,
-	'Zookeeper'
-);
-
 INSERT INTO states
 VALUES(
 	01,
 	'Alabama'
 );
 
-INSERT INTO employees
-VALUES(
-	000001,
-	'Clifford',
-	'The Dog',
-	'1234 Imaginary Ln.',
-	'Made Up Ville',
-	01, /*state*/
-	12345,
-	'000-000-0000',
-	'nothing@nothing.com',
-	'123456789',
-	000001,
-	1200,
-	01 /*role*/
-);
-
 INSERT INTO member_types
 VALUES(
-	01,
+	04,
 	'Student'
 );
 	
@@ -59,15 +36,6 @@ VALUES(
 	'2016-01-02 00:00:00.000'
 );
 
-INSERT INTO transaction_items
-VALUES(
-	123,
-	000000,
-	'Khoiffee',
-	1,
-	100
-);
-
 INSERT INTO users
 VALUES(
 	'khoffee',
@@ -80,7 +48,7 @@ VALUES(
 
 INSERT INTO behaviors
 VALUES(
-	01,
+	05,
 	'Coy'
 );
 
@@ -121,6 +89,32 @@ VALUES(
 	1
 );
 
+INSERT INTO employee_roles VALUES(0, 'Keeper');
+INSERT INTO employee_roles VALUES(1, 'Veterinarian');
+INSERT INTO employee_roles VALUES(2, 'Manager');
+
+INSERT INTO member_types VALUES(0, 'free');
+INSERT INTO member_types VALUES(1, 'season member');
+INSERT INTO member_types VALUES(2, 'one year member');
+INSERT INTO member_types VALUES(3, 'Donor');
+
+INSERT INTO item_types VALUES(0, 'day pass', 10);
+INSERT INTO item_types VALUES(1, 'season membership', 50);
+INSERT INTO item_types VALUES(2, 'one year membership', 150);
+INSERT INTO item_types VALUES(3, 't-shirt', 15);
+INSERT INTO item_types VALUES(4, 'back pack', 20);
+INSERT INTO item_types VALUES(5, 'teddy bear', 15);
+
+INSERT INTO behaviors VALUES(0, 'territorial');
+INSERT INTO behaviors VALUES(1, 'aggressive');
+INSERT INTO behaviors VALUES(2, 'docile');
+INSERT INTO behaviors VALUES(3, 'reclusive');
+INSERT INTO behaviors VALUES(4, 'social');
+
+INSERT INTO animal_illnesses(1234567, 'bAIDs', 'Acquisition of blue cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
+INSERT INTO animal_illnesses(1234567, 'rAIDs', 'Acquisition of red cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
+INSERT INTO animal_illnesses(1234567, 'blAIDs', 'Acquisition of black cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
+INSERT INTO animal_illnesses(1234567, 'yAIDs', 'Acquisition of yellow cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
 INSERT INTO animal_illnesses
 VALUES(
 	1234567,
@@ -144,4 +138,28 @@ VALUES(
 	'19:00:00',
 	null,
 	'So soon...'
+);
+
+INSERT INTO transaction_items
+VALUES(
+	123,
+	000000,
+	1
+);
+
+INSERT INTO employees
+VALUES(
+	000001,
+	'Clifford',
+	'The Dog',
+	'1234 Imaginary Ln.',
+	'Made Up Ville',
+	01, /*state*/
+	12345,
+	'000-000-0000',
+	'nothing@nothing.com',
+	'123456789',
+	000001,
+	1200,
+	01 /*role*/
 );

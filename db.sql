@@ -56,8 +56,8 @@ CREATE TABLE IF NOT EXISTS customers(
 	customer_email varchar(40) NOT NULL,
 	membership_type int(2) NOT NULL,/*enumerated above*/
 
-	PRIMARY KEY (membership_id),
-	FOREIGN KEY (membership_type) REFERENCES member_types(id)
+	PRIMARY KEY(membership_id),
+  FOREIGN KEY(membership_type) REFERENCES member_types(id)
 );
 
 
@@ -76,21 +76,28 @@ CREATE TABLE IF NOT EXISTS transactions(
 	transaction_time datetime NOT NULL,
 	/*items int(2), multivalued -- see items table*/
 
-	PRIMARY KEY (transaction_id),
-	FOREIGN KEY (member_id) REFERENCES customers(membership_id),
+	PRIMARY KEY(transaction_id),
+	FOREIGN KEY(member_id) REFERENCES customers(membership_id),
 	FOREIGN KEY (transaction_type) REFERENCES transaction_types(id)
+);
+
+CREATE TABLE IF NOT EXISTS item_types(
+	id int(2) NOT NULL,
+	item_type varchar(20) NOT NULL,
+  item_cost int NOT NULL,
+	
+	PRIMARY KEY (id)
 );
 
 
 CREATE TABLE IF NOT EXISTS transaction_items(
 	trans_id int NOT NULL,
 	item_id int(6) NOT NULL,
-	item_name varchar(20) NOT NULL,
 	quantity int NOT NULL,
-	cost int NOT NULL,
 	
-	PRIMARY KEY (trans_id, item_id),
-	FOREIGN KEY (trans_id) REFERENCES transactions(transaction_id)
+	PRIMARY KEY(trans_id, item_id),
+	FOREIGN KEY(trans_id) REFERENCES transactions(transaction_id),
+  FOREIGN KEY(item_id) REFERENCES item_types(id)
 );
 
 
@@ -145,6 +152,13 @@ CREATE TABLE IF NOT EXISTS habitats(
 	FOREIGN KEY (area) REFERENCES areas(id)
 );
 
+CREATE TABLE IF NOT EXISTS animal_illnesses(
+	tag_number int(7) NOT NULL,
+	illness varchar(25) NOT NULL,
+	description varchar(100),
+	
+	PRIMARY KEY (tag_number, illness)
+);
 
 CREATE TABLE IF NOT EXISTS animals(
 	tag_number int(7) NOT NULL,
@@ -162,16 +176,6 @@ CREATE TABLE IF NOT EXISTS animals(
 	PRIMARY KEY (tag_number),
 	FOREIGN KEY (species) REFERENCES species(scientific_name),
 	FOREIGN KEY (habitat_id) REFERENCES habitats(habitat_id)
-);
-
-
-CREATE TABLE IF NOT EXISTS animal_illnesses(
-	tag_number int(7) NOT NULL,
-	illness varchar(25) NOT NULL,
-	description varchar(100),
-	
-	PRIMARY KEY (tag_number, illness),
-	FOREIGN KEY (tag_number) REFERENCES animals(tag_number)
 );
 
 CREATE TABLE IF NOT EXISTS zoo_events(
