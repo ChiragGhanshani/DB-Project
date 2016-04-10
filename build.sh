@@ -1,2 +1,3 @@
 npm install
+mysql -uroot -pagile < db.sql && mysql -uroot -pagile < db_inserts.sql
 node node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- --recursive test/
