@@ -36,13 +36,25 @@
     </div>
 
     <div class ="box" id="button-box">
-        <button type="button">Log in</button>
+        <button type="button"
+        onclick="checkLogin()">Log in</button>
     </div>
 </div>
 
 <div id="bg">
     <img src="static/images/chameleon.jpg" alt="">
 </div>
+
+<script>
+    function checkLogin() {
+        var username_in, text;
+        var password_in, text;
+        username_in = document.getElementById("username").value;
+        password_in = document.getElementById("password").value;
+        window.alert("Would now call the user validation ORM stuff with params:" +
+                "( " + username_in + ", " + password_in +" )");
+    }
+</script>
 
 </body>
 </html>
