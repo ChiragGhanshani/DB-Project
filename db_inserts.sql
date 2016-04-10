@@ -65,13 +65,14 @@ VALUES(
 	'Web transaction'
 );
 
+SET @user_id_variable = uuid();
 INSERT INTO users
 VALUES(
 	'khoffee',
 	'abc123',
 	'2016-03-14',
 	'Y',
-	'ABD590',
+	@user_id_variable;,
 	'Customer'
 );
 
@@ -138,10 +139,11 @@ VALUES(
 	'So soon...'
 );
 
-
+SET @employees_id_variable = uuid();
+SET @manager_id_variable = uuid();
 INSERT INTO employees
 VALUES(
-	000001,
+	@employees_id_variable,
 	'Clifford',
 	'The Dog',
 	'1234 Imaginary Ln.',
@@ -151,14 +153,15 @@ VALUES(
 	'000-000-0000',
 	'nothing@nothing.com',
 	'123456789',
-	000001,
+	@manager_id_variable,
 	1200,
 	01 /*role*/
 );
 
+SET @customer_id_variable = uuid();
 INSERT INTO customers
 VALUES(
-	123456,
+	@customer_id_variable,
 	'Homer',
 	'Simpson',
 	'1960-05-14',
@@ -166,10 +169,11 @@ VALUES(
 	01 /*membership type*/
 );
 
+SET @transaction_id_variable = uuid();
 INSERT INTO transactions
 VALUES(
-	123,
-	123456,
+	@transaction_id_variable,
+	@customer_id_variable,
 	01, /*trans type*/
 	'2016-01-02 00:00:00.000'
 );
@@ -186,29 +190,31 @@ VALUES(
 INSERT INTO habitats
 VALUES(
 	1,
-	000001,
+	@employees_id_variable,
 	'2016-03-15 05:13:00',
 	01 /*area*/
 );
 
+SET @tag_number_variable = uuid();
 INSERT INTO animals 
 VALUES(
-	1234567,
+	@tag_number_variable,
 	'Female',
 	'2001-06-11',
 	'1980-01-02',
 	'2010-03-05',
 	'2011-02-07',
 	'2015-11-30',
-	'',
+	'A+',
 	'Ailurus fulgens',
 	1
 );
 
+SET @transaction_item_variable = uuid();
 INSERT INTO transaction_items
 VALUES(
-	123,
-	000000,
+	@transaction_id_variable,
+	@transaction_item_variable,
 	1
 );
 

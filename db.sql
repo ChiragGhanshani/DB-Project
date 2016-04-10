@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS states(
 
 
 CREATE TABLE IF NOT EXISTS employees(
-	employee_id int(6) NOT NULL,
+	employee_id varchar(36) NOT NULL, /*uuid*/
 	employee_firstname varchar(15) NOT NULL,
 	employee_lastname varchar(15) NOT NULL,
 	street_address varchar(25) NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS employees(
 	phone_number varchar(12) NOT NULL,
 	email varchar(40) NOT NULL,
 	national_id int(9) NOT NULL,
-	manager_id int(6) NOT NULL,
+	manager_id varchar(36) NOT NULL, /*uuid*/
 	salary int NOT NULL,
 	role int(2) NOT NULL,/*enumerated above*/
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS member_types(
 
 
 CREATE TABLE IF NOT EXISTS customers(
-	membership_id int(6) NOT NULL,
+	membership_id varchar(36) NOT NULL, /*uuid*/
 	customer_firstName varchar(20) NOT NULL,
 	customer_LastName varchar(20) NOT NULL,
 	customer_DOB date NOT NULL,
@@ -70,8 +70,8 @@ CREATE TABLE IF NOT EXISTS transaction_types(
 
 
 CREATE TABLE IF NOT EXISTS transactions(
-	transaction_id int NOT NULL,
-	member_id int(6) NOT NULL,
+	transaction_id varchar(36) NOT NULL, /*uuid*/
+	member_id varchar(36) NOT NULL, /*uuid*/
 	transaction_type int(2) NOT NULL,/*enumerated above*/
 	transaction_time datetime NOT NULL,
 	/*items int(2), multivalued -- see items table*/
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS transactions(
 );
 
 CREATE TABLE IF NOT EXISTS item_types(
-	id int(2) NOT NULL,
+	id varchar(36) NOT NULL, /*uuid*/
 	item_type varchar(20) NOT NULL,
   item_cost int NOT NULL,
 	
@@ -91,8 +91,8 @@ CREATE TABLE IF NOT EXISTS item_types(
 
 
 CREATE TABLE IF NOT EXISTS transaction_items(
-	trans_id int NOT NULL,
-	item_id int(6) NOT NULL,
+	trans_id varchar(36) NOT NULL, /*uuid*/
+	item_id varchar(36) NOT NULL, /*uuid*/
 	quantity int NOT NULL,
 	
 	PRIMARY KEY(trans_id, item_id),
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS users(
 	password varchar(20) NOT NULL,
 	date_created date NOT NULL,
 	active varchar(1) NOT NULL,
-	user_id varchar(6) NOT NULL,
+	user_id varchar(36) NOT NULL, /*uuid*/
 	role enum('Customer','Employee'),
 
 	PRIMARY KEY (username)
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS areas(
 
 CREATE TABLE IF NOT EXISTS habitats(
 	habitat_id int NOT NULL,
-	employee_id int(6) NOT NULL,
+	employee_id varchar(36) NOT NULL,
 	last_time_fed datetime,
 	area int(2), /*enumerated above*/
 
@@ -157,11 +157,12 @@ CREATE TABLE IF NOT EXISTS animal_illnesses(
 	illness varchar(25) NOT NULL,
 	description varchar(300),
 	
-	PRIMARY KEY (tag_number, illness)
+	PRIMARY KEY (tag_number, illness),
+	FOREIGN KEY (tag_number) REFERENCES animals(tag_number)
 );
 
 CREATE TABLE IF NOT EXISTS animals(
-	tag_number int(7) NOT NULL,
+	tag_number varchar(36) NOT NULL, /*uuid*/
 	gender enum('Male', 'Female'),
 	last_checkup date NOT NULL,
 	/*illnesses varchar(100),*/
