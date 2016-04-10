@@ -10,12 +10,20 @@ module.exports = {
         sendResultBack(null, rows[0]);
       }
     });
-  }
+  },
   insertCustomerUser : function(firstName, lastName, email, password, phoneNumber, email, dob, gender, streetAddress, zipCode, city, state, membershipType, sendResultBack){
-  	if(typeof firstName === "undefined" || typeof lastName === "undefined" || typeof email === "undefined"|| typeof password === "undefined" || typeof phoneNumber === "undefined" || typeof email === "undefined" || typeof dob === "undefined" || typeof gender === "undefined" || typeof streetAddress === "undefined" || typeof zipCode === "undefined" || typeof city === "undefined" || typeof state === "undefined" || typeof membershipType === "undefined")
+  	if(typeof firstName === "undefined" || typeof lastName === "undefined" || typeof email 
+        === "undefined"|| typeof password === "undefined" || typeof phoneNumber === "undefined" ||
+        typeof email === "undefined" || typeof dob === "undefined" || typeof gender === "undefined"
+        || typeof streetAddress === "undefined" || typeof zipCode === "undefined" || typeof city 
+        === "undefined" || typeof state === "undefined" || typeof membershipType === "undefined")
   		sendResultBack(new Error('Invalid data type'), null);
-  	else if( firstName == "" ||  lastName == "" ||  email == ""||  password == "" ||  phoneNumber == "" ||  email == "" ||  dob == "" ||  gender == "" ||  streetAddress == "" ||  zipCode == "" ||  city == "" || typeof state == "" || typeof membershipType == "")
+
+  	else if( firstName == "" ||  lastName == "" ||  email == ""||  password == "" ||  phoneNumber 
+        == "" ||  email == "" ||  dob == "" ||  gender == "" ||  streetAddress == "" ||  zipCode 
+        == "" ||  city == "" || typeof state == "" || typeof membershipType == "")
   		sendResultBack(new Error('Empty input'), null);
+
   	else
   	{
   		var id = null;
