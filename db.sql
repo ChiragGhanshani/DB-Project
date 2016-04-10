@@ -152,15 +152,6 @@ CREATE TABLE IF NOT EXISTS habitats(
 	FOREIGN KEY (area) REFERENCES areas(id)
 );
 
-CREATE TABLE IF NOT EXISTS animal_illnesses(
-	tag_number int(7) NOT NULL,
-	illness varchar(25) NOT NULL,
-	description varchar(300),
-	
-	PRIMARY KEY (tag_number, illness),
-	FOREIGN KEY (tag_number) REFERENCES animals(tag_number)
-);
-
 CREATE TABLE IF NOT EXISTS animals(
 	tag_number varchar(36) NOT NULL, /*uuid*/
 	gender enum('Male', 'Female'),
@@ -177,6 +168,15 @@ CREATE TABLE IF NOT EXISTS animals(
 	PRIMARY KEY (tag_number),
 	FOREIGN KEY (species) REFERENCES species(scientific_name),
 	FOREIGN KEY (habitat_id) REFERENCES habitats(habitat_id)
+);
+
+CREATE TABLE IF NOT EXISTS animal_illnesses(
+	tag_number varchar(36) NOT NULL,
+	illness varchar(25) NOT NULL,
+	description varchar(300),
+	
+	PRIMARY KEY (tag_number, illness),
+	FOREIGN KEY (tag_number) REFERENCES animals(tag_number)
 );
 
 CREATE TABLE IF NOT EXISTS zoo_events(

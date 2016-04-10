@@ -72,7 +72,7 @@ VALUES(
 	'abc123',
 	'2016-03-14',
 	'Y',
-	@user_id_variable;,
+	@user_id_variable,
 	'Customer'
 );
 
@@ -97,47 +97,24 @@ INSERT INTO member_types VALUES(1, 'season member');
 INSERT INTO member_types VALUES(2, 'one year member');
 INSERT INTO member_types VALUES(3, 'Donor');
 
-INSERT INTO item_types VALUES(0, 'day pass', 10);
-INSERT INTO item_types VALUES(1, 'season membership', 50);
-INSERT INTO item_types VALUES(2, 'one year membership', 150);
-INSERT INTO item_types VALUES(3, 't-shirt', 15);
-INSERT INTO item_types VALUES(4, 'back pack', 20);
-INSERT INTO item_types VALUES(5, 'teddy bear', 15);
+SET @item_1 = UUID();
+SET @item_2 = UUID();
+SET @item_3 = UUID();
+SET @item_4 = UUID();
+SET @item_5 = UUID();
+SET @item_6 = UUID();
+INSERT INTO item_types VALUES(@item_1, 'day pass', 10);
+INSERT INTO item_types VALUES(@item_2, 'season membership', 50);
+INSERT INTO item_types VALUES(@item_3, 'one year membership', 150);
+INSERT INTO item_types VALUES(@item_4, 't-shirt', 15);
+INSERT INTO item_types VALUES(@item_5, 'back pack', 20);
+INSERT INTO item_types VALUES(@item_6, 'teddy bear', 15);
 
 INSERT INTO behaviors VALUES(0, 'territorial');
 INSERT INTO behaviors VALUES(1, 'aggressive');
 INSERT INTO behaviors VALUES(2, 'docile');
 INSERT INTO behaviors VALUES(3, 'reclusive');
 INSERT INTO behaviors VALUES(4, 'social');
-
-INSERT INTO animal_illnesses VALUES(1234567, 'bAIDs', 'Acquisition of blue cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses VALUES(1234567, 'rAIDs', 'Acquisition of red cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses VALUES(1234567, 'blAIDs', 'Acquisition of black cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses VALUES(1234567, 'yAIDs', 'Acquisition of yellow cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses
-VALUES(
-	1234567,
-	'AIDS',
-	'This red panda was perhaps a little too promiscuous in her youth...'
-);
-
-INSERT INTO animal_illnesses
-VALUES(
-	1234567,
-	'Flu',
-	'She has been sniffling for days!'
-);
-
-INSERT INTO zoo_events
-VALUES(
-	1,
-	'2016-04-11',
-	'Class Presentation',
-	'17:30:00',
-	'19:00:00',
-	null,
-	'So soon...'
-);
 
 SET @employees_id_variable = uuid();
 SET @manager_id_variable = uuid();
@@ -178,6 +155,24 @@ VALUES(
 	'2016-01-02 00:00:00.000'
 );
 
+INSERT INTO transaction_items
+VALUES(
+	@transaction_id_variable,
+	@item_1,
+	1
+);
+
+INSERT INTO areas(id, area)
+VALUES
+	(0, 'Rainforest'),
+	(8, 'Savanna'),
+	(2, 'Desert'),
+	(3, 'Grasslands'),
+	(4, 'Arctic'),
+	(5, 'Saltwater'),
+	(6, 'Freshwater'),
+	(7, 'Jungle');
+
 INSERT INTO species
 VALUES(
 	'Ailurus fulgens', 
@@ -210,21 +205,31 @@ VALUES(
 	1
 );
 
-SET @transaction_item_variable = uuid();
-INSERT INTO transaction_items
+INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'bAIDs', 'Acquisition of blue cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
+INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'rAIDs', 'Acquisition of red cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
+INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'blAIDs', 'Acquisition of black cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
+INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'yAIDs', 'Acquisition of yellow cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
+INSERT INTO animal_illnesses
 VALUES(
-	@transaction_id_variable,
-	@transaction_item_variable,
-	1
+	@tag_number_variable,
+	'AIDS',
+	'This red panda was perhaps a little too promiscuous in her youth...'
 );
 
-INSERT INTO areas(id, area)
-VALUES
-	(0, 'Rainforest'),
-	(8, 'Savanna'),
-	(2, 'Desert'),
-	(3, 'Grasslands'),
-	(4, 'Arctic'),
-	(5, 'Saltwater'),
-	(6, 'Freshwater'),
-	(7, 'Jungle');
+INSERT INTO animal_illnesses
+VALUES(
+	@tag_number_variable,
+	'Flu',
+	'She has been sniffling for days!'
+);
+
+INSERT INTO zoo_events
+VALUES(
+	1,
+	'2016-04-11',
+	'Class Presentation',
+	'17:30:00',
+	'19:00:00',
+	null,
+	'So soon...'
+);
