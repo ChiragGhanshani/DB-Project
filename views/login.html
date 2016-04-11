@@ -152,7 +152,7 @@
             var password_in, text;
             username_in = document.getElementById("username").value;
             password_in = document.getElementById("password").value;
-            var result = httpGet('/login/checkCredentials?userName=' + username_in + '&passWord=' + password_in);
+            var result = httpGet('login/checkCredentials?ID=' + username_in + '&password=' + password_in);
 
             if (result.username == 'error') {
                 window.alert("Invalid username or password.");
@@ -206,6 +206,7 @@
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
             xmlHttp.send( null );
+            console.log(xmlHttp.responseText);
             return JSON.parse(xmlHttp.responseText);
         }
     </script>
