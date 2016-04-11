@@ -12,57 +12,74 @@
 
 </head>
 <body>
-<!--NavBar -->
-<div class="navbar" id="top">
-    <ul>
-        <li><a href="/"> Zoo Name </a></li>
-        <li><a href="/#members"> Membership </a></li>
-        <li><a href="/#tickets"> Tickets </a></li>
-        <li><a href="/#visit"> Visit Us </a></li>
-        <li><a href="/#animals"> Animals </a></li>
-    </ul>
-</div>
+    <!--NavBar -->
+    <nav id="navbar">
+        <ul>
+            <li><a class="title" href="/"> Zoo Name </a></li>
+            <li><a href="/members"> Membership </a>
+                <ul>
+                    <li><a href="#">Benefits</a></li>
+                    <li><a href="#">Levels</a></li>
+                    <li><a href="/login">Join/Log in</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="/visit"> Visit Us </a>
+                <ul>
+                    <li for="hours" class="active"><a href="#">Hours & Location</a></li>
+                    <li for="tickets"><a href="#">Buy Tickets</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Park Map</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </li>
+            <li><a href="/animals"> Animals </a></li>
+        </ul>
+    </nav>
 
-<div class ="box" id="login-panel">
-    <h1>Log in here!</h1>
-    <div class="box" id="user-box">
-        <label for="username">Username:</label>
-        <input id="username" type="text" onkeypress="return enterListener(event)">
+    <!--Login Box-->
+    <div class ="box" id="login-panel">
+        <h1>Log in here!</h1>
+        <div class="box" id="user-box">
+            <label for="username">Username:</label>
+            <input id="username" type="text" onkeypress="return enterListener(event)">
+        </div>
+
+        <div class ="box" id="pass-box">
+            <label for="password">Password:</label>
+            <input id="password" type="password" onkeypress="return enterListener(event)">
+        </div>
+
+        <div class ="box" id="button-box">
+            <button type="button"
+            onclick="checkLogin()">Log in</button>
+        </div>
     </div>
 
-    <div class ="box" id="pass-box">
-        <label for="password">Password:</label>
-        <input id="password" type="password" onkeypress="return enterListener(event)">
+    <!--Background image-->
+    <div id="bg">
+        <img src="static/images/chameleon.jpg" alt="">
     </div>
 
-    <div class ="box" id="button-box">
-        <button type="button"
-        onclick="checkLogin()">Log in</button>
-    </div>
-</div>
 
-<div id="bg">
-    <img src="static/images/chameleon.jpg" alt="">
-</div>
-
-<script>
-    function enterListener(e) {
-        if (e.keyCode == 13 || e.which == 13){
-            checkLogin();
-            return false;
+<!--Javascript begins here-->
+    <script>
+        function enterListener(e) {
+            if (e.keyCode == 13 || e.which == 13){
+                checkLogin();
+                return false;
+            }
+            else return true;
         }
-        else return true;
-    }
 
-    function checkLogin() {
-        var username_in, text;
-        var password_in, text;
-        username_in = document.getElementById("username").value;
-        password_in = document.getElementById("password").value;
-        window.alert("Would now call the user validation ORM stuff with params:" +
-                "( " + username_in + ", " + password_in +" )");
-    }
-</script>
+        function checkLogin() {
+            var username_in, text;
+            var password_in, text;
+            username_in = document.getElementById("username").value;
+            password_in = document.getElementById("password").value;
+            window.alert("Would now call the user validation ORM stuff with params:" +
+                    "( " + username_in + ", " + password_in +" )");
+        }
+    </script>
 
 </body>
 </html>

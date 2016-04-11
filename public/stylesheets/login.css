@@ -4,9 +4,9 @@
 }
 
 /*Navbar*/
-.navbar ul {
+#navbar ul {
     list-style-type: none;
-    overflow: hidden;
+    /*overflow: hidden;*/
 
     /*fixed top*/
     position: fixed;
@@ -19,15 +19,7 @@
     border: none;
 }
 
-.navbar li {
-    float: right;
-}
-
-.navbar li:first-child {
-    float: left;
-}
-
-.navbar li a {
+#navbar ul li a {
     display: block;
     color: mediumvioletred;
     text-align: center;
@@ -36,14 +28,52 @@
     margin: 10px;
     font-size: 20px;
     font-family: Ubuntu, sans-serif;
-    /*font-weight: bold;*/
 }
 
-.navbar li:first-child a{
+#navbar ul li {
+    float: right;
+    position: relative;
+}
+
+#navbar li:first-child {
+    float: left;
+    position: relative;
+}
+
+#navbar .title{
     font-size: 35px;
     padding: 10px 20px 10px 30px;
 }
 
+#navbar ul li:hover {
+    background: #f6f6f6;
+}
+
+#navbar ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /*left: 0;*/
+    background: white;
+    /*padding: 0;*/
+}
+
+#navbar ul ul li {
+    /*float: none;*/
+    width: inherit;
+}
+
+#navbar ul ul a {
+    font-size: 15px;
+    padding: 0;
+    /*line-height: 120%;*/
+    /*padding: 10px 15px;*/
+}
+
+#navbar ul li:hover > ul {
+    display: block;
+    /*z-index: 100;*/
+}
 
 /*image formatting*/
 #bg {
@@ -104,29 +134,3 @@ button {
 button:hover {
     background-color:#5cbf2a;
 }
-
-
-/*Video*/
-/*
-#video-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-video#bgVid {
-    position:absolute;
-    z-index:-1;
-    background-size: cover;
-    transition: 1s opacity;
-}
-
-video#bgVid.fillWidth {
-    width: 100%;
-    position: relative;
-}
-
-label{
-    font-family: Ubuntu, sans-serif;
-
-*/
