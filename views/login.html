@@ -10,6 +10,7 @@
           href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
     <link rel="stylesheet" type="text/css" href="static/stylesheets/login.css">
 
+
 </head>
 <body>
     <!--NavBar -->
@@ -37,19 +38,88 @@
     </nav>
 
     <!--Login Box-->
-    <div class ="box" id="login-panel">
+    <div class ="module" id="login-panel">
         <h1>Log in here!</h1>
-        <div class="box" id="user-box">
-            <label for="username">Username:</label>
+        <div class="module" id="user-box">
+            <label for="username">Email:</label>
             <input id="username" type="text" onkeypress="return enterListener(event)">
         </div>
 
-        <div class ="box" id="pass-box">
+        <div class ="module" id="pass-box">
             <label for="password">Password:</label>
             <input id="password" type="password" onkeypress="return enterListener(event)">
         </div>
 
-        <div class ="box" id="button-box">
+        <div class="module" id="signup-link">
+            <a href="#signup-popup">Don't have an account? Sign up now</a>
+        </div>
+
+        <!--Here there be the popup form (the link is just above)-->
+        <div id="signup-popup" class="overlay">
+            <div class="popup">
+                <h2>Please enter your credentials</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    <div class="module">
+                        <label for="email">Email Address:</label>
+                        <input id="email" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="pw">Password:</label>
+                        <input id="pw" type="password">
+                    </div>
+                    <div class="module">
+                        <label for="pw2">Confirm Password:</label>
+                        <input id="pw2" type="password">
+                    </div>
+                    <div class="module">
+                        <label for="fn">First Name:</label>
+                        <input id="fn" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="ln">Last Name:</label>
+                        <input id="ln" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="phone">Phone Number (xxx-xxx-xxxx format):</label>
+                        <input id="phone" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="dob">Date of Birth (YYYY-MM-DD format):</label>
+                        <input id="dob" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="gender">Gender:</label>
+                        <input id="gender" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="address">Street Address:</label>
+                        <input id="address" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="zip">Zipcode (7-digit):</label>
+                        <input id="zip" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="city">City:</label>
+                        <input id="city" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="state">State:</label>
+                        <input id="state" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="memberType">Type of Membership:</label>
+                        <input id="memberType" type="text">
+                    </div>
+                </div>
+                <button type="button"
+                onclick="addCustomer()">Submit</button>
+            </div>
+        </div>
+        <!--(and here endeth the popup form section)-->
+
+        <div class ="module" id="button-box">
             <button type="button"
             onclick="checkLogin()">Log in</button>
         </div>
@@ -78,6 +148,21 @@
             password_in = document.getElementById("password").value;
             window.alert("Would now call the user validation ORM stuff with params:" +
                     "( " + username_in + ", " + password_in +" )");
+        }
+
+        function addCustomer() {
+            var valid = true;
+
+            if(document.getElementById("pw").value != document.getElementById("pw2").value){
+                window.alert("Passwords do not match!");
+                valid = false;
+            }
+
+            if (valid) {
+                window.alert("Passes validation!");
+                location = "#";
+                return;
+            }
         }
     </script>
 
