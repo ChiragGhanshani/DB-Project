@@ -17,8 +17,10 @@ router.get('/checkCredentials', function(req, res, next){
   var password = req.query.password;
 
   loginORM.getUserID(username, password, function(error, result){
-    if(error) res.send({username : 'error'});
+    if(error) res.send('{"username" : "error"}');
     else res.send(result[0]);
+    console.log(error);
+    console.log(result);
   });
 });
 
