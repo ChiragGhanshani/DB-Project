@@ -27,12 +27,12 @@
     <h1>Log in here!</h1>
     <div class="box" id="user-box">
         <label for="username">Username:</label>
-        <input id="username" type="text">
+        <input id="username" type="text" onkeypress="return enterListener(event)">
     </div>
 
     <div class ="box" id="pass-box">
         <label for="password">Password:</label>
-        <input id="password" type="password">
+        <input id="password" type="password" onkeypress="return enterListener(event)">
     </div>
 
     <div class ="box" id="button-box">
@@ -46,6 +46,14 @@
 </div>
 
 <script>
+    function enterListener(e) {
+        if (e.keyCode == 13 || e.which == 13){
+            checkLogin();
+            return false;
+        }
+        else return true;
+    }
+
     function checkLogin() {
         var username_in, text;
         var password_in, text;
