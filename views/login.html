@@ -89,8 +89,9 @@
                         <input id="dob" type="text">
                     </div>
                     <div class="module">
-                        <label for="gender">Gender:</label>
-                        <input id="gender" type="text">
+                        Gender:
+                        <input type="radio" name="gender" value="Male" checked> Male
+                        <input type="radio" name="gender" value="Female"> Female
                     </div>
                     <div class="module">
                         <label for="address">Street Address:</label>
@@ -109,12 +110,15 @@
                         <input id="state" type="text">
                     </div>
                     <div class="module">
-                        <label for="memberType">Type of Membership:</label>
-                        <input id="memberType" type="text">
+                        Type of Membership:
+                        <input type="radio" name="memberType" value="basic" checked> Basic
+                        <input type="radio" name="memberType" value="student"> Student
+                        <input type="radio" name="memberType" value="senior"> Senior
                     </div>
                 </div>
                 <button type="button"
-                onclick="addCustomer()">Submit</button>
+                        onclick="addCustomer()">Submit
+                </button>
             </div>
         </div>
         <!--(and here endeth the popup form section)-->
@@ -153,6 +157,12 @@
         function addCustomer() {
             var valid = true;
 
+            /*Here is how to detect which radio button: */
+            var x = document.getElementsByName("memberType");
+            for(var i=0;i<x.length;i++){
+                if(x[i].checked){window.alert(x[i].value);}
+            }
+
             if(document.getElementById("pw").value != document.getElementById("pw2").value){
                 window.alert("Passwords do not match!");
                 valid = false;
@@ -161,6 +171,7 @@
             if (valid) {
                 window.alert("Passes validation!");
                 location = "#";
+                location.reload(true);
                 return;
             }
         }

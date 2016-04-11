@@ -160,7 +160,7 @@ button:hover {
     padding: 20px;
     background: #fff;
     border-radius: 5px;
-    width: 70%;
+    width: 500px;
     position: relative;
     transition: all 5s ease-in-out;
 }
