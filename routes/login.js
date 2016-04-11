@@ -21,4 +21,10 @@ router.get('/checkCredentials', function(req, res, next){
   });
 });
 
+router.get('/registerUser', function(req, res, next){
+  var username = req.query.userName;
+  var password = req.query.passWord;
+  var date = req.query.date;
+});
+
 module.exports = router;

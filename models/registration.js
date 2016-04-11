@@ -39,11 +39,11 @@ module.exports = {
   		});
   	}
   },
-  insertGenericUser : function(email, password, user_id, role, sendResultBack){
-    if(typeof email === "undefined" || typeof password === "undefined" || typeof user_id === "undefined" || typeof === "undefined")
+  insertGenericUser : function(username, password, user_id, role, sendResultBack){
+    if(typeof username === "undefined" || typeof password === "undefined" || typeof user_id === "undefined" || typeof === "undefined")
       sendResultBack(new Error('Invalid data type'), null);
 
-    else if(email == "" || password == "" || user_id == "" || role == "")
+    else if(username == "" || password == "" || user_id == "" || role == "")
       sendResultBack(new Error('Empty input'), null);
 
     else
@@ -54,7 +54,7 @@ module.exports = {
       });
       var date = UTC_DATE();
       var insertString = 'INSERT INTO users(username, password, date_created, active, user_id, role) VALUES (?, ?, ?, ?, ?, ?);';
-      var insertion = db.sql(insertString, [email, password, date, id, 'Customer'], function(err, results){
+      var insertion = db.sql(insertString, [username, password, date, id, 'Customer'], function(err, results){
         if(err)
           sendResultBack(new Error('Unable to insert data'), null);
         else
