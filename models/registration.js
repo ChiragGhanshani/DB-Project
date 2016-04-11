@@ -11,16 +11,16 @@ module.exports = {
       }
     });
   },
-  insertCustomerUser : function(firstName, lastName, email, password, phoneNumber, email, dob, gender, streetAddress, zipCode, city, state, membershipType, sendResultBack){
-  	if(typeof firstName === "undefined" || typeof lastName === "undefined" || typeof email 
+  insertCustomerUser : function(firstName, lastName, email, password, phoneNumber, dob, gender, streetAddress, zipCode, city, state, membershipType, sendResultBack){
+  	if(typeof firstName === "undefined" || typeof lastName === "undefined" || typeof email
         === "undefined"|| typeof password === "undefined" || typeof phoneNumber === "undefined" ||
         typeof email === "undefined" || typeof dob === "undefined" || typeof gender === "undefined"
-        || typeof streetAddress === "undefined" || typeof zipCode === "undefined" || typeof city 
+        || typeof streetAddress === "undefined" || typeof zipCode === "undefined" || typeof city
         === "undefined" || typeof state === "undefined" || typeof membershipType === "undefined")
   		sendResultBack(new Error('Invalid data type'), null);
 
-  	else if( firstName == "" ||  lastName == "" ||  email == ""||  password == "" ||  phoneNumber 
-        == "" ||  email == "" ||  dob == "" ||  gender == "" ||  streetAddress == "" ||  zipCode 
+  	else if( firstName == "" ||  lastName == "" ||  email == ""||  password == "" ||  phoneNumber
+        == "" ||  email == "" ||  dob == "" ||  gender == "" ||  streetAddress == "" ||  zipCode
         == "" ||  city == "" || typeof state == "" || typeof membershipType == "")
   		sendResultBack(new Error('Empty input'), null);
 
@@ -30,8 +30,7 @@ module.exports = {
   		getUUID(function(err, result){
   			id = result['UUID()'];
   		});
-  		var createUUID = 'SET @';
-  		var insertString = 'INSERT INTO customers(membership_id, customer_firstName, customer_lastName, customer_DOB, customer_email, membership_type) VALUES (?, ?, ?, ?, ?, ?)';
+  		var insertString = 'INSERT INTO customers(membership_id, customer_firstName, customer_lastName, customer_DOB, customer_email, membership_type) VALUES (?, ?, ?, ?, ?, ?);';
   		var insertion = db.query(insertString, [id, firstName, lastName, dob, email, membershipType], function(err, results){
   			if(err)
   				sendResultBack(new Error('Unable to insert data'), null);
@@ -39,5 +38,28 @@ module.exports = {
   				sendResultBack(null, null);
   		});
   	}
+  },
+  insertGenericUser : function(username, password, user_id, role, sendResultBack){
+    if(typeof username === "undefined" || typeof password === "undefined" || typeof user_id === "undefined" || typeof === "undefined")
+      sendResultBack(new Error('Invalid data type'), null);
+
+    else if(username == "" || password == "" || user_id == "" || role == "")
+      sendResultBack(new Error('Empty input'), null);
+
+    else
+    {
+      var id = null;
+      getUUID(function(err, result){
+        id = result['UUID()'];
+      });
+      var date = UTC_DATE();
+      var insertString = 'INSERT INTO users(username, password, date_created, active, user_id, role) VALUES (?, ?, ?, ?, ?, ?);';
+      var insertion = db.sql(insertString, [username, password, date, id, 'Customer'], function(err, results){
+        if(err)
+          sendResultBack(new Error('Unable to insert data'), null);
+        else
+          sendResultBack(null, null);
+      });
+    }
   }
 }
