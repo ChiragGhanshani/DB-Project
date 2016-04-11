@@ -40,7 +40,7 @@ module.exports = {
   	}
   },
   insertGenericUser : function(username, password, user_id, role, sendResultBack){
-    if(typeof username === "undefined" || typeof password === "undefined" || typeof user_id === "undefined" || typeof === "undefined")
+    if(typeof username === "undefined" || typeof password === "undefined" || typeof role === "undefined")
       sendResultBack(new Error('Invalid data type'), null);
 
     else if(username == "" || password == "" || user_id == "" || role == "")
