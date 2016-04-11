@@ -27,7 +27,7 @@ router.get('/checkCredentials', function(req, res, next){
 router.get('/registerUser', function(req, res, next){
   var username = req.query.userName;
   var password = req.query.passWord;
-  var date = req.query.date;
+  var role = req.query.role;
 
   registrationORM.insertGenericUser(username, password, date, function(error, result){
     if (error) console.log(error);
