@@ -41,7 +41,7 @@
     <div class ="module" id="login-panel">
         <h1>Log in here!</h1>
         <div class="module" id="user-box">
-            <label for="username">Email:</label>
+            <label for="username">Username:</label>
             <input id="username" type="text" onkeypress="return enterListener(event)">
         </div>
 
@@ -66,7 +66,7 @@
                     </div>
                     <div class="module">
                         <label for="pw">Password:</label>
-                        <input id="pw" type="password">
+                        <input id="pw" name="pass" type="password">
                     </div>
                     <div class="module">
                         <label for="pw2">Confirm Password:</label>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="module">
                         <label for="fn">First Name:</label>
-                        <input id="fn" type="text">
+                        <input id="fn" name="first" type="text">
                     </div>
                     <div class="module">
                         <label for="ln">Last Name:</label>
@@ -111,9 +111,11 @@
                     </div>
                     <div class="module">
                         Type of Membership:
-                        <input type="radio" name="memberType" value="basic" checked> Basic
-                        <input type="radio" name="memberType" value="student"> Student
-                        <input type="radio" name="memberType" value="senior"> Senior
+                        <input type="radio" name="memberType" value="Single" checked> Basic
+                        <input type="radio" name="memberType" value="Dual"> Student
+                        <input type="radio" name="memberType" value="Family"> Family
+                        <input type="radio" name="memberType" value="FamlyPlus"> Family Plus
+                        <input type="radio" name="memberType" value="Senior"> Senior (65+)
                     </div>
                 </div>
                 <button type="button"
@@ -163,6 +165,11 @@
 
         function addCustomer() {
             var valid = true;
+            var name;
+            var pass;
+
+            name = document.getElementsByName("first");
+            pass = document.getElementsByName("pass");
 
             /*Here is how to detect which radio button: */
             var x = document.getElementsByName("memberType");
@@ -170,7 +177,7 @@
                 if(x[i].checked){window.alert(x[i].value);}
             }
 
-            if(document.getElementById("pw").value != document.getElementById("pw2").value){
+            if(document.getElementById("pw").value != document.getElementById("pw2").value) {
                 window.alert("Passwords do not match!");
                 valid = false;
             }
@@ -181,6 +188,17 @@
                 location.reload(true);
                 return;
             }
+
+            httpSend('/login/registerUser?userName=' + name + '&passWord=' + pass + 'role=customer');
+        }
+
+
+        function httpSend(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+
         }
 
         function httpGet(theUrl)
