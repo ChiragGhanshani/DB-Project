@@ -10,6 +10,9 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
 
+  <!--Icons-->
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
   <link rel="stylesheet" type="text/css" href="static/stylesheets/index.css">
 
   <!--Enables page scroll-->
@@ -30,6 +33,7 @@
     });
   });
 </script>
+
 </head>
 
 <body>
@@ -38,7 +42,6 @@
     <ul>
       <li><a href="#top"> Zoo Name </a></li>
       <li><a href="#members"> Membership </a></li>
-      <li><a href="#tickets"> Tickets </a></li>
       <li><a href="#visit"> Visit Us </a></li>
       <li><a href="#animals"> Animals </a></li>
     </ul>
@@ -54,7 +57,7 @@
 
   <!-- Animals Section-->
   <div id="animals" class="animalSection">
-    <h1>Animals</h1>
+    <h1><a href="/animals">Animals</a></h1>
     <h2 align="center"></h2>
     <ul id="onHover">
       <li><img src="static/images/RedPanda.jpg" alt="Red Panda"><p>Red Panda</p></li>
@@ -84,20 +87,22 @@
 
   <!-- Visit Us Section-->
   <div id="visit" class="visitSection">
-    <h1>Visit Us</h1>
+    <h1><a href="/visit">Visit Us</a></h1>
     <div class="row">
       <div class="col-6 hours">
         <ul>
-          <li><h3>TODAY'S DATE HERE</h3></li>
+          <li><h3 id="date"></h3></li>
           <li>Open: 9 am Close: 6 pm</li>
           <li>Last Entry: 5 pm</li>
           <br>
           <br>
-          <li><h3>TODAY AT THE ZOO</h3></li>
-          <li>12 pm Animal Encounters: Red Panda Talk </li>
-          <li>2 pm Meet the keeper talk at Sealions </li>
-          <li>4 pm Giraffee feeding</li>
-          <li><button>See full schedule</button></li>
+          <ul>
+            <li><h3>Ticket Information</h3></li>
+            <li>Adults 12-64: $15</li>
+            <li>Children under 12: $10</li>
+            <li>Children under 2: FREE</li>
+            <li>Senior 65+: $8</li>
+          <li><button>Buy Tickets</button></li>
         </ul>
       </div>
       <div class="col-6 directions">
@@ -115,37 +120,54 @@
 
   </div>
 
-  <!-- Tickets Section -->
-  <div id="tickets" class="ticketSection">
-    <h1>Tickets</h1>
-    <div class="row">
-      <div class="col-6">
-        <ul>
-          <li>Adults 12-64: $15</li>
-          <li>Children under 12: $10</li>
-          <li>Children under 2: FREE</li>
-          <li>Senior 65+: $8</li>
-          <li><button>Buy Tickets</button></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; Tickets Section &ndash;&gt;-->
+  <!--<div id="tickets" class="ticketSection">-->
+    <!--<h1>Tickets</h1>-->
+    <!--<div class="row">-->
+      <!--<div class="col-6">-->
+        <!--<ul>-->
+          <!--<li>Adults 12-64: $15</li>-->
+          <!--<li>Children under 12: $10</li>-->
+          <!--<li>Children under 2: FREE</li>-->
+          <!--<li>Senior 65+: $8</li>-->
+          <!--<li><button>Buy Tickets</button></li>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
   <!-- Member Section -->
   <div id="members" class="memberSection">
-    <h1>Membership</h1>
+    <h1><a href="/members">Membership</a></h1>
 
   </div>
 
+
+
+
+
+<!--Javascript starts here-->
+
+  <!--Retrieves current date, finds 'date' id and sends it there-->
+  <script>
+    var today = new Date().toDateString();
+    document.getElementById('date').innerHTML = today
+  </script>
+
 </body>
 
+
+
 <footer>
-  <p>Contact Us <a href="/about">About Us</a>  Connect with us Copyright</p>
   <span>
-    <a href="https://www.instagram.com/universityofhouston/">Instagram</a>
-    <a href="https://twitter.com/UHouston?lang=en">Twitter</a>
-    <a href="https://www.facebook.com/universityofhouston/">Facebook</a>
-    <a href="https://www.pinterest.com/univofhouston/">Pinterest</a>
+    <a href="#">Contact Us</a>
+    <a href="/about">About Us</a>
+    <span style="float: right">
+      <a href="https://www.instagram.com/universityofhouston/"><i class="fa fa-instagram fa-lg"></i></a>
+      <a href="https://twitter.com/UHouston?lang=en"><i class="fa fa-twitter fa-lg"></i></a>
+      <a href="https://www.facebook.com/universityofhouston/"><i class="fa fa-facebook-square fa-lg"></i></a>
+      <a href="https://www.pinterest.com/univofhouston/"><i class="fa fa-pinterest fa-lg"></i></a>
+    </span>
   </span>
 </footer>
 </html>

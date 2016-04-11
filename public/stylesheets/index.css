@@ -90,6 +90,7 @@ button {
   height: 100%;
   overflow: hidden;
 }
+
 video#bgVid {
   position:absolute;
   z-index:-1;
@@ -109,6 +110,11 @@ h1 {
   padding-top: 90px;
   font-size: 70px;
   letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 /*Animals Section*/
@@ -183,10 +189,10 @@ h1 {
   font-size: 20px;
 }
 
-.hours li:nth-last-child(5) {
-  color: midnightblue;
-  font-size: 20px;
-}
+/*.hours li:nth-last-child(5) {*/
+  /*color: midnightblue;*/
+  /*font-size: 20px;*/
+/*}*/
 
 .hours button {
   border: none;
@@ -252,7 +258,17 @@ h1 {
 }
 
 footer {
+  font-size: 20px;
+  padding: 10px;
+  background: gainsboro;
+  height: 50px;
+  vertical-align: middle;
+}
 
+footer a{
+  padding-left: 20px;
+  text-decoration: none;
+  color: mediumvioletred;
 }
 
 
