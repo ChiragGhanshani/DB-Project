@@ -20,16 +20,16 @@
                 <ul>
                     <li><a href="#">Benefits</a></li>
                     <li><a href="#">Levels</a></li>
-                    <li><a href="#">Join</a></li>
+                    <li><a href="/login">Join/Log in</a></li>
                 </ul>
             </li>
             <li class="active"><a href="/visit"> Visit Us </a>
                 <ul>
-                    <li for="hours" class="active"><a onclick="switchtab()">Hours & Location</a></li>
-                    <li for="tickets"><a onclick="switchtab()">Buy Tickets</a></li>
-                    <li><a onclick="switchtab()">Events</a></li>
-                    <li><a onclick="switchtab()">Park Map</a></li>
-                    <li><a onclick="switchtab()">FAQ</a></li>
+                    <li><a href="#hours">Hours & Location</a></li>
+                    <li><a href="#tickets">Buy Tickets</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#parkmap">Park Map</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                 </ul>
             </li>
             <li><a href="/animals"> Animals </a></li>
@@ -68,95 +68,114 @@
         <img class ="fillWidth" src="static/images/visit-1.jpg" alt="Lion Picture">
     </div>
 
-    <section id="hours">
-        <h2>Hours</h2>
-        <p>January 2 - March 13  |  9 am - 4 pm
-            March 14 - October 13  |  9 am - 6 pm
-            October 14 - December 31  |  9 am - 4 pm</p>
-        <h2>Holiday Hours</h2>
-        <p>The zoo will be closed on Thanksgiving Day, Christmas Day, and New Years Day.</p>
-        <p>Limited hours for Christmas Eve and New Years Eve.</p>
-        <p>Check here for unannouced closings. </p>
+    <div class="tabs">
+        <section id="hours">
+            <p class="header">Hours</p>
+            <p>January 2 - March 15  |  9 am - 4 pm </p>
+            <p>March 16 - October 15  |  9 am - 6 pm</p>
+            <p>October 16 - December 31  |  9 am - 4 pm</p>
+            <br> <br>
+            <p class="header">Holiday Hours</p>
+            <p>The zoo will be closed on Thanksgiving Day, Christmas Day, and New Years Day.</p>
+            <p>Limited hours for Christmas Eve and New Years Eve.</p>
+            <p>Check here for unannounced closings. </p>
+            <br> <br>
+            <p class="header">Location</p>
+            <p>The zoo is located adjacent to the University of Houston.</p>
+            <p>4800 Calhoun Rd. Houston, TX 77004</p>
 
-        <h2>Location</h2>
-        <p>The zoo is located adjacent to the University of Houston.</p>
-        <p>4800 Calhoun Rd. Houston, TX 77004</p>
-
-        <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
-        <div style='overflow:hidden;height:400px;width:600px;'>
-            <div id='gmap_canvas' style='height:400px;width:600px;'>  </div>
-            <div>
-                <small><a href="http://embedgooglemaps.com">embed google maps</a></small>
+            <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+            <div style='overflow:hidden;height:400px;width:600px;'>
+                <div id='gmap_canvas' style='height:400px;width:600px;'>  </div>
+                <div>
+                    <small><a href="http://embedgooglemaps.com">embed google maps</a></small>
+                </div>
+                <div>
+                    <small><a href="http://freedirectorysubmissionsites.com/">free web directories</a></small>
+                </div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
             </div>
-            <div>
-                <small><a href="http://freedirectorysubmissionsites.com/">free web directories</a></small>
-            </div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
-        </div>
-        <script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(29.7203238,-95.3435187),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(29.7203238,-95.3435187)});infowindow = new google.maps.InfoWindow({content:'<strong>UH Zoo</strong><br>4800 Calhoun Rd. Houston, TX 77004<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
-        </script>
-    </section>
-    <section id="displayHours"></section>
+            <script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(29.7203238,-95.3435187),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(29.7203238,-95.3435187)});infowindow = new google.maps.InfoWindow({content:'<strong>UH Zoo</strong><br>4800 Calhoun Rd. Houston, TX 77004<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
+            </script>
+            <br><br>
+        </section>
+        <!--<section id="displayHours"></section>-->
 
-    <section id="tickets">
-        <h2>Buy Tickets</h2>
-        <p>Prices:</p>
-        <p>Adult (12-64): $15</p>
-        <p>Children (3-11): $12</p>
-        <p>Seniors 65+: $8</p>
-        <p>Members: Free</p>
+        <section id="tickets">
+            <p class="header">Buy Tickets</p>
+            <p>Adult (12-64): $15</p>
+            <p>Children (3-11): $12</p>
+            <p>Seniors 65+: $8</p>
+            <p>Members: Free</p>
+            <br><br>
+            <p class="header">Discounts</p>
+            <p>We offer student, teacher, military, and group discounts.</p>
+            <p>You will need to provide a valid ID.</p>
+            <p>Call our office about group discounts.</p>
+            <br><br>
+        </section>
 
-        <p>Discounts</p>
-        <p>We offer student, teacher, military, and group discounts.</p>
-        <p>You will need to provide a valid ID.</p>
-        <p>Call our office about group discounts.</p>
-    </section>
+        <section id="events">
+            <p class = "header" id="date"></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Start time</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
 
-    <section id="events">
-        <h2>Events</h2>
-        <p>Date</p>
+                <tbody>
+                    <tr>
+                        <td>10:00 am</td>
+                        <td>Elephant Bath at the Elephant Barn</td>
+                    </tr>
 
-        10:00    Elephant Bath at the Elephant Barn
+                    <tr>
+                        <td>11:00 am</td>
+                        <td>Meet the Keeper Talk at the Children’s Zoo</td>
+                    </tr>
 
-        10:30    Meet the Keeper Talk at the Children’s Zoo
+                    <tr>
+                        <td>12:00 pm</td>
+                        <td>Meet the Keeper Talk at Gorillas in African Forest</td>
+                    </tr>
 
-        11:00    Meet the Keeper Talk at Birds
+                    <tr>
+                        <td>1:00 pm</td>
+                        <td>Giraffe Feeding Platform in African Forest (Dependent on Weather/Giraffes)</td>
+                    </tr>
 
-        11:00    Giraffe Feeding Platform in African Forest (Dependent on Weather/Giraffes)
+                    <tr>
+                        <td>2:00 pm</td>
+                        <td>Meet the Aquarium Keeper at the Piranha Exhibit in Natural Encounters</td>
+                    </tr>
 
-        11:30    Meet the Aquarium Keeper at the Piranha Exhibit in Natural Encounters
+                    <tr>
+                        <td>3:00 pm</td>
+                        <td>Meet the Keeper Talk at Patas Monkey in Wortham World of Primates</td>
+                    </tr>
 
-        11:30    Meet the Keeper Talk at Sea Lions
+                    <tr>
+                        <td>4:00 pm</td>
+                        <td>Meet the Keeper Sail Fin Lizard Talk at the Indoor Rainforest in Natural Encounters</td>
+                    </tr>
+                </tbody>
+            </table>
 
-        11:30    Meet the Keeper Talk at the Jaguar Exhibit
 
-        12:00    Animal Athletes at the Houston Texans Enrichment Zone in the Children’s Zoo
+        </section>
+        <br><br>
+    </div>
 
-        12:00    Meet the Keeper Talk at Patas Monkey in Wortham World of Primates
 
-        12:30    Meet the Keeper Talk at Gorillas in African Forest
 
-        1:00      Meet the Keeper Talk at Meerkats
+<!--Javascript starts here-->
+    <script>
+        var today = new Date().toDateString();
+        document.getElementById('date').innerHTML = 'Events for ' + today
+    </script>
 
-        1:30      Meet the Keeper Talk at Sea Lions
 
-        1:30      Meet the Keeper Talk at Birds
-
-        1:30      Meet the Keeper Talk at Giraffes in African Forest
-
-        2:00      Meet the Keeper Talk at Black Bears
-
-        2:00      Giraffe Feeding Platform in African Forest (Dependent on Weather/Giraffes)
-
-        2:30      Meet the Keeper Talk at Birds of the World
-
-        3:00      Meet the Keeper Talk at Elephants
-
-        3:30      Meet the Keeper Talk at Rhinos
-
-        3:30      Meet the Keeper Talk at Patas Monkey in Wortham World of Primates
-
-        4:00      Meet the Keeper Sail Fin Lizard Talk at the Indoor Rainforest in Natural Encounters
-    </section>
 
     <!--<script>-->
         <!--function showHide(shID) {-->

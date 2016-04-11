@@ -104,9 +104,9 @@ video#bgVid.fillWidth {
 }
 
 /*Section headers*/
-h1 {
+.header {
   text-align: center;
-  font-family: Ubuntu, sans-serif;
+  font-family: Lobster, Ubuntu, sans-serif;
   padding-top: 90px;
   font-size: 70px;
   letter-spacing: 1px;
@@ -189,11 +189,6 @@ a {
   font-size: 20px;
 }
 
-/*.hours li:nth-last-child(5) {*/
-  /*color: midnightblue;*/
-  /*font-size: 20px;*/
-/*}*/
-
 .hours button {
   border: none;
   text-align: center;
@@ -202,6 +197,8 @@ a {
   padding: 10px;
   font-weight: bold;
   border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .directions ul {
@@ -224,6 +221,8 @@ a {
   padding: 10px;
   font-weight: bold;
   border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .directions li img {
@@ -232,29 +231,40 @@ a {
   height: 75%;
 }
 
-
-/*Tickets Section*/
-.ticketSection {
-  height: 600px;
-}
-.ticketSection ul {
-  list-style-type: none;
-  margin: 0;
-  padding:0;
-}
-
-.ticketSection li {
-  /*text-align: center;*/
-  color: #0b97c4;
-  font-size: 20px;
-  padding-left: 200px;
-  margin-bottom: 5px;
-}
-
 /*Membership Section*/
 .memberSection {
   height: 600px;
-  border: dashed;
+}
+
+.memberSection ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.memberSection li {
+  padding-left: 200px;
+  margin-bottom: 5px;
+  color: #0b97c4;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.memberSection li:first-child {
+  color: midnightblue;
+  font-size: 20px;
+}
+
+.memberSection button {
+  border: none;
+  text-align: center;
+  background-color: mediumvioletred;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
 }
 
 footer {
@@ -271,6 +281,26 @@ footer a{
   color: mediumvioletred;
 }
 
+
+/*Removed Ticket Section- Code below*/
+
+/*!*Tickets Section*!*/
+/*.ticketSection {*/
+/*height: 600px;*/
+/*}*/
+/*.ticketSection ul {*/
+/*list-style-type: none;*/
+/*margin: 0;*/
+/*padding:0;*/
+/*}*/
+
+/*.ticketSection li {*/
+/*!*text-align: center;*!*/
+/*color: #0b97c4;*/
+/*font-size: 20px;*/
+/*padding-left: 200px;*/
+/*margin-bottom: 5px;*/
+/*}*/
 
 
 /*This code makes the video a background so that when I add

@@ -76,10 +76,6 @@
     /*z-index: 100;*/
 }
 
-/*for hover to display either one on links*/
-/*cursor: pointer;*/
-/*cursor: hand;*/
-
 /*Image*/
 .imageContainer {
     position: relative;
@@ -91,4 +87,43 @@
 .fillWidth {
     width: 100%;
     position: relative;
+}
+
+/*Sections*/
+section {
+    margin-left: 250px;
+}
+
+.header {
+    color: midnightblue;
+    font-size: 40px;
+}
+
+p {
+    color: #0b97c4;
+    font-size: 25px;
+}
+
+table tr {
+    color: #0b97c4;
+    font-size: 25px;
+}
+
+table td:nth-child(2) {
+    padding-left: 75px;
+}
+
+table th {
+    color: midnightblue;
+}
+
+table th:nth-child(2) {
+    float: left;
+    padding-left: 75px;
+
+}
+
+button {
+    border: none;
+    background: none;
 }
