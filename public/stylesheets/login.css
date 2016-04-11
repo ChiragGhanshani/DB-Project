@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*Navbar*/
+#navbar ul {
+    list-style-type: none;
+    /*overflow: hidden;*/
+
+    /*fixed top*/
+    position: fixed;
+    z-index: 1; /*enables links*/
+    top: 0;
+    width: 100%;
+
+    /*background */
+    background-color: rgba(255, 255, 255,0.60);
+    border: none;
+}
+
+#navbar ul li a {
+    display: block;
+    color: mediumvioletred;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 35px 10px 35px;
+    margin: 10px;
+    font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+}
+
+#navbar ul li {
+    float: right;
+    position: relative;
+}
+
+#navbar li:first-child {
+    float: left;
+    position: relative;
+}
+
+#navbar .title{
+    font-size: 35px;
+    padding: 10px 20px 10px 30px;
+}
+
+#navbar ul li:hover {
+    background: #f6f6f6;
+}
+
+#navbar ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /*left: 0;*/
+    background: white;
+    /*padding: 0;*/
+}
+
+#navbar ul ul li {
+    /*float: none;*/
+    width: inherit;
+}
+
+#navbar ul ul a {
+    font-size: 15px;
+    padding: 0;
+    /*line-height: 120%;*/
+    /*padding: 10px 15px;*/
+}
+
+#navbar ul li:hover > ul {
+    display: block;
+    /*z-index: 100;*/
+}
+
+/*image formatting*/
+#bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+#bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+}
+
+
+/*entry panel's formatting*/
+#login-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-family: Ubuntu, sans-serif;
+
+    position: absolute;
+    width: 500px;
+    height: 220px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -110px 0 0 -250px;
+    background: rgb(245,245,245); /*fallback in case browser does not support rgba func*/
+    background: rgba(245,245,245,.8);
+}
+
+h1 {
+    padding-bottom: 16px;
+}
+
+.module {
+    margin: 5px;
+    text-align: center;
+}
+
+
+
+button {
+    background-color:#7bc78f;
+    border:1px solid #18ab29;
+    cursor:pointer;
+    color:#ffffff;
+    font-size:17px;
+    padding:6px 24px;
+}
+button:hover {
+    background-color:#5cbf2a;
+}
+
+/*popup form...*/
+.overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 500px;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+    .box{
+        width: 70%;
+    }
+    .popup{
+        width: 70%;
+    }
+}

@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Ubuntu, sans-serif;
+}
+
+/*Navbar*/
+#navbar ul {
+    list-style-type: none;
+    /*overflow: hidden;*/
+
+    /*fixed top*/
+    position: fixed;
+    z-index: 1; /*enables links*/
+    top: 0;
+    width: 100%;
+
+    /*background */
+    background-color: rgba(255, 255, 255,0.60);
+    border: none;
+}
+
+#navbar ul li a {
+    display: block;
+    color: mediumvioletred;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 35px 10px 35px;
+    margin: 10px;
+    font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+}
+
+#navbar ul li {
+    float: right;
+    position: relative;
+}
+
+#navbar li:first-child {
+    float: left;
+    position: relative;
+}
+
+#navbar .title{
+    font-size: 35px;
+    padding: 10px 20px 10px 30px;
+}
+
+#navbar ul li:hover {
+    background: #f6f6f6;
+}
+
+#navbar ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /*left: 0;*/
+    background: white;
+    /*padding: 0;*/
+}
+
+#navbar ul ul li {
+    /*float: none;*/
+    width: inherit;
+}
+
+#navbar ul ul a {
+    font-size: 15px;
+    padding: 0;
+    /*line-height: 120%;*/
+    /*padding: 10px 15px;*/
+}
+
+#navbar ul li:hover > ul {
+    display: block;
+    /*z-index: 100;*/
+}
+
+/*Image*/
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.fillWidth {
+    width: 100%;
+    position: relative;
+}
+
+/*Sections*/
+section {
+    margin-left: 250px;
+}
+
+.header {
+    color: midnightblue;
+    font-size: 40px;
+}
+
+p {
+    color: #0b97c4;
+    font-size: 25px;
+}
+
+table tr {
+    color: #0b97c4;
+    font-size: 25px;
+}
+
+table td:nth-child(2) {
+    padding-left: 75px;
+}
+
+table th {
+    color: midnightblue;
+}
+
+table th:nth-child(2) {
+    float: left;
+    padding-left: 75px;
+
+}
+
+button {
+    border: none;
+    background: none;
+}
