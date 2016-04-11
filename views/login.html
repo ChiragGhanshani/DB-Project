@@ -150,8 +150,15 @@
             var password_in, text;
             username_in = document.getElementById("username").value;
             password_in = document.getElementById("password").value;
-            window.alert("Would now call the user validation ORM stuff with params:" +
-                    "( " + username_in + ", " + password_in +" )");
+            var result = httpGet('/login/checkCredentials?userName=' + username_in + '&passWord=' + password_in);
+
+            if (result.username == 'error') {
+                window.alert("Invalid username or password.");
+            }
+
+            else {
+                window.alert("Welcome " + result.username);
+            }
         }
 
         function addCustomer() {
@@ -174,6 +181,14 @@
                 location.reload(true);
                 return;
             }
+        }
+
+        function httpGet(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+            return JSON.parse(xmlHttp.responseText);
         }
     </script>
 
