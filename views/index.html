@@ -10,26 +10,29 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
 
+  <!--Icons-->
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
   <link rel="stylesheet" type="text/css" href="static/stylesheets/index.css">
 
   <!--Enables page scroll-->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script>
-     $(function() {
-       $('a[href*="#"]:not([href="#"])').click(function() {
-         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-           var target = $(this.hash);
-           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-           if (target.length) {
-             $('html, body').animate({
-               scrollTop: target.offset().top
-             }, 1000);
-             return false;
-           }
-         }
-       });
-     });
-   </script>
+  $(function() {
+    $('a[href*="#"]:not([href="#"])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      }
+    });
+  });
+</script>
 
 </head>
 
@@ -39,7 +42,6 @@
     <ul>
       <li><a href="#top"> Zoo Name </a></li>
       <li><a href="#members"> Membership </a></li>
-      <li><a href="#tickets"> Tickets </a></li>
       <li><a href="#visit"> Visit Us </a></li>
       <li><a href="#animals"> Animals </a></li>
     </ul>
@@ -47,7 +49,7 @@
 
   <!--Video -->
   <div id="video-container">
-    <video id="bgVid" class="fillWidth" loop muted autoplay > <!--"img/videoframe.jpg"-->
+    <video id="bgVid" class="fillWidth" loop muted autoplay >
       <source src="static/images/test2.mp4" type="video/mp4">
     </video>
   </div>
@@ -55,26 +57,52 @@
 
   <!-- Animals Section-->
   <div id="animals" class="animalSection">
-    <h1>Animals</h1>
-    <h2 align="center">Will add tiles of animal pics</h2>
+    <p class="header"><a href="/animals">Animals</a></p>
+    <h2 align="center"></h2>
+    <ul id="onHover">
+      <li><img src="static/images/RedPanda.jpg" alt="Red Panda"><p>Red Panda</p></li>
+      <li><img src="static/images/LionCubs.jpg" alt="Lion cubs"></li>
+      <li><img src="static/images/Gorilla.jpg" alt="Gorilla"></li>
+      <li><img src="static/images/Giraffe2.jpg" alt="Giraffe"></li>
+      <li><img src="static/images/Elephants.jpg" alt="Elephants"></li>
+    </ul>
+    <!--<div class="row animals">-->
+      <!--<div class="col-2">-->
+        <!--<li><img src="static/images/RedPanda.jpg" alt="Red Panda"></li>-->
+      <!--</div>-->
+      <!--<div class="col-2">-->
+        <!--<li><img src="static/images/LionCubs.jpg" alt="Lion cubs"></li>-->
+      <!--</div>-->
+      <!--<div class="col-2">-->
+        <!--<li><img src="static/images/Gorilla.jpg" alt="Gorilla"></li>-->
+      <!--</div>-->
+      <!--<div class="col-2">-->
+        <!--<li><img src="static/images/Giraffe2.jpg" alt="Giraffe"></li>-->
+      <!--</div>-->
+      <!--<div class="col-2">-->
+        <!--<li><img src="static/images/Elephants.jpg" alt="Elephants"></li>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 
   <!-- Visit Us Section-->
   <div id="visit" class="visitSection">
-    <h1>Visit Us</h1>
+    <p class="header"><a href="/visit">Visit Us</a></p>
     <div class="row">
       <div class="col-6 hours">
         <ul>
-          <li><h3>TODAY'S DATE HERE</h3></li>
+          <li><h3 id="date"></h3></li>
           <li>Open: 9 am Close: 6 pm</li>
           <li>Last Entry: 5 pm</li>
           <br>
           <br>
-          <li><h3>TODAY AT THE ZOO</h3></li>
-          <li>12 pm Animal Encounters: Red Panda Talk </li>
-          <li>2 pm Meet the keeper talk at Sealions </li>
-          <li>4 pm Giraffee feeding</li>
-          <li><button>See full schedule</button></li>
+          <ul>
+            <li><h3>Ticket Information</h3></li>
+            <li>Adults 12-64: $15</li>
+            <li>Children under 12: $10</li>
+            <li>Children under 2: FREE</li>
+            <li>Senior 65+: $8</li>
+          <li><button>Buy Tickets</button></li>
         </ul>
       </div>
       <div class="col-6 directions">
@@ -82,38 +110,91 @@
           <li><img src="static/images/UHmap.png" alt="UH map"></li>
           <li>4800 Calhoun Rd</li>
           <li>Houston, TX 77004</li>
-          <li><button>Get Directions</button></li>
+          <li>
+            <form action="https://www.google.com/maps/dir//University+of+Houston,+Calhoun+Road,+Houston,+TX/@29.7199443,-95.3772529,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x8640be5a8ebea199:0xc9f387eca8247e7!2m2!1d-95.3422334!2d29.7199489" method="get" target="_blank">
+              <button>Get Directions</button>
+            </form>
+          </li>
         </ul>
       </div>
     </div>
 
   </div>
 
-  <!-- Tickets Section -->
-  <div id="tickets" class="ticketSection">
-    <h1>Tickets</h1>
-    <div class="row">
-      <div class="col-6 ticket-type">
-        <ul>
-          <li>Adults 12-64: $15</li>
-          <li>Children under 12: $10</li>
-          <li>Senior 65+: $8</li>
-          <li><button>Buy Tickets</button></li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
+  <!--&lt;!&ndash; Tickets Section &ndash;&gt;-->
+  <!--<div id="tickets" class="ticketSection">-->
+    <!--<h1>Tickets</h1>-->
+    <!--<div class="row">-->
+      <!--<div class="col-6">-->
+        <!--<ul>-->
+          <!--<li>Adults 12-64: $15</li>-->
+          <!--<li>Children under 12: $10</li>-->
+          <!--<li>Children under 2: FREE</li>-->
+          <!--<li>Senior 65+: $8</li>-->
+          <!--<li><button>Buy Tickets</button></li>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
   <!-- Member Section -->
   <div id="members" class="memberSection">
-    <h1>Membership</h1>
+    <p class="header"><a href="/members">Membership</a></p>
+    <div class="col-6">
+      <ul>
+        <li><h3>Become a member today!</h3></li>
+        <li>Free admission for 1 full year</li>
+        <li>Discounted tickets for guests</li>
+        <li>10% off purchases in our gift shop</li>
+        <li>Discounts on special events</li>
+        <li>and more!</li>
+        <li>
+          <form action="/login">
+            <button>Sign up/Log in</button>
+          </form>
+        </li>
+      </ul>
+    </div>
+    <div class="col-6">
+      <ul>
+        <li><h3>Membership Levels</h3></li>
+        <li>Single $65</li>
+        <li>Dual $85</li>
+        <li>Family $115</li>
+        <li>Family Plus $135</li>
+        <li>Grandparent (Senior 65+) $100</li>
+        <li><button>Learn more</button></li>
+      </ul>
+    </div>
 
   </div>
 
+
+
+
+
+<!--Javascript starts here-->
+
+  <!--Retrieves current date, finds 'date' id and sends it there-->
+  <script>
+    var today = new Date().toDateString();
+    document.getElementById('date').innerHTML = today
+  </script>
+
 </body>
 
+
+
 <footer>
-  <p>Contact Us About Us Connect with us Copyright</p>
+  <span>
+    <a href="#">Contact Us</a>
+    <a href="/about">About Us</a>
+    <span style="float: right">
+      <a href="https://www.instagram.com/universityofhouston/"><i class="fa fa-instagram fa-lg"></i></a>
+      <a href="https://twitter.com/UHouston?lang=en"><i class="fa fa-twitter fa-lg"></i></a>
+      <a href="https://www.facebook.com/universityofhouston/"><i class="fa fa-facebook-square fa-lg"></i></a>
+      <a href="https://www.pinterest.com/univofhouston/"><i class="fa fa-pinterest fa-lg"></i></a>
+    </span>
+  </span>
 </footer>
 </html>

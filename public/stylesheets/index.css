@@ -5,6 +5,11 @@
 
 body {
   background-color: whitesmoke;
+  font-family: Ubuntu, sans-serif;
+}
+
+button {
+  font-family: Ubuntu, sans-serif;
 }
 
 * { /*padding and border included in total width and height of elements*/
@@ -85,6 +90,7 @@ body {
   height: 100%;
   overflow: hidden;
 }
+
 video#bgVid {
   position:absolute;
   z-index:-1;
@@ -98,17 +104,65 @@ video#bgVid.fillWidth {
 }
 
 /*Section headers*/
-h1 {
+.header {
   text-align: center;
-  font-family: Ubuntu, sans-serif;
+  font-family: Lobster, Ubuntu, sans-serif;
   padding-top: 90px;
   font-size: 70px;
   letter-spacing: 1px;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 /*Animals Section*/
 .animalSection {
   height: 600px;
+  text-align: center;
+}
+
+.animalSection ul {
+  list-style-type: none;
+  /*display: inline;*/
+}
+
+.animalSection li {
+  display: inline;
+  padding: 2px;
+  position: relative;
+
+}
+
+.animalSection li img {
+  position: relative;
+  max-width: 25%;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+.animalSection li img:hover {
+  opacity: 0.4;
+  /*display: block;*/
+}
+
+.animalSection li p{
+  position: absolute;
+  visibility: hidden;
+  /*top: 0; */
+  bottom: 50px;
+  left: 0; right: 0;
+  /*vertical-align: middle;*/
+  font-size: 20px;
+  opcacity: 0;
+}
+
+.animalSection li:hover p {
+  visibility: visible;
+  opacity: 1;
+  z-index: 100;
 }
 
 /*Visit Us Section*/
@@ -126,17 +180,11 @@ h1 {
 .hours li {
   padding-left: 200px;
   margin-bottom: 5px;
-  color: turquoise;
+  color: #0b97c4;
   font-size: 20px;
-  font-family: sans-serif;
 }
 
 .hours li:first-child {
-  color: midnightblue;
-  font-size: 20px;
-}
-
-.hours li:nth-last-child(5) {
   color: midnightblue;
   font-size: 20px;
 }
@@ -149,6 +197,8 @@ h1 {
   padding: 10px;
   font-weight: bold;
   border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .directions ul {
@@ -171,40 +221,86 @@ h1 {
   padding: 10px;
   font-weight: bold;
   border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
 }
 
-img {
+.directions li img {
   position: relative;
   width: 48%;
   height: 75%;
 }
 
-
-/*Tickets Section*/
-.ticketSection {
-  height: 600px;
-}
-.ticket-type ul {
-  list-style-type: none;
-  margin: 0;
-  padding:0;
-}
-
-.ticket-type li {
-  /*padding-left: 10px;*/
-  text-align: center;
-}
-
 /*Membership Section*/
 .memberSection {
   height: 600px;
-  border: dashed;
+}
+
+.memberSection ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.memberSection li {
+  padding-left: 200px;
+  margin-bottom: 5px;
+  color: #0b97c4;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.memberSection li:first-child {
+  color: midnightblue;
+  font-size: 20px;
+}
+
+.memberSection button {
+  border: none;
+  text-align: center;
+  background-color: mediumvioletred;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
 }
 
 footer {
-
+  font-size: 20px;
+  padding: 10px;
+  background: gainsboro;
+  height: 50px;
+  vertical-align: middle;
 }
 
+footer a{
+  padding-left: 20px;
+  text-decoration: none;
+  color: mediumvioletred;
+}
+
+
+/*Removed Ticket Section- Code below*/
+
+/*!*Tickets Section*!*/
+/*.ticketSection {*/
+/*height: 600px;*/
+/*}*/
+/*.ticketSection ul {*/
+/*list-style-type: none;*/
+/*margin: 0;*/
+/*padding:0;*/
+/*}*/
+
+/*.ticketSection li {*/
+/*!*text-align: center;*!*/
+/*color: #0b97c4;*/
+/*font-size: 20px;*/
+/*padding-left: 200px;*/
+/*margin-bottom: 5px;*/
+/*}*/
 
 
 /*This code makes the video a background so that when I add
