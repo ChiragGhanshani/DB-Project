@@ -2,7 +2,6 @@
   "name": "project",
   "version": "0.0.0",
   "private": true,
-
   "dependencies": {
     "angular": "^1.5.0",
     "body-parser": "~1.13.2",
@@ -23,14 +22,13 @@
     "serve-favicon": "^2.3.0",
     "swig": "^1.4.2"
   },
-
   "devDependencies": {
     "async": "^2.0.0-rc.2",
-    "connect": "^3.4.1"
+    "connect": "^3.4.1",
+    "mysql-promise": "^2.0.0"
   },
-
   "scripts": {
-    "test" : "./build.sh",
-    "start" : "node ./bin/www"
+    "test": "./build.sh",
+    "start": "node ./bin/www"
   }
 }
