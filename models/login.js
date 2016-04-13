@@ -7,15 +7,17 @@ module.exports = {
       sendResultBack(new Error('Invalid Credentials'), null);
 		else
 		{
-			var queryString = 'SELECT * FROM users WHERE username = ? AND password = ?;';
-		  var query = db.query(queryString, [username, password], function(err, rows, fields) {
-			  if (err)
-          sendResultBack(new Error('Invalid Credentials'), null);
-        else if (rows.length > 0)
+      var queryString = 'select * from users where username = ? and password = ?';
+      db.query(queryString, [username, password]).spread(function(rows) {
+        if(rows.length > 0){
           sendResultBack(null, rows);
-        else
-          sendResultBack(new Error('Invalid Crednetials'), null);
-		  });
+        }
+        else{
+          sendResultBack(new Error('Invalid query'), null);
+        }
+		  }).catch(function(error){
+        sendResultBack(error, null)
+      });
 	  }
   }
 }
