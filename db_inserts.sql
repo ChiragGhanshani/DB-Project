@@ -141,6 +141,11 @@ VALUES(
 	@customer_id_variable,
 	'Homer',
 	'Simpson',
+	'12420 Washington St.',
+	'Houston',
+	42,
+	77072,
+	'832-348-3887',
 	'1960-05-14',
 	'thesimpsons@springfield.com',
 	01 /*membership type*/
@@ -175,7 +180,7 @@ VALUES
 
 INSERT INTO species
 VALUES(
-	'Ailurus fulgens', 
+	'Ailurus fulgens',
 	5,
 	'Mountain forest',
 	'Herbivore',
@@ -191,7 +196,7 @@ VALUES(
 );
 
 SET @tag_number_variable = uuid();
-INSERT INTO animals 
+INSERT INTO animals
 VALUES(
 	@tag_number_variable,
 	'Female',
