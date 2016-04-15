@@ -6,7 +6,7 @@ USE zootest;
 CREATE TABLE IF NOT EXISTS employee_roles(
 	id int(2) NOT NULL,
 	role_name varchar(20) NOT NULL,
-	
+
 	PRIMARY KEY (id)
 );
 
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS employee_roles(
 CREATE TABLE IF NOT EXISTS states(
 	id int(2) NOT NULL,
 	state_name varchar(40) NOT NULL,
-	
+
 	PRIMARY KEY (id)
 );
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS employees(
 	phone_number varchar(12) NOT NULL,
 	email varchar(40) NOT NULL,
 	national_id int(9) NOT NULL,
-	manager_id varchar(36) NOT NULL, /*uuid*/
+	manager_id varchar(36), /*uuid*/
 	salary int NOT NULL,
 	role int(2) NOT NULL,/*enumerated above*/
 
@@ -40,31 +40,26 @@ CREATE TABLE IF NOT EXISTS employees(
 );
 
 
-CREATE TABLE IF NOT EXISTS member_types(
-	id int(2) NOT NULL,
-	member_type varchar(20) NOT NULL,
-	
-	PRIMARY KEY (id)
-);
-
-
 CREATE TABLE IF NOT EXISTS customers(
 	membership_id varchar(36) NOT NULL, /*uuid*/
 	customer_firstName varchar(20) NOT NULL,
 	customer_LastName varchar(20) NOT NULL,
+	customer_streetAddress varchar(25) NOT NULL,
+	customer_city varchar(22) NOT NULL,
+	customer_state int(2) NOT NULL,
+	customer_zipCode int(5) NOT NULL,
+	customer_phoneNumber varchar(12) NOT NULL,
 	customer_DOB date NOT NULL,
 	customer_email varchar(40) NOT NULL,
-	membership_type int(2) NOT NULL,/*enumerated above*/
 
 	PRIMARY KEY(membership_id),
-  FOREIGN KEY(membership_type) REFERENCES member_types(id)
 );
 
 
 CREATE TABLE IF NOT EXISTS transaction_types(
 	id int(2) NOT NULL,
 	transaction_type varchar(20) NOT NULL,
-	
+
 	PRIMARY KEY (id)
 );
 
@@ -85,7 +80,7 @@ CREATE TABLE IF NOT EXISTS item_types(
 	id varchar(36) NOT NULL, /*uuid*/
 	item_type varchar(20) NOT NULL,
   item_cost int NOT NULL,
-	
+
 	PRIMARY KEY (id)
 );
 
@@ -94,7 +89,7 @@ CREATE TABLE IF NOT EXISTS transaction_items(
 	trans_id varchar(36) NOT NULL, /*uuid*/
 	item_id varchar(36) NOT NULL, /*uuid*/
 	quantity int NOT NULL,
-	
+
 	PRIMARY KEY(trans_id, item_id),
 	FOREIGN KEY(trans_id) REFERENCES transactions(transaction_id),
   FOREIGN KEY(item_id) REFERENCES item_types(id)
@@ -116,7 +111,7 @@ CREATE TABLE IF NOT EXISTS users(
 CREATE TABLE IF NOT EXISTS behaviors(
 	id int(2) NOT NULL,
 	behavior varchar(40) NOT NULL,
-	
+
 	PRIMARY KEY (id)
 );
 
@@ -136,7 +131,7 @@ CREATE TABLE IF NOT EXISTS species(
 CREATE TABLE IF NOT EXISTS areas(
 	id int(2) NOT NULL,
 	area varchar(20) NOT NULL,
-	
+
 	PRIMARY KEY (id)
 );
 
@@ -174,7 +169,7 @@ CREATE TABLE IF NOT EXISTS animal_illnesses(
 	tag_number varchar(36) NOT NULL,
 	illness varchar(25) NOT NULL,
 	description varchar(300),
-	
+
 	PRIMARY KEY (tag_number, illness),
 	FOREIGN KEY (tag_number) REFERENCES animals(tag_number)
 );
@@ -187,7 +182,7 @@ CREATE TABLE IF NOT EXISTS zoo_events(
 	end_time time NOT NULL,
 	area int(2), /*enumerated above*/
 	description varchar(100),
-	
+
 	PRIMARY KEY (event_id),
 	FOREIGN KEY (area) REFERENCES areas(id)
 );
