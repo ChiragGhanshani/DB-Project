@@ -5,7 +5,7 @@ var loginORM = require('../models/login.js');
 describe('login ORM test', function(){
   it('getUserID should return a userid', function(done){
     var parser = function(error, result){
-      expect(result[0].user_id).to.be.a('string');
+      expect(result['0'].user_id).to.be.a('string');
       done();
     }
 

@@ -137,8 +137,7 @@ VALUES(
 	77072,
 	'832-348-3887',
 	'1960-05-14',
-	'thesimpsons@springfield.com',
-	01 /*membership type*/
+	'thesimpsons@springfield.com'
 );
 
 SET @transaction_id_variable = uuid();

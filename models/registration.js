@@ -3,18 +3,7 @@ var async = require('async');
 
 module.exports = {
   getUUID : function(sendResultBack) {
-    db.query('SELECT UUID();').spread(function(rows) {
-      if(rows.length < 1)
-        sendResultBack(new Error('Invalid Query'), null);
-      else{
-        sendResultBack(null, rows[0]);
-      }
-    }).catch(function(error) {
-      sendResultBack(error, null);
-    });
-  },
-  getDate : function(sendResultBack) {
-    db.query('SELECT UTC_DATE();').spread(function(rows) {
+    db.query('SELECT UUID(), UTC_DATE();').spread(function(rows) {
       if(rows.length < 1)
         sendResultBack(new Error('Invalid Query'), null);
       else{
@@ -25,7 +14,8 @@ module.exports = {
     });
   },
   insertCustomer : function(username, password, firstName, lastName, streetAddress, city, state, zipCode, phoneNumber, dob, email, sendResultBack) {
-        === "undefined"|| typeof city === "undefined" || typeof state === "undefined" ||
+    if(username === "undefined" || password === "undefined" || firstName === "undefined" || lastName === "undefined" ||
+        streetAddress === "undefined"|| typeof city === "undefined" || typeof state === "undefined" ||
         typeof zipCode === "undefined" || typeof phoneNumber === "undefined" || typeof dob === "undefined"
         || typeof email === "undefined")
         sendResultBack(new Error('Invalid data type'), null);
@@ -38,31 +28,26 @@ module.exports = {
 
     else {
       var id = null;
-      getUUID(function(error, result) {
-        if(err){sendResultBack(err, null);}
+      var date = null;
+      this.getUUID(function(error, result) {
+        if(error){sendResultBack(error, null);}
         else{
-          id = res['UUID()'];
-          var date = null;
-          getDate(function(error, result) {
-            if(error){sendResultBack(error, null);}
-            else{
-              date = result['UTC_DATE()'];
-              var customerInsertionString = 'INSERT INTO customers(membership_id, customer_firstName, customer_lastName, customer_streetAddress, customer_city, customer_state, customer_zipCode, customer_phoneNumber, customer_DOB, customer_email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
-              var customerInsertion = db.query(customerInsertionString,
-                [id, firstName, lastName, streetAddress, city, state, zipCode, phoneNumber, dob, email).then(function() {
-                var userInsertionString = 'INSERT INTO users(username, password, date_created, active, user_id, role) VALUES (?,?, ?, ?, ?, ?);';
-                var userInsertion = db.query(userInsertionString, [username, password, date, '1', 'Customer']).then(function() {
-                  sendResultBack(null, null);
-                }).catch(function(error) {
-                  sendResultBack(error, null);
-                });
-              }).catch(function(error) {
-                sendResultBack(error, null);
-              });
-            }
+          id = result['UUID()'];
+          date = result['UTC_DATE()'];
+          var customerInsertionString = 'INSERT INTO customers(membership_id, customer_firstName, customer_lastName, customer_streetAddress, customer_city, customer_state, customer_zipCode, customer_phoneNumber, customer_DOB, customer_email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
+          var customerInsertion = db.query(customerInsertionString,
+            [id, firstName, lastName, streetAddress, city, state, zipCode, phoneNumber, dob, email]).then(function() {
+            var userInsertionString = 'INSERT INTO users(username, password, date_created, active, user_id, role) VALUES (?, ?, ?, ?, ?, ?);';
+            var userInsertion = db.query(userInsertionString, [username, password, date, '1', id, 'Customer']).then(function() {
+              sendResultBack(null, null);
+            }).catch(function(error) {
+              sendResultBack(error, null);
+            });
+          }).catch(function(error) {
+            sendResultBack(error, null);
           });
         }
       });
     }
-  },
+  }
 }

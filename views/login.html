@@ -10,6 +10,88 @@
           href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
     <link rel="stylesheet" type="text/css" href="static/stylesheets/login.css">
 
+    <script>
+        function enterListener(e) {
+            if (e.keyCode == 13 || e.which == 13){
+                checkLogin();
+                return false;
+            }
+            else return true;
+        }
+
+        function checkLogin() {
+            var username_in, text;
+            var password_in, text;
+            username_in = document.getElementById("username").value;
+            password_in = document.getElementById("password").value;
+            var result = httpGet('login/checkCredentials?ID=' + username_in + '&password=' + password_in);
+
+            if (result.username == 'error') {
+                window.alert("Invalid username or password.");
+            }
+
+            else {
+                window.alert("Welcome " + result.username);
+            }
+        }
+
+        function addCustomer() {
+            var valid = true;
+            var address = document.getElementById('address').value;
+            var fname = document.getElementById("fn").value;
+            var lname = document.getElementById("ln").value;
+            var pass = document.getElementById("pw").value;
+            var city = document.getElementById("city").value;
+            var state = document.getElementById("state").value;
+            var zip = document.getElementById("zip").value;
+            var phone = document.getElementById("phone").value;
+            var uname = document.getElementById("Username").value;
+            var dob = document.getElementById("dob").value;
+            var email = document.getElementById("email").value;
+
+
+            /*Here is how to detect which radio button: */
+            var x = document.getElementsByName("memberType");
+            for(var i=0;i<x.length;i++){
+                if(x[i].checked){window.alert(x[i].value);}
+            }
+
+            if(document.getElementById("pw").value != document.getElementById("pw2").value) {
+                window.alert("Passwords do not match!");
+                valid = false;
+                console.log("nope");
+            }
+
+            if (valid) {
+                window.alert("Passes validation!");
+                location = "#";
+                location.reload(true);
+                httpSend('/login/registerUser?username=' + uname + '&password=' + pass + '&firstName=' + fname +
+                    '&lastName=' + lname + '&street=' + address + '&city=' + city + '&state=0&zip=' + zip +
+                    '&phone=' + phone + '&dob=' + dob + '&email=' + email.replace('@', '%40'));
+            }
+        }
+
+
+        function httpSend(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+
+        }
+
+        function httpGet(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+            console.log(xmlHttp.responseText);
+            return JSON.parse(xmlHttp.responseText);
+        }
+    </script>
+
+
 
 </head>
 <body>
@@ -137,97 +219,6 @@
 
 
 <!--Javascript begins here-->
-    <script>
-        function enterListener(e) {
-            if (e.keyCode == 13 || e.which == 13){
-                checkLogin();
-                return false;
-            }
-            else return true;
-        }
-
-        function checkLogin() {
-            var username_in, text;
-            var password_in, text;
-            username_in = document.getElementById("username").value;
-            password_in = document.getElementById("password").value;
-            var result = httpGet('login/checkCredentials?ID=' + username_in + '&password=' + password_in);
-
-            if (result.username == 'error') {
-                window.alert("Invalid username or password.");
-            }
-
-            else {
-                window.alert("Welcome " + result.username);
-            }
-        }
-
-        function addCustomer() {
-            var valid = true;
-            var fname;
-            var lname;
-            var pass;
-            var city;
-            var state;
-            var zip;
-            var phone;
-            var uname;
-            var dob;
-            var email;
-            var address;
-
-            address = document.getElementById('address').value;
-            fname = document.getElementById("fn").value;
-            lname = document.getElementById("ln").value;
-            pass = document.getElementById("pw").value;
-            city = document.getElementById("city").value;
-            state = document.getElementById("state").value;
-            zip = document.getElementById("zip").value;
-            phone = document.getElementById("phone").value;
-            uname = document.getElementById("Username").value;
-            dob = document.getElementById("dob").value;
-            email = document.getElementById("email").value;
-
-
-            /*Here is how to detect which radio button: */
-            var x = document.getElementsByName("memberType");
-            for(var i=0;i<x.length;i++){
-                if(x[i].checked){window.alert(x[i].value);}
-            }
-
-            if(document.getElementById("pw").value != document.getElementById("pw2").value) {
-                window.alert("Passwords do not match!");
-                valid = false;
-            }
-
-            if (valid) {
-                window.alert("Passes validation!");
-                location = "#";
-                location.reload(true);
-                httpSend('/login/registerUser?username=' + uname + '&password=' + pass + '&firstName=' + fname +
-                    '&lastName=' + lname + '&street=' + address + '&city=' + city + '&state=0&zip=' + zip +
-                    '&phone=' + phone + '&dob=' + dob + '&email=' = email.replace('@', '%40'));
-            }
-        }
-
-
-        function httpSend(theUrl)
-        {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-            xmlHttp.send( null );
-
-        }
-
-        function httpGet(theUrl)
-        {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-            xmlHttp.send( null );
-            console.log(xmlHttp.responseText);
-            return JSON.parse(xmlHttp.responseText);
-        }
-    </script>
 
 </body>
 </html>
