@@ -25,11 +25,21 @@ router.get('/checkCredentials', function(req, res, next){
 });
 
 router.get('/registerUser', function(req, res, next){
-  var username = req.query.userName;
-  var password = req.query.passWord;
-  var role = req.query.role;
+  var username = req.query.username;
+  var password = req.query.password;
+  var firstName = req.query.firstName;
+  var lastName = req.query.lastName;
+  var streetAddress = req.query.street;
+  var city = req.query.city;
+  var state = req.query.state;
+  var zipCode = parseInt(req.query.zip);
+  var phoneNumber = req.query.phone;
+  var DOB = req.query.dob;
+  var email = req.query.email;
+  var memType = req.query.memType;
 
-  registrationORM.insertGenericUser(username, password, date, function(error, result){
+  registrationORM.insertGenericUser(username, password, firstName, lastName, streetAddress, city,
+    state, zipCode, phoneNumber, DOB, email, memType, function(error, result){
     if (error) console.log(error);
     if (error) throw error;
   });

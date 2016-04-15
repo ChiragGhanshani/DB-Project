@@ -61,6 +61,10 @@
                 <a class="close" href="#">&times;</a>
                 <div class="content">
                     <div class="module">
+                        <label for="Username">Username:</label>
+                        <input id="Username" type="username">
+                    </div>
+                    <div class="module">
                         <label for="email">Email Address:</label>
                         <input id="email" type="email">
                     </div>
@@ -89,16 +93,11 @@
                         <input id="dob" type="date">
                     </div>
                     <div class="module">
-                        Gender:
-                        <input type="radio" name="gender" value="Male" checked> Male
-                        <input type="radio" name="gender" value="Female"> Female
-                    </div>
-                    <div class="module">
                         <label for="address">Street Address:</label>
                         <input id="address" type="text">
                     </div>
                     <div class="module">
-                        <label for="zip">Zipcode (7-digit):</label>
+                        <label for="zip">Zipcode (5-digit):</label>
                         <input id="zip" type="text">
                     </div>
                     <div class="module">
@@ -165,11 +164,30 @@
 
         function addCustomer() {
             var valid = true;
-            var name;
+            var fname;
+            var lname;
             var pass;
+            var city;
+            var state;
+            var zip;
+            var phone;
+            var uname;
+            var dob;
+            var email;
+            var address;
 
-            name = document.getElementsByName("first");
-            pass = document.getElementsByName("pass");
+            address = document.getElementById('address').value;
+            fname = document.getElementById("fn").value;
+            lname = document.getElementById("ln").value;
+            pass = document.getElementById("pw").value;
+            city = document.getElementById("city").value;
+            state = document.getElementById("state").value;
+            zip = document.getElementById("zip").value;
+            phone = document.getElementById("phone").value;
+            uname = document.getElementById("Username").value;
+            dob = document.getElementById("dob").value;
+            email = document.getElementById("email").value;
+
 
             /*Here is how to detect which radio button: */
             var x = document.getElementsByName("memberType");
@@ -186,10 +204,10 @@
                 window.alert("Passes validation!");
                 location = "#";
                 location.reload(true);
-                return;
+                httpSend('/login/registerUser?username=' + uname + '&password=' + pass + '&firstName=' + fname +
+                    '&lastName=' + lname + '&street=' + address + '&city=' + city + '&state=0&zip=' + zip +
+                    '&phone=' + phone + '&dob=' + dob + '&email=' = email.replace('@', '%40'));
             }
-
-            httpSend('/login/registerUser?userName=' + name + '&passWord=' + pass + 'role=customer');
         }
 
 
