@@ -25,7 +25,7 @@ router.get('/checkCredentials', function(req, res, next){
 });
 
 router.get('/registerUser', function(req, res, next){
-  req.connection.setTimeout(2000);
+  console.log("here brah");
   var username = 'Shang';
   var password = '123';
   var firstName = 'Jing';
@@ -38,14 +38,23 @@ router.get('/registerUser', function(req, res, next){
   var DOB = '1990-04-01';
   var email = 'bob@bob.com';
 
-  console.log(username + password + firsName + lastName + streetAddress + city + state +
-    req.query.zip + phoneNumber + DOB + email);
+  console.log(email);
+  console.log(DOB);
+  console.log(phoneNumber);
+  console.log(zipCode);
+  console.log(state);
+  console.log(city);
+  console.log(streetAddress);
+  console.log(lastName);
+  console.log(firstName);
+  console.log(password);
+  console.log(username);
 
   registrationORM.insertCustomer(username, password, firstName, lastName, streetAddress, city,
     state, zipCode, phoneNumber, DOB, email, function(error, result){
     if (error) console.log(error);
     if (error) throw error;
-    next();
+    res.send();
   });
 });
 
