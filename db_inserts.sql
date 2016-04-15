@@ -92,10 +92,6 @@ INSERT INTO employee_roles VALUES(0, 'Keeper');
 INSERT INTO employee_roles VALUES(1, 'Veterinarian');
 INSERT INTO employee_roles VALUES(2, 'Manager');
 
-INSERT INTO member_types VALUES(0, 'free');
-INSERT INTO member_types VALUES(1, 'season member');
-INSERT INTO member_types VALUES(2, 'one year member');
-INSERT INTO member_types VALUES(3, 'Donor');
 
 SET @item_1 = UUID();
 SET @item_2 = UUID();

@@ -30,21 +30,13 @@ CREATE TABLE IF NOT EXISTS employees(
 	phone_number varchar(12) NOT NULL,
 	email varchar(40) NOT NULL,
 	national_id int(9) NOT NULL,
-	manager_id varchar(36) NOT NULL, /*uuid*/
+	manager_id varchar(36), /*uuid*/
 	salary int NOT NULL,
 	role int(2) NOT NULL,/*enumerated above*/
 
 	PRIMARY KEY (employee_id),
 	FOREIGN KEY (role) REFERENCES employee_roles(id),
 	FOREIGN KEY (state) REFERENCES states(id)
-);
-
-
-CREATE TABLE IF NOT EXISTS member_types(
-	id int(2) NOT NULL,
-	member_type varchar(20) NOT NULL,
-
-	PRIMARY KEY (id)
 );
 
 
@@ -59,10 +51,8 @@ CREATE TABLE IF NOT EXISTS customers(
 	customer_phoneNumber varchar(12) NOT NULL,
 	customer_DOB date NOT NULL,
 	customer_email varchar(40) NOT NULL,
-	membership_type int(2) NOT NULL,/*enumerated above*/
 
 	PRIMARY KEY(membership_id),
-  FOREIGN KEY(membership_type) REFERENCES member_types(id)
 );
 
 

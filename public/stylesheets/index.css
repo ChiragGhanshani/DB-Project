@@ -268,12 +268,13 @@ a {
 }
 
 footer {
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px;
   background: gainsboro;
-  height: 50px;
+  min-height: 100%;
   vertical-align: middle;
 }
+
 
 footer a{
   padding-left: 20px;
@@ -281,6 +282,35 @@ footer a{
   color: mediumvioletred;
 }
 
+.container {
+    margin: 0 auto;
+    width: 938px;
+}
+
+.footerLeft {
+    width: 220px;
+    background: #000
+    padding-top: 20px;
+    margin-left: 20px !important;
+    min-height: 163px;
+    height: 100%;
+    font-style: "proxima-nova", sans-serif;
+}
+
+h2 {
+    margin-bottom: 0.25em;
+    font-weight: bold;
+}
+
+hours {
+    background: #000;
+    width: 218px;
+}
+
+address {
+    margin: 0 0 1.5em;
+    font-style: "proxima-nova", sans-serif;
+}
 
 /*Removed Ticket Section- Code below*/
 
