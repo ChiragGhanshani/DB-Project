@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS customers(
 	customer_DOB date NOT NULL,
 	customer_email varchar(40) NOT NULL,
 
-	PRIMARY KEY(membership_id),
+	PRIMARY KEY(membership_id)
 );
 
 

@@ -53,12 +53,6 @@ VALUES
 	(48, 'WI'),
 	(49, 'WY');
 
-INSERT INTO member_types
-VALUES(
-	04,
-	'Student'
-);
-
 INSERT INTO transaction_types
 VALUES(
 	01,
