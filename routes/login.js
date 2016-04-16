@@ -26,17 +26,17 @@ router.get('/checkCredentials', function(req, res, next){
 
 router.get('/registerUser', function(req, res, next){
   console.log("here brah");
-  var username = 'Shang';
-  var password = '123';
-  var firstName = 'Jing';
-  var lastName = 'Mei';
-  var streetAddress = 'Fuck';
-  var city = 'This';
-  var state = 0;
-  var zipCode = 80085;
-  var phoneNumber = '123-123-1234';
-  var DOB = '1990-04-01';
-  var email = 'bob@bob.com';
+  var username = req.query.username;
+  var password = req.query.password;
+  var firstName = req.query.firstName;
+  var lastName = req.query.lastName;
+  var streetAddress = req.query.street;
+  var city = req.query.city;
+  var state = parseInt(req.query.state);
+  var zipCode = parseInt(req.query.zip);
+  var phoneNumber = req.query.phone;
+  var DOB = req.query.dob;
+  var email = req.query.email.replace('%40', '@');
 
   console.log(email);
   console.log(DOB);
