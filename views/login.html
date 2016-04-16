@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Log in</title>
+
+    <link rel="stylesheet" type="text/css"
+          href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="static/stylesheets/login.css">
+
+    <script>
+        function enterListener(e) {
+            if (e.keyCode == 13 || e.which == 13){
+                checkLogin();
+                return false;
+            }
+            else return true;
+        }
+
+        function checkLogin() {
+            var username_in, text;
+            var password_in, text;
+            username_in = document.getElementById("username").value;
+            password_in = document.getElementById("password").value;
+            var result = httpGet('login/checkCredentials?ID=' + username_in + '&password=' + password_in);
+
+            if (result.username == 'error') {
+                window.alert("Invalid username or password.");
+            }
+
+            else {
+                window.alert("Welcome " + result.username);
+            }
+        }
+
+        function addCustomer() {
+            var valid = true;
+            var address = document.getElementById('address').value;
+            var fname = document.getElementById("fn").value;
+            var lname = document.getElementById("ln").value;
+            var pass = document.getElementById("pw").value;
+            var city = document.getElementById("city").value;
+            var state = document.getElementById("state").value;
+            var zip = document.getElementById("zip").value;
+            var phone = document.getElementById("phone").value;
+            var uname = document.getElementById("Username").value;
+            var dob = document.getElementById("dob").value;
+            var email = document.getElementById("email").value;
+
+
+            /*Here is how to detect which radio button: */
+            var x = document.getElementsByName("memberType");
+            for(var i=0;i<x.length;i++){
+                if(x[i].checked){window.alert(x[i].value);}
+            }
+
+            if(document.getElementById("pw").value != document.getElementById("pw2").value) {
+                window.alert("Passwords do not match!");
+                valid = false;
+                console.log("nope");
+            }
+
+            if (valid) {
+                window.alert("Passes validation!");
+                location = "#";
+                location.reload(true);
+                httpSend('/login/registerUser?username=' + uname + '&password=' + pass + '&firstName=' + fname +
+                    '&lastName=' + lname + '&street=' + address + '&city=' + city + '&state=0&zip=' + zip +
+                    '&phone=' + phone + '&dob=' + dob + '&email=' + email.replace('@', '%40'));
+            }
+        }
+
+
+        function httpSend(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+
+        }
+
+        function httpGet(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+            console.log(xmlHttp.responseText);
+            return JSON.parse(xmlHttp.responseText);
+        }
+    </script>
+
+
+
+</head>
+<body>
+    <!--NavBar -->
+    <nav id="navbar">
+        <ul>
+            <li><a class="title" href="/"> Zoo Name </a></li>
+            <li><a href="/members"> Membership </a>
+                <ul>
+                    <li><a href="#">Benefits</a></li>
+                    <li><a href="#">Levels</a></li>
+                    <li><a href="/login">Join/Log in</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="/visit"> Visit Us </a>
+                <ul>
+                    <li for="hours" class="active"><a href="#">Hours & Location</a></li>
+                    <li for="tickets"><a href="#">Buy Tickets</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Park Map</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </li>
+            <li><a href="/animals"> Animals </a></li>
+        </ul>
+    </nav>
+
+    <!--Login Box-->
+    <div class ="module" id="login-panel">
+        <h1>Log in here!</h1>
+        <div class="module" id="user-box">
+            <label for="username">Username:</label>
+            <input id="username" type="text" onkeypress="return enterListener(event)">
+        </div>
+
+        <div class ="module" id="pass-box">
+            <label for="password">Password:</label>
+            <input id="password" type="password" onkeypress="return enterListener(event)">
+        </div>
+
+        <div class="module" id="signup-link">
+            <a href="#signup-popup">Don't have an account? Sign up now</a>
+        </div>
+
+        <!--Here there be the popup form (the link is just above)-->
+        <div id="signup-popup" class="overlay">
+            <div class="popup">
+                <h2>Please enter your credentials</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    <div class="module">
+                        <label for="Username">Username:</label>
+                        <input id="Username" type="username">
+                    </div>
+                    <div class="module">
+                        <label for="email">Email Address:</label>
+                        <input id="email" type="email">
+                    </div>
+                    <div class="module">
+                        <label for="pw">Password:</label>
+                        <input id="pw" name="pass" type="password">
+                    </div>
+                    <div class="module">
+                        <label for="pw2">Confirm Password:</label>
+                        <input id="pw2" type="password">
+                    </div>
+                    <div class="module">
+                        <label for="fn">First Name:</label>
+                        <input id="fn" name="first" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="ln">Last Name:</label>
+                        <input id="ln" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="phone">Phone Number (xxx-xxx-xxxx format):</label>
+                        <input id="phone" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="dob">Date of Birth (YYYY-MM-DD format):</label>
+                        <input id="dob" type="date">
+                    </div>
+                    <div class="module">
+                        <label for="address">Street Address:</label>
+                        <input id="address" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="zip">Zipcode (5-digit):</label>
+                        <input id="zip" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="city">City:</label>
+                        <input id="city" type="text">
+                    </div>
+                    <div class="module">
+                        <label for="state">State:</label>
+                        <input id="state" type="text">
+                    </div>
+                    <div class="module">
+                        Type of Membership:
+                        <input type="radio" name="memberType" value="Single" checked> Basic
+                        <input type="radio" name="memberType" value="Dual"> Student
+                        <input type="radio" name="memberType" value="Family"> Family
+                        <input type="radio" name="memberType" value="FamlyPlus"> Family Plus
+                        <input type="radio" name="memberType" value="Senior"> Senior (65+)
+                    </div>
+                </div>
+                <button type="button"
+                        onclick="addCustomer()">Submit
+                </button>
+            </div>
+        </div>
+        <!--(and here endeth the popup form section)-->
+
+        <div class ="module" id="button-box">
+            <button type="button"
+            onclick="checkLogin()">Log in</button>
+        </div>
+    </div>
+
+    <!--Background image-->
+    <div id="bg">
+        <img src="static/images/chameleon.jpg" alt="">
+    </div>
+
+
+<!--Javascript begins here-->
+
+</body>
+</html>

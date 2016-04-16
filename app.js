@@ -5,9 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cons = require('consolidate');
+var timeout = require('connect-timeout');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var aboutPage = require('./routes/aboutPage');
+var login = require('./routes/login');
+var memberPage = require('./routes/memberPage');
+var visitPage = require('./routes/visitPage');
+var animalsPage = require('./routes/animalsPage');
 
 var app = express();
 
@@ -18,6 +24,7 @@ app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(timeout(5000));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -28,6 +35,11 @@ app.use('/static', express.static('public/'));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/about', aboutPage);
+app.use('/login',login);
+app.use('/members', memberPage);
+app.use('/visit', visitPage);
+app.use('/animals', animalsPage);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
