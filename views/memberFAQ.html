@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Membership</title>
+    <title>Member FAQ</title>
 
     <!--fonts-->
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
@@ -13,11 +13,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
-//        $(document).ready(function(){
-//            $("button").click(function(){
-//                $("p").toggle();
-//            });
-//        });
+        //Show-hide text function
         function toggle2(showHideDiv, switchTextDiv) {
             var ele = document.getElementById(showHideDiv);
             var text = document.getElementById(switchTextDiv);
@@ -27,6 +23,52 @@
             else {
                 ele.style.display = "block";
             }
+        }
+
+        //addCustomer function
+        function addCustomer() {
+            var valid = true;
+            var address = document.getElementById('address').value;
+            var fname = document.getElementById("fn").value;
+            var lname = document.getElementById("ln").value;
+            var pass = document.getElementById("pw").value;
+            var city = document.getElementById("city").value;
+            var state = document.getElementById("state").value;
+            var zip = document.getElementById("zip").value;
+            var phone = document.getElementById("phone").value;
+            var uname = document.getElementById("Username").value;
+            var dob = document.getElementById("dob").value;
+            var email = document.getElementById("email").value;
+
+
+            /*Here is how to detect which radio button: */
+            var x = document.getElementsByName("memberType");
+            for(var i=0;i<x.length;i++){
+                if(x[i].checked){window.alert(x[i].value);}
+            }
+
+            if(document.getElementById("pw").value != document.getElementById("pw2").value) {
+                window.alert("Passwords do not match!");
+                valid = false;
+                console.log("nope");
+            }
+
+            if (valid) {
+                window.alert("Passes validation!");
+                location = "#";
+                location.reload(true);
+                httpSend('/login/registerUser?username=' + uname + '&password=' + pass + '&firstName=' + fname +
+                        '&lastName=' + lname + '&street=' + address + '&city=' + city + '&state=0&zip=' + zip +
+                        '&phone=' + phone + '&dob=' + dob + '&email=' + email.replace('@', '%40'));
+            }
+        }
+
+        function httpSend(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+
         }
     </script>
 </head>
@@ -46,14 +88,19 @@
             </li>
             <li class="active"><a href="/visit"> Visit Us </a>
                 <ul>
-                    <li><a href="#">Hours & Location</a></li>
-                    <li><a href="#">Buy Tickets</a></li>
+                    <li><a href="/visit">Hours & Location</a></li>
+                    <li><a href="/ticketInfo">Ticket Info</a></li>
                     <li><a href="#">Events</a></li>
                     <li><a href="#">Park Map</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="/visitFAQ">FAQ</a></li>
                 </ul>
             </li>
-            <li><a href="/animals"> Animals </a></li>
+            <li><a href="/animals"> Animals </a>
+                <ul>
+                    <li><a href="/animals">Animal Info</a></li>
+                    <li><a href="/ourAnimals">Our Animals</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 
@@ -100,14 +147,87 @@
     <a id="Q9" class="question" href="javascript:toggle2('A9','Q9');" >WHY MUST EVERYONE BE LISTED ON THE MEMBERSHIP CARD?</a>
     <p id="A9" class="answer">Each membership is designed for a specific set of individuals, not an open-ended admission card. By naming each member we are better able to protect the integrity of the membership program and offer more benefits to our participating members.</p>
     <br>
-    
+
     <a id="Q10" class="question" href="javascript:toggle2('A10','Q10');" >WHAT IS THE TERM OF MY MEMBERSHIP?</a>
     <p id="A10" class="answer">Membership is valid for one full year from the date of purchase.</p>
 
-
-
-
     <br><br><br>
+
+
+<!--Sign up now-->
+    <div class="module" id="signup-link">
+        <a href="#signup-popup" class="signup">Don't have an account? Sign up now</a>
+    </div>
+
+    <!--Here there be the popup form (the link is just above)-->
+    <div id="signup-popup" class="overlay">
+        <div class="popup">
+            <h2>Please enter your credentials</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <div class="module">
+                    <label for="username">Username:</label>
+                    <input id="username" type="text">
+                </div>
+                <div class="module">
+                    <label for="email">Email Address:</label>
+                    <input id="email" type="email">
+                </div>
+                <div class="module">
+                    <label for="pw">Password:</label>
+                    <input id="pw" name="pass" type="password">
+                </div>
+                <div class="module">
+                    <label for="pw2">Confirm Password:</label>
+                    <input id="pw2" type="password">
+                </div>
+                <div class="module">
+                    <label for="fn">First Name:</label>
+                    <input id="fn" name="first" type="text">
+                </div>
+                <div class="module">
+                    <label for="ln">Last Name:</label>
+                    <input id="ln" type="text">
+                </div>
+                <div class="module">
+                    <label for="phone">Phone Number (xxx-xxx-xxxx format):</label>
+                    <input id="phone" type="text">
+                </div>
+                <div class="module">
+                    <label for="dob">Date of Birth (YYYY-MM-DD format):</label>
+                    <input id="dob" type="date">
+                </div>
+                <div class="module">
+                    <label for="address">Street Address:</label>
+                    <input id="address" type="text">
+                </div>
+                <div class="module">
+                    <label for="zip">Zipcode (5-digit):</label>
+                    <input id="zip" type="text">
+                </div>
+                <div class="module">
+                    <label for="city">City:</label>
+                    <input id="city" type="text">
+                </div>
+                <div class="module">
+                    <label for="state">State:</label>
+                    <input id="state" type="text">
+                </div>
+                <div class="module">
+                    Type of Membership:
+                    <input type="radio" name="memberType" value="Single" checked> Single
+                    <input type="radio" name="memberType" value="Dual"> Dual
+                    <input type="radio" name="memberType" value="Dual"> Single Family
+                    <input type="radio" name="memberType" value="Family"> Family
+                    <input type="radio" name="memberType" value="FamlyPlus"> Family Plus
+                    <input type="radio" name="memberType" value="Senior"> Grandparent
+                </div>
+            </div>
+            <button type="button"
+                    onclick="addCustomer()">Submit
+            </button>
+        </div>
+    </div>
 
 </body>
 </html>
