@@ -25,9 +25,15 @@
   },
   "devDependencies": {
     "async": "^2.0.0-rc.3",
+    "bluebird": "^3.3.5",
     "connect": "^3.4.1",
     "connect-timeout": "^1.7.0",
-    "mysql-promise": "^2.0.0"
+    "http-errors": "^1.4.0",
+    "inherits": "^2.0.1",
+    "ms": "^0.7.1",
+    "mysql-promise": "^2.0.0",
+    "on-finished": "^2.3.0",
+    "on-headers": "^1.0.1"
   },
   "scripts": {
     "test": "./build.sh",
