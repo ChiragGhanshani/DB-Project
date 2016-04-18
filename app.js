@@ -16,6 +16,7 @@ var memberFAQ = require('./routes/memberFAQ');
 var visitPage = require('./routes/visitPage');
 var animalsPage = require('./routes/animalsPage');
 var ticketInfo = require('./routes/ticketInfo');
+var visitFAQ = require('./routes/visitFAQ');
 
 var app = express();
 
@@ -44,6 +45,7 @@ app.use('/memberFAQ', memberFAQ);
 app.use('/visit', visitPage);
 app.use('/animals', animalsPage);
 app.use('/ticketInfo', ticketInfo);
+app.use('/visitFAQ', visitFAQ);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
