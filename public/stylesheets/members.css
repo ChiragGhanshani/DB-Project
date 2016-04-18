@@ -104,24 +104,24 @@ p {
     font-size: 25px;
 }
 
-table tr {
-    color: #0b97c4;
-    font-size: 25px;
-}
+/*table tr {*/
+    /*color: #0b97c4;*/
+    /*font-size: 25px;*/
+/*}*/
 
-table td:nth-child(2) {
-    padding-left: 75px;
-}
+/*table td:nth-child(2) {*/
+    /*padding-left: 75px;*/
+/*}*/
 
-table th {
-    color: midnightblue;
-}
+/*table th {*/
+    /*color: midnightblue;*/
+/*}*/
 
-table th:nth-child(2) {
-    float: left;
-    padding-left: 75px;
+/*table th:nth-child(2) {*/
+    /*float: left;*/
+    /*padding-left: 75px;*/
 
-}
+/*}*/
 
 button {
     border: none;
