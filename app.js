@@ -11,7 +11,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var aboutPage = require('./routes/aboutPage');
 var login = require('./routes/login');
-var memberPage = require('./routes/memberPage');
+var memberPage = require('./routes/memberInfo');
 var visitPage = require('./routes/visitPage');
 var animalsPage = require('./routes/animalsPage');
 
