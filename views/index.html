@@ -89,25 +89,29 @@
   <div id="visit" class="visitSection">
     <p class="header"><a href="/visit">Visit Us</a></p>
     <div class="row">
+      <!--Hours & events-->
       <div class="col-6 hours">
         <ul>
           <li><h3 id="date"></h3></li>
           <li>Open: 9 am Close: 6 pm</li>
           <li>Last Entry: 5 pm</li>
-          <br>
-          <br>
+          <br><br>
           <ul>
             <li><h3>Ticket Information</h3></li>
             <li>Adults 12-64: $15</li>
             <li>Children under 12: $10</li>
             <li>Children under 2: FREE</li>
             <li>Senior 65+: $8</li>
-          <li>
-            <form action="/visit">
-              <button>Buy Tickets</button></li>
-            </form>
+            <li>
+              <form action="/visit">
+                <button>Buy Tickets</button>
+              </form>
+            </li>
+          </ul>
         </ul>
       </div>
+
+    <!--Directions-->
       <div class="col-6 directions">
         <ul>
           <li><img src="static/images/UHmap.png" alt="UH map"></li>
@@ -121,8 +125,6 @@
         </ul>
       </div>
     </div>
-
-  </div>
 
   <!--&lt;!&ndash; Tickets Section &ndash;&gt;-->
   <!--<div id="tickets" class="ticketSection">-->
@@ -142,7 +144,7 @@
 
   <!-- Member Section -->
   <div id="members" class="memberSection">
-    <p class="header"><a href="/members">Membership</a></p>
+    <p class="header"><a href="/memberInfo">Membership</a></p>
     <div class="col-6">
       <ul>
         <li><h3>Become a member today!</h3></li>
@@ -178,7 +180,7 @@
 
 
 
-<!--Javascript starts here-->
+  <!--Javascript starts here-->
 
   <!--Retrieves current date, finds 'date' id and sends it there-->
   <script>
