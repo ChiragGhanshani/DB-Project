@@ -93,3 +93,21 @@
     color: black;
 }
 
+table {
+    margin: auto;
+    width: 1200px;
+    border-spacing: 20px;
+}
+
+table td {
+    color: midnightblue;
+    font-size: 20px;
+    width: 650px;
+}
+
+.des {
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-align: center;
+}
+
