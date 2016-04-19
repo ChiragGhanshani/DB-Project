@@ -49,8 +49,8 @@ module.exports = {
         }
       });
     }
-  }
-  insertEmployee : function(username, password, firstName, lastName, streetAddress, city, state zipCode, phoneNumber, dob, email, national_id, manager_id, salary, role, sendResultBack) {
+  },
+  insertEmployee : function(username, password, firstName, lastName, streetAddress, city, state, zipCode, phoneNumber, dob, email, national_id, manager_id, salary, role, sendResultBack) {
     if(username === "undefined" || password === "undefined" || firstName === "undefined" || lastName === "undefined" || streetAddress === "undefined" || 
         city === "undefined" || state === "undefined" || zipCode === "undefined" || phoneNumber === "undefined" || dob === "undefined" || 
         email === "undefined" || national_id === "undefined" || manager_id === "undefined" || salary === "undefined" || role === "undefined")
@@ -69,7 +69,7 @@ module.exports = {
         else{
           id = result['UUID()'];
           date = result['UTC_DATE()'];
-          var employeeInsertionString = 'INSERT INTO employees(employee_id, employee_firstname, employees_lastName, street_address, city, state, zipcode, phone_number, employee_dob, email, national_id, manager_id, salary, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
+          var employeeInsertionString = 'INSERT INTO employees(employee_id, employee_firstname, employee_lastName, street_address, city, state, zipcode, phone_number, employee_dob, email, national_id, manager_id, salary, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
           var employeeInsertion = db.query(employeeInsertionString,
             [id, firstName, lastName, streetAddress, city, state, zipCode, phoneNumber, dob, email, national_id, manager_id, salary, role]).then(function() {
             var userInsertionString = 'INSERT INTO users(username, password, date_created, active, user_id, role) VALUES (?, ?, ?, ?, ?, ?);';
