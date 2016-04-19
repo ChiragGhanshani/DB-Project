@@ -118,6 +118,7 @@ VALUES(
 	01, /*state*/
 	12345,
 	'000-000-0000',
+	'1960-05-14',
 	'nothing@nothing.com',
 	'123456789',
 	@manager_id_variable,
