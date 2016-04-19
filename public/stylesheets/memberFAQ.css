@@ -2,36 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: Ubuntu, sans-serif;
-    /*padding and border included in total width and height of elements*/
-    box-sizing: border-box;
 }
-
-/*Defines how many columns the section should span*/
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
-
-
-[class*="col-"] { /*Makes all columns float left*/
-    float: left;
-}
-
-
-.row:after { /*Prevents other elements to be placed as if the columns were not there*/
-    content: "";
-    clear: both;
-    display: block;
-}
-
 
 /*Navbar*/
 #navbar ul {
@@ -86,7 +57,6 @@
     /*left: 0;*/
     background: white;
     /*padding: 0;*/
-    z-index: 100;
 }
 
 #navbar ul ul li {
@@ -103,6 +73,7 @@
 
 #navbar ul li:hover > ul {
     display: block;
+    /*z-index: 100;*/
 }
 
 /*Image*/
@@ -118,10 +89,15 @@
     position: relative;
 }
 
-.sectionhead {
-    font-size: 30px;
-    color: black;
-    font-weight: bold;
+.answer {
+    color: #0b97c4;
+    font-size: 25px;
+    display: none;
+    margin: auto;
+    width: 1000px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 
 .header {
@@ -130,70 +106,80 @@
     font-size: 70px;
     font-family: Lobster, sans-serif;
     color: black;
-    padding-bottom: 0;
 }
 
-p {
-    color: #0b97c4;
+.question {
+    color: midnightblue;
     font-size: 25px;
-}
-
-table {
-    margin: auto;
-    border-spacing: 10px;
+    text-decoration: none;
+    display: block;
     width: 1000px;
-}
-
-table td {
-    color: midnightblue;
-    font-size: 25px;
-    word-wrap: break-word;
-}
-
-.hours ul {
-    list-style-type: none;
-}
-
-.hours li {
-    margin-bottom: 5px;
-    color: midnightblue;
-    font-size: 25px;
-}
-
-
-.location ul {
-    list-style-type: none;
-    margin-left: 450px;
-}
-
-.location li {
-    margin-bottom: 5px;
-    color: midnightblue;
-    font-size: 25px;
-}
-
-hr {
-    width: 80%;
+    border: 1px solid #ddd;
+    background-color: rgba(192, 192, 192, 0.3);
+    padding: 10px;
     margin: auto;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 
 
-/*EVENTS TABLE CSS*/
-/*table tr {*/
-    /*color: #0b97c4;*/
-    /*font-size: 25px;*/
-/*}*/
+/*popup form...*/
+.overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
 
-/*table td:nth-child(2) {*/
-    /*padding-left: 75px;*/
-/*}*/
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
 
-/*table th {*/
-    /*color: midnightblue;*/
-/*}*/
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 500px;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
 
-/*table th:nth-child(2) {*/
-    /*float: left;*/
-    /*padding-left: 75px;*/
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+}
 
-/*}*/
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+.signup {
+    text-decoration: none;
+    background-color: mediumvioletred;
+    cursor: pointer;
+    cursor: hand;
+    font-size: 20px;
+    margin: auto;
+    color: white;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
