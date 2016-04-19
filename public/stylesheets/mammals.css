@@ -2,6 +2,34 @@
     margin: 0;
     padding: 0;
     font-family: Ubuntu, sans-serif;
+    /*padding and border included in total width and height of elements*/
+    box-sizing: border-box;
+}
+
+/*Defines how many columns the section should span*/
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+[class*="col-"] { /*Makes all columns float left*/
+    float: left;
+}
+
+
+.row:after { /*Prevents other elements to be placed as if the columns were not there*/
+    content: "";
+    clear: both;
+    display: block;
 }
 
 /*Navbar*/
@@ -93,3 +121,41 @@
     color: black;
 }
 
+.a-img {
+    display: table;
+    margin: 0 auto;
+    border: 10px solid whitesmoke;
+    margin-bottom: 75px;
+}
+
+.moreLink {
+    text-decoration: none;
+    font-size: 15px;
+    /*color: black;*/
+    /*float: right;*/
+    padding-bottom: 0;
+    display: block;
+}
+
+.moreInfo {
+    display: none;
+    margin: auto;
+}
+
+.name {
+    font-size: 20px;
+    color: midnightblue;
+}
+
+table {
+    width: 400px;
+    /*border-spacing: 5px;*/
+}
+
+table td {
+    width: 133px;
+}
+
+figcaption {
+    width: 400px;
+}
