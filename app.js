@@ -23,6 +23,8 @@ var animalsPage = require('./routes/animalsPage');
 var mammals = require('./routes/mammals');
 var birds = require('./routes/birds');
 var aquatic = require('./routes/aquatic');
+var amphibians = require('./routes/amphibians');
+var reptiles = require('./routes/reptiles');
 
 var app = express();
 
@@ -58,6 +60,8 @@ app.use('/animals', animalsPage);
 app.use('/mammals', mammals);
 app.use('/birds', birds);
 app.use('/aquatic', aquatic);
+app.use('/amphibians', amphibians);
+app.use('/reptiles', reptiles);
 
 
 // catch 404 and forward to error handler
