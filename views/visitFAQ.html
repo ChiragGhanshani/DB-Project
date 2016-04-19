@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Visit Us FAQ</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster"/>
+
+    <link rel="stylesheet" type="text/css" href="static/stylesheets/visitFAQ.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        //Show-hide text function
+        function toggle2(showHideDiv, switchTextDiv) {
+            var ele = document.getElementById(showHideDiv);
+            var text = document.getElementById(switchTextDiv);
+            if(ele.style.display == "block") {
+                ele.style.display = "none";
+            }
+            else {
+                ele.style.display = "block";
+            }
+        }
+    </script>
+
+</head>
+
+
+<body>
+
+    <!--NavBar -->
+    <nav id="navbar">
+        <ul>
+            <li><a class="title" href="/"> Hu-manatee Zoo </a></li>
+            <li><a href="/memberInfo"> Membership </a>
+                <ul>
+                    <li><a href="/memberInfo">Member Info</a></li>
+                    <li><a href="/memberFAQ">Member FAQ</a></li>
+                    <li><a href="/login">Join/Log in</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="/visit"> Visit Us </a>
+                <ul>
+                    <li><a href="/visit">Hours & Location</a></li>
+                    <li><a href="/ticketInfo">Ticket Info</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Park Map</a></li>
+                    <li><a href="/visitFAQ">FAQ</a></li>
+                </ul>
+            </li>
+            <li><a href="/animals"> Animals </a>
+                <ul>
+                    <li><a href="/animals">Animal Info</a></li>
+                    <li><a href="/ourAnimals">Our animals</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="imageContainer">
+        <img class ="fillWidth" src="static/images/visit-1.jpg" alt="Lion Picture">
+    </div>
+
+
+    <p class="header">Park FAQ</p>
+    <br><br>
+
+    <a id="Q1" class="question" href="javascript:toggle2('A1', 'Q1');">CAN I LEAVE THE ZOO AND COME BACK ON THE SAME DAY?</a>
+    <div class="answer" id="A1">Yes. Visitors are welcome to exit and come back on the same day, but you must stop by the information hut and get your hand stamped. This is the only way to re-gain entry.</div>
+    <br>
+
+    <a id="Q2" class="question" href="javascript:toggle2('A2','Q2');">AM I ALLOWED TO BRING OUTSIDE FOOD/DRINKS?</a>
+    <p id="A2" class="answer">Yes! But please refrain from glass, alcoholic beverages, and plastic straws. </p>
+    <br>
+
+    <a id="Q3" class="question" href="javascript:toggle2('A3','Q3');" >CAN I BRING MY PET TO THE ZOO?</a>
+    <p id="A3" class="answer">No. Pets present a health and safety issue to our animal collection. Service animals are permitted.</p>
+    <br>
+
+    <a id="Q4" class="question" href="javascript:toggle2('A4','Q4');" >WHAT ITEMS ARE NOT ALLOWED AT THE ZOO?</a>
+    <p id="A4" class="answer">For the safety of other zoo guests and our animals, glass containers, alcohol, bikes, skates and skateboards, rollerblades, radios/CD players, whistles, and inflatable objects are not allowed.</p>
+    <br>
+
+    <a id="Q5" class="question" href="javascript:toggle2('A5','Q5');" >WHAT FORM OF PAYMENT DOES THE ZOO ACEPT?</a>
+    <p id="A5" class="answer">We accept Visa, MasterCard, American Express, Discover, and cash. Personal checks are not accepted.</p>
+    <br>
+
+    <a id="Q6" class="question" href="javascript:toggle2('A6','Q6');" >IS THERE A WAY TO BUY TICKETS IN ADVANCE?</a>
+    <p id="A6" class="answer">Currently only members may purchase tickets in advance through our website. All others will have to purchase in person.</p>
+    <br>
+
+    <a id="Q7" class="question" href="javascript:toggle2('A7','Q7');"> WHERE COULD I REPORT A LOST ITEM?</a>
+    <p id="A7" class="answer">Visit our Guest Services office located by the main entrances, this is where our Lost and Found is located.</p>
+    <br>
+
+    <a id="Q8" class="question" href="javascript:toggle2('A8','Q8');" >DOES THE ZOO GIVE RAINCHECKS?</a>
+    <p id="A8" class="answer">The Zoo is a rain-or-shine activity, so we advise you check the weather before your visit and come prepared. Rainchecks are not given.</p>
+    <br>
+
+    <a id="Q9" class="question" href="javascript:toggle2('A9','Q9');" >WHEN IS THE BEST TIME TO VISIT THE ZOO?</a>
+    <p id="A9" class="answer">Animals are most active first thing in the morning, especially during the summer. However, the Zoo tends to be less croweded late afternoon. We recommeded setting aside 2 to 3 hours for your visit. </p>
+    <br>
+
+    <a id="Q10" class="question" href="javascript:toggle2('A10','Q10');" >CAN I SMOKE WHILE I AM AT THE ZOO?</a>
+    <p id="A10" class="answer">Smoking is not allowed anywhere on Zoo grounds.</p>
+
+    <br><br><br>
+
+
+</body>
+</html>

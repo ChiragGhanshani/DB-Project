@@ -31,8 +31,28 @@
             }
 
             else {
-                window.alert("Welcome " + result.username);
+              setCookie('zooLoginCookie', result, .04);
+              document.getElementById('home').click();
             }
+        }
+
+        function getCookie(cname) {
+          var name = cname + "=";
+          var ca = document.cookie.split(';');
+          for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1);
+              if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+            }
+          return "";
+        }
+
+        function setCookie(cookieName, value, expDays){
+          var d = new Date();
+          d.setTime(d.getTime() + Math.round(expDays * 24 * 60 * 60 * 1000));
+          var expires = 'expires='+d.toUTCString();
+          document.cookie = 'zooLoginCookie=' + JSON.stringify(value) + ';' + 'path=/;' +
+            'name=' + cookieName + ';';
         }
 
         function addCustomer() {
@@ -86,7 +106,6 @@
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
             xmlHttp.send( null );
-            console.log(xmlHttp.responseText);
             return JSON.parse(xmlHttp.responseText);
         }
     </script>
@@ -98,24 +117,29 @@
     <!--NavBar -->
     <nav id="navbar">
         <ul>
-            <li><a class="title" href="/"> Zoo Name </a></li>
-            <li><a href="/members"> Membership </a>
+            <li><a id='home' class="title" href="/"> Hu-manatee Zoo </a></li>
+            <li><a href="/memberInfo"> Membership </a>
                 <ul>
-                    <li><a href="#">Benefits</a></li>
-                    <li><a href="#">Levels</a></li>
+                    <li><a href="/memberInfo">Member Info</a></li>
+                    <li><a href="/memberFAQ">Member FAQ</a></li>
                     <li><a href="/login">Join/Log in</a></li>
                 </ul>
             </li>
             <li class="active"><a href="/visit"> Visit Us </a>
                 <ul>
-                    <li for="hours" class="active"><a href="#">Hours & Location</a></li>
-                    <li for="tickets"><a href="#">Buy Tickets</a></li>
+                    <li><a href="/visit">Hours & Location</a></li>
+                    <li><a href="/ticketInfo">Ticket Info</a></li>
                     <li><a href="#">Events</a></li>
                     <li><a href="#">Park Map</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="/visitFAQ">FAQ</a></li>
                 </ul>
             </li>
-            <li><a href="/animals"> Animals </a></li>
+            <li><a href="/animals"> Animals </a>
+                <ul>
+                    <li><a href="/animals">Animal Info</a></li>
+                    <li><a href="/ourAnimals">Our Animals</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 

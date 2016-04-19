@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Ubuntu, sans-serif;
+}
+
+/*Navbar*/
+#navbar ul {
+    list-style-type: none;
+    /*overflow: hidden;*/
+
+    /*fixed top*/
+    position: fixed;
+    z-index: 1; /*enables links*/
+    top: 0;
+    width: 100%;
+
+    /*background */
+    background-color: rgba(255, 255, 255,0.60);
+    border: none;
+}
+
+#navbar ul li a {
+    display: block;
+    color: mediumvioletred;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 35px 10px 35px;
+    margin: 10px;
+    font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+}
+
+#navbar ul li {
+    float: right;
+    position: relative;
+}
+
+#navbar li:first-child {
+    float: left;
+    position: relative;
+}
+
+#navbar .title{
+    font-size: 35px;
+    padding: 10px 20px 10px 30px;
+}
+
+#navbar ul li:hover {
+    background: #f6f6f6;
+}
+
+#navbar ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /*left: 0;*/
+    background: white;
+    /*padding: 0;*/
+}
+
+#navbar ul ul li {
+    /*float: none;*/
+    width: inherit;
+}
+
+#navbar ul ul a {
+    font-size: 15px;
+    padding: 0;
+    /*line-height: 120%;*/
+    /*padding: 10px 15px;*/
+}
+
+#navbar ul li:hover > ul {
+    display: block;
+    /*z-index: 100;*/
+}
+
+/*Image*/
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.fillWidth {
+    width: 100%;
+    position: relative;
+}
+
+.answer {
+    color: #0b97c4;
+    font-size: 25px;
+    display: none;
+    margin: auto;
+    width: 1000px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.header {
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 70px;
+    font-family: Lobster, sans-serif;
+    color: black;
+}
+
+.question {
+    color: midnightblue;
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+    width: 1000px;
+    border: 1px solid #ddd;
+    background-color: rgba(192, 192, 192, 0.3);
+    padding: 10px;
+    margin: auto;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+
+/*popup form...*/
+.overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 500px;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+.signup {
+    text-decoration: none;
+    background-color: mediumvioletred;
+    cursor: pointer;
+    cursor: hand;
+    font-size: 20px;
+    margin: auto;
+    color: white;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+}

@@ -37,6 +37,7 @@
 </head>
 
 <body>
+
   <!--NavBar -->
   <div class="navbar" id="top">
     <ul>
@@ -67,21 +68,21 @@
       <li><img src="static/images/Elephants.jpg" alt="Elephants"></li>
     </ul>
     <!--<div class="row animals">-->
-      <!--<div class="col-2">-->
-        <!--<li><img src="static/images/RedPanda.jpg" alt="Red Panda"></li>-->
-      <!--</div>-->
-      <!--<div class="col-2">-->
-        <!--<li><img src="static/images/LionCubs.jpg" alt="Lion cubs"></li>-->
-      <!--</div>-->
-      <!--<div class="col-2">-->
-        <!--<li><img src="static/images/Gorilla.jpg" alt="Gorilla"></li>-->
-      <!--</div>-->
-      <!--<div class="col-2">-->
-        <!--<li><img src="static/images/Giraffe2.jpg" alt="Giraffe"></li>-->
-      <!--</div>-->
-      <!--<div class="col-2">-->
-        <!--<li><img src="static/images/Elephants.jpg" alt="Elephants"></li>-->
-      <!--</div>-->
+    <!--<div class="col-2">-->
+    <!--<li><img src="static/images/RedPanda.jpg" alt="Red Panda"></li>-->
+    <!--</div>-->
+    <!--<div class="col-2">-->
+    <!--<li><img src="static/images/LionCubs.jpg" alt="Lion cubs"></li>-->
+    <!--</div>-->
+    <!--<div class="col-2">-->
+    <!--<li><img src="static/images/Gorilla.jpg" alt="Gorilla"></li>-->
+    <!--</div>-->
+    <!--<div class="col-2">-->
+    <!--<li><img src="static/images/Giraffe2.jpg" alt="Giraffe"></li>-->
+    <!--</div>-->
+    <!--<div class="col-2">-->
+    <!--<li><img src="static/images/Elephants.jpg" alt="Elephants"></li>-->
+    <!--</div>-->
     <!--</div>-->
   </div>
 
@@ -89,25 +90,29 @@
   <div id="visit" class="visitSection">
     <p class="header"><a href="/visit">Visit Us</a></p>
     <div class="row">
+      <!--Hours & events-->
       <div class="col-6 hours">
         <ul>
           <li><h3 id="date"></h3></li>
           <li>Open: 9 am Close: 6 pm</li>
           <li>Last Entry: 5 pm</li>
-          <br>
-          <br>
+          <br><br>
           <ul>
             <li><h3>Ticket Information</h3></li>
             <li>Adults 12-64: $15</li>
             <li>Children under 12: $10</li>
             <li>Children under 2: FREE</li>
             <li>Senior 65+: $8</li>
-          <li>
-            <form action="/visit">
-              <button>Buy Tickets</button></li>
-            </form>
+            <li>
+              <form action="/visit">
+                <button>Buy Tickets</button>
+              </form>
+            </li>
+          </ul>
         </ul>
       </div>
+
+      <!--Directions-->
       <div class="col-6 directions">
         <ul>
           <li><img src="static/images/UHmap.png" alt="UH map"></li>
@@ -121,28 +126,27 @@
         </ul>
       </div>
     </div>
-
   </div>
 
   <!--&lt;!&ndash; Tickets Section &ndash;&gt;-->
   <!--<div id="tickets" class="ticketSection">-->
-    <!--<h1>Tickets</h1>-->
-    <!--<div class="row">-->
-      <!--<div class="col-6">-->
-        <!--<ul>-->
-          <!--<li>Adults 12-64: $15</li>-->
-          <!--<li>Children under 12: $10</li>-->
-          <!--<li>Children under 2: FREE</li>-->
-          <!--<li>Senior 65+: $8</li>-->
-          <!--<li><button>Buy Tickets</button></li>-->
-        <!--</ul>-->
-      <!--</div>-->
-    <!--</div>-->
+  <!--<h1>Tickets</h1>-->
+  <!--<div class="row">-->
+  <!--<div class="col-6">-->
+  <!--<ul>-->
+  <!--<li>Adults 12-64: $15</li>-->
+  <!--<li>Children under 12: $10</li>-->
+  <!--<li>Children under 2: FREE</li>-->
+  <!--<li>Senior 65+: $8</li>-->
+  <!--<li><button>Buy Tickets</button></li>-->
+  <!--</ul>-->
+  <!--</div>-->
+  <!--</div>-->
   <!--</div>-->
 
   <!-- Member Section -->
   <div id="members" class="memberSection">
-    <p class="header"><a href="/members">Membership</a></p>
+    <p class="header"><a href="/memberInfo">Membership</a></p>
     <div class="col-6">
       <ul>
         <li><h3>Become a member today!</h3></li>
@@ -169,16 +173,9 @@
         <li><button>Learn more</button></li>
       </ul>
     </div>
-
   </div>
 
-  <div id="footer">
-
-  </div>
-
-
-
-<!--Javascript starts here-->
+  <!--Javascript starts here-->
 
   <!--Retrieves current date, finds 'date' id and sends it there-->
   <script>
@@ -187,6 +184,7 @@
   </script>
 
 </body>
+
 
 
 
@@ -206,12 +204,13 @@
       <a href="https://www.pinterest.com/univofhouston/"><i style="color: red" class="fa fa-pinterest fa-lg"></i></a>
     </span>
   -->
+
   <div class="container">
     <div class="footerLeft">
       <h2>
         <strong>Hours</strong>
       </h2>
-      <div id="hours">
+      <div id="hours"> <!--Please rename this id to something else, hours is already being used as a class name. it could create conflicts -->
         <address>
           <strong> Mon-Wed 9:00am-6:00pm</strong>
         </address>
