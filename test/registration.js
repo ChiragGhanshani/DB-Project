@@ -10,9 +10,18 @@ describe('registration ORM test', function(){
     });
   });
 
-  it('Should Insert into DB', function(done){
+  it('Should Insert Customer into DB', function(done){
     registrationORM.insertCustomer('Shang', '123', 'Jing', 'Mei', 'Fuck', 'This',
       0, 80085, '123-123-1234', '1990-04-01', 'bob@bob.com', function(error, result){
+        expect(error).to.be.eql(null);
+        done();
+    });
+  });
+
+  it('Should insert employee into DB', function(done){
+    registrationORM.insertEmployee('Ranger', 'DeadPool', 'Wolverine', 'Smith',
+      '101 Marvel Lane', 'Houston', 1, 77004, '800-273-8255', '1989-04-01',
+       'kim@kimson.com', '123456789', 'NULL', 60000, 0, function(error, result){
         expect(error).to.be.eql(null);
         done();
     });
