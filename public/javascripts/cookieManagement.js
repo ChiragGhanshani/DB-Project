@@ -13,6 +13,30 @@ function setCookie(cookieName, value, expDays){
   var d = new Date();
   d.setTime(d.getTime() + Math.round(expDays * 24 * 60 * 60 * 1000));
   var expires = 'expires='+d.toUTCString();
-  document.cookie = 'zooLoginCookie=' + JSON.stringify(value) + ';' + 'path=/;' +
+  document.cookie = cookieName + '=' + JSON.stringify(value) + ';' + 'path=/;' +
     'name=' + cookieName + ';';
+}
+
+function addTab() {
+  var cook = getCookie('zooLoginCookie');
+  var user = JSON.parse(cook);
+  var username = user.username;
+  var role = user.role;
+
+  if(role === "Customer") {
+    //document.getElementById('navbar').style.visibility = "hidden";
+    document.getElementById('name').innerHTML = username;
+    document.getElementById('name').style.display = "block";
+    document.getElementById('customer').style.display = "block";
+  }
+
+  else if(role === "Manager") {
+    document.getElementById('name').innerHTML = username;
+    document.getElementById('name').style.visibility = "visible";
+    document.getElementById('manager').style.visibility = "visible";
+  }
+
+  else if (role === "") { //finish this else if
+    document.getElementById('customer').style.display = "none";
+  }
 }
