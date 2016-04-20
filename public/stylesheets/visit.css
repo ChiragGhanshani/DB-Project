@@ -2,16 +2,35 @@
     margin: 0;
     padding: 0;
     font-family: Ubuntu, sans-serif;
+    /*padding and border included in total width and height of elements*/
+    box-sizing: border-box;
 }
 
-/*this is for Visit Us under img, not sure if to display it*/
-/*.header {*/
-    /*text-align: center;*/
-    /*font-size: 100px;*/
-    /*font-family: Lobster, Ubuntu, sans-serif;*/
-    /*font-style: normal;*/
-    /*letter-spacing: 2px;*/
-/*}*/
+/*Defines how many columns the section should span*/
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+[class*="col-"] { /*Makes all columns float left*/
+    float: left;
+}
+
+
+.row:after { /*Prevents other elements to be placed as if the columns were not there*/
+    content: "";
+    clear: both;
+    display: block;
+}
 
 
 /*Navbar*/
@@ -99,42 +118,19 @@
     position: relative;
 }
 
-
-/*Sections*/
-section {
-    margin-left: 250px;
-    /*border: 3px solid red;*/
+.sectionhead {
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
 }
 
-/*.tabs section{*/
-    /*position: absolute;*/
-    /*display: block;*/
-    /*top: 1.8em;*/
-    /*height: 1000px;*/
-    /*padding: 10px 20px;*/
-    /*background-color: white;*/
-    /*z-index: 0;*/
-/*}*/
-
-/*.tabs {*/
-    /*position: relative;*/
-    /*display: block;*/
-/*}*/
-
-/*.tabs section:first-child {*/
-    /*z-index: 1;*/
-/*}*/
-
-/*.tabs section:target*/
-/*{*/
-    /*color: #333;*/
-    /*background-color: white;*/
-    /*z-index: 1;*/
-/*}*/
-
 .header {
-    color: midnightblue;
-    font-size: 40px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 70px;
+    font-family: Lobster, sans-serif;
+    color: black;
+    padding-bottom: 0;
 }
 
 p {
@@ -142,26 +138,62 @@ p {
     font-size: 25px;
 }
 
-table tr {
-    color: #0b97c4;
+table {
+    margin: auto;
+    border-spacing: 10px;
+    width: 1000px;
+}
+
+table td {
+    color: midnightblue;
+    font-size: 25px;
+    word-wrap: break-word;
+}
+
+.hours ul {
+    list-style-type: none;
+}
+
+.hours li {
+    margin-bottom: 5px;
+    color: midnightblue;
     font-size: 25px;
 }
 
-table td:nth-child(2) {
-    padding-left: 75px;
+
+.location ul {
+    list-style-type: none;
+    margin-left: 450px;
 }
 
-table th {
+.location li {
+    margin-bottom: 5px;
     color: midnightblue;
+    font-size: 25px;
 }
 
-table th:nth-child(2) {
-    float: left;
-    padding-left: 75px;
-
+hr {
+    width: 80%;
+    margin: auto;
 }
 
-button {
-    border: none;
-    background: none;
-}
+
+/*EVENTS TABLE CSS*/
+/*table tr {*/
+    /*color: #0b97c4;*/
+    /*font-size: 25px;*/
+/*}*/
+
+/*table td:nth-child(2) {*/
+    /*padding-left: 75px;*/
+/*}*/
+
+/*table th {*/
+    /*color: midnightblue;*/
+/*}*/
+
+/*table th:nth-child(2) {*/
+    /*float: left;*/
+    /*padding-left: 75px;*/
+
+/*}*/

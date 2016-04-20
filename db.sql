@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS employees(
 	state int(2) NOT NULL,/*enumerated above*/
 	zipcode int(5) NOT NULL, /*limited zip to 5 digits - this is all we need to care about*/
 	phone_number varchar(12) NOT NULL,
+	employee_dob date NOT NULL,
 	email varchar(40) NOT NULL,
 	national_id int(9) NOT NULL,
 	manager_id varchar(36), /*uuid*/

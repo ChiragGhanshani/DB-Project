@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Ubuntu, sans-serif;
+    /*padding and border included in total width and height of elements*/
+    box-sizing: border-box;
+}
+
+/*Defines how many columns the section should span*/
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+[class*="col-"] { /*Makes all columns float left*/
+    float: left;
+}
+
+
+.row:after { /*Prevents other elements to be placed as if the columns were not there*/
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/*Navbar*/
+#navbar ul {
+    list-style-type: none;
+    /*overflow: hidden; not sure what this is for*/
+
+    /*fixed top*/
+    position: fixed;
+    z-index: 1; /*enables links*/
+    top: 0;
+    width: 100%;
+
+    /*background */
+    background-color: rgba(255, 255, 255,0.60);
+    border: none;
+}
+
+#navbar ul li a {
+    display: block;
+    color: mediumvioletred;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 35px 10px 35px;
+    margin: 10px;
+    font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+}
+
+#navbar ul li {
+    float: right;
+    position: relative;
+}
+
+#navbar li:first-child {
+    float: left;
+    position: relative;
+}
+
+#navbar .title{
+    font-size: 35px;
+    padding: 10px 20px 10px 30px;
+}
+
+#navbar ul li:hover {
+    background: #f6f6f6;
+}
+
+#navbar ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: white;
+}
+
+#navbar ul ul li {
+    width: inherit;
+}
+
+#navbar ul ul a {
+    font-size: 15px;
+    padding: 0;
+    /*line-height: 120%;*/
+    /*padding: 10px 15px;*/
+}
+
+#navbar ul li:hover > ul {
+    display: block;
+}
+
+/*Image*/
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.fillWidth {
+    width: 100%;
+    position: relative;
+}
+
+.header {
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 70px;
+    font-family: Lobster, sans-serif;
+    color: black;
+}
+
+.a-img {
+    display: table;
+    margin: 0 auto;
+    border: 10px solid whitesmoke;
+    margin-bottom: 75px;
+}
+
+.moreLink {
+    text-decoration: none;
+    font-size: 15px;
+    /*color: black;*/
+    /*float: right;*/
+    padding-bottom: 0;
+    display: block;
+}
+
+.moreInfo {
+    display: none;
+    margin: auto;
+}
+
+.name {
+    font-size: 20px;
+    color: midnightblue;
+}
+
+table {
+    width: 400px;
+    /*border-spacing: 5px;*/
+}
+
+table td {
+    width: 133px;
+}
+
+figcaption {
+    width: 400px;
+}

@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  /*padding and border included in total width and height of elements*/
+  box-sizing: border-box;
 }
 
 body {
@@ -10,10 +12,6 @@ body {
 
 button {
   font-family: Ubuntu, sans-serif;
-}
-
-* { /*padding and border included in total width and height of elements*/
-  box-sizing: border-box;
 }
 
 /*Defines how many columns the section should span*/
@@ -156,7 +154,7 @@ a {
   left: 0; right: 0;
   /*vertical-align: middle;*/
   font-size: 20px;
-  opcacity: 0;
+  opacity: 0;
 }
 
 .animalSection li:hover p {
@@ -233,7 +231,7 @@ a {
 
 /*Membership Section*/
 .memberSection {
-  height: 600px;
+  height: 500px;
 }
 
 .memberSection ul {
@@ -277,6 +275,7 @@ footer {
 
 
 footer a{
+  height: 100px;
   padding-left: 20px;
   text-decoration: none;
   color: mediumvioletred;
@@ -289,12 +288,12 @@ footer a{
 
 .footerLeft {
     width: 220px;
-    background: #000
+    background: #000;
     padding-top: 20px;
     margin-left: 20px !important;
     min-height: 163px;
     height: 100%;
-    font-style: "proxima-nova", sans-serif;
+    font-family: Ubuntu sans-serif;
 }
 
 h2 {
@@ -302,14 +301,14 @@ h2 {
     font-weight: bold;
 }
 
-hours {
-    background: #000;
-    width: 218px;
-}
-
 address {
     margin: 0 0 1.5em;
-    font-style: "proxima-nova", sans-serif;
+    font-family: Ubuntu, sans-serif;
+}
+
+/*Khoi's id.. please rename, this class name is already being used*/
+#hours {
+  width: 218px;
 }
 
 

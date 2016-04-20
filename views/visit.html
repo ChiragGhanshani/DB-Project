@@ -16,156 +16,144 @@
     <nav id="navbar">
         <ul>
             <li><a class="title" href="/"> Hu-manatee Zoo </a></li>
-            <li><a href="/members"> Membership </a>
+            <li><a href="/memberInfo"> Membership </a>
                 <ul>
-                    <li><a href="#">Benefits</a></li>
-                    <li><a href="#">Levels</a></li>
+                    <li><a href="/memberInfo">Member Info</a></li>
+                    <li><a href="/memberFAQ">Member FAQ</a></li>
                     <li><a href="/login">Join/Log in</a></li>
                 </ul>
             </li>
             <li class="active"><a href="/visit"> Visit Us </a>
                 <ul>
-                    <li><a href="#hours">Hours & Location</a></li>
-                    <li><a href="#tickets">Buy Tickets</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#parkmap">Park Map</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="/visit">Hours & Location</a></li>
+                    <li><a href="/ticketInfo">Ticket Info</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Park Map</a></li>
+                    <li><a href="/visitFAQ">FAQ</a></li>
                 </ul>
             </li>
-            <li><a href="/animals"> Animals </a></li>
+            <li><a href="/animals"> Animals </a>
+                <ul>
+                    <li><a href="/mammals">Mammals</a></li>
+                    <li><a href="/birds">Birds</a></li>
+                    <li><a href="/aquatic">Aquatic</a></li>
+                    <li><a href="/reptiles">Reptiles</a></li>
+                    <li><a href="/amphibians">Amphibians</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 
-
-
-    <script>
-        function switchtab(id) {
-            (id).removeClass('active');
-            (this).addClass('active');
-            ('active').show();
-        }
-//        $('').click(function(e){
-//            //make all tabs inactive
-//            $('.pdf_documents a').removeClass('active');
-//            //then make the clicked tab active
-//            $(this).addClass('active');
-//            $('.pdf_box .legales').hide();
-//            $('.pdf_box .comerciales').show();
-//        });
-//
-//
-//        $('.tab-leg a').click(function(e){
-//            //make all tabs inactive
-//            $('.pdf_documents a').removeClass('active');
-//            //then make the clicked tab active
-//            $(this).addClass('active');
-//            $('.pdf_box .comerciales').hide();
-//            $('.pdf_box .legales').show();
-//        });
-    </script>
 
     <div class="imageContainer">
         <img class ="fillWidth" src="static/images/visit-1.jpg" alt="Lion Picture">
     </div>
 
-    <div class="tabs">
-        <section id="hours">
-            <p class="header">Hours</p>
-            <p>January 2 - March 15  |  9 am - 4 pm </p>
-            <p>March 16 - October 15  |  9 am - 6 pm</p>
-            <p>October 16 - December 31  |  9 am - 4 pm</p>
-            <br> <br>
-            <p class="header">Holiday Hours</p>
-            <p>The zoo will be closed on Thanksgiving Day, Christmas Day, and New Years Day.</p>
-            <p>Limited hours for Christmas Eve and New Years Eve.</p>
-            <p>Check here for unannounced closings. </p>
-            <br> <br>
-            <p class="header">Location</p>
-            <p>The zoo is located adjacent to the University of Houston.</p>
-            <p>4800 Calhoun Rd. Houston, TX 77004</p>
+    <p class="header">Hours & Location</p>
+    <br><br>
 
-            <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
-            <div style='overflow:hidden;height:400px;width:600px;'>
-                <div id='gmap_canvas' style='height:400px;width:600px;'>  </div>
-                <div>
-                    <small><a href="http://embedgooglemaps.com">embed google maps</a></small>
-                </div>
-                <div>
-                    <small><a href="http://freedirectorysubmissionsites.com/">free web directories</a></small>
-                </div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
-            </div>
-            <script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(29.7203238,-95.3435187),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(29.7203238,-95.3435187)});infowindow = new google.maps.InfoWindow({content:'<strong>UH Zoo</strong><br>4800 Calhoun Rd. Houston, TX 77004<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
-            </script>
-            <br><br>
-        </section>
-        <!--<section id="displayHours"></section>-->
+    <div class="row">
+        <div class="col-6 hours" style="padding-left: 200px">
+            <ul>
+                <li><p class="sectionhead">Regular Hours</p></li>
+                <li>January 2 - March 15  |  9am - 4pm </li>
+                <li>March 16 - October 15  |  9am - 6pm</li>
+                <li>October 16 - December 31  |  9am - 4pm</li>
+            </ul>
+        </div>
 
-        <section id="tickets">
-            <p class="header">Buy Tickets</p>
-            <p>Adult (12-64): $15</p>
-            <p>Children (3-11): $12</p>
-            <p>Seniors 65+: $8</p>
-            <p>Members: Free</p>
-            <br><br>
-            <p class="header">Discounts</p>
-            <p>We offer student, teacher, military, and group discounts.</p>
-            <p>You will need to provide a valid ID.</p>
-            <p>Call our office about group discounts.</p>
-            <br><br>
-        </section>
-
-        <section id="events">
-            <p class = "header" id="date"></p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Start time</th>
-                        <th>Event</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>10:00 am</td>
-                        <td>Elephant Bath at the Elephant Barn</td>
-                    </tr>
-
-                    <tr>
-                        <td>11:00 am</td>
-                        <td>Meet the Keeper Talk at the Children’s Zoo</td>
-                    </tr>
-
-                    <tr>
-                        <td>12:00 pm</td>
-                        <td>Meet the Keeper Talk at Gorillas in African Forest</td>
-                    </tr>
-
-                    <tr>
-                        <td>1:00 pm</td>
-                        <td>Giraffe Feeding Platform in African Forest (Dependent on Weather/Giraffes)</td>
-                    </tr>
-
-                    <tr>
-                        <td>2:00 pm</td>
-                        <td>Meet the Aquarium Keeper at the Piranha Exhibit in Natural Encounters</td>
-                    </tr>
-
-                    <tr>
-                        <td>3:00 pm</td>
-                        <td>Meet the Keeper Talk at Patas Monkey in Wortham World of Primates</td>
-                    </tr>
-
-                    <tr>
-                        <td>4:00 pm</td>
-                        <td>Meet the Keeper Sail Fin Lizard Talk at the Indoor Rainforest in Natural Encounters</td>
-                    </tr>
-                </tbody>
-            </table>
-
-
-        </section>
-        <br><br>
+        <div class="col-6 hours" style="padding-right: 200px">
+            <ul>
+                <li><p class="sectionhead">Holiday Hours</p></li>
+                <li>The zoo will be closed on Thanksgiving Day, Christmas Day, and New Years Day.</li>
+                <li>Limited hours for Christmas Eve and New Years Eve.</li>
+                <li>Check here for unannounced closings. </li>
+            </ul>
+        </div>
     </div>
+
+    <br><br>
+
+    <hr>
+
+    <br> <br>
+    <div class="row">
+        <div class="col-12 location">
+            <ul>
+                <li><p class="sectionhead">Location</p></li>
+                <li>The zoo is located adjacent to the University of Houston.</li>
+                <li>4800 Calhoun Rd. Houston, TX 77004</li>
+                <li>
+                    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+                    <div style='overflow:hidden;height:400px;width:600px;'>
+                        <div id='gmap_canvas' style='height:400px;width:600px;'>  </div>
+                        <div>
+                            <small><a href="http://embedgooglemaps.com">embed google maps</a></small>
+                        </div>
+                        <div>
+                            <small><a href="http://freedirectorysubmissionsites.com/">free web directories</a></small>
+                        </div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+                    </div>
+                    <script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(29.7203238,-95.3435187),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(29.7203238,-95.3435187)});infowindow = new google.maps.InfoWindow({content:'<strong>UH Zoo</strong><br>4800 Calhoun Rd. Houston, TX 77004<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
+                    </script>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <br><br><br>
+
+
+
+        <!--NEED TO MOVE THIS TO EVENT PAGE-->
+
+        <!--<section id="events">-->
+            <!--<h1 id="date"></h1>-->
+            <!--<table>-->
+                <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th>Start time</th>-->
+                        <!--<th>Event</th>-->
+                    <!--</tr>-->
+                <!--</thead>-->
+
+                <!--<tbody>-->
+                    <!--<tr>-->
+                        <!--<td>10:00 am</td>-->
+                        <!--<td>Elephant Bath at the Elephant Barn</td>-->
+                    <!--</tr>-->
+
+                    <!--<tr>-->
+                        <!--<td>11:00 am</td>-->
+                        <!--<td>Meet the Keeper Talk at the Children’s Zoo</td>-->
+                    <!--</tr>-->
+
+                    <!--<tr>-->
+                        <!--<td>12:00 pm</td>-->
+                        <!--<td>Meet the Keeper Talk at Gorillas in African Forest</td>-->
+                    <!--</tr>-->
+
+                    <!--<tr>-->
+                        <!--<td>1:00 pm</td>-->
+                        <!--<td>Giraffe Feeding Platform in African Forest (Dependent on Weather/Giraffes)</td>-->
+                    <!--</tr>-->
+
+                    <!--<tr>-->
+                        <!--<td>2:00 pm</td>-->
+                        <!--<td>Meet the Aquarium Keeper at the Piranha Exhibit in Natural Encounters</td>-->
+                    <!--</tr>-->
+
+                    <!--<tr>-->
+                        <!--<td>3:00 pm</td>-->
+                        <!--<td>Meet the Keeper Talk at Patas Monkey in Wortham World of Primates</td>-->
+                    <!--</tr>-->
+
+                    <!--<tr>-->
+                        <!--<td>4:00 pm</td>-->
+                        <!--<td>Meet the Keeper Sail Fin Lizard Talk at the Indoor Rainforest in Natural Encounters</td>-->
+                    <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
 
 
 
@@ -174,33 +162,6 @@
         var today = new Date().toDateString();
         document.getElementById('date').innerHTML = 'Events for ' + today
     </script>
-
-
-
-    <!--<script>-->
-        <!--function showHide(shID) {-->
-            <!--if (document.getElementById(shID)) {-->
-                <!--if (document.getElementById(shID+'-show').style.display != 'none') {-->
-                    <!--document.getElementById(shID+'-show').style.display = 'none';-->
-                    <!--document.getElementById(shID).style.display = 'block';-->
-                <!--}-->
-                <!--else {-->
-                    <!--document.getElementById(shID+'-show').style.display = 'inline';-->
-                    <!--document.getElementById(shID).style.display = 'none';-->
-                <!--}-->
-            <!--}-->
-        <!--}-->
-    <!--</script>-->
-
-    <!--<script type="text/javascript">-->
-        <!--function toggle_visibility(id) {-->
-            <!--var e = document.getElementById(id).innerHTML;-->
-            <!--if(e.style.display == 'none')-->
-                <!--e.style.display = 'block';-->
-            <!--else-->
-                <!--e.style.display = 'none';-->
-        <!--}-->
-    <!--</script>-->
 
 
 

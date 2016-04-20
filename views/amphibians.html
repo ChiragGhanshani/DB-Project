@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Amphibians</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+
+    <!--Icons-->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="static/stylesheets/animalInfo.css">
+
+    <script>
+        //Show-hide text function
+        function toggle2(showHideDiv, switchTextDiv) {
+            var ele = document.getElementById(showHideDiv);
+            var text = document.getElementById(switchTextDiv);
+            if(ele.style.display == "block") {
+                ele.style.display = "none";
+                text.innerHTML = "More info";
+            }
+            else {
+                ele.style.display = "block";
+                text.innerHTML = "Hide";
+            }
+        }
+    </script>
+</head>
+
+
+<body>
+    <!--NavBar -->
+    <nav id="navbar">
+        <ul>
+            <li><a class="title" href="/">Hu-manatee Zoo </a></li>
+            <li><a href="/memberInfo"> Membership </a>
+                <ul>
+                    <li><a href="/memberInfo">Member Info</a></li>
+                    <li><a href="/memberFAQ">Member FAQ</a></li>
+                    <li><a href="/login">Join/Log in</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="/visit"> Visit Us </a>
+                <ul>
+                    <li><a href="/visit">Hours & Location</a></li>
+                    <li><a href="/ticketInfo">Ticket Info</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Park Map</a></li>
+                    <li><a href="/visitFAQ">FAQ</a></li>
+                </ul>
+            </li>
+            <li><a href="/animals"> Animals </a>
+                <ul>
+                    <li><a href="/mammals">Mammals</a></li>
+                    <li><a href="/birds">Birds</a></li>
+                    <li><a href="/aquatic">Aquatic</a></li>
+                    <li><a href="/reptiles">Reptiles</a></li>
+                    <li><a href="/amphibians">Amphibians</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="imageContainer">
+        <img class ="fillWidth" src="static/images/animals-1.jpg" alt="Chameleon Picture">
+    </div>
+
+
+    <p class="header">Amphibians</p>
+
+    <!--ROW 1-->
+    <div class="row">
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/bpd-frog.jpg" alt="Blue Poison Dart Frog">
+                <figcaption>
+                    <p class="name"> BLUE POISON DART FROG</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Dendrobates tinctorius </td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 10 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Vulnerable</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Mites, termites, tiny beetles</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Southern Suriname </td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Rain forest islands</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>This colorful frog was not discovered by scientists until 1968.
+                    <a class="moreLink" id="A11" href="javascript:toggle2('M11', 'A11');">More Info</a>
+                </figcaption>
+                <br>
+                <figcaption class="moreInfo" id="M11">Blue poison dart frogs are active during the day and can be found hiding among boulders and debris near streams and among leaf litter on the forest floor; however, they lack toe webbing and are poor swimmers, so they are not found in the water. The blue poison dart frog lays small clutches of five to six eggs. After hatching, the parents transfer tadpoles to individual pools of water, where they finish development. </figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/a-bullfrog.jpg" alt="American Bullfrog">
+                <figcaption>
+                    <p class="name">AMERICAN BULLFROG</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Rana catesbeiana</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 7 - 9 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Stable </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Plants and fruit</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> North America </td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Still, shallow waters</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i> A bullfrog's call can be heard from half a mile away.
+                    <a class="moreLink" id="A21" href="javascript:toggle2('M21', 'A21');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M21">Male bullfrogs emit a deep bellow that sounds like “jug-a-rum.” Extremely territorial, they will aggressively defend their land, even wrestling with rivals. Females lay thousands of eggs (as many as 20,000) during the summer breeding season. In the southern part of a bullfrog’s range, metamorphosis can take as few as 79 days. While in the colder, northern part of their range it can take two to three years.</figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/pr-toad.jpg" alt="Puerto Rican Crested Toad">
+                <figcaption>
+                    <p class="name">PUERTO RICAN CRESTED TOAD</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Bufo lemur </td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 10 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Critically Endangered </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Insects, invertebrate </td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Puerto Rico </td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Semi-arid, rocky forests </td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>They can almost completely flatten their bodies to fit into tiny crevices.
+                    <a class="moreLink" id="A13" href="javascript:toggle2('M13', 'A13');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M13">The Puerto Rican Crested Toad is the only toad native to the island of Puerto Rico. It makes its home on the northern and southern coasts of the island. Mating usually happens during the rainy season and eggs are laid in pools of water, streams, or small dams.</figcaption>
+            </figure>
+        </div>
+    </div>
+
+
+    <!--ROW 2-->
+    <div class="row">
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/gwt-frog.jpg" alt="Giant Waxy Tree Frog">
+                <figcaption>
+                    <p class="name">GIANT WAXY TREE FROG</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Hyllomedusa bicolor </td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> Up to 8 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Stable</td>
+
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Insects and other small live prey </td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Central and South America</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Savannas, shrubland, and forested areas</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>Produce a waxy secretion to keep the skin from drying.
+                    <a class="moreLink" id="A12" href="javascript:toggle2('M12', 'A12');">More Info</a>
+                </figcaption>
+                <br>
+                <figcaption class="moreInfo" id="M12">These frogs inhabit drier parts of the treetops, where they prevent themselves from drying out by wiping wax, produced by special skin glands, over their bodies. Because of this, they are sometimes called waxy frogs. Eggs are laid on large leaves overhanging the water. As the eggs hatch, the tadpoles fall into the water to begin development. </figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/hellbender.jpg" alt="Hellbender Salamander">
+                <figcaption>
+                    <p class="name">HELLBENDER SALAMANDER </p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Cryptobranchus alleganiensisi</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> Up to 30 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Threatened  </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Crayfish, fish, invertebrates  </td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> From New York to Alabama/Mississippi </td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Fast moving, shallow streams</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>Largest aquatic salamander in the United States.
+                    <a class="moreLink" id="A22" href="javascript:toggle2('M22', 'A22');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M22">Hellbenders will spend their entire lives in water. They prefer cold fast moving water with high levels of oxygen due to the fact that 95% of their oxygen is absorbed through their skin. Their tiny eyes can detect light but are not very good at forming images. Hellbenders are solitary nocturnal animals who spend the daytime hiding under rocks. A meeting between two hellbenders will usually result in a fight between them.  </figcaption>
+            </figure>
+        </div>
+
+
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/g-frog.jpg" alt="Glass Frog">
+                <figcaption>
+                    <p class="name">GLASS FROG</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i>Cochranella sp.</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 10 - 14 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Stable </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Insects with soft bodies, and spiders</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Central America and South America</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Tropical rainforests </td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i> Liver, heart and intestines could be seen when the glass frog is looked from the underneath.
+                    <a class="moreLink" id="A23" href="javascript:toggle2('M23', 'A23');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M23">Glass frogs are territorial animals. Males vocalize to alert other males that the territory is occupied. In the case that intruders refuse to go, territorial male will become aggressive and apply a force to chase unwanted males away.Mating usually takes place after rainy season, or during the light showers. Female lays between 20 and 30 eggs on the underside of the leaves that hang above the water. Male glass frogs provide parental care. They keep the eggs safe from predatory insects and parasites. </figcaption>
+            </figure>
+        </div>
+    </div>
+</body>
+</html>
