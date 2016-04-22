@@ -1,6 +1,5 @@
 var expect = require('chai').expect;
 var db = require('../models/db.js');
-var loginORM = require('../models/login.js');
 var transactionORM = require('../models/transactionORM.js');
 
 describe('transaction ORM test', function(){
