@@ -137,14 +137,14 @@ SET @transaction_id_variable = uuid();
 INSERT INTO transactions
 VALUES(
 	@transaction_id_variable,
-	@customer_id_variable,
+	'1234-1234-1234',
 	'2016-01-02 00:00:00.000'
 );
 
 INSERT INTO transaction_items
 VALUES(
 	@transaction_id_variable,
-	@item_1,
+	'01',
 	1
 );
 
