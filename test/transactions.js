@@ -13,9 +13,12 @@ describe('transaction ORM test', function(){
       done();
     });
   });
-  it('insertTransaction should insert a transaction', function(done){
+  it('insertTransaction should insert a transaction and its item', function(done){
     transactionORM.insertTransaction(membership_id, function(err, res){
       expect(res).to.be.a('string');
+      transactionORM.insertTransactionItem(res, '01', 1, function(error, result){
+        expect(error).to.be.eql(null);
+      });
       done();
     });
   });

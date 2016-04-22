@@ -86,7 +86,7 @@ SET @item_3 = UUID();
 SET @item_4 = UUID();
 SET @item_5 = UUID();
 SET @item_6 = UUID();
-INSERT INTO item_types VALUES(@item_1, 'day pass', 10);
+INSERT INTO item_types VALUES('01', 'day pass', 10);
 INSERT INTO item_types VALUES(@item_2, 'season membership', 50);
 INSERT INTO item_types VALUES(@item_3, 'one year membership', 150);
 INSERT INTO item_types VALUES(@item_4, 't-shirt', 15);
