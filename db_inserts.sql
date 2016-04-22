@@ -53,14 +53,13 @@ VALUES
 	(48, 'WI'),
 	(49, 'WY');
 
-SET @user_id_variable = uuid();
 INSERT INTO users
 VALUES(
 	'khoffee',
 	'abc123',
 	'2016-03-14',
 	'Y',
-	@user_id_variable,
+	'1234-1234-1234',
 	'Customer'
 );
 
@@ -120,10 +119,9 @@ VALUES(
 	01 /*role*/
 );
 
-SET @customer_id_variable = uuid();
 INSERT INTO customers
 VALUES(
-	@customer_id_variable,
+	'1234-1234-1234',
 	'Homer',
 	'Simpson',
 	'12420 Washington St.',

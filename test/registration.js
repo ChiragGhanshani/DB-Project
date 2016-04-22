@@ -6,6 +6,7 @@ describe('registration ORM test', function(){
   it('getUserID should return a uuid', function(done){
     registrationORM.getUUID(function(error, result){
       expect(result['UUID()']).to.be.a('string');
+      expect(result['UTC_DATE()']).to.be.a('date');
       done();
     });
   });
