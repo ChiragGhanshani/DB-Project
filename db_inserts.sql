@@ -53,12 +53,6 @@ VALUES
 	(48, 'WI'),
 	(49, 'WY');
 
-INSERT INTO transaction_types
-VALUES(
-	01,
-	'Web transaction'
-);
-
 SET @user_id_variable = uuid();
 INSERT INTO users
 VALUES(
@@ -146,7 +140,6 @@ INSERT INTO transactions
 VALUES(
 	@transaction_id_variable,
 	@customer_id_variable,
-	01, /*trans type*/
 	'2016-01-02 00:00:00.000'
 );
 

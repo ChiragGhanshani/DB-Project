@@ -56,25 +56,14 @@ CREATE TABLE IF NOT EXISTS customers(
 	PRIMARY KEY(membership_id)
 );
 
-
-CREATE TABLE IF NOT EXISTS transaction_types(
-	id int(2) NOT NULL,
-	transaction_type varchar(20) NOT NULL,
-
-	PRIMARY KEY (id)
-);
-
-
 CREATE TABLE IF NOT EXISTS transactions(
 	transaction_id varchar(36) NOT NULL, /*uuid*/
 	member_id varchar(36) NOT NULL, /*uuid*/
-	transaction_type int(2) NOT NULL,/*enumerated above*/
 	transaction_time datetime NOT NULL,
 	/*items int(2), multivalued -- see items table*/
 
 	PRIMARY KEY(transaction_id),
-	FOREIGN KEY(member_id) REFERENCES customers(membership_id),
-	FOREIGN KEY (transaction_type) REFERENCES transaction_types(id)
+	FOREIGN KEY(member_id) REFERENCES customers(membership_id)
 );
 
 CREATE TABLE IF NOT EXISTS item_types(
