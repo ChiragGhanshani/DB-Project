@@ -56,15 +56,23 @@ button {
   border: none;
 }
 
-.navbar li {
-  float: right;
+/*Navbar*/
+.navbar ul {
+  list-style-type: none;
+  /*overflow: hidden;*/
+
+  /*fixed top*/
+  position: fixed;
+  z-index: 1; /*enables links*/
+  top: 0;
+  width: 100%;
+
+  /*background */
+  background-color: rgba(255, 255, 255,0.60);
+  border: none;
 }
 
-.navbar li:first-child {
-  float: left;
-}
-
-.navbar li a {
+.navbar ul li a {
   display: block;
   color: mediumvioletred;
   text-align: center;
@@ -73,16 +81,61 @@ button {
   margin: 10px;
   font-size: 20px;
   font-family: Ubuntu, sans-serif;
-  /*font-weight: bold;*/
 }
 
-.navbar li:first-child a{
-  font-size: 35px;
+.navbar ul li {
+  float: right;
+  position: relative;
+}
+
+.navbar li:first-child {
+  float: left;
+  position: relative;
+}
+
+.navbar .title{
+  font-size: 30px;
   padding: 10px 20px 10px 30px;
+}
+
+.navbar ul li:hover {
+  /*background: #f6f6f6;*/
+  height: inherit;
+}
+
+.navbar ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background: white;
+}
+
+.navbar ul ul li {
+  width: inherit;
+}
+
+.navbar ul ul a {
+  font-size: 15px;
+  padding: 0;
+}
+
+.navbar ul li:hover > ul {
+  display: block;
+  z-index: 999999;
+}
+
+#customer {
+  display: none;
+  z-index: 99999;
+}
+
+#name {
+  display: none;
 }
 
 /*Video*/
 #video-container {
+  z-index:-1;
   position: relative;
   width: 100%;
   height: 100%;
@@ -90,7 +143,7 @@ button {
 }
 
 video#bgVid {
-  position:absolute;
+  position:relative;
   z-index:-1;
   background-size: cover;
   transition: 1s opacity;
@@ -108,6 +161,10 @@ video#bgVid.fillWidth {
   padding-top: 90px;
   font-size: 70px;
   letter-spacing: 1px;
+}
+
+.header a:hover {
+  color: mediumvioletred;
 }
 
 a {
@@ -266,71 +323,23 @@ a {
 }
 
 footer {
-  font-size: 15px;
   padding: 10px;
   background: gainsboro;
+  height: 200px;
   min-height: 100%;
-  vertical-align: middle;
+}
+
+.f-design {
+  margin: 0 auto;
+  font-size: 20px;
 }
 
 
-footer a{
-  height: 100px;
-  padding-left: 20px;
-  text-decoration: none;
-  color: mediumvioletred;
-}
-
-.container {
-    margin: 0 auto;
-    width: 938px;
-}
-
-.footerLeft {
-    width: 220px;
-    background: #000;
-    padding-top: 20px;
-    margin-left: 20px !important;
-    min-height: 163px;
-    height: 100%;
-    font-family: Ubuntu sans-serif;
-}
-
-h2 {
-    margin-bottom: 0.25em;
-    font-weight: bold;
-}
-
-address {
-    margin: 0 0 1.5em;
-    font-family: Ubuntu, sans-serif;
-}
-
-/*Khoi's id.. please rename, this class name is already being used*/
-#hours {
-  width: 218px;
-}
 
 
 /*Removed Ticket Section- Code below*/
 
-/*!*Tickets Section*!*/
-/*.ticketSection {*/
-/*height: 600px;*/
-/*}*/
-/*.ticketSection ul {*/
-/*list-style-type: none;*/
-/*margin: 0;*/
-/*padding:0;*/
-/*}*/
 
-/*.ticketSection li {*/
-/*!*text-align: center;*!*/
-/*color: #0b97c4;*/
-/*font-size: 20px;*/
-/*padding-left: 200px;*/
-/*margin-bottom: 5px;*/
-/*}*/
 
 
 /*This code makes the video a background so that when I add

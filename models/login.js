@@ -10,7 +10,6 @@ module.exports = {
       var queryString = 'select * from users where username = ? and password = ?';
       db.query(queryString, [username, password]).spread(function(rows) {
         if(rows.length > 0){
-          console.log(rows);
           sendResultBack(null, rows);
         }
         else{

@@ -53,20 +53,13 @@ VALUES
 	(48, 'WI'),
 	(49, 'WY');
 
-INSERT INTO transaction_types
-VALUES(
-	01,
-	'Web transaction'
-);
-
-SET @user_id_variable = uuid();
 INSERT INTO users
 VALUES(
 	'khoffee',
 	'abc123',
 	'2016-03-14',
 	'Y',
-	@user_id_variable,
+	'1234-1234-1234',
 	'Customer'
 );
 
@@ -93,7 +86,7 @@ SET @item_3 = UUID();
 SET @item_4 = UUID();
 SET @item_5 = UUID();
 SET @item_6 = UUID();
-INSERT INTO item_types VALUES(@item_1, 'day pass', 10);
+INSERT INTO item_types VALUES('01', 'day pass', 10);
 INSERT INTO item_types VALUES(@item_2, 'season membership', 50);
 INSERT INTO item_types VALUES(@item_3, 'one year membership', 150);
 INSERT INTO item_types VALUES(@item_4, 't-shirt', 15);
@@ -126,10 +119,9 @@ VALUES(
 	01 /*role*/
 );
 
-SET @customer_id_variable = uuid();
 INSERT INTO customers
 VALUES(
-	@customer_id_variable,
+	'1234-1234-1234',
 	'Homer',
 	'Simpson',
 	'12420 Washington St.',
@@ -145,15 +137,14 @@ SET @transaction_id_variable = uuid();
 INSERT INTO transactions
 VALUES(
 	@transaction_id_variable,
-	@customer_id_variable,
-	01, /*trans type*/
+	'1234-1234-1234',
 	'2016-01-02 00:00:00.000'
 );
 
 INSERT INTO transaction_items
 VALUES(
 	@transaction_id_variable,
-	@item_1,
+	'01',
 	1
 );
 

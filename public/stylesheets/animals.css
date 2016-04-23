@@ -72,6 +72,18 @@
     display: block;
 }
 
+#customer {
+    visibility: hidden;
+}
+
+#name {
+    visibility: hidden;
+}
+
+.test {
+    visibility: visible;
+}
+
 /*Image*/
 .imageContainer {
     position: relative;

@@ -108,6 +108,19 @@ body {
     /*z-index: 100;*/
 }
 
+/*Image*/
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.fillWidth {
+    width: 100%;
+    position: relative;
+}
+
 h1 {
     text-align: center;
 }
