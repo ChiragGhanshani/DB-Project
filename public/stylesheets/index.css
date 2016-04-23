@@ -125,15 +125,15 @@ button {
 }
 
 /*Hidden tabs*/
-#navbar #customer {
+#customer {
   display: none;
 }
 
-#navbar #keepVet {
+#keepVet {
   display: none;
 }
 
-#navbar #manager {
+#manager {
   display: none;
 }
 
