@@ -36,4 +36,11 @@ describe('login ORM test', function(){
       done();
     });
   });
+
+  it('should find the employee', function(done){
+    loginORM.getEmployeeData('1234-5555-1234', function(error, result){
+      expect(result[0].employee_id).to.be.a('string');
+      done();
+    });
+  });
 });
