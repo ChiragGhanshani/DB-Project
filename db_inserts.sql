@@ -99,11 +99,10 @@ INSERT INTO behaviors VALUES(2, 'docile');
 INSERT INTO behaviors VALUES(3, 'reclusive');
 INSERT INTO behaviors VALUES(4, 'social');
 
-SET @employees_id_variable = uuid();
 SET @manager_id_variable = uuid();
 INSERT INTO employees
 VALUES(
-	@employees_id_variable,
+	'1234-5555-1234',
 	'Clifford',
 	'The Dog',
 	'1234 Imaginary Ln.',
@@ -171,7 +170,7 @@ VALUES(
 INSERT INTO habitats
 VALUES(
 	1,
-	@employees_id_variable,
+	'1234-5555-1234',
 	'2016-03-15 05:13:00',
 	01 /*area*/
 );
