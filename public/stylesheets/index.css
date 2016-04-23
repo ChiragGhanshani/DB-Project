@@ -124,12 +124,16 @@ button {
   z-index: 999999;
 }
 
-#customer {
+/*Hidden tabs*/
+#navbar #customer {
   display: none;
-  z-index: 99999;
 }
 
-#name {
+#navbar #keepVet {
+  display: none;
+}
+
+#navbar #manager {
   display: none;
 }
 
