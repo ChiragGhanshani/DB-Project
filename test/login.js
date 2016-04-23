@@ -29,4 +29,11 @@ describe('login ORM test', function(){
 
     loginORM.getUserID('bapalabada', 'quintus', parser);
   });
+
+  it('Should find the customer', function(done){
+    loginORM.getCustomerData('1234-1234-1234', function(error, result){
+      expect(result[0].customer_firstName).to.be.a('string');
+      done();
+    });
+  });
 });

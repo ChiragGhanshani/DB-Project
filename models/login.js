@@ -19,6 +19,32 @@ module.exports = {
         sendResultBack(error, null)
       });
 	  }
+  },
+  getCustomerData : function(lookup_id, sendResultBack){
+    if(typeof lookup_id === 'undefined' || lookup_id == '')
+      sendResultBack(new Error('Invalid field'), null);
+    else{
+      var queryString = 'select * from customers where membership_id = ?';
+      db.query(queryString, [lookup_id]).spread(function(rows){
+        if(rows.length > 0) sendResultBack(null, rows);
+        else sendResultBack(new Error('Entry not found'), null);
+      }).catch(function(error){
+          sendResultBack(error, null);
+      });
+    }
+  },
+  getEmployeeData : function(lookup_id, sendResultBack){
+    if(typeof lookup_id === 'undefined' || lookup_id == '')
+      sendResultBack(new Error('Invalid field'), null);
+    else{
+      var queryString = 'select * from employees where employee_id = ?';
+      db.query(queryString, [lookup_id]).spread(function(rows){
+        if(rows.length > 0) sendResultBack(null, rows);
+        else sendResultBack(new Error('Entry not found'), null);
+      }).catch(function(error){
+          sendResultBack(error, null);
+      });
+    }
   }
 }
 
