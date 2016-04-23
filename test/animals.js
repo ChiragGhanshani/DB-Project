@@ -12,7 +12,7 @@ describe('Animals ORM test', function() {
 	});
 
 	it('Should insert animal into DB', function(done) {
-		animalsORM.insertAnimal('Canis lupus familiaris', 2000, 'Grasslands', 'Omnivore', 'social', 'Male', '2016-04-20', 
+		animalsORM.insertAnimal('Canis lupus familiaris', 2000, 'Grasslands', 'Omnivore', 4, 'Male', '2016-04-20', 
 			'2010-12-25', '2016-01-01', null, null, 'O-', 1, function(error, results) {
 				expect(error).to.be.eql(null);
 				done();
