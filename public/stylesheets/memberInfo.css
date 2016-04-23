@@ -108,6 +108,19 @@ body {
     /*z-index: 100;*/
 }
 
+/*Hidden tabs*/
+#navbar #customer {
+    display: none;
+}
+
+#navbar #keepVet {
+    display: none;
+}
+
+#navbar #manager {
+    display: none;
+}
+
 /*Image*/
 .imageContainer {
     position: relative;

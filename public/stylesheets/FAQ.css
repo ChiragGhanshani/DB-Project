@@ -48,19 +48,17 @@
 
 #navbar ul li:hover {
     background: #f6f6f6;
+    height: inherit;
 }
 
 #navbar ul ul {
     display: none;
     position: absolute;
     top: 100%;
-    /*left: 0;*/
     background: white;
-    /*padding: 0;*/
 }
 
 #navbar ul ul li {
-    /*float: none;*/
     width: inherit;
 }
 
@@ -74,6 +72,19 @@
 #navbar ul li:hover > ul {
     display: block;
     /*z-index: 100;*/
+}
+
+/*Hidden tabs*/
+#navbar #customer {
+    display: none;
+}
+
+#navbar #keepVet {
+    display: none;
+}
+
+#navbar #manager {
+    display: none;
 }
 
 /*Image*/

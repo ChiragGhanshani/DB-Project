@@ -105,6 +105,19 @@
     display: block;
 }
 
+/*Hidden tabs*/
+#navbar #customer {
+    display: none;
+}
+
+#navbar #keepVet {
+    display: none;
+}
+
+#navbar #manager {
+    display: none;
+}
+
 /*Image*/
 .imageContainer {
     position: relative;

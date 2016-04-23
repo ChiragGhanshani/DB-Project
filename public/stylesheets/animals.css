@@ -72,12 +72,18 @@
     display: block;
 }
 
-#customer {
-    visibility: hidden;
+/*Hidden tabs*/
+#navbar #customer {
+    display: none;
 }
 
-#name {
-    visibility: hidden;
+#navbar #keepVet {
+    display: none;
+}
+
+
+#navbar #manager {
+    display: none;
 }
 
 .test {
