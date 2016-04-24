@@ -81,14 +81,14 @@ INSERT INTO employee_roles VALUES(2, 'Manager');
 
 INSERT INTO item_types
 VALUES
-	(01, 'Child', 12);
-	(02, 'Adult', 15);
-	(03, 'Senior', 10);
-	(04, 'Single', 65);
-	(05, 'Dual', 85);
-	(06, 'Single Family', 110);
-	(07, 'Family', 125);
-	(08, 'Family Plus', 145);
+	(01, 'Child', 12),
+	(02, 'Adult', 15),
+	(03, 'Senior', 10),
+	(04, 'Single', 65),
+	(05, 'Dual', 85),
+	(06, 'Single Family', 110),
+	(07, 'Family', 125),
+	(08, 'Family Plus', 145),
 	(09, 'Grandparent', 100);
 
 INSERT INTO behaviors VALUES(0, 'territorial');
@@ -141,7 +141,7 @@ VALUES(
 INSERT INTO transaction_items
 VALUES(
 	@transaction_id_variable,
-	'01',
+	01,
 	1
 );
 

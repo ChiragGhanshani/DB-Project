@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS item_types(
 
 CREATE TABLE IF NOT EXISTS transaction_items(
 	trans_id varchar(36) NOT NULL, /*uuid*/
-	item_id varchar(36) NOT NULL, /*uuid*/
+	item_id int(2) NOT NULL, /*uuid*/
 	quantity int NOT NULL,
 
 	PRIMARY KEY(trans_id, item_id),
