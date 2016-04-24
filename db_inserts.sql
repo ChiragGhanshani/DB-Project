@@ -54,30 +54,9 @@ VALUES
 	(49, 'WY');
 
 INSERT INTO users
-VALUES(
-	'khoffee',
-	'abc123',
-	'2016-03-14',
-	'1234-1234-1234',
-	'Customer',
-	'Y'
-);
-
-INSERT INTO users
-VALUES(
-	'cdog',
-	'abc123',
-	'2016-04-24',
-	'1234-5555-1234',
-	'Employee',
-	'Y'
-);
-
-INSERT INTO behaviors
-VALUES(
-	05,
-	'Coy'
-);
+VALUES
+	('khoffee', 'abc123', '2016-03-14', '1234-1234-1234', 'Customer', 'Y'),
+	('cdog', 'abc123', '2016-04-24', '1234-5555-1234', 'Employee', 'Y');
 
 INSERT INTO areas
 VALUES(
@@ -109,7 +88,8 @@ VALUES
 	(1, 'aggressive'),
 	(2, 'docile'),
 	(3, 'reclusive'),
-	(4, 'social');
+	(4, 'social'),
+	(5, 'Coy');
 
 SET @manager_id_variable = uuid();
 INSERT INTO employees
