@@ -25,24 +25,25 @@ function addTab() {
 
   if(role === "Customer") {
     document.getElementById('customer').innerHTML = username;
-    //document.getElementById('Cname').style.display = "block";
     document.getElementById('customer').style.display = "block";
-    //document.getElementById('customer').style.visibility = "visible";
+    document.getElementById('login').style.display = "none";
   }
 
   else if(role === "Manager") {
-    document.getElementById('Mname').innerHTML = username;
-    document.getElementById('Mname').style.display = "block";
-    document.getElementById('manager').style.visibility = "visible";
+    document.getElementById('manager').innerHTML = username;
+    document.getElementById('manager').style.display = "block";
+    document.getElementById('login').style.display = "none";
   }
 
   else if(role === "Keeper" || role === "Vet") {
-    document.getElementById('KVname').innerHTML = username;
-    document.getElementById('KVname').style.display = "block";
-    document.getElementById('keepVet').style.visibility = "visible";
+    document.getElementById('keepVet').innerHTML = username;
+    document.getElementById('keepVet').style.display = "block";
+    document.getElementById('login').style.display = "none";
   }
 
   else if (role === "") {
+    document.getElementById('login').style.display = "block";
+
     document.getElementById('Cname').style.display = "none";
     document.getElementById('customer').style.visibility = "hidden";
 
@@ -52,4 +53,11 @@ function addTab() {
     document.getElementById('KVname').style.display = "none";
     document.getElementById('keepVet').style.visibility = "hidden";
   }
+}
+
+function logOut() {
+  document.cookie = 'zooLoginCookie=;path=/';
+  document.cookie = 'employeeCookie=;path=/';
+  document.cookie = 'customerCookie=;path=/';
+  document.cookie = 'shoppingCartCookie=;path=/';
 }
