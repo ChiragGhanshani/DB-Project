@@ -24,7 +24,7 @@ module.exports = {
     if(typeof lookup_id === 'undefined' || lookup_id == '')
       sendResultBack(new Error('Invalid field'), null);
     else{
-      var queryString = 'select * from customers where membership_id = ?';
+      var queryString = 'SELECT customers.*, states.state_name FROM customers INNER JOIN states ON customers.customer_state=states.id WHERE membership_id = ?';
       db.query(queryString, [lookup_id]).spread(function(rows){
         if(rows.length > 0) sendResultBack(null, rows);
         else sendResultBack(new Error('Entry not found'), null);
@@ -37,7 +37,7 @@ module.exports = {
     if(typeof lookup_id === 'undefined' || lookup_id == '')
       sendResultBack(new Error('Invalid field'), null);
     else{
-      var queryString = 'select * from employees where employee_id = ?';
+      var queryString = 'select employees.*, states.state_name FROM employees INNER JOIN states ON employees.state=states.id WHERE employee_id = ?';
       db.query(queryString, [lookup_id]).spread(function(rows){
         if(rows.length > 0) sendResultBack(null, rows);
         else sendResultBack(new Error('Entry not found'), null);
@@ -47,4 +47,3 @@ module.exports = {
     }
   }
 }
-
