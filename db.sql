@@ -19,6 +19,19 @@ CREATE TABLE IF NOT EXISTS states(
 );
 
 
+CREATE TABLE IF NOT EXISTS users(
+	username varchar(20) NOT NULL,
+	password varchar(20) NOT NULL,
+	date_created date NOT NULL,
+	user_id varchar(36) NOT NULL, /*uuid*/
+	role enum('Customer','Employee'),
+	active varchar(1) NOT NULL,
+	
+	PRIMARY KEY (username),
+	UNIQUE KEY (user_id)
+);
+
+
 CREATE TABLE IF NOT EXISTS employees(
 	employee_id varchar(36) NOT NULL, /*uuid*/
 	employee_firstname varchar(15) NOT NULL,
@@ -37,6 +50,7 @@ CREATE TABLE IF NOT EXISTS employees(
 	active varchar(1) NOT NULL,
 
 	PRIMARY KEY (employee_id),
+	FOREIGN KEY (employee_id) REFERENCES users(user_id),
 	FOREIGN KEY (role) REFERENCES employee_roles(id),
 	FOREIGN KEY (state) REFERENCES states(id)
 );
@@ -55,7 +69,8 @@ CREATE TABLE IF NOT EXISTS customers(
 	customer_email varchar(40) NOT NULL,
 	active varchar(1) NOT NULL,
 
-	PRIMARY KEY(membership_id)
+	PRIMARY KEY(membership_id),
+	FOREIGN KEY (membership_id) REFERENCES users(user_id)
 );
 
 CREATE TABLE IF NOT EXISTS transactions(
@@ -84,19 +99,7 @@ CREATE TABLE IF NOT EXISTS transaction_items(
 
 	PRIMARY KEY(trans_id, item_id),
 	FOREIGN KEY(trans_id) REFERENCES transactions(transaction_id),
-  FOREIGN KEY(item_id) REFERENCES item_types(id)
-);
-
-
-CREATE TABLE IF NOT EXISTS users(
-	username varchar(20) NOT NULL,
-	password varchar(20) NOT NULL,
-	date_created date NOT NULL,
-	active varchar(1) NOT NULL,
-	user_id varchar(36) NOT NULL, /*uuid*/
-	role enum('Customer','Employee'),
-
-	PRIMARY KEY (username)
+	FOREIGN KEY(item_id) REFERENCES item_types(id)
 );
 
 
