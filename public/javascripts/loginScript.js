@@ -62,8 +62,7 @@ function setCookie(cookieName, value, expDays){
     var d = new Date();
     d.setTime(d.getTime() + Math.round(expDays * 24 * 60 * 60 * 1000));
     var expires = 'expires='+d.toUTCString();
-    document.cookie = cookieName + JSON.stringify(value) + ';' + 'path=/;' +
-        'name=' + cookieName + ';';
+    document.cookie = cookieName + "=" + JSON.stringify(value) + ';' + 'path=/;';
 }
 
 function addCustomer() {
