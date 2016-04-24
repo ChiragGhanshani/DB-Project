@@ -75,9 +75,11 @@ VALUES(
 	'Temperate Forest'
 );
 
-INSERT INTO employee_roles VALUES(0, 'Keeper');
-INSERT INTO employee_roles VALUES(1, 'Veterinarian');
-INSERT INTO employee_roles VALUES(2, 'Manager');
+INSERT INTO employee_roles
+VALUES
+	(0, 'Keeper'),
+	(1, 'Veterinarian'),
+	(2, 'Manager');
 
 INSERT INTO item_types
 VALUES
@@ -91,11 +93,13 @@ VALUES
 	(08, 'Family Plus', 145),
 	(09, 'Grandparent', 100);
 
-INSERT INTO behaviors VALUES(0, 'territorial');
-INSERT INTO behaviors VALUES(1, 'aggressive');
-INSERT INTO behaviors VALUES(2, 'docile');
-INSERT INTO behaviors VALUES(3, 'reclusive');
-INSERT INTO behaviors VALUES(4, 'social');
+INSERT INTO behaviors
+VALUES
+	(0, 'territorial'),
+	(1, 'aggressive'),
+	(2, 'docile'),
+	(3, 'reclusive'),
+	(4, 'social');
 
 SET @manager_id_variable = uuid();
 INSERT INTO employees
@@ -188,16 +192,13 @@ VALUES(
 	1
 );
 
-INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'bAIDs', 'Acquisition of blue cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'rAIDs', 'Acquisition of red cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'blAIDs', 'Acquisition of black cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'yAIDs', 'Acquisition of yellow cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
 INSERT INTO animal_illnesses
-VALUES(
-	@tag_number_variable,
-	'AIDS',
-	'This red panda was perhaps a little too promiscuous in her youth...'
-);
+VALUES
+	(@tag_number_variable, 'bAIDs', 'Acquisition of blue cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit'),
+	(@tag_number_variable, 'rAIDs', 'Acquisition of red cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit'),
+	(@tag_number_variable, 'blAIDs', 'Acquisition of black cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit'),
+	(@tag_number_variable, 'yAIDs', 'Acquisition of yellow cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit'),
+	(@tag_number_variable, 'AIDS', 'This red panda was perhaps a little too promiscuous in her youth...');
 
 INSERT INTO animal_illnesses
 VALUES(
