@@ -105,5 +105,10 @@ function getUserData() {
 
     for (key in customerData) {
         document.getElementById(key).innerHTML = customerData[key];
+        if(key == 'customer_DOB'){
+          console.log(customerData[key] + '\n' + customerData[key].split('T'));
+          var dob = customerData[key].split('T')[0];
+          document.getElementById(key).innerHTML = dob;
+        }
     }
 }
