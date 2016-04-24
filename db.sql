@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS employees(
 	manager_id varchar(36), /*uuid*/
 	salary int NOT NULL,
 	role int(2) NOT NULL,/*enumerated above*/
+	active varchar(1) NOT NULL,
 
 	PRIMARY KEY (employee_id),
 	FOREIGN KEY (role) REFERENCES employee_roles(id),
@@ -52,6 +53,7 @@ CREATE TABLE IF NOT EXISTS customers(
 	customer_phoneNumber varchar(12) NOT NULL,
 	customer_DOB date NOT NULL,
 	customer_email varchar(40) NOT NULL,
+	active varchar(1) NOT NULL,
 
 	PRIMARY KEY(membership_id)
 );

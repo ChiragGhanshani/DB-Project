@@ -63,6 +63,16 @@ VALUES(
 	'Customer'
 );
 
+INSERT INTO users
+VALUES(
+	'cdog',
+	'abc123',
+	'2016-04-24',
+	'Y',
+	'1234-5555-1234',
+	'Employee'
+);
+
 INSERT INTO behaviors
 VALUES(
 	05,
@@ -117,7 +127,8 @@ VALUES(
 	'123456789',
 	@manager_id_variable,
 	1200,
-	01 /*role*/
+	01, /*role*/
+	'Y'
 );
 
 INSERT INTO customers
@@ -131,7 +142,8 @@ VALUES(
 	77072,
 	'832-348-3887',
 	'1960-05-14',
-	'thesimpsons@springfield.com'
+	'thesimpsons@springfield.com',
+	'Y'
 );
 
 SET @transaction_id_variable = uuid();
