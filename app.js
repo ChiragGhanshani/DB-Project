@@ -25,6 +25,16 @@ var birds = require('./routes/birds');
 var aquatic = require('./routes/aquatic');
 var amphibians = require('./routes/amphibians');
 var reptiles = require('./routes/reptiles');
+//Customer routes
+var shop = require('./routes/shop');
+var cart = require('./routes/cart');
+var editInfo = require('./routes/editInfo');
+//Keeper/Vet routes
+var yourAnimals = require('./routes/yourAnimals');
+var feedingGraphs = require('./routes/feedingGraphs');
+//Manager routes
+var manageEmployees = require('./routes/manageEmployees');
+var salesOverview = require('./routes/salesOverview');
 
 var app = express();
 
@@ -62,6 +72,16 @@ app.use('/birds', birds);
 app.use('/aquatic', aquatic);
 app.use('/amphibians', amphibians);
 app.use('/reptiles', reptiles);
+//Customer pages
+app.use('/shop', shop);
+app.use('/shoppingCart', cart);
+app.use('/editInfo', editInfo);
+//Keeper/Vet pages
+app.use('/yourAnimals', yourAnimals);
+app.use('/feedingGraphs', feedingGraphs);
+//Manager pages
+app.use('/manageEmployees', manageEmployees);
+app.use('/salesOverview', salesOverview);
 
 
 // catch 404 and forward to error handler
