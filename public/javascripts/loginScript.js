@@ -98,3 +98,12 @@ function httpGet(theUrl) {
     xmlHttp.send( null );
     return JSON.parse(xmlHttp.responseText);
 }
+
+function getUserData() {
+    var customerData = getCookie('customerCookie');
+    var customerData = JSON.parse(customerData);
+
+    for (key in customerData) {
+        document.getElementById(key).innerHTML = customerData[key];
+    }
+}

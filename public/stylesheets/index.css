@@ -131,7 +131,6 @@ button {
 
 #manager {  display: none;  }
 
-#login {  display: none;  }
 
 /*Video*/
 #video-container {
@@ -323,15 +322,39 @@ a {
 }
 
 footer {
-  padding: 10px;
-  background: gainsboro;
+  padding: 15px;
+  background: whitesmoke;
   height: 200px;
   min-height: 100%;
+  border: solid;
+  border-top-width: 19px;
+  border-color: mediumvioletred;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+
 }
 
+
 .f-design {
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   font-size: 20px;
+  padding-left: 120px;
+}
+
+.f-design2 {
+  padding-left: 120px;
+  line-height: 34px;
+  border-left: groove;
+  border-color: floralwhite;
+
+}
+
+.f-design3 {
+  border-left: groove;
+  padding-left: 120px;
+  line-height: 22px;
+
 }
 
 
