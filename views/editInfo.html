@@ -18,34 +18,37 @@
     <!--NavBar -->
     <nav id="navbar">
         <ul>
-            <li><a class="title" href="/"> Hu-manatee Zoo </a></li>
+            <li><a class="title" href="/">Hu-manatee Zoo </a></li>
             <!--Customer-->
             <li><a id="customer" href="#"></a>
                 <ul>
-                    <li><a href="#">Edit Info</a></li>
-                    <li><a href="#">Shop</a></li>
+                    <li><a href="/editInfo">Edit Info</a></li>
+                    <li><a href="/shop">Shop</a></li>
                     <li><a href="/shoppingCart">Cart</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <!--Keeper/Vet-->
             <li><a id="keepVet" href="#"></a>
                 <ul>
-                    <li><a href="#">Your Animals</a></li>
-                    <li><a href="#">Animal Reports</a></li>
+                    <li><a href="/yourAnimals">Your Animals</a></li>
+                    <li><a href="/feedingfGraphs">Animal Reports</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <!--Manager-->
             <li><a id="manager" href="#"></a>
                 <ul>
-                    <li><a href="#">Manage Employees</a></li>
-                    <li><a href="#">Sales Overview</a></li>
+                    <li><a href="/manageEmployees">Manage Employees</a></li>
+                    <li><a href="/salesOverview">Sales Overview</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <li><a href="/memberInfo"> Membership </a>
                 <ul>
                     <li><a href="/memberInfo">Member Info</a></li>
                     <li><a href="/memberFAQ">Member FAQ</a></li>
-                    <li><a href="/login">Join/Log in</a></li>
+                    <li><a id='login' href="/login">Join/Log in</a></li>
                 </ul>
             </li>
             <li class="active"><a href="/visit"> Visit Us </a>

@@ -15,7 +15,7 @@
 </head>
 
 
-<body onload="addTab();populateCart();">
+<body onload="addTab();">
     <!--NavBar -->
     <nav id="navbar">
         <ul>
@@ -23,30 +23,33 @@
             <!--Customer-->
             <li><a id="customer" href="#"></a>
                 <ul>
-                    <li><a href="#">Edit Info</a></li>
-                    <li><a href="#">Shop</a></li>
+                    <li><a href="/editInfo">Edit Info</a></li>
+                    <li><a href="/shop">Shop</a></li>
                     <li><a href="/shoppingCart">Cart</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <!--Keeper/Vet-->
             <li><a id="keepVet" href="#"></a>
                 <ul>
-                    <li><a href="#">Your Animals</a></li>
-                    <li><a href="#">Animal Reports</a></li>
+                    <li><a href="/yourAnimals">Your Animals</a></li>
+                    <li><a href="/feedingfGraphs">Animal Reports</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <!--Manager-->
             <li><a id="manager" href="#"></a>
                 <ul>
-                    <li><a href="#">Manage Employees</a></li>
-                    <li><a href="#">Sales Overview</a></li>
+                    <li><a href="/manageEmployees">Manage Employees</a></li>
+                    <li><a href="/salesOverview">Sales Overview</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <li><a href="/memberInfo"> Membership </a>
                 <ul>
                     <li><a href="/memberInfo">Member Info</a></li>
                     <li><a href="/memberFAQ">Member FAQ</a></li>
-                    <li><a href="/login">Join/Log in</a></li>
+                    <li><a id='login' href="/login">Join/Log in</a></li>
                 </ul>
             </li>
             <li class="active"><a href="/visit"> Visit Us </a>
@@ -60,8 +63,11 @@
             </li>
             <li><a href="/animals"> Animals </a>
                 <ul>
-                    <li><a href="/animals">Animal Info</a></li>
-                    <li><a href="/ourAnimals">Our Animals</a></li>
+                    <li><a href="/mammals">Mammals</a></li>
+                    <li><a href="/birds">Birds</a></li>
+                    <li><a href="/aquatic">Aquatic</a></li>
+                    <li><a href="/reptiles">Reptiles</a></li>
+                    <li><a href="/amphibians">Amphibians</a></li>
                 </ul>
             </li>
         </ul>
@@ -74,41 +80,118 @@
     <p class="header">Shopping Cart</p>
     <br>
 
-    <!--<table>-->
-        <!--<th>-->
-        <!--<td>Item</td>-->
-        <!--<td>Quantity</td>-->
-        <!--</th>-->
+    <button onclick="populateCart()">WORK</button>
 
-        <!--<tr>-->
-            <!--<td>Child</td>-->
-            <!--<td id="1"></td>-->
-        <!--</tr>-->
+    <div class="cartHead">
+        <p></p>
 
-        <!--<tr>-->
-            <!--<td>Adult</td>-->
-            <!--<td id="2"></td>-->
-        <!--</tr>-->
+    </div>
 
-        <!--<tr>-->
-            <!--<td>Senior</td>-->
-            <!--<td id="3"></td>-->
-        <!--</tr>-->
-    <!--</table>-->
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+        </tr>
+        <tr class="classItems" id="childPurchase">
+            <td>Children Tickets </td>
+            <td id="child"></td>
+            <td id="childPrice"></td>
+        </tr>
 
-    <p id="1"></p>
-    <p id="2"></p>
-    <p id="3"></p>
-    <p id="4"></p>
-    <p id="5"></p>
-    <p id="6"></p>
-    <p id="7"></p>
-    <p id="8"></p>
-    <p id="9"></p>
+        <tr class="cartItems" id="adultPurchase">
+            <td>Adult Tickets </td>
+            <td id="adult"></td>
+            <td id="adultPrice"></td>
+        </tr>
+
+        <tr class="cartItems" id="seniorPurchase">
+            <td>Senior Tickets </td>
+            <td id="senior"></td>
+            <td id="seniorPrice"></td>
+        </tr>
+        <tr class="classItems" id="singlePurchase">
+            <td>Single Membership </td>
+            <td id="single"></td>
+            <td id="singlePrice"></td>
+        </tr>
+
+        <tr class="cartItems" id="dualPurchase">
+            <td>Dual Membership </td>
+            <td id="dual"></td>
+            <td id="dualPrice"></td>
+        </tr>
+
+        <tr class="cartItems" id='singleFamPurchase'>
+            <td>Single Family Membership </td>
+            <td id="singleFam"></td>
+            <td id="singleFamPrice"></td>
+        </tr>
+        <tr class="classItems" id="familyPurchase">
+            <td>Family Membership </td>
+            <td id="family"></td>
+            <td id="familyPrice"></td>
+        </tr>
+
+        <tr class="cartItems" id="famPlusPurchase">
+            <td>Family Plus Membership </td>
+            <td id="famPlus"></td>
+            <td id="famPlusPrice"></td>
+        </tr>
+
+        <tr class="cartItems" id="grandparentPurchase">
+            <td>Grandparent Membership </td>
+            <td id="grandparent"></td>
+            <td id="grandparentPrice"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td id="total"></td>
+        </tr>
+    </table>
 
 
 
-    <p>Total: </p>
+
+    <br><br>
+
+    <div class="buttons">
+        <a id="continueShop" href="/shop">Continue Shopping</a>
+        <a id="clickCheckOut" href="javascript:displayCheckoutForm();">Check Out</a>
+    </div>
+
+
+
+    <div id="checkOut">
+        <p class="head">Payment & Billing Information</p>
+        <br>
+
+        <form action="">
+            <div></div>
+            <label for="nameOnCard">Name on card:</label>
+            <input id="nameOnCard" type="text">
+
+            <label for="cardNum">Card number:</label>
+            <input id="cardNum" type="text">
+
+            <label for="expDate">Expiration Date: </label>
+            <input id="expDate" type="text" placeholder="MM/YY">
+
+            <label for="securityCode">Security Code</label>
+            <input id="securityCode" type="text">
+
+
+            <label for="zipcode">Billing Zip Code:</label>
+            <input id="zipcode" type="text">
+        </form>
+
+        <button>Submit</button>
+    </div>
+
+    <br><br><br>
+
 
 </body>
 </html>

@@ -147,12 +147,12 @@ h1 {
 }
 
 .box {
-    height: 300px;
-    width: 400px;
-    background-color: rgba(192, 192, 192, 0.3);
-    text-align: justify;
-    margin: 0 auto;
-}
+     height: 300px;
+     width: 400px;
+     background-color: rgba(192, 192, 192, 0.3);
+     text-align: justify;
+     margin: 0 auto;
+ }
 
 .box p {
     color: midnightblue;
