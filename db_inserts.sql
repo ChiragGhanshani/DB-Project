@@ -79,19 +79,17 @@ INSERT INTO employee_roles VALUES(0, 'Keeper');
 INSERT INTO employee_roles VALUES(1, 'Veterinarian');
 INSERT INTO employee_roles VALUES(2, 'Manager');
 
-
-SET @item_1 = UUID();
-SET @item_2 = UUID();
-SET @item_3 = UUID();
-SET @item_4 = UUID();
-SET @item_5 = UUID();
-SET @item_6 = UUID();
-INSERT INTO item_types VALUES('01', 'day pass', 10);
-INSERT INTO item_types VALUES(@item_2, 'season membership', 50);
-INSERT INTO item_types VALUES(@item_3, 'one year membership', 150);
-INSERT INTO item_types VALUES(@item_4, 't-shirt', 15);
-INSERT INTO item_types VALUES(@item_5, 'back pack', 20);
-INSERT INTO item_types VALUES(@item_6, 'teddy bear', 15);
+INSERT INTO item_types
+VALUES
+	(01, 'Child', 12);
+	(02, 'Adult', 15);
+	(03, 'Senior', 10);
+	(04, 'Single', 65);
+	(05, 'Dual', 85);
+	(06, 'Single Family', 110);
+	(07, 'Family', 125);
+	(08, 'Family Plus', 145);
+	(09, 'Grandparent', 100);
 
 INSERT INTO behaviors VALUES(0, 'territorial');
 INSERT INTO behaviors VALUES(1, 'aggressive');

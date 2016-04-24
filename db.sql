@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS transactions(
 );
 
 CREATE TABLE IF NOT EXISTS item_types(
-	id varchar(36) NOT NULL, /*uuid*/
+	id int(2) NOT NULL,
 	item_type varchar(20) NOT NULL,
   item_cost int NOT NULL,
 
