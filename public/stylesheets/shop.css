@@ -140,26 +140,54 @@
 
 /*background boxes*/
 .box {
-    height: 300px;
-    width: 400px;
+    height: 200px;
+    width: 300px;
     background-color: rgba(192, 192, 192, 0.3);
-    text-align: justify;
+    text-align: center;
     margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 .box p {
     color: midnightblue;
     text-align: center;
     font-size: 20px;
-    margin: 50px;
+    margin: 20px;
 }
 
-.levelhead {
+.box label {
+    color: midnightblue;
+    text-align: center;
+    font-size: 25px;
+    margin: 20px;
+}
+
+.box .levelhead {
     font-size: 30px;
     text-align: center;
+    color: midnightblue;
+    padding-top: 25px;
+}
+
+.box input {
+    transform: scale(1.5);
 }
 
 h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.addCart a{
+    background-color: #2b81af;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    text-decoration: none;
+}
+
+.addCart {
     text-align: center;
 }
 

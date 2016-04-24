@@ -25,52 +25,6 @@
                 ele.style.display = "block";
             }
         }
-
-        //addCustomer function
-        function addCustomer() {
-            var valid = true;
-            var address = document.getElementById('address').value;
-            var fname = document.getElementById("fn").value;
-            var lname = document.getElementById("ln").value;
-            var pass = document.getElementById("pw").value;
-            var city = document.getElementById("city").value;
-            var state = document.getElementById("state").value;
-            var zip = document.getElementById("zip").value;
-            var phone = document.getElementById("phone").value;
-            var uname = document.getElementById("Username").value;
-            var dob = document.getElementById("dob").value;
-            var email = document.getElementById("email").value;
-
-
-            /*Here is how to detect which radio button: */
-            var x = document.getElementsByName("memberType");
-            for(var i=0;i<x.length;i++){
-                if(x[i].checked){window.alert(x[i].value);}
-            }
-
-            if(document.getElementById("pw").value != document.getElementById("pw2").value) {
-                window.alert("Passwords do not match!");
-                valid = false;
-                console.log("nope");
-            }
-
-            if (valid) {
-                window.alert("Passes validation!");
-                location = "#";
-                location.reload(true);
-                httpSend('/login/registerUser?username=' + uname + '&password=' + pass + '&firstName=' + fname +
-                        '&lastName=' + lname + '&street=' + address + '&city=' + city + '&state=0&zip=' + zip +
-                        '&phone=' + phone + '&dob=' + dob + '&email=' + email.replace('@', '%40'));
-            }
-        }
-
-        function httpSend(theUrl)
-        {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-            xmlHttp.send( null );
-
-        }
     </script>
 </head>
 
@@ -83,30 +37,33 @@
             <!--Customer-->
             <li><a id="customer" href="#"></a>
                 <ul>
-                    <li><a href="#">Edit Info</a></li>
-                    <li><a href="#">Shop</a></li>
+                    <li><a href="/editInfo">Edit Info</a></li>
+                    <li><a href="/shop">Shop</a></li>
                     <li><a href="/shoppingCart">Cart</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <!--Keeper/Vet-->
             <li><a id="keepVet" href="#"></a>
                 <ul>
-                    <li><a href="#">Your Animals</a></li>
-                    <li><a href="#">Animal Reports</a></li>
+                    <li><a href="/yourAnimals">Your Animals</a></li>
+                    <li><a href="/feedingfGraphs">Animal Reports</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <!--Manager-->
             <li><a id="manager" href="#"></a>
                 <ul>
-                    <li><a href="#">Manage Employees</a></li>
-                    <li><a href="#">Sales Overview</a></li>
+                    <li><a href="/manageEmployees">Manage Employees</a></li>
+                    <li><a href="/salesOverview">Sales Overview</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <li><a href="/memberInfo"> Membership </a>
                 <ul>
                     <li><a href="/memberInfo">Member Info</a></li>
                     <li><a href="/memberFAQ">Member FAQ</a></li>
-                    <li><a href="/login">Join/Log in</a></li>
+                    <li><a id='login' href="/login">Join/Log in</a></li>
                 </ul>
             </li>
             <li class="active"><a href="/visit"> Visit Us </a>
@@ -181,7 +138,7 @@
 
 
 <!--Sign up now-->
-    <div style="text-align: center" id="signup-link">
+    <div id="signup-link">
         <a href="#signup-popup" class="signup">Don't have an account? Sign up now</a>
     </div>
 

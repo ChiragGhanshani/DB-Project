@@ -43,15 +43,9 @@ function addTab() {
 
   else if (role === "") {
     document.getElementById('login').style.display = "block";
-
-    document.getElementById('Cname').style.display = "none";
-    document.getElementById('customer').style.visibility = "hidden";
-
-    document.getElementById('Mname').style.display = "none";
-    document.getElementById('manager').style.visibility = "hidden";
-
-    document.getElementById('KVname').style.display = "none";
-    document.getElementById('keepVet').style.visibility = "hidden";
+    document.getElementById('customer').style.display = "none";
+    document.getElementById('manager').style.display = "none";
+    document.getElementById('keepVet').style.display = "none";
   }
 }
 
@@ -60,4 +54,8 @@ function logOut() {
   document.cookie = 'employeeCookie=;path=/';
   document.cookie = 'customerCookie=;path=/';
   document.cookie = 'shoppingCartCookie=;path=/';
+
+  document.getElementById('login').style.display = "block";
+
+  document.getElementById('login').click();
 }

@@ -9,107 +9,7 @@
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 
     <link rel="stylesheet" type="text/css" href="static/stylesheets/login.css">
-    <script src="static/javascripts/cookieManagement.js"></script>
-
-    <script>
-        function enterListener(e) {
-            if (e.keyCode == 13 || e.which == 13){
-                checkLogin();
-                return false;
-            }
-            else return true;
-        }
-
-        function checkLogin() {
-            var username_in, text;
-            var password_in, text;
-            username_in = document.getElementById("username").value;
-            password_in = document.getElementById("password").value;
-            var result = httpGet('login/checkCredentials?ID=' + username_in + '&password=' + password_in);
-
-            if (result.username == 'error') {
-                window.alert("Invalid username or password.");
-            }
-
-            else {
-              setCookie('zooLoginCookie', result, .04);
-              document.getElementById('home').click();
-            }
-        }
-
-        function getCookie(cname) {
-          var name = cname + "=";
-          var ca = document.cookie.split(';');
-          for(var i=0; i<ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0)==' ') c = c.substring(1);
-              if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-            }
-          return "";
-        }
-
-        function setCookie(cookieName, value, expDays){
-          var d = new Date();
-          d.setTime(d.getTime() + Math.round(expDays * 24 * 60 * 60 * 1000));
-          var expires = 'expires='+d.toUTCString();
-          document.cookie = 'zooLoginCookie=' + JSON.stringify(value) + ';' + 'path=/;' +
-            'name=' + cookieName + ';';
-        }
-
-        function addCustomer() {
-            var valid = true;
-            var address = document.getElementById('address').value;
-            var fname = document.getElementById("fn").value;
-            var lname = document.getElementById("ln").value;
-            var pass = document.getElementById("pw").value;
-            var city = document.getElementById("city").value;
-            var state = document.getElementById("state").value;
-            var zip = document.getElementById("zip").value;
-            var phone = document.getElementById("phone").value;
-            var uname = document.getElementById("Username").value;
-            var dob = document.getElementById("dob").value;
-            var email = document.getElementById("email").value;
-
-
-            /*Here is how to detect which radio button: */
-            var x = document.getElementsByName("memberType");
-            for(var i=0;i<x.length;i++){
-                if(x[i].checked){window.alert(x[i].value);}
-            }
-
-            if(document.getElementById("pw").value != document.getElementById("pw2").value) {
-                window.alert("Passwords do not match!");
-                valid = false;
-                console.log("nope");
-            }
-
-            if (valid) {
-                window.alert("Passes validation!");
-                location = "#";
-                location.reload(true);
-                httpSend('/login/registerUser?username=' + uname + '&password=' + pass + '&firstName=' + fname +
-                    '&lastName=' + lname + '&street=' + address + '&city=' + city + '&state=' + state + '&zip=' + zip +
-                    '&phone=' + phone + '&dob=' + dob + '&email=' + email.replace('@', '%40'));
-            }
-        }
-
-
-        function httpSend(theUrl)
-        {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-            xmlHttp.send( null );
-
-        }
-
-        function httpGet(theUrl)
-        {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-            xmlHttp.send( null );
-            return JSON.parse(xmlHttp.responseText);
-        }
-    </script>
+    <script src="static/javascripts/loginScript.js"></script>
 
 
 
@@ -118,34 +18,37 @@
     <!--NavBar -->
     <nav id="navbar">
         <ul>
-            <li><a id='home' class="title" href="/"> Hu-manatee Zoo </a></li>
+            <li><a class="title" href="/">Hu-manatee Zoo </a></li>
             <!--Customer-->
             <li><a id="customer" href="#"></a>
                 <ul>
-                    <li><a href="#">Edit Info</a></li>
-                    <li><a href="#">Shop</a></li>
+                    <li><a href="/editInfo">Edit Info</a></li>
+                    <li><a href="/shop">Shop</a></li>
                     <li><a href="/shoppingCart">Cart</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <!--Keeper/Vet-->
             <li><a id="keepVet" href="#"></a>
                 <ul>
-                    <li><a href="#">Your Animals</a></li>
-                    <li><a href="#">Animal Reports</a></li>
+                    <li><a href="/yourAnimals">Your Animals</a></li>
+                    <li><a href="/feedingfGraphs">Animal Reports</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <!--Manager-->
             <li><a id="manager" href="#"></a>
                 <ul>
-                    <li><a href="#">Manage Employees</a></li>
-                    <li><a href="#">Sales Overview</a></li>
+                    <li><a href="/manageEmployees">Manage Employees</a></li>
+                    <li><a href="/salesOverview">Sales Overview</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <li><a href="/memberInfo"> Membership </a>
                 <ul>
                     <li><a href="/memberInfo">Member Info</a></li>
                     <li><a href="/memberFAQ">Member FAQ</a></li>
-                    <li><a href="/login">Join/Log in</a></li>
+                    <li><a id='login' href="/login">Join/Log in</a></li>
                 </ul>
             </li>
             <li class="active"><a href="/visit"> Visit Us </a>
@@ -309,9 +212,6 @@
     <div id="bg">
         <img src="static/images/chameleon.jpg" alt="">
     </div>
-
-
-<!--Javascript begins here-->
 
 </body>
 </html>

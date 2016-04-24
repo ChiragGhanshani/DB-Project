@@ -19,34 +19,37 @@
     <!--NavBar -->
     <nav id="navbar">
         <ul>
-            <li><a class="title" href="/"> Hu-manatee Zoo </a></li>
+            <li><a class="title" href="/">Hu-manatee Zoo </a></li>
             <!--Customer-->
             <li><a id="customer" href="#"></a>
                 <ul>
-                    <li><a href="#">Edit Info</a></li>
+                    <li><a href="/editInfo">Edit Info</a></li>
                     <li><a href="/shop">Shop</a></li>
-                    <li><a id="cart" href="/shoppingCart">Cart</a></li>
+                    <li><a href="/shoppingCart">Cart</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <!--Keeper/Vet-->
             <li><a id="keepVet" href="#"></a>
                 <ul>
-                    <li><a href="#">Your Animals</a></li>
-                    <li><a href="#">Animal Reports</a></li>
+                    <li><a href="/yourAnimals">Your Animals</a></li>
+                    <li><a href="/feedingfGraphs">Animal Reports</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <!--Manager-->
             <li><a id="manager" href="#"></a>
                 <ul>
-                    <li><a href="#">Manage Employees</a></li>
-                    <li><a href="#">Sales Overview</a></li>
+                    <li><a href="/manageEmployees">Manage Employees</a></li>
+                    <li><a href="/salesOverview">Sales Overview</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
                 </ul>
             </li>
             <li><a href="/memberInfo"> Membership </a>
                 <ul>
                     <li><a href="/memberInfo">Member Info</a></li>
                     <li><a href="/memberFAQ">Member FAQ</a></li>
-                    <li><a href="/login">Join/Log in</a></li>
+                    <li><a id='login' href="/login">Join/Log in</a></li>
                 </ul>
             </li>
             <li class="active"><a href="/visit"> Visit Us </a>
@@ -80,8 +83,8 @@
         <div class="col-4">
             <div class="box">
                 <p class="levelhead">Child (2-11)</p>
-                <p>$12</p>
-                <select name="childTix" id="1">
+                <label>$12</label>
+                <select name="childTix" id="child">
                     <option value="0"> 0 </option>
                     <option value="1"> 1 </option>
                     <option value="2"> 2 </option>
@@ -99,8 +102,8 @@
         <div class="col-4">
             <div class="box">
                 <p class="levelhead">Adult (12-64)</p>
-                <p>$15</p>
-                <select name="adultTix" id="2">
+                <label>$15</label>
+                <select name="adultTix" id="adult">
                     <option value="0"> 0 </option>
                     <option value="1"> 1 </option>
                     <option value="2"> 2 </option>
@@ -118,8 +121,8 @@
         <div class="col-4">
             <div class="box">
                 <p class="levelhead">Senior (65+)</p>
-                <p>$10</p>
-                <select name="seniorTix" id="3">
+                <label>$10</label>
+                <select name="seniorTix" id="senior">
                     <option value="0"> 0 </option>
                     <option value="1"> 1 </option>
                     <option value="2"> 2 </option>
@@ -138,29 +141,29 @@
 
 
     <!--Member packages-->
-    <h1>Find the right package for you!</h1>
+    <h1>Select Membership Level</h1>
     <div class="row">
         <div class="col-4">
             <div class="box">
-                <label class="levelhead" for="4">SINGLE </label>
-                <input id="4" name="single" type="checkbox">
-                <p>$65 + tax</p>
+                <label class="levelhead" for="single">SINGLE </label>
+                <input id="single" name="single" type="checkbox">
+                <p>$65 </p>
                 <p>Member benefits for one adult + one guest</p>
             </div>
         </div>
         <div class="col-4">
             <div class="box">
-                <label class="levelhead" for="5">DUAL </label>
-                <input id="5" name="dual" type="checkbox">
-                <p>$85 + tax</p>
+                <label class="levelhead" for="dual">DUAL </label>
+                <input id="dual" name="dual" type="checkbox">
+                <p>$85 </p>
                 <p>Member benefits for two adults + one guest</p>
             </div>
         </div>
         <div class="col-4">
             <div class="box">
-                <label class="levelhead" for="6">SINGLE FAMILY</label>
-                <input id="6" name="singleFam" type="checkbox">
-                <p>$110 + tax</p>
+                <label class="levelhead" for="singleFam">SINGLE FAMILY</label>
+                <input id="singleFam" name="singleFam" type="checkbox">
+                <p>$110 </p>
                 <p>Member benefits for one adult + eligible children + one guest</p>
             </div>
         </div>
@@ -169,31 +172,34 @@
     <div class="row">
         <div class="col-4">
             <div class="box">
-                <label class="levelhead" for="7">FAMILY </label>
-                <input id="7" name="family" type="checkbox">
-                <p>$125 + tax</p>
+                <label class="levelhead" for="family">FAMILY </label>
+                <input id="family" name="family" type="checkbox">
+                <p>$125 </p>
                 <p>Member benefits for two adults + eligible children + one guest</p>
             </div>
         </div>
         <div class="col-4">
             <div class="box">
-                <label class="levelhead" for="8">FAMILY PLUS </label>
-                <input id="8" name="familyPlus" type="checkbox">
-                <p>$145 + tax</p>
+                <label class="levelhead" for="famPlus">FAMILY PLUS </label>
+                <input id="famPlus" name="familyPlus" type="checkbox">
+                <p>$145 </p>
                 <p>Member benefits for three adults + eligible children + one guest</p>
             </div>
         </div>
         <div class="col-4">
             <div class="box">
-                <label class="levelhead" for="9">GRANDPARENT </label>
-                <input id="9" name="grandparent" type="checkbox">
-                <p>$100 + tax</p>
+                <label class="levelhead" for="grandparent">GRANDPARENT </label>
+                <input id="grandparent" name="grandparent" type="checkbox">
+                <p>$100 </p>
                 <p>Member benefits for two seniors + eligible children</p>
             </div>
         </div>
     </div>
 
-    <button type="button" onclick="addCartInfo()">ADD TO CART</button>
+    <div class="addCart">
+        <a href="javascript:addCartInfo();">Add to cart</a>
+    </div>
+
 
 
 

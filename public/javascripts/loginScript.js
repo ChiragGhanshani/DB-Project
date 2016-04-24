@@ -12,6 +12,7 @@ function checkLogin() {
     username_in = document.getElementById("username").value;
     password_in = document.getElementById("password").value;
     var result = httpGet('login/checkCredentials?ID=' + username_in + '&password=' + password_in);
+    console.log(result);
 
     if (result.username == 'error') {
         window.alert("Invalid username or password.");
@@ -61,8 +62,7 @@ function setCookie(cookieName, value, expDays){
     var d = new Date();
     d.setTime(d.getTime() + Math.round(expDays * 24 * 60 * 60 * 1000));
     var expires = 'expires='+d.toUTCString();
-    document.cookie = 'zooLoginCookie=' + JSON.stringify(value) + ';' + 'path=/;' +
-        'name=' + cookieName + ';';
+    document.cookie = cookieName + "=" + JSON.stringify(value) + ';' + 'path=/;';
 }
 
 function addCustomer() {
@@ -103,16 +103,14 @@ function addCustomer() {
 }
 
 
-function httpSend(theUrl)
-{
+function httpSend(theUrl) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
 
 }
 
-function httpGet(theUrl)
-{
+function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );

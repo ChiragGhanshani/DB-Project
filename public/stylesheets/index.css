@@ -125,17 +125,13 @@ button {
 }
 
 /*Hidden tabs*/
-#customer {
-  display: none;
-}
+#customer {  display: none;  }
 
-#keepVet {
-  display: none;
-}
+#keepVet {  display: none;   }
 
-#manager {
-  display: none;
-}
+#manager {  display: none;  }
+
+#login {  display: none;  }
 
 /*Video*/
 #video-container {
