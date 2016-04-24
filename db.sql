@@ -92,10 +92,10 @@ CREATE TABLE IF NOT EXISTS users(
 	username varchar(20) NOT NULL,
 	password varchar(20) NOT NULL,
 	date_created date NOT NULL,
-	active varchar(1) NOT NULL,
 	user_id varchar(36) NOT NULL, /*uuid*/
 	role enum('Customer','Employee'),
-
+	active varchar(1) NOT NULL,
+	
 	PRIMARY KEY (username)
 );
 

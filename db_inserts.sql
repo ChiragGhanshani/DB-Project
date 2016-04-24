@@ -58,9 +58,9 @@ VALUES(
 	'khoffee',
 	'abc123',
 	'2016-03-14',
-	'Y',
 	'1234-1234-1234',
-	'Customer'
+	'Customer',
+	'Y'
 );
 
 INSERT INTO users
@@ -68,9 +68,9 @@ VALUES(
 	'cdog',
 	'abc123',
 	'2016-04-24',
-	'Y',
 	'1234-5555-1234',
-	'Employee'
+	'Employee',
+	'Y'
 );
 
 INSERT INTO behaviors
