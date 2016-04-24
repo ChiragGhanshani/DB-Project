@@ -22,6 +22,23 @@ router.get('/checkCredentials', function(req, res, next){
   });
 });
 
+router.get('/getCustomer', function(req, res, next){
+  var ID = req.query.ID;
+
+  loginORM.getCustomerData(ID, function(error, result){
+    if(error) res.send('{"customer_firstName" : "error"}');
+    else res.send(result[0]);
+  });
+});
+
+router.get('/getEmployee', function(req, res, next){
+  var ID = req.query.ID;
+  loginORM.getCustomerData(ID, function(error, result){
+    if(error) res.send('{"employee_firstname" : "error"}');
+    else res.send(result[0]);
+  });
+});
+
 router.get('/registerUser', function(req, res, next){
   var username = req.query.username;
   var password = req.query.password;

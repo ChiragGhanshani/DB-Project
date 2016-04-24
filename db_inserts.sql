@@ -75,29 +75,31 @@ VALUES(
 	'Temperate Forest'
 );
 
-INSERT INTO employee_roles VALUES(0, 'Keeper');
-INSERT INTO employee_roles VALUES(1, 'Veterinarian');
-INSERT INTO employee_roles VALUES(2, 'Manager');
+INSERT INTO employee_roles
+VALUES
+	(0, 'Keeper'),
+	(1, 'Veterinarian'),
+	(2, 'Manager');
 
+INSERT INTO item_types
+VALUES
+	(01, 'Child', 12),
+	(02, 'Adult', 15),
+	(03, 'Senior', 10),
+	(04, 'Single', 65),
+	(05, 'Dual', 85),
+	(06, 'Single Family', 110),
+	(07, 'Family', 125),
+	(08, 'Family Plus', 145),
+	(09, 'Grandparent', 100);
 
-SET @item_1 = UUID();
-SET @item_2 = UUID();
-SET @item_3 = UUID();
-SET @item_4 = UUID();
-SET @item_5 = UUID();
-SET @item_6 = UUID();
-INSERT INTO item_types VALUES('01', 'day pass', 10);
-INSERT INTO item_types VALUES(@item_2, 'season membership', 50);
-INSERT INTO item_types VALUES(@item_3, 'one year membership', 150);
-INSERT INTO item_types VALUES(@item_4, 't-shirt', 15);
-INSERT INTO item_types VALUES(@item_5, 'back pack', 20);
-INSERT INTO item_types VALUES(@item_6, 'teddy bear', 15);
-
-INSERT INTO behaviors VALUES(0, 'territorial');
-INSERT INTO behaviors VALUES(1, 'aggressive');
-INSERT INTO behaviors VALUES(2, 'docile');
-INSERT INTO behaviors VALUES(3, 'reclusive');
-INSERT INTO behaviors VALUES(4, 'social');
+INSERT INTO behaviors
+VALUES
+	(0, 'territorial'),
+	(1, 'aggressive'),
+	(2, 'docile'),
+	(3, 'reclusive'),
+	(4, 'social');
 
 SET @manager_id_variable = uuid();
 INSERT INTO employees
@@ -143,7 +145,7 @@ VALUES(
 INSERT INTO transaction_items
 VALUES(
 	@transaction_id_variable,
-	'01',
+	01,
 	1
 );
 
@@ -190,16 +192,13 @@ VALUES(
 	1
 );
 
-INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'bAIDs', 'Acquisition of blue cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'rAIDs', 'Acquisition of red cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'blAIDs', 'Acquisition of black cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'yAIDs', 'Acquisition of yellow cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
 INSERT INTO animal_illnesses
-VALUES(
-	@tag_number_variable,
-	'AIDS',
-	'This red panda was perhaps a little too promiscuous in her youth...'
-);
+VALUES
+	(@tag_number_variable, 'bAIDs', 'Acquisition of blue cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit'),
+	(@tag_number_variable, 'rAIDs', 'Acquisition of red cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit'),
+	(@tag_number_variable, 'blAIDs', 'Acquisition of black cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit'),
+	(@tag_number_variable, 'yAIDs', 'Acquisition of yellow cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit'),
+	(@tag_number_variable, 'AIDS', 'This red panda was perhaps a little too promiscuous in her youth...');
 
 INSERT INTO animal_illnesses
 VALUES(
