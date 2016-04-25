@@ -137,3 +137,29 @@
     width: 100%;
     position: relative;
 }
+
+/*cart table display*/
+table {
+    margin: 0 auto;
+    border: 1px solid gainsboro;
+}
+
+table td {
+    height: 40px;
+    font-size: 25px;
+}
+
+table input {
+    height: 30px;
+    width: 300px;
+    float: left;
+}
+
+table label {
+    margin-left: 25px;
+}
+
+table select {
+    height: 30px;
+    width: 100px;
+}

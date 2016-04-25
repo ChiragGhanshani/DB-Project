@@ -14,6 +14,7 @@ var aboutPage = require('./routes/aboutPage');
 var login = require('./routes/login');
 var memberInfo = require('./routes/memberInfo');
 var memberFAQ = require('./routes/memberFAQ');
+var signup = require('./routes/signup');
 //Visit us routes
 var visitPage = require('./routes/visitPage');
 var ticketInfo = require('./routes/ticketInfo');
@@ -61,6 +62,7 @@ app.use('/about', aboutPage);
 app.use('/login',login);
 app.use('/memberInfo', memberInfo);
 app.use('/memberFAQ', memberFAQ);
+app.use('/signup', signup);
 //visit us
 app.use('/visit', visitPage);
 app.use('/ticketInfo', ticketInfo);
