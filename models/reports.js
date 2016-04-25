@@ -147,7 +147,7 @@ module.exports = {
   /****animal reporting****/
 
   getAnimalsReportNoFilter : function(sendResultBack) {
-    var queryString = 'SELECT * FROM animals;'; //I feel like we can process this on client side rather than limiting the data returned arbitrarily from this side...
+    var queryString = 'SELECT * FROM animals INNER JOIN habitats ON animals.habitat_id=habitats.habitat_id;'; //I feel like we can process this on client side rather than limiting the data returned arbitrarily from this side...
     db.query(queryString).spread(function(rows) {
       if(rows.length > 0) {
         sendResultBack(null, rows);
@@ -158,7 +158,7 @@ module.exports = {
     if([typeof column, typeof value].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT * FROM animals WHERE ?? = ?;';
+      var queryString = 'SELECT * FROM animals INNER JOIN habitats ON animals.habitat_id=habitats.habitat_id WHERE ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
@@ -170,7 +170,7 @@ module.exports = {
     if([typeof column1, typeof value1, typeof column2, typeof value2].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT * FROM animals WHERE ?? = ? AND ?? = ?;';
+      var queryString = 'SELECT * FROM animals INNER JOIN habitats ON animals.habitat_id=habitats.habitat_id WHERE ?? = ? AND ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
