@@ -30,60 +30,68 @@ function setCookie(cookieName, value, expDays){
 }
 
 function addTab() {
-  var cook = getCookie('zooLoginCookie');
-  var user = JSON.parse(cook);
-  var username = user.username;
-  var role = user.role;
+    var user = getCookie('zooLoginCookie');
+    var user = JSON.parse(user);
+    var employee = getCookie('employeeCookie');
+    var employee = JSON.parse(employee);
 
-  if(role === "Customer") {
+    var username = user.username;
+    var role = user.role;
+    var employeeName = employee.employee_firstname + ' ' +  employee.employee_lastname;
+    var employeeRole = employee.role_name;
+
+
+    if(role == "Customer") {
     document.getElementById('customer').innerHTML = username;
     document.getElementById('customer').style.display = "block";
     document.getElementById('login').style.display = "none";
-  }
+    }
 
-  else if(role === "Manager") {
-    document.getElementById('manager').innerHTML = username;
-    document.getElementById('manager').style.display = "block";
-    document.getElementById('login').style.display = "none";
-  }
+    else if(role == "Employee") {
+        if(employeeRole == "Manager") {
+            document.getElementById('manager').innerHTML = employeeName;
+            document.getElementById('manager').style.display = "block";
+            document.getElementById('login').style.display = "none";
+        }
 
-  else if(role === "Keeper" || role === "Vet") {
-    document.getElementById('keepVet').innerHTML = username;
-    document.getElementById('keepVet').style.display = "block";
-    document.getElementById('login').style.display = "none";
-  }
+        else if(employeeRole == "Keeper" || employeeRole == "Veterinarian") {
+            document.getElementById('keepVet').innerHTML = employeeName;
+            document.getElementById('keepVet').style.display = "block";
+            document.getElementById('login').style.display = "none";
+        }
+    }
 
-  else if (role === "") {
+    else if (role === "") {
     document.getElementById('login').style.display = "block";
     document.getElementById('customer').style.display = "none";
     document.getElementById('manager').style.display = "none";
     document.getElementById('keepVet').style.display = "none";
-  }
+    }
 }
 
-function logOut() {
-  document.cookie = 'zooLoginCookie=;path=/';
-  document.cookie = 'employeeCookie=;path=/';
-  document.cookie = 'customerCookie=;path=/';
-  document.cookie = 'shoppingCartCookie=;path=/';
+    function logOut() {
+    document.cookie = 'zooLoginCookie=;path=/';
+    document.cookie = 'employeeCookie=;path=/';
+    document.cookie = 'customerCookie=;path=/';
+    document.cookie = 'shoppingCartCookie=;path=/';
 
-  document.getElementById('login').style.display = "block";
+    document.getElementById('login').style.display = "block";
 
-  document.getElementById('login').click();
-}
+    document.getElementById('login').click();
+    }
 
-function updateUserInfo(sectionEdit){
-  var fields = {'editAddress' : ['address', 'city', 'state', 'zipcode'],
+    function updateUserInfo(sectionEdit){
+    var fields = {'editAddress' : ['address', 'city', 'state', 'zipcode'],
     'editEmail' : ['email'], 'editPass' : ['oldPass', 'newPass'],
     'editNumber' : ['phoneNumber']
-  };
+    };
 
-  for(var element in fields[sectionEdit]){
+    for(var element in fields[sectionEdit]){
     if(document.getElementById(fields[sectionEdit][element]).value == ''){
       window.alert('Invalid Input. Please check your entry for: ' + fields[sectionEdit][element]);
       return;
     }
-  }
+    }
 
     var customer = getCookie('customerCookie');
     customer = JSON.parse(customer);
@@ -111,7 +119,7 @@ function updateUserInfo(sectionEdit){
     else if(sectionEdit == "editEmail") {
         customer['customer_email'] = document.getElementById('email').value;
         document.getElementById('customer_email').innerHTML = customer['customer_email'];
-        
+
         httpSend('/editInfo/editEmail?ID=' + customer['membership_id'].replace(/-/g, '%2D') +
             '&email=' + customer['customer_email'].replace(/@/g, '%40'));
 

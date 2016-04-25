@@ -33,7 +33,8 @@ router.get('/getCustomer', function(req, res, next){
 
 router.get('/getEmployee', function(req, res, next){
   var ID = req.query.ID;
-  loginORM.getCustomerData(ID, function(error, result){
+  loginORM.getEmployeeData(ID, function(error, result){
+    console.log(error);
     if(error) res.send('{"employee_firstname" : "error"}');
     else res.send(result[0]);
   });
