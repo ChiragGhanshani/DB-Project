@@ -19,4 +19,20 @@ describe('reports ORM test', function(){
       });
     done();
   });
+
+  it('should return a list of transactions', function(done){
+    reportsORM.getTransactionsReportNoFilter(function(error, result){
+      expect(error).to.be.eql(null);
+    });
+    done();
+  });
+
+  it('should return a list of transactions filtered on a value',
+    function(done){
+      reportsORM.getTransactionsReportOneFilter('IT.id', 1,
+        function(error, result){
+          expect(error).to.be.eql(null);
+        });
+      done();
+    });
 });
