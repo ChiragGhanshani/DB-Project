@@ -142,6 +142,7 @@
 table {
     margin: 0 auto;
     margin-top: 50px;
+    margin-bottom: 50px;
     border-top: 1px solid gainsboro;
     border-bottom: 1px solid gainsboro;
 }
@@ -198,5 +199,40 @@ table input {
 #editAddress { display: none; }
 
 #editPass { display: none; }
+
+
+/*!*Footer*!*/
+/*footer {*/
+    /*padding: 15px;*/
+    /*background: whitesmoke;*/
+    /*height: 200px;*/
+    /*min-height: 100%;*/
+    /*border: solid;*/
+    /*border-top-width: 10px;*/
+    /*border-color: midnightblue;*/
+    /*border-bottom: none;*/
+    /*border-left: none;*/
+    /*border-right: none;*/
+
+/*}*/
+
+/*.f-design {*/
+    /*!*margin: 0 auto;*!*/
+    /*font-size: 20px;*/
+    /*padding-left: 120px;*/
+/*}*/
+
+/*.f-design2 {*/
+    /*padding-left: 120px;*/
+    /*line-height: 34px;*/
+    /*border-left: groove;*/
+    /*border-color: floralwhite;*/
+/*}*/
+
+/*.f-design3 {*/
+    /*border-left: groove;*/
+    /*padding-left: 120px;*/
+    /*line-height: 22px;*/
+/*}*/
 
 

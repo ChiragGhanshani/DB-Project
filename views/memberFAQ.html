@@ -25,6 +25,52 @@
                 ele.style.display = "block";
             }
         }
+
+        //addCustomer function
+        function addCustomer() {
+            var valid = true;
+            var address = document.getElementById('address').value;
+            var fname = document.getElementById("fn").value;
+            var lname = document.getElementById("ln").value;
+            var pass = document.getElementById("pw").value;
+            var city = document.getElementById("city").value;
+            var state = document.getElementById("state").value;
+            var zip = document.getElementById("zip").value;
+            var phone = document.getElementById("phone").value;
+            var uname = document.getElementById("Username").value;
+            var dob = document.getElementById("dob").value;
+            var email = document.getElementById("email").value;
+
+
+            /*Here is how to detect which radio button: */
+            var x = document.getElementsByName("memberType");
+            for(var i=0;i<x.length;i++){
+                if(x[i].checked){window.alert(x[i].value);}
+            }
+
+            if(document.getElementById("pw").value != document.getElementById("pw2").value) {
+                window.alert("Passwords do not match!");
+                valid = false;
+                console.log("nope");
+            }
+
+            if (valid) {
+                window.alert("Passes validation!");
+                location = "#";
+                location.reload(true);
+                httpSend('/login/registerUser?username=' + uname + '&password=' + pass + '&firstName=' + fname +
+                        '&lastName=' + lname + '&street=' + address + '&city=' + city + '&state=0&zip=' + zip +
+                        '&phone=' + phone + '&dob=' + dob + '&email=' + email.replace('@', '%40'));
+            }
+        }
+
+        function httpSend(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+
+        }
     </script>
 </head>
 
