@@ -89,13 +89,39 @@
 <button type="button"
         onclick="getTransactions()">Get transactions</button>
 
+<div id="tablePrint"></div>
 
 </body>
 </html>
 
 <script>
-    function getTransactions(){
-/* need to know how to call ORM -- format output on a table*/
+    function getTransactions() {
 
+        /** made a fake row set to simulate return **/
+        var row1 = {id: "3", mem_id: "4", time: "a"};
+        var row2 = {id: "4", mem_id: "4", time: "b"};
+        var row3 = {id: "5", mem_id: "7", time: "be nice..."};
+
+        var fake = [row1, row2, row3];
+
+
+        var myTable = "<table><tr><td style='width: 50px; color: red;'>Transaction ID</td>";
+        myTable += "<td style='width: 50px; color: red;'>Customer ID</td>";
+        myTable += "<td style='width: 50px; color: red;'>Transaction Time</td></tr>";
+
+        myTable += "<tr><td style='width: 50px;'>---------------</td>";
+        myTable += "<td     style='width: 50px;'>---------------</td>";
+        myTable += "<td     style='width: 50px;'>---------------</td></tr>";
+
+
+        for (var i = 0; i < fake.length; i++) {
+            myTable += "<tr><td style='width: 50px;'>" + fake[i].id + "</td>";
+            myTable += "<td style='width: 50px;'>" + fake[i].mem_id + "</td>";
+            myTable += "<td style='width: 50px;'>" + fake[i].time + "</td></tr>";
+        }
+        myTable += "</table>";
+
+        document.getElementById('tablePrint').innerHTML = myTable;
     }
+
 </script>

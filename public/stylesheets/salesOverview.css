@@ -113,14 +113,14 @@
 
 table {
     margin: auto;
-    width: 1200px;
+    width: 600px;
     border-spacing: 20px;
 }
 
 table td {
-    color: midnightblue;
-    font-size: 20px;
-    width: 650px;
+    color: black;
+    font-size: 18px;
+    width: 65px;
 }
 
 .des {

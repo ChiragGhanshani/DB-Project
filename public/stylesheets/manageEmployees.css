@@ -142,3 +142,38 @@
     margin: 5px;
     text-align: left;
 }
+
+/*Table*/
+
+table {
+    margin: auto;
+    width: 600px;
+    border-spacing: 20px;
+}
+
+table td {
+    color: black;
+    font-size: 18px;
+    width: 65px;
+}
+
+.des {
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-align: center;
+}
+
+#submit {
+    background-color: #2b81af;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+.buttons {
+    text-align: center;
+    margin-bottom: 75px;
+    margin-top: 50px;
+}
