@@ -16,4 +16,4 @@ services:
 
 before_script:
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('agile') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
-  - echo "mysql -uroot -pagile < db.sql && mysql -uroot -pagile < db_inserts.sql" | bash
+  - echo "mysql -uroot -pagile < db.sql && mysql -uroot -pagile < db_inserts.sql && mysql -uroot -pagile < db_triggers.sql" | bash
