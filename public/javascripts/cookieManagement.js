@@ -73,6 +73,18 @@ function logOut() {
 }
 
 function updateUserInfo(sectionEdit){
+  var fields = {'editAddress' : ['address', 'city', 'state', 'zipcode'],
+    'editEmail' : ['email'], 'editPass' : ['oldPass', 'newPass'],
+    'editNumber' : ['phoneNumber']
+  };
+
+  for(var element in fields[sectionEdit]){
+    if(document.getElementById(fields[sectionEdit][element]).value == ''){
+      window.alert('Invalid Input. Please check your entry for: ' + fields[sectionEdit][element]);
+      return;
+    }
+  }
+
     var customer = getCookie('customerCookie');
     customer = JSON.parse(customer);
 
