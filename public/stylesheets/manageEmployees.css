@@ -129,11 +129,16 @@
 .imageContainer {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 75%;
     overflow: hidden;
 }
 
 .fillWidth {
     width: 100%;
     position: relative;
+}
+
+.spacer {
+    margin: 5px;
+    text-align: left;
 }
