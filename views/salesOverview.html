@@ -2,9 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sales Reporting</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+
+    <!--Icons-->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="static/stylesheets/salesOverview.css">
+    <script src="static/javascripts/cookieManagement.js"></script>
+
 </head>
-<body>
+
+
+<body onload="addTab();">
+<!--NavBar -->
+<nav id="navbar">
+    <ul>
+        <li><a class="title" href="/">Hu-manatee Zoo </a></li>
+        <!--Customer-->
+        <li><a id="customer" href="#"></a>
+            <ul>
+                <li><a href="/editInfo">Edit Info</a></li>
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/shoppingCart">Cart</a></li>
+                <li><a href="javascript:logOut();">Log out</a></li>
+            </ul>
+        </li>
+        <!--Keeper/Vet-->
+        <li><a id="keepVet" href="#"></a>
+            <ul>
+                <li><a href="/yourAnimals">Your Animals</a></li>
+                <li><a href="/feedingfGraphs">Animal Reports</a></li>
+                <li><a href="javascript:logOut();">Log out</a></li>
+            </ul>
+        </li>
+        <!--Manager-->
+        <li><a id="manager" href="#"></a>
+            <ul>
+                <li><a href="/manageEmployees">Manage Employees</a></li>
+                <li><a href="/salesOverview">Sales Overview</a></li>
+                <li><a href="javascript:logOut();">Log out</a></li>
+            </ul>
+        </li>
+        <li><a href="/memberInfo"> Membership </a>
+            <ul>
+                <li><a href="/memberInfo">Member Info</a></li>
+                <li><a href="/memberFAQ">Member FAQ</a></li>
+                <li><a id='login' href="/login">Join/Log in</a></li>
+            </ul>
+        </li>
+        <li class="active"><a href="/visit"> Visit Us </a>
+            <ul>
+                <li><a href="/visit">Hours & Location</a></li>
+                <li><a href="/ticketInfo">Ticket Info</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Park Map</a></li>
+                <li><a href="/visitFAQ">FAQ</a></li>
+            </ul>
+        </li>
+        <li><a href="/animals"> Animals </a>
+            <ul>
+                <li><a href="/mammals">Mammals</a></li>
+                <li><a href="/birds">Birds</a></li>
+                <li><a href="/aquatic">Aquatic</a></li>
+                <li><a href="/reptiles">Reptiles</a></li>
+                <li><a href="/amphibians">Amphibians</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+
+<div class="imageContainer">
+    <img class ="fillWidth" src="static/images/sloth_hanging_out.jpg" alt="Baby sloth">
+</div>
+
+<p class="header">Sales Reporting:</p>
+<div class="des">
+    <p>Please use the following tools to view sales information from the zoo.</p>
+</div>
+
+<button type="button"
+        onclick="getTransactions()">Get transactions</button>
+
+<div id="tablePrint"></div>
 
 </body>
 </html>
+
+<script>
+    function getTransactions() {
+
+        /** made a fake row set to simulate return **/
+        var row1 = {id: "3", mem_id: "4", time: "a"};
+        var row2 = {id: "4", mem_id: "4", time: "b"};
+        var row3 = {id: "5", mem_id: "7", time: "be nice..."};
+
+        var fake = [row1, row2, row3];
+
+
+        var myTable = "<table><tr><td style='width: 50px; color: red;'>Transaction ID</td>";
+        myTable += "<td style='width: 50px; color: red;'>Customer ID</td>";
+        myTable += "<td style='width: 50px; color: red;'>Transaction Time</td></tr>";
+
+        myTable += "<tr><td style='width: 50px;'>---------------</td>";
+        myTable += "<td     style='width: 50px;'>---------------</td>";
+        myTable += "<td     style='width: 50px;'>---------------</td></tr>";
+
+
+        for (var i = 0; i < fake.length; i++) {
+            myTable += "<tr><td style='width: 50px;'>" + fake[i].id + "</td>";
+            myTable += "<td style='width: 50px;'>" + fake[i].mem_id + "</td>";
+            myTable += "<td style='width: 50px;'>" + fake[i].time + "</td></tr>";
+        }
+        myTable += "</table>";
+
+        document.getElementById('tablePrint').innerHTML = myTable;
+    }
+
+</script>

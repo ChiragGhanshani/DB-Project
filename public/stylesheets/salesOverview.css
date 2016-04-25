@@ -2,48 +2,12 @@
     margin: 0;
     padding: 0;
     font-family: Ubuntu, sans-serif;
-    /*padding and border included in total width and height of elements*/
-    box-sizing: border-box;
-}
-
-.header {
-    letter-spacing: 1px;
-    text-align: center;
-    font-size: 70px;
-    font-family: Lobster, sans-serif;
-    color: black;
-    padding-bottom: 0;
-}
-
-/*Defines how many columns the section should span*/
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
-
-
-[class*="col-"] { /*Makes all columns float left*/
-    float: left;
-}
-
-
-.row:after { /*Prevents other elements to be placed as if the columns were not there*/
-    content: "";
-    clear: both;
-    display: block;
 }
 
 /*Navbar*/
 #navbar ul {
     list-style-type: none;
+    /*overflow: hidden; not sure what this is for*/
 
     /*fixed top*/
     position: fixed;
@@ -90,14 +54,10 @@
     display: none;
     position: absolute;
     top: 100%;
-    /*left: 0;*/
     background: white;
-    /*padding: 0;*/
-    z-index: 100;
 }
 
 #navbar ul ul li {
-    /*float: none;*/
     width: inherit;
 }
 
@@ -121,8 +81,13 @@
     display: none;
 }
 
+
 #navbar #manager {
     display: none;
+}
+
+.test {
+    visibility: visible;
 }
 
 /*Image*/
@@ -137,3 +102,30 @@
     width: 100%;
     position: relative;
 }
+
+.header {
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 70px;
+    font-family: Lobster, sans-serif;
+    color: black;
+}
+
+table {
+    margin: auto;
+    width: 600px;
+    border-spacing: 20px;
+}
+
+table td {
+    color: black;
+    font-size: 18px;
+    width: 65px;
+}
+
+.des {
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-align: center;
+}
+

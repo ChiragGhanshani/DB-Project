@@ -2,9 +2,286 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employee Management</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" type="text/css"
+          href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster"/>
+
+    <!--Icons-->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="static/stylesheets/manageEmployees.css">
+    <script src="static/javascripts/cookieManagement.js"></script>
+
 </head>
-<body>
+
+
+<body onload="addTab();">
+<!--NavBar -->
+<nav id="navbar">
+    <ul>
+        <li><a class="title" href="/">Hu-manatee Zoo </a></li>
+        <!--Customer-->
+        <li><a id="customer" href="#"></a>
+            <ul>
+                <li><a href="/editInfo">Edit Info</a></li>
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/shoppingCart">Cart</a></li>
+                <li><a href="javascript:logOut();">Log out</a></li>
+            </ul>
+        </li>
+        <!--Keeper/Vet-->
+        <li><a id="keepVet" href="#"></a>
+            <ul>
+                <li><a href="/yourAnimals">Your Animals</a></li>
+                <li><a href="/feedingfGraphs">Animal Reports</a></li>
+                <li><a href="javascript:logOut();">Log out</a></li>
+            </ul>
+        </li>
+        <!--Manager-->
+        <li><a id="manager" href="#"></a>
+            <ul>
+                <li><a href="/manageEmployees">Manage Employees</a></li>
+                <li><a href="/salesOverview">Sales Overview</a></li>
+                <li><a href="javascript:logOut();">Log out</a></li>
+            </ul>
+        </li>
+        <li><a href="/memberInfo"> Membership </a>
+            <ul>
+                <li><a href="/memberInfo">Member Info</a></li>
+                <li><a href="/memberFAQ">Member FAQ</a></li>
+                <li><a id='login' href="/login">Join/Log in</a></li>
+            </ul>
+        </li>
+        <li class="active"><a href="/visit"> Visit Us </a>
+            <ul>
+                <li><a href="/visit">Hours & Location</a></li>
+                <li><a href="/ticketInfo">Ticket Info</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Park Map</a></li>
+                <li><a href="/visitFAQ">FAQ</a></li>
+            </ul>
+        </li>
+        <li><a href="/animals"> Animals </a>
+            <ul>
+                <li><a href="/mammals">Mammals</a></li>
+                <li><a href="/birds">Birds</a></li>
+                <li><a href="/aquatic">Aquatic</a></li>
+                <li><a href="/reptiles">Reptiles</a></li>
+                <li><a href="/amphibians">Amphibians</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+
+<div class="imageContainer">
+    <img class="fillWidth" src="static/images/sloth_hanging_out.jpg" alt="Baby sloth">
+</div>
+
+<p class="header">Manage Employees:</p>
+<div class="des">
+    <p>Please use the following tools to manage zoo employees.</p>
+</div>
+
+<div>
+    <div class="spacer">
+        <button type="button"
+                onclick="getEmployees()">Get list of employees
+        </button>
+    </div>
+
+    <div class="spacer">
+        <button type="button"
+                onclick="addEmployee()">Add an employee
+        </button>
+    </div>
+
+    <div class="spacer">
+        <button type="button"
+                onclick="deactivateEmployee()">Remove an employee
+        </button>
+    </div>
+</div>
+
+<div id="tablePrint"></div>
 
 </body>
 </html>
+
+<script>
+    function getEmployees() {
+        /** made a fake row set to simulate return **/
+        var row1 = {id: "3", mem_id: "4", time: "a"};
+        var row2 = {id: "4", mem_id: "4", time: "b"};
+        var row3 = {id: "5", mem_id: "7", time: "be nice..."};
+
+        var fake = [row1, row2, row3];
+
+
+        var myTable = "<table><tr><td style='width: 50px; color: red;'>Column 1</td>";
+        myTable += "<td style='width: 50px; color: red;'>Column 2</td>";
+        myTable += "<td style='width: 50px; color: red;'>Column 3</td></tr>";
+
+        myTable += "<tr><td style='width: 50px;'>---------------</td>";
+        myTable += "<td     style='width: 50px;'>---------------</td>";
+        myTable += "<td     style='width: 50px;'>---------------</td></tr>";
+
+
+        for (var i = 0; i < fake.length; i++) {
+            myTable += "<tr><td style='width: 50px;'>" + fake[i].id + "</td>";
+            myTable += "<td style='width: 50px;'>" + fake[i].mem_id + "</td>";
+            myTable += "<td style='width: 50px;'>" + fake[i].time + "</td></tr>";
+        }
+        myTable += "</table>";
+
+        document.getElementById('tablePrint').innerHTML = myTable;
+    }
+
+    function addEmployee() {
+        var myTable = "<table>" +
+                "<col width='500px'>" +
+                "<col width='400px'>" +
+                "<tr>" +
+                "<td><label for='username'>Username:</label></td>" +
+                "<td><input id='username' type='text'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='email'>Email Address:</label></td>" +
+                "<td><input id='email' type='email'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='pw'>Password:</label></td>" +
+                "<td><input id='pw' name='pass' type='password'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='pw2'>Confirm Password:</label></td>" +
+                "<td><input id='pw2' type='password'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='fn'>First Name:</label></td>" +
+                "<td><input id='fn' name='first' type='text'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='ln'>Last Name:</label></td>" +
+                "<td><input id='ln' type='text'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='phone'>Phone Number:</label></td>" +
+                "<td><input id='phone' type='text' placeholder='xxx-xxx-xxxx'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='dob'>Date of Birth:</label></td>" +
+                "<td><input id='dob' type='text' placeholder='YYYY-MM-DD'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='address'>Street Address:</label></td>" +
+                "<td><input id='address' type='text'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='zip'>Zipcode:</label></td>" +
+                "<td><input id='zip' type='text'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='city'>City:</label></td>" +
+                "<td><input id='city' type='text'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='state'>State:</label></td>" +
+                "<td>" +
+                "<select id='state'>" +
+                "<option value='0'>AL</option>" +
+                "<option value='1'>AK</option>" +
+                "<option value='2'>AZ</option>" +
+                "<option value='3'>AR</option>" +
+                "<option value='4'>CA</option>" +
+                "<option value='5'>CO</option>" +
+                "<option value='6'>CT</option>" +
+                "<option value='7'>DE</option>" +
+                "<option value='8'>FL</option>" +
+                "<option value='9'>GA</option>" +
+                "<option value='10'>HI</option>" +
+                "<option value='11'>ID</option>" +
+                "<option value='12'>IL</option>" +
+                "<option value='13'>IN</option>" +
+                "<option value='14'>IA</option>" +
+                "<option value='15'>KS</option>" +
+                "<option value='16'>KY</option>" +
+                "<option value='17'>LA</option>" +
+                "<option value='18'>ME</option>" +
+                "<option value='19'>MD</option>" +
+                "<option value='20'>MA</option>" +
+                "<option value='21'>MI</option>" +
+                "<option value='22'>MN</option>" +
+                "<option value='23'>MS</option>" +
+                "<option value='24'>MO</option>" +
+                "<option value='25'>MT</option>" +
+                "<option value='26'>NE</option>" +
+                "<option value='27'>NV</option>" +
+                "<option value='28'>NH</option>" +
+                "<option value='29'>NJ</option>" +
+                "<option value='30'>NM</option>" +
+                "<option value='31'>NY</option>" +
+                "<option value='32'>NC</option>" +
+                "<option value='33'>ND</option>" +
+                "<option value='34'>OH</option>" +
+                "<option value='35'>OK</option>" +
+                "<option value='36'>OR</option>" +
+                "<option value='37'>PA</option>" +
+                "<option value='38'>RI</option>" +
+                "<option value='39'>SC</option>" +
+                "<option value='40'>SD</option>" +
+                "<option value='41'>TN</option>" +
+                "<option value='42'>TX</option>" +
+                "<option value='43'>UT</option>" +
+                "<option value='44'>VT</option>" +
+                "<option value='45'>VA</option>" +
+                "<option value='46'>WA</option>" +
+                "<option value='47'>WV</option>" +
+                "<option value='48'>WI</option>" +
+                "<option value='49'>WY</option>" +
+                "</select>" +
+                "</td>" +
+                "</tr>" +
+                "</table>" +
+                "<div class='buttons'>" +
+                "<a id='submit' href='javascript:submitNewEmployee();'>Submit</a>" +
+                "</div>";
+
+
+        document.getElementById('tablePrint').innerHTML = myTable;
+    }
+
+    function submitNewEmployee() {
+        window.alert("Validation and Insert Coming soon!");
+    }
+
+    function deactivateEmployee() {
+        var myTable = "<h2 align='center'>Please enter the credentials of the employee you would like to remove:</h2>" +
+                "<table>" +
+                "<col width='500px'>" +
+                "<col width='400px'>" +
+                "<tr>" +
+                "<td><label for='userid'>User ID:</label></td>" +
+                "<td><input id='userid' type='text'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='username'>Username:</label></td>" +
+                "<td><input id='username' type='text'></td>" +
+                "</tr>" +
+                "</table>" +
+                "<div class='buttons'>" +
+                "<a id='submit' href='javascript:submitRemoveEmployee();'>Submit</a>" +
+                "</div>";
+
+        document.getElementById('tablePrint').innerHTML = myTable;
+    }
+
+    function submitRemoveEmployee() {
+        window.alert("Validation and Update Coming soon!");
+    }
+
+</script>
