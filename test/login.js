@@ -9,7 +9,7 @@ describe('login ORM test', function(){
       done();
     }
 
-    loginORM.getUserID('khoffee', 'abc123', parser);
+    loginORM.getUserID('khoffee', 'nope', parser);
   })
 
   it('should return an error when an empty string is queried', function(done){
