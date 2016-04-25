@@ -33,7 +33,10 @@ function addTab() {
     var user = getCookie('zooLoginCookie');
     var user = JSON.parse(user);
     var employee = getCookie('employeeCookie');
-    var employee = JSON.parse(employee);
+    if(employee != "") {
+        var employee = JSON.parse(employee);
+    }
+
 
     var username = user.username;
     var role = user.role;
