@@ -139,15 +139,64 @@
 }
 
 /*Info display*/
+table {
+    margin: 0 auto;
+    margin-top: 50px;
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+}
+table td {
+    font-size: 25px;
+}
+
+table tr {
+    height: 40px;
+    border-spacing: 0 5px;
+}
+
 table td:first-child {
+    width: 350px;
+}
+
+table td:nth-child(3) {
+    float: right;
+}
+
+table tr td a {
+    text-decoration: none;
+    color: blue;
+}
+
+table input {
+    height: 30px;
     width: 250px;
 }
 
-table td:last-child {
-    float: right;
-    /*width: 300px;*/
+#customer_firstName {
+    width: 50px;
 }
 
-table td {
-    border: 1px solid black;
+.memInfo ul {
+    list-style-type: none;
 }
+
+.memInfo ul li {
+    display: inline;
+}
+
+.memInfo a {
+    font-size: 15px;
+    text-decoration: none;
+    color: blue;
+}
+
+/*Edit sections*/
+#editEmail { display: none; }
+
+#editNumber { display: none; }
+
+#editAddress { display: none; }
+
+#editPass { display: none; }
+
+

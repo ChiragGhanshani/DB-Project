@@ -1,15 +1,6 @@
-var itemsMap = {'child': '1', 'adult': '2', 'senior': '3', 'single': '4', 'dual': '5',
-  'singleFam': '6', 'family': '7', 'famPlus': '8', 'grandparent': '9'};
-
-
 function addCartInfo() {
-    //var cart = {'1':  0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0};
-
     var cart = {'child': 0, 'adult': 0, 'senior': 0, 'single': 0, 'dual': 0,
         'singleFam': 0, 'family': 0, 'famPlus': 0, 'grandparent': 0};
-
-    var itemsMap = {'child': '1', 'adult': '2', 'senior': '3', 'single': '4', 'dual': '5',
-        'singleFam': '6', 'family': '7', 'famPlus': '8', 'grandparent': '9'};
 
     for(var key in cart) {
         var quantity = document.getElementById(key);
@@ -24,19 +15,6 @@ function addCartInfo() {
         }
     }
 
-
-    //for (var i=1; i<4; i++) {
-    //    var element = document.getElementById(i.toString());
-    //    cart[i.toString()] = parseInt(element.value);
-    //}
-    //
-    //for (var i=4; i<10; i++) {
-    //    var element = document.getElementById(i.toString());
-    //    if(element.checked) {
-    //        cart[i.toString()] = 1;
-    //    }
-    //}
-
     setCookie('shoppingCartCookie', cart, .04);
     document.getElementById('cart').click();
 }
@@ -44,10 +22,6 @@ function addCartInfo() {
 function populateCart() {
     var itemCost = {'child': 12, 'adult': 15, 'senior': 10, 'single': 65, 'dual': 85,
     'singleFam': 110, 'family': 125, 'famPlus': 145, 'grandparent': 100};
-
-    var itemsMap = {'child': 'childTix', 'adult': 'adultTix', 'senior': 'seniorTix',
-        'single': 'singleMem', 'dual': 'dualMem', 'singleFam': 'singleFamMem',
-        'family': 'familyMem', 'famPlus': 'famPlusMem', 'grandparent': 'grandMem'};
 
     var cartCookie = getCookie('shoppingCartCookie');
     var cartCookie = JSON.parse(cartCookie);
@@ -63,7 +37,6 @@ function populateCart() {
             document.getElementById(key).innerHTML = cartCookie[key];
             document.getElementById(priceType).innerHTML = '$' + price;
             document.getElementById(type).style.display = "table-row";
-            //document.getElementById(key).style.display = "table-cell";
             console.log(total);
         }
     }
@@ -83,11 +56,15 @@ function displayCheckoutForm() {
 }
 
 function completeTransaction(){
-  var items = JSON.parse(getCookie('shoppingCartCookie'));
-  var memberID = JSON.parse(getCookie('zooLoginCookie')).user_id.replace(/-/g, '%2D');
-  var queries = '?ID=' + memberID;
-  for (key in items){
-    queries = queries + '&item' + itemsMap[key] + '=' + items[key].toString();
-  }
-  httpSend('/shoppingCart/completeTransaction' + queries);
+    var itemsMap = {'child': '1', 'adult': '2', 'senior': '3', 'single': '4', 'dual': '5',
+        'singleFam': '6', 'family': '7', 'famPlus': '8', 'grandparent': '9'};
+
+    var items = JSON.parse(getCookie('shoppingCartCookie'));
+    var memberID = JSON.parse(getCookie('zooLoginCookie')).user_id.replace(/-/g, '%2D');
+    var queries = '?ID=' + memberID;
+    for (key in items){
+        queries = queries + '&item' + itemsMap[key] + '=' + items[key].toString();
+     }
+
+    httpSend('/shoppingCart/completeTransaction' + queries);
 }
