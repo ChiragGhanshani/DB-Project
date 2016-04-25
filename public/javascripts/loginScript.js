@@ -57,7 +57,7 @@ function addCustomer() {
     var state = document.getElementById("state").value;
     var zip = document.getElementById("zip").value;
     var phone = document.getElementById("phone").value;
-    var uname = document.getElementById("Username").value;
+    var uname = document.getElementById("username").value;
     var dob = document.getElementById("dob").value;
     var email = document.getElementById("email").value;
 
