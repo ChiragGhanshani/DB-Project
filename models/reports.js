@@ -16,7 +16,7 @@ module.exports = {
     if([typeof column, typeof value].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT TRAN.transaction_id, IT.item_type, IT.id, IT.item_cost, TRAN_ITEM.quantity, TRAN.transaction_time FROM transactions AS TRAN, item_types AS IT, transaction_items AS TRAN_ITEM WHERE ? = ?;';
+      var queryString = 'SELECT TRAN.transaction_id, IT.item_type, IT.id, IT.item_cost, TRAN_ITEM.quantity, TRAN.transaction_time FROM transactions AS TRAN, item_types AS IT, transaction_items AS TRAN_ITEM WHERE ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
@@ -28,7 +28,7 @@ module.exports = {
     if([typeof column1, typeof value1, typeof column2, typeof value2].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT TRAN.transaction_id, IT.item_type, IT.id, IT.item_cost, TRAN_ITEM.quantity, TRAN.transaction_time FROM transactions AS TRAN, item_types AS IT, transaction_items AS TRAN_ITEM WHERE ? = ? AND ? = ?;';
+      var queryString = 'SELECT TRAN.transaction_id, IT.item_type, IT.id, IT.item_cost, TRAN_ITEM.quantity, TRAN.transaction_time FROM transactions AS TRAN, item_types AS IT, transaction_items AS TRAN_ITEM WHERE ?? = ? AND ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
@@ -52,7 +52,7 @@ module.exports = {
     if([typeof column, typeof value].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT * FROM animal_illnesses WHERE ? = ?;';
+      var queryString = 'SELECT * FROM animal_illnesses WHERE ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
@@ -64,7 +64,7 @@ module.exports = {
     if([typeof column1, typeof value1, typeof column2, typeof value2].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT * FROM animal_illnesses WHERE ? = ? AND ? = ?;';
+      var queryString = 'SELECT * FROM animal_illnesses WHERE ?? = ? AND ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
@@ -88,7 +88,7 @@ module.exports = {
     if([typeof column, typeof value].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT employee_id AS "Employee ID", employee_firstname AS "First Name", employee_lastname AS "Last Name", salary, manager_id AS "Manager ID" FROM employees WHERE ? = ?;';
+      var queryString = 'SELECT employee_id AS "Employee ID", employee_firstname AS "First Name", employee_lastname AS "Last Name", salary, manager_id AS "Manager ID" FROM employees WHERE ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
@@ -100,7 +100,7 @@ module.exports = {
     if([typeof column1, typeof value1, typeof column2, typeof value2].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT employee_id AS "Employee ID", employee_firstname AS "First Name", employee_lastname AS "Last Name", salary, manager_id AS "Manager ID" FROM employees WHERE ? = ? AND ? = ?;';
+      var queryString = 'SELECT employee_id AS "Employee ID", employee_firstname AS "First Name", employee_lastname AS "Last Name", salary, manager_id AS "Manager ID" FROM employees WHERE ?? = ? AND ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
@@ -123,7 +123,7 @@ module.exports = {
     if([typeof column, typeof value].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT * FROM customers WHERE ? = ?;';
+      var queryString = 'SELECT * FROM customers WHERE ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
@@ -135,7 +135,7 @@ module.exports = {
     if([typeof column1, typeof value1, typeof column2, typeof value2].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT * FROM customers WHERE ? = ? AND ? = ?;';
+      var queryString = 'SELECT * FROM customers WHERE ? = ?? AND ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
@@ -158,7 +158,7 @@ module.exports = {
     if([typeof column, typeof value].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT * FROM animals WHERE ? = ?;';
+      var queryString = 'SELECT * FROM animals WHERE ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
@@ -170,7 +170,7 @@ module.exports = {
     if([typeof column1, typeof value1, typeof column2, typeof value2].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT * FROM animals WHERE ? = ? AND ? = ?;';
+      var queryString = 'SELECT * FROM animals WHERE ?? = ? AND ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
