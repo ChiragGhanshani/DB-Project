@@ -37,7 +37,7 @@ module.exports = {
     if(typeof lookup_id === 'undefined' || lookup_id == '')
       sendResultBack(new Error('Invalid field'), null);
     else{
-      var queryString = 'select employees.*, states.state_name FROM employees INNER JOIN states ON employees.state=states.id WHERE employee_id = ?';
+      var queryString = 'select employees.*, states.state_name, employee_roles.role_name FROM employees INNER JOIN states ON employees.state=states.id INNER JOIN employee_roles ON employees.role=employee_roles.id WHERE employee_id = ?';
       db.query(queryString, [lookup_id]).spread(function(rows){
         if(rows.length > 0) sendResultBack(null, rows);
         else sendResultBack(new Error('Entry not found'), null);
