@@ -17,7 +17,6 @@ describe('general ORM test', function(){
     usersORM.getUserID('khoffee', 'abc123', function(error, result){
       expect(error).to.be.eql(null);
       initial = result[0].password;
-      console.log(initial);
       general.updateTable('users', 'password', 'nope', 'username', 'khoffee', function(err, res){
         expect(err).to.be.eql(null);
         usersORM.getUserID('khoffee', 'nope', function(Error, Result){
