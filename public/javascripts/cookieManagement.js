@@ -1,3 +1,16 @@
+function httpSend(theUrl){
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("Get", theUrl, false);
+  xmlHttp.send(null);
+}
+
+function httpGet(theUrl){
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("Get", theUrl, false);
+  xmlHttp.send(null);
+  return JSON.parse(xmlHttp.responseText);
+}
+
 function getCookie(cname) {
   var name = cname + "=";
   var ca = document.cookie.split(';');

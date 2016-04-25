@@ -1,3 +1,7 @@
+var itemsMap = {'child': '1', 'adult': '2', 'senior': '3', 'single': '4', 'dual': '5',
+  'singleFam': '6', 'family': '7', 'famPlus': '8', 'grandparent': '9'};
+
+
 function addCartInfo() {
     //var cart = {'1':  0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0};
 
@@ -76,4 +80,14 @@ function displayCheckoutForm() {
 
     document.getElementById('checkOut').style.display = "block";
     document.getElementById('clickCheckOut').style.display = "none";
+}
+
+function completeTransaction(){
+  var items = JSON.parse(getCookie('shoppingCartCookie'));
+  var memberID = JSON.parse(getCookie('zooLoginCookie')).user_id.replace(/-/g, '%2D');
+  var queries = '?ID=' + memberID;
+  for (key in items){
+    queries = queries + '&item' + itemsMap[key] + '=' + items[key].toString();
+  }
+  httpSend('/shoppingCart/completeTransaction' + queries);
 }
