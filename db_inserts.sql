@@ -56,7 +56,9 @@ VALUES
 INSERT INTO users
 VALUES
 	('khoffee', 'abc123', '2016-03-14', '1234-1234-1234', 'Customer', 'Y'),
-	('cdog', 'abc123', '2016-04-24', '1234-5555-1234', 'Employee', 'Y');
+	('cdog', 'abc123', '2016-04-24', '1234-5555-1234', 'Employee', 'Y'),
+	('anabanana', '123abc', '2016-04-20', '1234-7777-1234', 'Employee', 'Y'),
+	('ronak', 'hclc', '2016-01-01', '1234-7890-1234', 'Employee', 'Y');
 
 INSERT INTO areas
 VALUES(
@@ -93,23 +95,10 @@ VALUES
 
 SET @manager_id_variable = uuid();
 INSERT INTO employees
-VALUES(
-	'1234-5555-1234',
-	'Clifford',
-	'The Dog',
-	'1234 Imaginary Ln.',
-	'Made Up Ville',
-	01, /*state*/
-	12345,
-	'000-000-0000',
-	'1960-05-14',
-	'nothing@nothing.com',
-	'123456789',
-	@manager_id_variable,
-	1200,
-	01, /*role*/
-	'Y'
-);
+VALUES
+	('1234-5555-1234', 'Clifford', 'The Dog', '1234 Imaginary Ln.', 'Made Up Ville',  /*state*/01, 12345, '000-000-0000', '1960-05-14', 'nothing@nothing.com', '123456789', @manager_id_variable, 1200, 0, 'Y'),
+	('1234-7777-1234', 'Ana', 'Banana', '4800 Calhoun Rd.', 'Houston', 42, 77004, '123-456-7777', '2001-01-01', 'ana@banana.com', '123777123', @manager_id_variable, 1500, 1, 'Y'),
+	('1234-7890-1234', 'Ronak', 'Shah', '123 Yolo Ln.', 'Houston', 42, 77072, '832-123-4567', '1969-04-20', 'ron@k.com', '123123123', @manager_id_variable, 2000, 2, 'Y');
 
 INSERT INTO customers
 VALUES(
