@@ -71,3 +71,55 @@ function logOut() {
 
   document.getElementById('login').click();
 }
+
+function updateUserInfo(sectionEdit){
+    var customer = getCookie('customerCookie');
+    customer = JSON.parse(customer);
+
+    var user = getCookie('zooLoginCookie');
+    var user = JSON.parse(user);
+
+    if(sectionEdit == "editAddress") {
+        customer['customer_streetAddress'] = document.getElementById('address').value;
+        customer['customer_city'] = document.getElementById('city').value;
+        customer['state_name'] = document.getElementById('state').value;
+        customer['customer_zipcode'] = document.getElementById('zipcode').value;
+
+        document.getElementById('customer_streetAddress').innerHTML = customer['customer_streetAddress'];
+        document.getElementById('customer_city').innerHTML = customer['customer_city'];
+        document.getElementById('state_name').innerHTML = customer['state_name'];
+        document.getElementById('customer_zipcode').innerHTML = customer['customer_zipcode'];
+
+        document.getElementById(sectionEdit).style.display = "none";
+    }
+
+    else if(sectionEdit == "editEmail") {
+        customer['customer_email'] = document.getElementById('email').value;
+        document.getElementById('customer_email').innerHTML = customer['customer_email'];
+
+        document.getElementById(sectionEdit).style.display = "none";
+    }
+
+    else if(sectionEdit == "editNumber") {
+        customer['customer_phoneNumber'] = document.getElementById('phoneNumber').value;
+        document.getElementById('customer_phoneNumber').innerHTML = customer['customer_phoneNumber'];
+
+        document.getElementById(sectionEdit).style.display = "none";
+    }
+
+    else if(sectionEdit == "editPass") {
+        if(document.getElementById('oldPass').value == user['password']) {
+            user['password'] = document.getElementById('newPass').value;
+            document.getElementById(sectionEdit).style.display = "none";
+        }
+
+        else {
+            window.alert('Current password is incorrect');
+        }
+
+    }
+
+    setCookie('zooLoginCookie', user, .04);
+    setCookie('customerCookie', customer, .04);
+
+}

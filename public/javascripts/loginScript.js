@@ -103,12 +103,21 @@ function getUserData() {
     var customerData = getCookie('customerCookie');
     var customerData = JSON.parse(customerData);
 
+    var userData = getCookie('zooLoginCookie');
+    var userData = JSON.parse(userData);
+
     for (key in customerData) {
-        document.getElementById(key).innerHTML = customerData[key];
         if(key == 'customer_DOB'){
           console.log(customerData[key] + '\n' + customerData[key].split('T'));
           var dob = customerData[key].split('T')[0];
           document.getElementById(key).innerHTML = dob;
+        }
+        else if (key == 'customer_state') {
+            document.getElementById('username').innerHTML = userData['username'];
+
+        }
+        else {
+            document.getElementById(key).innerHTML = customerData[key];
         }
     }
 }

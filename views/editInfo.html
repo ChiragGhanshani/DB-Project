@@ -13,6 +13,13 @@
     <script src="static/javascripts/cookieManagement.js"></script>
     <script src="static/javascripts/loginScript.js"></script>
 
+    <script>
+        function displayEdit(editSection) {
+            document.getElementById(editSection).style.display = "table-row";
+
+        }
+    </script>
+
 </head>
 
 <body onload="addTab();getUserData();">
@@ -80,50 +87,108 @@
     <p class="header">Account Information</p>
 
     <table>
+        <col width="500px">
+        <col width="600px">
+        <col width="200px">
+
+
         <tr>
             <td>Member ID:</td>
             <td id="membership_id"></td>
             <td></td>
         </tr>
 
-        <tr>
+        <tr class="nameSection">
             <td>Name: </td>
-            <td id="customer_firstName"></td>
-            <td id="customer_LastName"></td>
-            <td><a href="">Edit</a></td>
+            <td class="memInfo">
+                <ul>
+                    <li id="customer_firstName"></li>
+                    <li id="customer_LastName"></li>
+                </ul>
+            </td>
         </tr>
 
         <tr>
             <td>Date of birth: </td>
             <td id="customer_DOB"></td>
-            <td><a href="">Edit</a></td>
         </tr>
 
         <tr>
             <td>Address:</td>
-            <td id="customer_streetAddress"></td>
-            <td id="customer_city"></td>
-            <td id="customer_state"></td>
-            <td id="customer_zipCode"></td>
-            <td><a href="">Edit</a></td>
+            <td class="memInfo">
+                <ul>
+                    <li id="customer_streetAddress"></li>
+                    <li id="customer_city"></li>
+                    <li id="state_name"></li>
+                    <li id="customer_zipCode"></li>
+                </ul>
+            </td>
+            <td><a href="javascript:displayEdit('editAddress')">Edit</a></td>
+        </tr>
+
+        <tr id="editAddress">
+            <td></td>
+            <td>
+                <input id="address" style="width: 505px;" type="text" placeholder="Street address">
+                <input id="city" type="text" placeholder="City">
+                <input id="state" type="text" placeholder="TX">
+                <input id="zipcode" type="text" placeholder="Zip code">
+                <a href="javascript:updateUserInfo('editAddress')">Save changes</a>
+            </td>
+
         </tr>
 
         <tr>
             <td>Email: </td>
             <td id="customer_email"></td>
-            <td><a href="">Edit</a></td>
+            <td class="edit"><a href="javascript:displayEdit('editEmail')">Edit</a></td>
+        </tr>
+
+        <tr id="editEmail" class="memInfo">
+            <td></td>
+            <td>
+                <input id="email" type="text" placeholder="Email">
+                <a href="javascript:updateUserInfo('editEmail')">Save changes</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Username: </td>
+            <td id="username"></td>
+        </tr>
+
+        <tr>
+            <td>Password: </td>
+            <td>********</td>
+            <td class="edit"><a href="javascript:displayEdit('editPass')">Edit</a></td>
+        </tr>
+
+        <tr id="editPass" class="memInfo">
+            <td></td>
+            <td>
+                <input style="width:200px" id="oldPass" type="password" placeholder="Current Password">
+                <input style="width:200px" id="newPass" type="password" placeholder="New Password">
+                <a href="javascript:updateUserInfo('editPass')">Save changes</a>
+            </td>
         </tr>
 
         <tr>
             <td>Phone number: </td>
             <td id="customer_phoneNumber"></td>
-            <td><a href="">Edit</a></td>
+            <td class="edit"><a href="javascript:displayEdit('editNumber')">Edit</a></td>
+        </tr>
+
+        <tr id="editNumber" class="memInfo">
+            <td></td>
+            <td>
+                <input id="phoneNumber" type="text" placeholder="Phone number">
+                <a href="javascript:updateUserInfo('editNumber')">Save changes</a>
+            </td>
         </tr>
     </table>
 
 
-
-
+    <br><br><br><br>
 
 
 
