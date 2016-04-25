@@ -50,21 +50,19 @@ function runOnLoad() {
 }
 
 function displayCheckoutForm() {
-
-    document.getElementById('checkOut').style.display = "block";
-    document.getElementById('clickCheckOut').style.display = "none";
+  document.getElementById('checkOut').style.display = "block";
+  document.getElementById('clickCheckOut').style.display = "none";
 }
 
 function completeTransaction(){
-    var itemsMap = {'child': '1', 'adult': '2', 'senior': '3', 'single': '4', 'dual': '5',
-        'singleFam': '6', 'family': '7', 'famPlus': '8', 'grandparent': '9'};
-
-    var items = JSON.parse(getCookie('shoppingCartCookie'));
-    var memberID = JSON.parse(getCookie('zooLoginCookie')).user_id.replace(/-/g, '%2D');
-    var queries = '?ID=' + memberID;
-    for (key in items){
-        queries = queries + '&item' + itemsMap[key] + '=' + items[key].toString();
-     }
-
-    httpSend('/shoppingCart/completeTransaction' + queries);
+  var itemsMap = {'child': '1', 'adult': '2', 'senior': '3', 'single': '4', 'dual': '5',
+    'singleFam': '6', 'family': '7', 'famPlus': '8', 'grandparent': '9'};
+  var items = JSON.parse(getCookie('shoppingCartCookie'));
+  var memberID = JSON.parse(getCookie('zooLoginCookie')).user_id.replace(/-/g, '%2D');
+  var queries = '?ID=' + memberID;
+  for (key in items){
+    queries = queries + '&item' + itemsMap[key] + '=' + items[key].toString();
+  }
+  httpSend('/shoppingCart/completeTransaction' + queries);
+  setCookie('shoppingCartCookie', '', .04);
 }
