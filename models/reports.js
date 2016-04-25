@@ -7,9 +7,12 @@ module.exports = {
   getTransactionsReportNoFilter : function(sendResultBack) {
     var queryString = 'SELECT TRAN.transaction_id, IT.item_type, IT.id, IT.item_cost, TRAN_ITEM.quantity, TRAN.transaction_time FROM transactions AS TRAN, item_types AS IT, transaction_items AS TRAN_ITEM;';
     db.query(queryString).spread(function(rows) {
-      if(rows.length > 0) {
+      if(rows.length > 0)
         sendResultBack(null, rows);
-      }
+      else
+        sendResultBack(new Error('Invalid Values'), null);
+    }).catch(function(error){
+      sendResultBack(error, null);
     });
   },
   getTransactionsReportOneFilter : function(column ,value, sendResultBack) {
@@ -18,9 +21,12 @@ module.exports = {
     else {
       var queryString = 'SELECT TRAN.transaction_id, IT.item_type, IT.id, IT.item_cost, TRAN_ITEM.quantity, TRAN.transaction_time FROM transactions AS TRAN, item_types AS IT, transaction_items AS TRAN_ITEM WHERE ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
-        if(rows.length > 0) {
+        if(rows.length > 0)
           sendResultBack(null, rows);
-        }
+        else
+          sendResultBack(new Error('Invalid Values'), null);
+      }).catch(function(error){
+        sendResultBack(error, null);
       });
     }
   },
@@ -30,9 +36,12 @@ module.exports = {
     else {
       var queryString = 'SELECT TRAN.transaction_id, IT.item_type, IT.id, IT.item_cost, TRAN_ITEM.quantity, TRAN.transaction_time FROM transactions AS TRAN, item_types AS IT, transaction_items AS TRAN_ITEM WHERE ?? = ? AND ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
-        if(rows.length > 0) {
+        if(rows.length > 0)
           sendResultBack(null, rows);
-        }
+        else
+          sendResultBack(new Error('Invalid Filter'), null);
+      }).catch(function(error){
+        sendResultBack(error, null);
       });
     }
   },
@@ -54,9 +63,12 @@ module.exports = {
     else {
       var queryString = 'SELECT * FROM animal_illnesses WHERE ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
-        if(rows.length > 0) {
+        if(rows.length > 0)
           sendResultBack(null, rows);
-        }
+        else
+          sendResultBack(new Error('Invalid Values'), null);
+      }).catch(function(error){
+        sendResultBack(error, null);
       });
     }
   },
@@ -66,9 +78,12 @@ module.exports = {
     else {
       var queryString = 'SELECT * FROM animal_illnesses WHERE ?? = ? AND ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
-        if(rows.length > 0) {
+        if(rows.length > 0)
           sendResultBack(null, rows);
-        }
+        else
+          sendResultBack(new Error('Invalid Values'), null);
+      }).catch(function(error){
+        sendResultBack(error, null);
       });
     }
   },
@@ -137,9 +152,12 @@ module.exports = {
     else {
       var queryString = 'SELECT * FROM customers WHERE ? = ?? AND ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
-        if(rows.length > 0) {
+        if(rows.length > 0)
           sendResultBack(null, rows);
-        }
+        else
+          sendResultBack(new Error('Invalid Query'), null);
+      }).catch(function(error){
+        sendResultBack(error, null);
       });
     }
   },
@@ -149,9 +167,12 @@ module.exports = {
   getAnimalsReportNoFilter : function(sendResultBack) {
     var queryString = 'SELECT * FROM animals INNER JOIN habitats ON animals.habitat_id=habitats.habitat_id;'; //I feel like we can process this on client side rather than limiting the data returned arbitrarily from this side...
     db.query(queryString).spread(function(rows) {
-      if(rows.length > 0) {
+      if(rows.length > 0)
         sendResultBack(null, rows);
-      }
+      else
+        sendResultBack(new Error('Invalid values'), null);
+    }).catch(function(error){
+      sendResultBack(error, null);
     });
   },
   getAnimalsReportOneFilter : function(column ,value, sendResultBack) {
@@ -160,9 +181,12 @@ module.exports = {
     else {
       var queryString = 'SELECT * FROM animals INNER JOIN habitats ON animals.habitat_id=habitats.habitat_id WHERE ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
-        if(rows.length > 0) {
+        if(rows.length > 0)
           sendResultBack(null, rows);
-        }
+        else
+          sendResultBack(new Error('Invalid Values'), null);
+      }).catch(function(error){
+        sendResultBack(error, null);
       });
     }
   },
@@ -172,9 +196,12 @@ module.exports = {
     else {
       var queryString = 'SELECT * FROM animals INNER JOIN habitats ON animals.habitat_id=habitats.habitat_id WHERE ?? = ? AND ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
-        if(rows.length > 0) {
+        if(rows.length > 0)
           sendResultBack(null, rows);
-        }
+        else
+          sendResultBack(new Error('Invaild Values'), null);
+      }).catch(function(error){
+        sendResultBack(error, null);
       });
     }
   },
