@@ -94,7 +94,7 @@ function updateUserInfo(sectionEdit){
     if(sectionEdit == "editAddress") {
         customer['customer_streetAddress'] = document.getElementById('address').value;
         customer['customer_city'] = document.getElementById('city').value;
-        customer['state_name'] = document.getElementById('state').value;
+        customer['customer_state'] = document.getElementById('state').value;
         customer['customer_zipcode'] = document.getElementById('zipcode').value;
 
         document.getElementById('customer_streetAddress').innerHTML = customer['customer_streetAddress'];
@@ -103,11 +103,17 @@ function updateUserInfo(sectionEdit){
         document.getElementById('customer_zipcode').innerHTML = customer['customer_zipcode'];
 
         document.getElementById(sectionEdit).style.display = "none";
+        httpSend('/editInfo/editAddress?ID=' + customer['membership_id'].replace(/-/g, '%2D') +
+            '&address=' + customer['customer_streetAddress'] + '&city=' + customer['customer_city']
+            + '&state=' + customer['customer_state'] + '&zip=' + customer['customer_zipcode']);
     }
 
     else if(sectionEdit == "editEmail") {
         customer['customer_email'] = document.getElementById('email').value;
         document.getElementById('customer_email').innerHTML = customer['customer_email'];
+        
+        httpSend('/editInfo/editEmail?ID=' + customer['membership_id'].replace(/-/g, '%2D') +
+            '&email=' + customer['customer_email'].replace(/@/g, '%40'));
 
         document.getElementById(sectionEdit).style.display = "none";
     }
@@ -115,6 +121,8 @@ function updateUserInfo(sectionEdit){
     else if(sectionEdit == "editNumber") {
         customer['customer_phoneNumber'] = document.getElementById('phoneNumber').value;
         document.getElementById('customer_phoneNumber').innerHTML = customer['customer_phoneNumber'];
+        httpSend('/editInfo/updatePhone?ID=' + customer['membership_id'].replace(/-/g, '%2D') +
+            '&phone=' + customer['customer_phoneNumber'].replace(/-/g, '%2D'));
 
         document.getElementById(sectionEdit).style.display = "none";
     }
@@ -123,6 +131,8 @@ function updateUserInfo(sectionEdit){
         if(document.getElementById('oldPass').value == user['password']) {
             user['password'] = document.getElementById('newPass').value;
             document.getElementById(sectionEdit).style.display = "none";
+            httpSend('/editInfo/updatePass?username=' + user['username'] + '&pass=' +
+              document.getElementById('oldPass').value + '&newpass=' + user['password']);
         }
 
         else {
@@ -130,8 +140,6 @@ function updateUserInfo(sectionEdit){
         }
 
     }
-
     setCookie('zooLoginCookie', user, .04);
     setCookie('customerCookie', customer, .04);
-
 }
