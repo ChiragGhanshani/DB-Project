@@ -4,6 +4,13 @@ var usersORM = require('../models/login.js');
 var general = require('../models/general.js');
 
 describe('general ORM test', function(){
+  it('should return the whole table', function(done){
+    general.selectTable('users', function(error, result){
+      expect(Object.keys(result).length > 1).to.be.true;
+      done();
+    });
+  });
+
   it('should update the user data', function(done){
     var initial;
 
@@ -18,13 +25,6 @@ describe('general ORM test', function(){
           expect(Result[0].password).to.not.eql(initial);
         });
       });
-      done();
-    });
-  });
-
-  it('should return the whole table', function(done){
-    general.selectTable('users', function(error, result){
-      expect(Object.keys(result).length > 1).to.be.true;
       done();
     });
   });
