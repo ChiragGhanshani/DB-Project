@@ -35,4 +35,12 @@ describe('reports ORM test', function(){
         });
       done();
     });
+
+  it('should return an unfiltered list infection incidences for the animals',
+     function(done){
+       reportsORM.getIllnessesReportNoFilter(function(error, result){
+         expect(error).to.be.eql(null);
+       });
+       done();
+     });
 });
