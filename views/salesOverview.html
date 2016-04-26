@@ -111,33 +111,34 @@
     for (var j in transactionsKeys) {
         console.log(transactionsList[j]);
         if (transactionsList[j].item_type == "Child"){
-            type_count.child += 1;
+            type_count.child += transactionsList[j].quantity;
         }
         else if (transactionsList[j].item_type == "Adult"){
-            type_count.adult += 1;
+            type_count.adult += transactionsList[j].quantity;
         }
         else if (transactionsList[j].item_type == "Senior"){
-            type_count.senior += 1;
+            type_count.senior += transactionsList[j].quantity;
         }
         else if (transactionsList[j].item_type == "Single"){
-            type_count.single += 1;
+            type_count.single += transactionsList[j].quantity;
         }
         else if (transactionsList[j].item_type == "Dual"){
-            type_count.dual += 1;
+            type_count.dual += transactionsList[j].quantity;
         }
         else if (transactionsList[j].item_type == "Single Family"){
-            type_count.single_fam += 1;
+            type_count.single_fam += transactionsList[j].quantity;
         }
         else if (transactionsList[j].item_type == "Family"){
-            type_count.family += 1;
+            type_count.family += transactionsList[j].quantity;
         }
         else if (transactionsList[j].item_type == "Family Plus"){
-            type_count.family_plus += 1;
+            type_count.family_plus += transactionsList[j].quantity;
         }
         else if (transactionsList[j].item_type == "Grandparent"){
-            type_count.grandparent += 1;
+            type_count.grandparent += transactionsList[j].quantity;
         }
     }
+
 
     console.log(type_count);
 
