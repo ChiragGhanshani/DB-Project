@@ -16,6 +16,11 @@ function checkLogin() {
 
     if (result.username == 'error') {
         window.alert("Invalid username or password.");
+        return;
+    }
+    if (result.active == 0){
+      window.alert("Invalid username or password.");
+      return;
     }
 
     else {
@@ -60,6 +65,13 @@ function addCustomer() {
     var uname = document.getElementById("username").value;
     var dob = document.getElementById("dob").value;
     var email = document.getElementById("email").value;
+
+    if(!address.match(/[0-9]{1-7} [-A-Za-z0-9 ]+/) || !fname.match(/[A-Z][a-z]+/) || !lname.match(/[A-Z][a-z]+/)
+        || !pass.match(/[-A-Za-z0-9]{8-20}/) || !city.match(/[A-Z][a-z]+/) || !zip.match(/[0-9]{5}/) ||
+        !phone.match(/[0-9]{3}-[0-9]{3}-[0-9]{4}/) || !uname.match(/[A-Za-z0-9]{7-20}/) || !email.match(/[-A-Za-z0-9_.]+@[-A-Za-z0-9_.]+.[a-z]{2-3}/)){
+      console.log("there is an error");
+      return;
+    }
 
 
     /*Here is how to detect which radio button: */
