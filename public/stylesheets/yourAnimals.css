@@ -149,7 +149,7 @@ table td {
     height: 40px;
     font-size: 25px;
     width: 400px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 .group ul {
