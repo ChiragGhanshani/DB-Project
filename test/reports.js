@@ -43,4 +43,10 @@ describe('reports ORM test', function(){
        });
        done();
      });
+  it('should return an unfiltered list of employees', function(done){
+    reportsORM.getEmployeesReportNoFilter(function(error, result){
+      expect(error).to.be.eql(null);
+    });
+    done();
+  });
 });
