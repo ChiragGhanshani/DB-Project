@@ -6,14 +6,16 @@
     <title>Sales Reporting</title>
 
     <!--fonts-->
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+    <link rel="stylesheet" type="text/css"
+          href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster"/>
 
     <!--Icons-->
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="static/stylesheets/salesOverview.css">
     <script src="static/javascripts/cookieManagement.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
 
 </head>
 
@@ -78,7 +80,7 @@
 
 
 <div class="imageContainer">
-    <img class ="fillWidth" src="static/images/sloth_hanging_out.jpg" alt="Baby sloth">
+    <img class="fillWidth" src="static/images/sloth_hanging_out.jpg" alt="Baby sloth">
 </div>
 
 <p class="header">Sales Reporting:</p>
@@ -86,46 +88,93 @@
     <p>Please use the following tools to view sales information from the zoo.</p>
 </div>
 
-<div align="center">
-    <div class="spacer">
-        <button type="button" align="center"
-                onclick="getTransactions()">Get transactions
-        </button>
-    </div>
-
+<canvas id="myCanvas" width="600" height="600"></canvas>
 <div id="tablePrint"></div>
 
 </body>
 </html>
 
 <script>
-    function getTransactions() {
 
-        /** made a fake row set to simulate return **/
-        var row1 = {id: "3", mem_id: "4", time: "a"};
-        var row2 = {id: "4", mem_id: "4", time: "b"};
-        var row3 = {id: "5", mem_id: "7", time: "be nice..."};
+    var transactionsList = httpGet('/salesOverview/getTransactions');
+    var transactionsKeys = Object.keys(transactionsList);
+    var type_count = new Object();
+    type_count.child = 0;
+    type_count.adult = 0;
+    type_count.senior = 0;
+    type_count.single = 0;
+    type_count.dual = 0;
+    type_count.single_fam = 0;
+    type_count.family = 0;
+    type_count.family_plus = 0;
+    type_count.grandparent = 0;
 
-        var fake = [row1, row2, row3];
-
-
-        var myTable = "<table><tr><td style='width: 50px; color: red;'>Transaction ID</td>";
-        myTable += "<td style='width: 50px; color: red;'>Customer ID</td>";
-        myTable += "<td style='width: 50px; color: red;'>Transaction Time</td></tr>";
-
-        myTable += "<tr><td style='width: 50px;'>---------------</td>";
-        myTable += "<td     style='width: 50px;'>---------------</td>";
-        myTable += "<td     style='width: 50px;'>---------------</td></tr>";
-
-
-        for (var i = 0; i < fake.length; i++) {
-            myTable += "<tr><td style='width: 50px;'>" + fake[i].id + "</td>";
-            myTable += "<td style='width: 50px;'>" + fake[i].mem_id + "</td>";
-            myTable += "<td style='width: 50px;'>" + fake[i].time + "</td></tr>";
+    for (var j in transactionsKeys) {
+        console.log(transactionsList[j]);
+        if (transactionsList[j].item_type == "Child"){
+            type_count.child += 1;
         }
-        myTable += "</table>";
-
-        document.getElementById('tablePrint').innerHTML = myTable;
+        else if (transactionsList[j].item_type == "Adult"){
+            type_count.adult += 1;
+        }
+        else if (transactionsList[j].item_type == "Senior"){
+            type_count.senior += 1;
+        }
+        else if (transactionsList[j].item_type == "Single"){
+            type_count.single += 1;
+        }
+        else if (transactionsList[j].item_type == "Dual"){
+            type_count.dual += 1;
+        }
+        else if (transactionsList[j].item_type == "Single Family"){
+            type_count.single_fam += 1;
+        }
+        else if (transactionsList[j].item_type == "Family"){
+            type_count.family += 1;
+        }
+        else if (transactionsList[j].item_type == "Family Plus"){
+            type_count.family_plus += 1;
+        }
+        else if (transactionsList[j].item_type == "Grandparent"){
+            type_count.grandparent += 1;
+        }
     }
+
+    console.log(type_count);
+
+    var barData = {
+        labels: ["Child", "Adult", "Senior", "Single", "Dual", "Single Family", "Family", "Family Plus", "Grandparent"],
+        datasets: [
+            {
+                fillColor: "mediumvioletred",
+                strokeColor: "#48A4D1",
+                data: [type_count.child, type_count.adult, type_count.senior, type_count.single, type_count.dual, type_count.single_fam, type_count.family, type_count.family_plus, type_count.grandparent]
+            }
+        ]
+    };
+
+    var types = document.getElementById('myCanvas').getContext("2d");
+    new Chart(types).Bar(barData);
+
+
+    var myTable = "<table><tr><td style='width: 100px; color: red;'>Transaction ID</td>";
+    myTable += "<td style='width: 100px; color: red;'>Item Type</td>";
+    myTable += "<td style='width: 100px; color: red;'>Item Cost</td>";
+    myTable += "<td style='width: 100px; color: red;'>Item Quantity</td>";
+    myTable += "<td style='width: 100px; color: red;'>Total Cost</td>";
+    myTable += "<td style='width: 100px; color: red;'>Transaction Time</td></tr>";
+
+
+    for (var i in transactionsKeys) {
+        myTable += "<tr><td style='width: 100px;'>" + transactionsList[i].transaction_id + "</td>";
+        myTable += "<td style='width: 100px;'>" + transactionsList[i].item_type + "</td>";
+        myTable += "<td style='width: 100px;'>" + transactionsList[i].item_cost + "</td>";
+        myTable += "<td style='width: 100px;'>" + transactionsList[i].quantity + "</td>";
+        myTable += "<td style='width: 100px;'>" + transactionsList[i].total + "</td>";
+        myTable += "<td style='width: 100px;'>" + transactionsList[i].transaction_time.toLocaleString() + "</td></tr>";
+    }
+    myTable += "</table>";
+
+    document.getElementById('tablePrint').innerHTML = myTable; /*references a div tag in the html body*/
 
 </script>
