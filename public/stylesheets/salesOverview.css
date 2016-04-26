@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Ubuntu, sans-serif;
+}
+
+/*Navbar*/
+#navbar ul {
+    list-style-type: none;
+    /*overflow: hidden; not sure what this is for*/
+
+    /*fixed top*/
+    position: fixed;
+    z-index: 1; /*enables links*/
+    top: 0;
+    width: 100%;
+
+    /*background */
+    background-color: rgba(255, 255, 255,0.60);
+    border: none;
+}
+
+#navbar ul li a {
+    display: block;
+    color: mediumvioletred;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 35px 10px 35px;
+    margin: 10px;
+    font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+}
+
+#navbar ul li {
+    float: right;
+    position: relative;
+}
+
+#navbar li:first-child {
+    float: left;
+    position: relative;
+}
+
+#navbar .title{
+    font-size: 35px;
+    padding: 10px 20px 10px 30px;
+}
+
+#navbar ul li:hover {
+    background: #f6f6f6;
+}
+
+#navbar ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: white;
+}
+
+#navbar ul ul li {
+    width: inherit;
+}
+
+#navbar ul ul a {
+    font-size: 15px;
+    padding: 0;
+    /*line-height: 120%;*/
+    /*padding: 10px 15px;*/
+}
+
+#navbar ul li:hover > ul {
+    display: block;
+}
+
+/*Hidden tabs*/
+#navbar #customer {
+    display: none;
+}
+
+#navbar #keepVet {
+    display: none;
+}
+
+
+#navbar #manager {
+    display: none;
+}
+
+.test {
+    visibility: visible;
+}
+
+/*Image*/
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.fillWidth {
+    width: 100%;
+    position: relative;
+}
+
+.header {
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 70px;
+    font-family: Lobster, sans-serif;
+    color: black;
+}
+
+table {
+    margin: auto;
+    width: 600px;
+    border-spacing: 20px;
+}
+
+table td {
+    color: black;
+    font-size: 18px;
+    width: 65px;
+}
+
+.des {
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-align: center;
+}
+

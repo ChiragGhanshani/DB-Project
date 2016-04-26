@@ -53,177 +53,116 @@ VALUES
 	(48, 'WI'),
 	(49, 'WY');
 
-INSERT INTO transaction_types
-VALUES(
-	01,
-	'Web transaction'
-);
-
-SET @user_id_variable = uuid();
 INSERT INTO users
-VALUES(
-	'khoffee',
-	'abc123',
-	'2016-03-14',
-	'Y',
-	@user_id_variable,
-	'Customer'
-);
+VALUES
+	('khoffee', 'abc123', '2016-03-14', '1234-1234-1234', 'Customer', '1'),
+	('mrfette', 'coke', '2016-01-01', '5678-1234-7777', 'Customer', '1'),
+	('tdik543', 'coke', '2015-12-25', '9999-0000-1111', 'Customer', '1'),
+	('cdog', 'abc123', '2016-04-24', '1234-5555-1234', 'Employee', '1'),
+	('anabanana', 'abc123', '2016-04-20', '1234-7777-1234', 'Employee', '1'),
+	('ronak', 'hclc', '2016-01-01', '1234-7890-1234', 'Employee', '1');
+
+INSERT INTO employee_roles
+VALUES
+	(0, 'Keeper'),
+	(1, 'Veterinarian'),
+	(2, 'Manager');
+
+INSERT INTO item_types
+VALUES
+	(01, 'Child', 12),
+	(02, 'Adult', 15),
+	(03, 'Senior', 10),
+	(04, 'Single', 65),
+	(05, 'Dual', 85),
+	(06, 'Single Family', 110),
+	(07, 'Family', 125),
+	(08, 'Family Plus', 145),
+	(09, 'Grandparent', 100);
 
 INSERT INTO behaviors
-VALUES(
-	05,
-	'Coy'
-);
+VALUES
+	(0, 'territorial'),
+	(1, 'aggressive'),
+	(2, 'docile'),
+	(3, 'reclusive'),
+	(4, 'social'),
+	(5, 'Coy');
 
-INSERT INTO areas
-VALUES(
-	01,
-	'Temperate Forest'
-);
-
-INSERT INTO employee_roles VALUES(0, 'Keeper');
-INSERT INTO employee_roles VALUES(1, 'Veterinarian');
-INSERT INTO employee_roles VALUES(2, 'Manager');
-
-
-SET @item_1 = UUID();
-SET @item_2 = UUID();
-SET @item_3 = UUID();
-SET @item_4 = UUID();
-SET @item_5 = UUID();
-SET @item_6 = UUID();
-INSERT INTO item_types VALUES(@item_1, 'day pass', 10);
-INSERT INTO item_types VALUES(@item_2, 'season membership', 50);
-INSERT INTO item_types VALUES(@item_3, 'one year membership', 150);
-INSERT INTO item_types VALUES(@item_4, 't-shirt', 15);
-INSERT INTO item_types VALUES(@item_5, 'back pack', 20);
-INSERT INTO item_types VALUES(@item_6, 'teddy bear', 15);
-
-INSERT INTO behaviors VALUES(0, 'territorial');
-INSERT INTO behaviors VALUES(1, 'aggressive');
-INSERT INTO behaviors VALUES(2, 'docile');
-INSERT INTO behaviors VALUES(3, 'reclusive');
-INSERT INTO behaviors VALUES(4, 'social');
-
-SET @employees_id_variable = uuid();
 SET @manager_id_variable = uuid();
 INSERT INTO employees
-VALUES(
-	@employees_id_variable,
-	'Clifford',
-	'The Dog',
-	'1234 Imaginary Ln.',
-	'Made Up Ville',
-	01, /*state*/
-	12345,
-	'000-000-0000',
-	'nothing@nothing.com',
-	'123456789',
-	@manager_id_variable,
-	1200,
-	01 /*role*/
-);
+VALUES
+	('1234-5555-1234', 'Khoi', 'Pham', '1234 Imaginary Ln.', 'Made Up Ville',  /*state*/01, 12345, '000-000-0000', '1960-05-14', 'nothing@nothing.com', '123456789', @manager_id_variable, 1200, 0, '1'),
+	('1234-7777-1234', 'Ana', 'Citlalli', '4800 Calhoun Rd.', 'Houston', 42, 77004, '123-456-7777', '2001-01-01', 'ana@banana.com', '123777123', @manager_id_variable, 1500, 1, '1'),
+	('1234-7890-1234', 'Ronak', 'Shah', '123 Yolo Ln.', 'Houston', 42, 77072, '832-123-4567', '1969-04-20', 'ron@k.com', '123123123', @manager_id_variable, 2000, 2, '1');
 
-SET @customer_id_variable = uuid();
 INSERT INTO customers
-VALUES(
-	@customer_id_variable,
-	'Homer',
-	'Simpson',
-	'12420 Washington St.',
-	'Houston',
-	42,
-	77072,
-	'832-348-3887',
-	'1960-05-14',
-	'thesimpsons@springfield.com'
-);
+VALUES
+	('1234-1234-1234', 'Homer', 'Simpson', '12420 Washington St.', 'Houston', 42, 77072, '832-348-3887', '1960-05-14', 'thesimpsons@springfield.com', '1'),
+	('5678-1234-7777', 'Chad', 'Roekel', '420 Blaze St.', 'Houston', 42, 77012, '832-123-4444', '2001-09-20', 'chad@email.com', '1'),
+	('9999-0000-1111', 'Tim', 'Dickson', '12355 Game St', 'Houston', 42, 77123, '281-123-4421', '2000-05-12', 'tim@library.com', '1');
 
 SET @transaction_id_variable = uuid();
+SET @transaction_id_variable2 = uuid();
+SET @transaction_id_variable3 = uuid();
 INSERT INTO transactions
-VALUES(
-	@transaction_id_variable,
-	@customer_id_variable,
-	01, /*trans type*/
-	'2016-01-02 00:00:00.000'
-);
+VALUES
+	(@transaction_id_variable, '1234-1234-1234', '2016-01-02 00:00:00.000'),
+	(@transaction_id_variable2, '5678-1234-7777','2016-03-14 18:43:16.000'),
+	(@transaction_id_variable3, '9999-0000-1111', '2016-04-26 19:55:12.000');
 
 INSERT INTO transaction_items
-VALUES(
-	@transaction_id_variable,
-	@item_1,
-	1
-);
+VALUES
+	(@transaction_id_variable, 1, 1),
+	(@transaction_id_variable2, 7, 2),
+	(@transaction_id_variable2, 5, 3),
+	(@transaction_id_variable3, 3, 2),
+	(@transaction_id_variable3, 2, 4);
 
 INSERT INTO areas(id, area)
 VALUES
 	(0, 'Rainforest'),
-	(8, 'Savanna'),
-	(2, 'Desert'),
-	(3, 'Grasslands'),
-	(4, 'Arctic'),
-	(5, 'Saltwater'),
-	(6, 'Freshwater'),
-	(7, 'Jungle');
+	(1, 'Temperate Forest'),
+	(2, 'Savanna'),
+	(3, 'Desert'),
+	(4, 'Grasslands'),
+	(5, 'Arctic'),
+	(6, 'Saltwater'),
+	(7, 'Freshwater'),
+	(8, 'Jungle');
 
 INSERT INTO species
-VALUES(
-	'Ailurus fulgens',
-	5,
-	'Mountain forest',
-	'Herbivore',
-	01 /*behavior*/
-);
+VALUES
+	('Ailurus fulgens', 5, 'Mountain forest', 'Herbivore', 4),
+	('Panthera leo', 420, 'Grasslands', 'Omnivore', 1),
+	('Phoenicopterus chilensis', 3, 'Lagoons', 'Herbivore', 5),
+	('Tyto Alba', 2, 'Rainforest', 'Omnivore', 3);
 
 INSERT INTO habitats
-VALUES(
-	1,
-	@employees_id_variable,
-	'2016-03-15 05:13:00',
-	01 /*area*/
-);
+VALUES
+	(1, '1234-5555-1234', '2016-03-15 05:13:00', 01),
+	(2, '1234-7777-1234', '2016-04-20 04:20:00', 02),
+	(3, '1234-7890-1234', '2016-03-17 12:00:05', 03);
 
 SET @tag_number_variable = uuid();
+SET @tag_number_variable2 = uuid();
+SET @tag_number_variable3 = uuid();
+SET @tag_number_variable4 = uuid();
 INSERT INTO animals
-VALUES(
-	@tag_number_variable,
-	'Female',
-	'2001-06-11',
-	'1980-01-02',
-	'2010-03-05',
-	'2011-02-07',
-	'2015-11-30',
-	'A+',
-	'Ailurus fulgens',
-	1
-);
-
-INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'bAIDs', 'Acquisition of blue cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'rAIDs', 'Acquisition of red cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'blAIDs', 'Acquisition of black cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses VALUES(@tag_number_variable, 'yAIDs', 'Acquisition of yellow cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit');
-INSERT INTO animal_illnesses
-VALUES(
-	@tag_number_variable,
-	'AIDS',
-	'This red panda was perhaps a little too promiscuous in her youth...'
-);
+VALUES
+	(@tag_number_variable, 'Female', '2001-06-11', '1980-01-02', '2010-03-05', '2011-02-07', '2015-11-30', 'A+', 'Ailurus fulgens', 1),
+	(@tag_number_variable2, 'Male', '2002-01-01', '1999-05-05', '2009-03-02', '2012-12-25', '2013-01-30', 'O-', 'Panthera leo', 2),
+	(@tag_number_variable3, 'Female', '2010-08-13', '2002-04-14', '2008-09-20', null, null, 'AB+', 'Phoenicopterus chilensis', 3);
 
 INSERT INTO animal_illnesses
-VALUES(
-	@tag_number_variable,
-	'Flu',
-	'She has been sniffling for days!'
-);
+VALUES
+	(@tag_number_variable, 'bAIDs', 'Acquisition of blue cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit'),
+	(@tag_number_variable, 'rAIDs', 'Acquisition of red cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit'),
+	(@tag_number_variable, 'blAIDs', 'Acquisition of black cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit'),
+	(@tag_number_variable, 'yAIDs', 'Acquisition of yellow cubes by the animal\'s body. Upon acquiring three, the animal spreads it to the other animals in its exhibit'),
+	(@tag_number_variable, 'AIDS', 'This red panda was perhaps a little too promiscuous in her youth...'),
+	(@tag_number_variable, 'Flu', 'She has been sniffling for days!');
 
 INSERT INTO zoo_events
-VALUES(
-	1,
-	'2016-04-11',
-	'Class Presentation',
-	'17:30:00',
-	'19:00:00',
-	null,
-	'So soon...'
-);
+VALUES
+	(1, '2016-04-11', 'Class Presentation', '17:30:00', '19:00:00', null, 'So soon...');

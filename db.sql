@@ -19,6 +19,19 @@ CREATE TABLE IF NOT EXISTS states(
 );
 
 
+CREATE TABLE IF NOT EXISTS users(
+	username varchar(20) NOT NULL,
+	password varchar(20) NOT NULL,
+	date_created date NOT NULL,
+	user_id varchar(36) NOT NULL, /*uuid*/
+	role enum('Customer','Employee'),
+	active varchar(1) NOT NULL,
+
+	PRIMARY KEY (username),
+	UNIQUE KEY (user_id)
+);
+
+
 CREATE TABLE IF NOT EXISTS employees(
 	employee_id varchar(36) NOT NULL, /*uuid*/
 	employee_firstname varchar(15) NOT NULL,
@@ -28,13 +41,16 @@ CREATE TABLE IF NOT EXISTS employees(
 	state int(2) NOT NULL,/*enumerated above*/
 	zipcode int(5) NOT NULL, /*limited zip to 5 digits - this is all we need to care about*/
 	phone_number varchar(12) NOT NULL,
+	employee_dob date NOT NULL,
 	email varchar(40) NOT NULL,
 	national_id int(9) NOT NULL,
 	manager_id varchar(36), /*uuid*/
 	salary int NOT NULL,
 	role int(2) NOT NULL,/*enumerated above*/
+	active varchar(1) NOT NULL,
 
 	PRIMARY KEY (employee_id),
+	FOREIGN KEY (employee_id) REFERENCES users(user_id),
 	FOREIGN KEY (role) REFERENCES employee_roles(id),
 	FOREIGN KEY (state) REFERENCES states(id)
 );
@@ -51,33 +67,24 @@ CREATE TABLE IF NOT EXISTS customers(
 	customer_phoneNumber varchar(12) NOT NULL,
 	customer_DOB date NOT NULL,
 	customer_email varchar(40) NOT NULL,
+	active varchar(1) NOT NULL,
 
-	PRIMARY KEY(membership_id)
+	PRIMARY KEY(membership_id),
+	FOREIGN KEY (membership_id) REFERENCES users(user_id)
 );
-
-
-CREATE TABLE IF NOT EXISTS transaction_types(
-	id int(2) NOT NULL,
-	transaction_type varchar(20) NOT NULL,
-
-	PRIMARY KEY (id)
-);
-
 
 CREATE TABLE IF NOT EXISTS transactions(
 	transaction_id varchar(36) NOT NULL, /*uuid*/
 	member_id varchar(36) NOT NULL, /*uuid*/
-	transaction_type int(2) NOT NULL,/*enumerated above*/
 	transaction_time datetime NOT NULL,
 	/*items int(2), multivalued -- see items table*/
 
 	PRIMARY KEY(transaction_id),
-	FOREIGN KEY(member_id) REFERENCES customers(membership_id),
-	FOREIGN KEY (transaction_type) REFERENCES transaction_types(id)
+	FOREIGN KEY(member_id) REFERENCES customers(membership_id)
 );
 
 CREATE TABLE IF NOT EXISTS item_types(
-	id varchar(36) NOT NULL, /*uuid*/
+	id int(2) NOT NULL,
 	item_type varchar(20) NOT NULL,
   item_cost int NOT NULL,
 
@@ -87,24 +94,12 @@ CREATE TABLE IF NOT EXISTS item_types(
 
 CREATE TABLE IF NOT EXISTS transaction_items(
 	trans_id varchar(36) NOT NULL, /*uuid*/
-	item_id varchar(36) NOT NULL, /*uuid*/
+	item_id int(2) NOT NULL,
 	quantity int NOT NULL,
 
 	PRIMARY KEY(trans_id, item_id),
 	FOREIGN KEY(trans_id) REFERENCES transactions(transaction_id),
-  FOREIGN KEY(item_id) REFERENCES item_types(id)
-);
-
-
-CREATE TABLE IF NOT EXISTS users(
-	username varchar(20) NOT NULL,
-	password varchar(20) NOT NULL,
-	date_created date NOT NULL,
-	active varchar(1) NOT NULL,
-	user_id varchar(36) NOT NULL, /*uuid*/
-	role enum('Customer','Employee'),
-
-	PRIMARY KEY (username)
+	FOREIGN KEY(item_id) REFERENCES item_types(id)
 );
 
 

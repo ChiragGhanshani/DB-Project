@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Info</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+
+    <link rel="stylesheet" type="text/css" href="static/stylesheets/editInfo.css">
+    <script src="static/javascripts/cookieManagement.js"></script>
+    <script src="static/javascripts/loginScript.js"></script>
+
+    <script>
+        function displayEdit(editSection) {
+            document.getElementById(editSection).style.display = "table-row";
+
+        }
+    </script>
+
+</head>
+
+<body onload="addTab();getUserData();">
+    <!--NavBar -->
+    <nav id="navbar">
+        <ul>
+            <li><a class="title" href="/">Hu-manatee Zoo </a></li>
+            <!--Customer-->
+            <li><a id="customer" href="#"></a>
+                <ul>
+                    <li><a href="/editInfo">Edit Info</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/shoppingCart">Cart</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Keeper/Vet-->
+            <li><a id="keepVet" href="#"></a>
+                <ul>
+                    <li><a href="/yourAnimals">Your Animals</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Manager-->
+            <li><a id="manager" href="#"></a>
+                <ul>
+                    <li><a href="/manageEmployees">Manage Employees</a></li>
+                    <li><a href="/salesOverview">Sales Overview</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <li><a href="/memberInfo"> Membership </a>
+                <ul>
+                    <li><a href="/memberInfo">Member Info</a></li>
+                    <li><a href="/memberFAQ">Member FAQ</a></li>
+                    <li><a id='login' href="/login">Join/Log in</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="/visit"> Visit Us </a>
+                <ul>
+                    <li><a href="/visit">Hours & Location</a></li>
+                    <li><a href="/ticketInfo">Ticket Info</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="/visitFAQ">FAQ</a></li>
+                </ul>
+            </li>
+            <li><a href="/animals"> Animals </a>
+                <ul>
+                    <li><a href="/mammals">Mammals</a></li>
+                    <li><a href="/birds">Birds</a></li>
+                    <li><a href="/aquatic">Aquatic</a></li>
+                    <li><a href="/reptiles">Reptiles</a></li>
+                    <li><a href="/amphibians">Amphibians</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="imageContainer">
+        <img class ="fillWidth" src="static/images/animals-1.jpg" alt="Macaws flying">
+    </div>
+
+    <p class="header">Account Information</p>
+
+    <table>
+        <col width="500px">
+        <col width="600px">
+        <col width="200px">
+
+        <tr>
+            <td>Member ID:</td>
+            <td id="membership_id"></td>
+            <td></td>
+        </tr>
+
+        <tr class="nameSection">
+            <td>Name: </td>
+            <td class="memInfo">
+                <ul>
+                    <li id="customer_firstName"></li>
+                    <li id="customer_LastName"></li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Date of birth: </td>
+            <td id="customer_DOB"></td>
+        </tr>
+
+        <tr>
+            <td>Address:</td>
+            <td class="memInfo">
+                <ul>
+                    <li id="customer_streetAddress"></li>
+                    <li id="customer_city"></li>
+                    <li id="state_name"></li>
+                    <li id="customer_zipCode"></li>
+                </ul>
+            </td>
+            <td><a href="javascript:displayEdit('editAddress')">Edit</a></td>
+        </tr>
+
+        <tr id="editAddress">
+            <td></td>
+            <td class="memInfo">
+                <input id="address" style="width: 505px;" type="text" placeholder="Street address">
+                <input id="city" type="text" placeholder="City">
+                <label for="state"></label>
+                <select id="state">
+                    <option value="0">AL</option>
+                    <option value="1">AK</option>
+                    <option value="2">AZ</option>
+                    <option value="3">AR</option>
+                    <option value="4">CA</option>
+                    <option value="5">CO</option>
+                    <option value="6">CT</option>
+                    <option value="7">DE</option>
+                    <option value="8">FL</option>
+                    <option value="9">GA</option>
+                    <option value="10">HI</option>
+                    <option value="11">ID</option>
+                    <option value="12">IL</option>
+                    <option value="13">IN</option>
+                    <option value="14">IA</option>
+                    <option value="15">KS</option>
+                    <option value="16">KY</option>
+                    <option value="17">LA</option>
+                    <option value="18">ME</option>
+                    <option value="19">MD</option>
+                    <option value="20">MA</option>
+                    <option value="21">MI</option>
+                    <option value="22">MN</option>
+                    <option value="23">MS</option>
+                    <option value="24">MO</option>
+                    <option value="25">MT</option>
+                    <option value="26">NE</option>
+                    <option value="27">NV</option>
+                    <option value="28">NH</option>
+                    <option value="29">NJ</option>
+                    <option value="30">NM</option>
+                    <option value="31">NY</option>
+                    <option value="32">NC</option>
+                    <option value="33">ND</option>
+                    <option value="34">OH</option>
+                    <option value="35">OK</option>
+                    <option value="36">OR</option>
+                    <option value="37">PA</option>
+                    <option value="38">RI</option>
+                    <option value="39">SC</option>
+                    <option value="40">SD</option>
+                    <option value="41">TN</option>
+                    <option value="42">TX</option>
+                    <option value="43">UT</option>
+                    <option value="44">VT</option>
+                    <option value="45">VA</option>
+                    <option value="46">WA</option>
+                    <option value="47">WV</option>
+                    <option value="48">WI</option>
+                    <option value="49">WY</option>
+                </select>
+                <input id="zipcode" type="text" placeholder="Zip code">
+                <a href="javascript:updateUserInfo('editAddress')">Save changes</a>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td>Email: </td>
+            <td id="customer_email"></td>
+            <td class="edit"><a href="javascript:displayEdit('editEmail')">Edit</a></td>
+        </tr>
+
+        <tr id="editEmail" class="memInfo">
+            <td></td>
+            <td>
+                <input id="email" type="text" placeholder="Email">
+                <a href="javascript:updateUserInfo('editEmail')">Save changes</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Username: </td>
+            <td id="username"></td>
+        </tr>
+
+        <tr>
+            <td>Password: </td>
+            <td>********</td>
+            <td class="edit"><a href="javascript:displayEdit('editPass')">Edit</a></td>
+        </tr>
+
+        <tr id="editPass" class="memInfo">
+            <td></td>
+            <td>
+                <input style="width:200px" id="oldPass" type="password" placeholder="Current Password">
+                <input style="width:200px" id="newPass" type="password" placeholder="New Password">
+                <a href="javascript:updateUserInfo('editPass')">Save changes</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Phone number: </td>
+            <td id="customer_phoneNumber"></td>
+            <td class="edit"><a href="javascript:displayEdit('editNumber')">Edit</a></td>
+        </tr>
+
+        <tr id="editNumber" class="memInfo">
+            <td></td>
+            <td>
+                <input id="phoneNumber" type="text" placeholder="Phone number">
+                <a href="javascript:updateUserInfo('editNumber')">Save changes</a>
+            </td>
+        </tr>
+    </table>
+
+
+
+</body>
+
+<!--<footer>-->
+    <!--<div class="row">-->
+
+        <!--<div class="col-4 f-design">-->
+            <!--<span style="color: mediumvioletred; font-size:13pt; text-align: right;"><br> <span style="padding-left: 20px;"> ACCREDITED BY</span></span> <br>-->
+            <!--<img width="200" height="120" src="http://i1042.photobucket.com/albums/b422/txusa50/FotoFlexer_Photo_zpsgzmxbj4s.jpg">-->
+        <!--</div>-->
+
+        <!--<div class="col-4 f-design2">-->
+            <!--<span style="color: mediumvioletred; font-size: 13pt; text-align: center;"><br><span style="padding-left:75px;"></span>CONNECT</span><br>-->
+            <!--<a href="https://www.twitter.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/twitterInWhitesmoke_zpsltnzcg8l.jpg"></a>-->
+            <!--<a href="http://www.facebook.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/facebookInWhitesmoke_zps7w78u6xe.jpg"></a>-->
+            <!--<a href="http://www.pinterest.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/pinterestInWhitesmoke_zpsdjjdajjt.jpg"></a>-->
+            <!--<a href="http://www.youtube.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/youtubeInwhitesmoke_zpseknlp7s5.jpg"></a>-->
+            <!--<a href="http://www.instagram.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/instagramInWhitesmoke_zpszsrboowz.jpg"></a>-->
+        <!--</div>-->
+
+        <!--<div class="col-4 f-design3">-->
+            <!--<span style="color: mediumvioletred; font-size: 13pt;"><br>OUR LOCATION</span><br>-->
+          <!--<span style="color: #0b97c4; font-size: 14pt; font-family: Ubuntu, sans-serif;">The Hu-manatee Zoo<br>-->
+          <!--4800 Calhoun Rd.<br>-->
+          <!--Houston, TX 77004<br>-->
+          <!--(713) 743-1010</span>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</footer>-->
+
+</html>

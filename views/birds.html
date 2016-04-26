@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Birds</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+
+    <!--Icons-->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="static/stylesheets/animalInfo.css">
+    <script src="static/javascripts/cookieManagement.js"></script>
+
+    <script>
+        //Show-hide text function
+        function toggle2(showHideDiv, switchTextDiv) {
+            var ele = document.getElementById(showHideDiv);
+            var text = document.getElementById(switchTextDiv);
+            if(ele.style.display == "block") {
+                ele.style.display = "none";
+                text.innerHTML = "More info";
+            }
+            else {
+                ele.style.display = "block";
+                text.innerHTML = "Hide";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="addTab();">
+    <!--NavBar -->
+    <nav id="navbar">
+        <ul>
+            <li><a class="title" href="/">Hu-manatee Zoo </a></li>
+            <!--Customer-->
+            <li><a id="customer" href="#"></a>
+                <ul>
+                    <li><a href="/editInfo">Edit Info</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/shoppingCart">Cart</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Keeper/Vet-->
+            <li><a id="keepVet" href="#"></a>
+                <ul>
+                    <li><a href="/yourAnimals">Your Animals</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Manager-->
+            <li><a id="manager" href="#"></a>
+                <ul>
+                    <li><a href="/manageEmployees">Manage Employees</a></li>
+                    <li><a href="/salesOverview">Sales Overview</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <li><a href="/memberInfo"> Membership </a>
+                <ul>
+                    <li><a href="/memberInfo">Member Info</a></li>
+                    <li><a href="/memberFAQ">Member FAQ</a></li>
+                    <li><a href="/signup">Sign up</a></li>
+                    <li><a id='login' href="/login">Log in</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="/visit"> Visit Us </a>
+                <ul>
+                    <li><a href="/visit">Hours & Location</a></li>
+                    <li><a href="/ticketInfo">Ticket Info</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="/visitFAQ">FAQ</a></li>
+                </ul>
+            </li>
+            <li><a href="/animals"> Animals </a>
+                <ul>
+                    <li><a href="/mammals">Mammals</a></li>
+                    <li><a href="/birds">Birds</a></li>
+                    <li><a href="/aquatic">Aquatic</a></li>
+                    <li><a href="/reptiles">Reptiles</a></li>
+                    <li><a href="/amphibians">Amphibians</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="imageContainer">
+        <img class ="fillWidth" src="static/images/animals-1.jpg" alt="Chameleon Picture">
+    </div>
+
+
+    <p class="header">Birds</p>
+
+    <!--ROW 1-->
+    <div class="row">
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/flamingo.jpg" alt="Flamingo">
+                <figcaption>
+                    <p class="name">CHILEAN FLAMINGO</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Phoenicopterus chilensis</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 15 - 30 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Stable</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Algae, worms, crustaceans</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Southern South America</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Large lakes and plant less lagoons</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>Have the longest neck & legs in proportion to body size of all birds
+                    <a class="moreLink" id="A11" href="javascript:toggle2('M11', 'A11');">More Info</a>
+                </figcaption>
+                <br>
+                <figcaption class="moreInfo" id="M11">Flamingos are born gray and do not get their pink feathers until 1-3 years of age. Their diet contains carotenoid pigments which will give them their characteristic pink color. Flamingos are filter feeders and hold their head upside down in shallow water to strain out their food. Flamingos very rarely lay down and even sleep standing up, often only on one leg. </figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/peafowl.jpg" alt="Peafowl">
+                <figcaption>
+                    <p class="name">PEAFOWL</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Pavo cristatus</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 12 - 20 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Endangered </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Grains, Seeds, Insects </td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Indian subcontinent  </td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Desert and savanna areas</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>Male peafowl are called ‘Peacocks’ and female peafowl are called ‘Peahens.’
+                    <a class="moreLink" id="A22" href="javascript:toggle2('M22', 'A22');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M22">The male peacock is most well known for it's enormous tail feathers that fan out behind the peacock and can be nearly two meters in length. This colourful display of the peacock is thought to be used for both mating and defence purposes. The male peacock attracts a female to mate with by showing off his array of elaborate feathers, and when the male peacock feels threatened, he will fan his tail out in order to make himself look bigger and therefore try to intimidate approaching predators.</figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/owl.jpg" alt="Barn Owl">
+                <figcaption>
+                    <p class="name">COMMON BARN OWL</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Tyto Alba </td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 15 - 20 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Stable </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i>Small mammals, rodents, birds </td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Everywhere except Antarctica </td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Nest in caves, tree cavities, buildings</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>The owl’s eyes are fixed in position, but it can rotate its head up to 270 degrees to look around.
+                    <a class="moreLink" id="A13" href="javascript:toggle2('M13', 'A13');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M13">Barn owls have great eyesight but they are renowned for their ability to hear extremely soft noises. A barn owl hunting in complete darkness can still locate and capture prey using sound alone. Barn owls have been known to nest in hollow trees and artificial nest boxes but earn their name by often taking up residence in old buildings such as abandoned barns and silos. </figcaption>
+            </figure>
+        </div>
+    </div>
+
+
+    <!--ROW 2-->
+    <div class="row">
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/ostrich.jpg" alt="Ostrich">
+                <figcaption>
+                    <p class="name">OSTRICH</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Struthio camelus</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 50 - 70 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Stable</td>
+
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Leaves, seeds, grains, nuts, fruit</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Sub-Saharan Africa</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Open, dry plains and savanna</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>Largest egg of any bird: 6×5 inches, 3.3 pounds. 1 Ostrich egg = 24 chicken eggs.
+                    <a class="moreLink" id="A12" href="javascript:toggle2('M12', 'A12');">More Info</a>
+                </figcaption>
+                <br>
+                <figcaption class="moreInfo" id="M12">The ostrich is the largest flightless bird in the world. They can run about 40 miles an hour covering 10-16 feet with a single stride. The ostrich will often use their wings as rudders to help change direction quickly while running. Ostriches will live in groups of about 12 birds. All the females of the group will place their eggs in the nest of the dominant female. A single ostrich egg is equivalent to 24 chicken eggs! Ostriches can often be found around other grazing animals like antelope and zebras. Ostriches have great eyesight and will often alert other animals of predators in the area. It is myth that ostriches hide their heads in the sand. They will put their necks close to the ground to try and hide from predators, from a distance it appears that their head is in the sand.  </figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/hornbill.jpg" alt="Rhinoceros Hornbill">
+                <figcaption>
+                    <p class="name">RHINOCEROS HORNBILL</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Buceros rhinoceros</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 16 – 19 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Vulnerable </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Fruit, small mammals, lizards, snakes, insects</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Southeast Asia</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Lowland forests </td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i> The female will seal herself into the nest cavity leaving only a narrow slot opening through which the male will deliver food to her and the chicks.
+                    <a class="moreLink" id="A21" href="javascript:toggle2('M21', 'A21');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M21">The rhinoceros hornbill is one of 54 species of hornbill that exist. The rhinoceros hornbill can be distinguished by its banana-shaped casque on the top of its beak. It is thought that this is used to amplify the sound of its call. It is made out of keratin, just like our fingernails and hair and is very strong and lightweight.</figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/macaw.jpg" alt="Green-winged Macaw">
+                <figcaption>
+                    <p class="name">GREEN-WINGED MACAW </p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Ara chloropterus </td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 50 - 60 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Endangered </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Fruit, Nuts, Seeds, Insects</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Panama, northern and central South America</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Rainforests and tropical jungle</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i> The Green-winged macaw’s powerful beak can generate a pressure of 2000 psi – enough to snap a broomstick in half!
+                    <a class="moreLink" id="A23" href="javascript:toggle2('M23', 'A23');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M23">The macaw is one of the largest species of parrot in the world, with the average adult macaw growing to more than a meter in height. The macaw is well known for it's array of brightly coloured feathers which are often many different colours including blue, red, yellow and green. </figcaption>
+            </figure>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <div class="row">
+
+        <div class="col-4 f-design">
+            <span style="color: mediumvioletred; font-size:13pt; text-align: right;"><br> <span style="padding-left: 20px;"> ACCREDITED BY</span></span> <br>
+            <img width="200" height="120" src="http://i1042.photobucket.com/albums/b422/txusa50/FotoFlexer_Photo_zpsgzmxbj4s.jpg">
+        </div>
+
+        <div class="col-4 f-design2">
+            <!--<span style="color: mediumvioletred; font-size: 13pt; text-align: center;"><br><span style="padding-left:75px;"></span>CONNECT</span><br>-->
+            <a href="https://www.twitter.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/twitterInWhitesmoke_zpsltnzcg8l.jpg"></a>
+            <a href="http://www.facebook.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/facebookInWhitesmoke_zps7w78u6xe.jpg"></a>
+            <a href="http://www.pinterest.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/pinterestInWhitesmoke_zpsdjjdajjt.jpg"></a>
+            <a href="http://www.youtube.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/youtubeInwhitesmoke_zpseknlp7s5.jpg"></a>
+            <a href="http://www.instagram.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/instagramInWhitesmoke_zpszsrboowz.jpg"></a>
+        </div>
+
+        <div class="col-4 f-design3">
+            <span style="color: mediumvioletred; font-size: 13pt;"><br>OUR LOCATION</span><br>
+            <span style="color: midnightblue; font-size: 14pt; font-family: Ubuntu, sans-serif;">The Hu-manatee Zoo<br>
+            4800 Calhoun Rd.<br>
+            Houston, TX 77004<br>
+            (713) 743-1010</span>
+        </div>
+
+    </div>
+</footer>
+</html>

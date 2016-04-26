@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    /*padding and border included in total width and height of elements*/
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+    font-family: Ubuntu, sans-serif;
+}
+
+button {
+    font-family: Ubuntu, sans-serif;
+}
+
+/*Defines how many columns the section should span*/
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+[class*="col-"] { /*Makes all columns float left*/
+    float: left;
+}
+
+
+.row:after { /*Prevents other elements to be placed as if the columns were not there*/
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/*Navbar*/
+.navbar ul {
+    list-style-type: none;
+    overflow: hidden;
+
+    /*fixed top*/
+    position: fixed;
+    z-index: 1; /*enables links*/
+    top: 0;
+    width: 100%;
+
+    /*background */
+    background-color: rgba(255, 255, 255,0.60);
+    border: none;
+}
+
+/*Navbar*/
+.navbar ul {
+    list-style-type: none;
+    /*overflow: hidden;*/
+
+    /*fixed top*/
+    position: fixed;
+    z-index: 1; /*enables links*/
+    top: 0;
+    width: 100%;
+
+    /*background */
+    background-color: rgba(255, 255, 255,0.60);
+    border: none;
+}
+
+.navbar ul li a {
+    display: block;
+    color: mediumvioletred;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 35px 10px 35px;
+    margin: 10px;
+    font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+}
+
+.navbar ul li {
+    float: right;
+    position: relative;
+}
+
+.navbar li:first-child {
+    float: left;
+    position: relative;
+}
+
+.navbar .title{
+    font-size: 30px;
+    padding: 10px 20px 10px 30px;
+}
+
+.navbar ul li:hover {
+    /*background: #f6f6f6;*/
+    height: inherit;
+}
+
+.navbar ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: white;
+}
+
+.navbar ul ul li {
+    width: inherit;
+}
+
+.navbar ul ul a {
+    font-size: 15px;
+    padding: 0;
+}
+
+.navbar ul li:hover > ul {
+    display: block;
+    z-index: 999999;
+}
+
+/*Hidden tabs*/
+#customer {
+    display: none;
+}
+
+#keepVet {
+    display: none;
+}
+
+#manager {
+    display: none;
+}
+
+/*Video*/
+#video-container {
+    z-index:-1;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+video#bgVid {
+    position:relative;
+    z-index:-1;
+    background-size: cover;
+    transition: 1s opacity;
+}
+
+video#bgVid.fillWidth {
+    width: 100%;
+    position: relative;
+}
+
+/*Section headers*/
+.header {
+    text-align: center;
+    font-family: Lobster, Ubuntu, sans-serif;
+    padding-top: 90px;
+    font-size: 70px;
+    letter-spacing: 1px;
+}
+
+.header a:hover {
+    color: mediumvioletred;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/*Animals Section*/
+.animalSection {
+    height: 600px;
+    text-align: center;
+}
+
+.animalSection ul {
+    list-style-type: none;
+    /*display: inline;*/
+}
+
+.animalSection li {
+    display: inline;
+    padding: 2px;
+    position: relative;
+
+}
+
+.animalSection li img {
+    position: relative;
+    max-width: 25%;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+.animalSection li img:hover {
+    opacity: 0.4;
+    /*display: block;*/
+}
+
+.animalSection li p{
+    position: absolute;
+    visibility: hidden;
+    /*top: 0; */
+    bottom: 50px;
+    left: 0; right: 0;
+    /*vertical-align: middle;*/
+    font-size: 20px;
+    opacity: 0;
+}
+
+.animalSection li:hover p {
+    visibility: visible;
+    opacity: 1;
+    z-index: 100;
+}
+
+/*Visit Us Section*/
+.visitSection {
+    height: 600px;
+    border: dashed;
+}
+
+.hours ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hours li {
+    padding-left: 200px;
+    margin-bottom: 5px;
+    color: #0b97c4;
+    font-size: 20px;
+}
+
+.hours li:first-child {
+    color: midnightblue;
+    font-size: 20px;
+}
+
+.hours button {
+    border: none;
+    text-align: center;
+    background-color: mediumvioletred;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.directions ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.directions li {
+    text-align: center;
+    color: #0b97c4;
+    font-size: 20px;
+}
+
+.directions button {
+    border: none;
+    text-align: center;
+    background-color: mediumvioletred;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.directions li img {
+    position: relative;
+    width: 48%;
+    height: 75%;
+}
+
+/*Membership Section*/
+.memberSection {
+    height: 500px;
+}
+
+.memberSection ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.memberSection li {
+    padding-left: 200px;
+    margin-bottom: 5px;
+    color: #0b97c4;
+    font-size: 20px;
+    line-height: 150%;
+}
+
+.memberSection li:first-child {
+    color: midnightblue;
+    font-size: 20px;
+}
+
+.memberSection button {
+    border: none;
+    text-align: center;
+    background-color: mediumvioletred;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+img {
+    max-width:100%;
+    height: auto;
+
+}
+.fillWidth {
+    width: 100%;
+    position:relative;
+}
+
+h1 {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 45px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 85px;
+    margin-bottom: 80px;
+}
+
+td {
+    padding: 10px;
+}
+
+th {
+
+}
+
+footer {
+    padding: 15px;
+
+    background: whitesmoke;
+    height: 200px;
+    min-height: 100%;
+    border: solid;
+    border-top-width: 19px;
+    border-color: mediumvioletred;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+
+}
+
+
+.f-design {
+    /*margin: 0 auto;*/
+    font-size: 20px;
+    padding-left: 120px;
+}
+
+.f-design2 {
+    padding-left: 120px;
+    line-height: 34px;
+    border-left: groove;
+    border-color: floralwhite;
+
+}
+
+.f-design3 {
+    border-left: groove;
+    padding-left: 120px;
+    line-height: 22px;
+
+}
+
+
+/*Removed Ticket Section- Code below*/
+
+
+
+
+/*This code makes the video a background so that when I add
+more content it lays on top of the video instead of underneath it
+http://slicejack.com/creating-a-fullscreen-html5-video-background-with-css/*/
+
+/*.fullscreen-bg {*/
+/*position: fixed;*/
+/*top: 0;*/
+/*right: 0;*/
+/*bottom: 0;*/
+/*left: 0;*/
+/*overflow: hidden;*/
+/*z-index: -100;*/
+/*}*/
+
+/*.fullscreen-bg__video {*/
+/*position: absolute;*/
+/*top: 0;*/
+/*left: 0;*/
+/*width: 100%;*/
+/*height: 100%;*/
+/*}*/
+
+/*@media (min-aspect-ratio: 16/9) {*/
+/*.fullscreen-bg__video {*/
+/*height: 300%;*/
+/*top: -100%;*/
+/*}*/
+/*}*/
+
+/*@media (max-aspect-ratio: 16/9) {*/
+/*.fullscreen-bg__video {*/
+/*width: 300%;*/
+/*left: -100%;*/
+/*}*/
+/*}*/
+
+/*@media (max-width: 767px) {*/
+/*.fullscreen-bg {*/
+/*background: url('../img/videoframe.jpg') center center / cover no-repeat;*/
+/*}*/
+
+/*.fullscreen-bg__video {*/
+/*display: none;*/
+/*}*/
+/*}*/

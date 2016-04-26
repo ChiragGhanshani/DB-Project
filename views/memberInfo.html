@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Member Info</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+
+    <link rel="stylesheet" type="text/css" href="static/stylesheets/memberInfo.css">
+    <script src="static/javascripts/cookieManagement.js"></script>
+
+</head>
+
+<body onload="addTab();">
+    <!--NavBar -->
+    <nav id="navbar">
+        <ul>
+            <li><a class="title" href="/">Hu-manatee Zoo </a></li>
+            <!--Customer-->
+            <li><a id="customer" href="#"></a>
+                <ul>
+                    <li><a href="/editInfo">Edit Info</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/shoppingCart">Cart</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Keeper/Vet-->
+            <li><a id="keepVet" href="#"></a>
+                <ul>
+                    <li><a href="/yourAnimals">Your Animals</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Manager-->
+            <li><a id="manager" href="#"></a>
+                <ul>
+                    <li><a href="/manageEmployees">Manage Employees</a></li>
+                    <li><a href="/salesOverview">Sales Overview</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <li><a href="/memberInfo"> Membership </a>
+                <ul>
+                    <li><a href="/memberInfo">Member Info</a></li>
+                    <li><a href="/memberFAQ">Member FAQ</a></li>
+                    <li><a href="/signup">Sign up</a></li>
+                    <li><a id='login' href="/login">Log in</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="/visit"> Visit Us </a>
+                <ul>
+                    <li><a href="/visit">Hours & Location</a></li>
+                    <li><a href="/ticketInfo">Ticket Info</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="/visitFAQ">FAQ</a></li>
+                </ul>
+            </li>
+            <li><a href="/animals"> Animals </a>
+                <ul>
+                    <li><a href="/mammals">Mammals</a></li>
+                    <li><a href="/birds">Birds</a></li>
+                    <li><a href="/aquatic">Aquatic</a></li>
+                    <li><a href="/reptiles">Reptiles</a></li>
+                    <li><a href="/amphibians">Amphibians</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="imageContainer">
+        <img class ="fillWidth" src="static/images/chameleon.jpg" alt="Chameleon Picture">
+    </div>
+
+
+    <p class="header">Membership Information</p>
+
+
+    <!--Member Benefits-->
+    <div id="benefits">
+        <br><br><br>
+        <h1>Membership Benefits</h1>
+        <br>
+        <table>
+            <tr>
+                <td>&bull; Free admission for 1 full year</td>
+                <td>&bull; Discounted tickets for guests</td>
+            </tr>
+            <tr>
+                <td>&bull; Membership is tax deductible</td>
+                <td>&bull; Exclusive member events</td>
+            </tr>
+            <tr>
+                <td>&bull; Discounts on special events</td>
+                <td>&bull; 10% off purchases in our gift shop</td>
+            </tr>
+            <tr>
+                <td>&bull; Free or discounted admission to over 100 other zoos nationwide</td>
+                <td>&bull; Updates on exhibits, special events, and member happenings</td>
+            </tr>
+        </table>
+        <br><br>
+    </div>
+
+
+
+    <!--Member levels info-->
+    <h1>Find the right package for you!</h1>
+    <div class="row">
+        <div class="col-4">
+            <div class="box">
+                <p class="levelhead">SINGLE</p>
+                <p>$65 (tax included)</p>
+                <p>Member benefits for one adult + one guest</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="box">
+                <p class="levelhead">DUAL</p>
+                <p>$85 (tax included)</p>
+                <p>Member benefits for two adults + one guest</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="box">
+                <p class="levelhead">SINGLE FAMILY</p>
+                <p>$110 (tax included)</p>
+                <p>Member benefits for one adult + eligible children + one guest</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="box">
+                <p class="levelhead">FAMILY</p>
+                <p>$125 (tax included)</p>
+                <p>Member benefits for two adults + eligible children + one guest</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="box">
+                <p class="levelhead">FAMILY PLUS</p>
+                <p>$145 + tax</p>
+                <p>Member benefits for three adults + eligible children + one guest</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="box">
+                <p class="levelhead">GRANDPARENT</p>
+                <p>$100 + tax</p>
+                <p>Member benefits for two seniors + eligible children</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<footer>
+    <div class="row">
+
+        <div class="col-4 f-design">
+            <span style="color: mediumvioletred; font-size:13pt; text-align: right;"><br> <span style="padding-left: 20px;"> ACCREDITED BY</span></span> <br>
+            <img width="200" height="120" src="http://i1042.photobucket.com/albums/b422/txusa50/FotoFlexer_Photo_zpsgzmxbj4s.jpg">
+        </div>
+
+        <div class="col-4 f-design2">
+            <!--<span style="color: mediumvioletred; font-size: 13pt; text-align: center;"><br><span style="padding-left:75px;"></span>CONNECT</span><br>-->
+            <a href="https://www.twitter.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/twitterInWhitesmoke_zpsltnzcg8l.jpg"></a>
+            <a href="http://www.facebook.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/facebookInWhitesmoke_zps7w78u6xe.jpg"></a>
+            <a href="http://www.pinterest.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/pinterestInWhitesmoke_zpsdjjdajjt.jpg"></a>
+            <a href="http://www.youtube.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/youtubeInwhitesmoke_zpseknlp7s5.jpg"></a>
+            <a href="http://www.instagram.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/instagramInWhitesmoke_zpszsrboowz.jpg"></a>
+        </div>
+
+        <div class="col-4 f-design3">
+            <span style="color: mediumvioletred; font-size: 13pt;"><br>OUR LOCATION</span><br>
+            <span style="color: midnightblue; font-size: 14pt; font-family: Ubuntu, sans-serif;">The Hu-manatee Zoo<br>
+            4800 Calhoun Rd.<br>
+            Houston, TX 77004<br>
+            (713) 743-1010</span>
+        </div>
+
+    </div>
+</footer>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Member FAQ</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+
+    <link rel="stylesheet" type="text/css" href="static/stylesheets/FAQ.css">
+    <script src="static/javascripts/cookieManagement.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        //Show-hide text function
+        function toggle2(showHideDiv, switchTextDiv) {
+            var ele = document.getElementById(showHideDiv);
+            var text = document.getElementById(switchTextDiv);
+            if(ele.style.display == "block") {
+                ele.style.display = "none";
+            }
+            else {
+                ele.style.display = "block";
+            }
+        }
+
+        //addCustomer function
+        function addCustomer() {
+            var valid = true;
+            var address = document.getElementById('address').value;
+            var fname = document.getElementById("fn").value;
+            var lname = document.getElementById("ln").value;
+            var pass = document.getElementById("pw").value;
+            var city = document.getElementById("city").value;
+            var state = document.getElementById("state").value;
+            var zip = document.getElementById("zip").value;
+            var phone = document.getElementById("phone").value;
+            var uname = document.getElementById("Username").value;
+            var dob = document.getElementById("dob").value;
+            var email = document.getElementById("email").value;
+
+
+            /*Here is how to detect which radio button: */
+            var x = document.getElementsByName("memberType");
+            for(var i=0;i<x.length;i++){
+                if(x[i].checked){window.alert(x[i].value);}
+            }
+
+            if(document.getElementById("pw").value != document.getElementById("pw2").value) {
+                window.alert("Passwords do not match!");
+                valid = false;
+                console.log("nope");
+            }
+
+            if (valid) {
+                window.alert("Passes validation!");
+                location = "#";
+                location.reload(true);
+                httpSend('/login/registerUser?username=' + uname + '&password=' + pass + '&firstName=' + fname +
+                        '&lastName=' + lname + '&street=' + address + '&city=' + city + '&state=0&zip=' + zip +
+                        '&phone=' + phone + '&dob=' + dob + '&email=' + email.replace('@', '%40'));
+            }
+        }
+
+        function httpSend(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+
+        }
+    </script>
+</head>
+
+
+<body onload="addTab();">
+    <!--NavBar -->
+    <nav id="navbar">
+        <ul>
+            <li><a class="title" href="/">Hu-manatee Zoo </a></li>
+            <!--Customer-->
+            <li><a id="customer" href="#"></a>
+                <ul>
+                    <li><a href="/editInfo">Edit Info</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/shoppingCart">Cart</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Keeper/Vet-->
+            <li><a id="keepVet" href="#"></a>
+                <ul>
+                    <li><a href="/yourAnimals">Your Animals</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Manager-->
+            <li><a id="manager" href="#"></a>
+                <ul>
+                    <li><a href="/manageEmployees">Manage Employees</a></li>
+                    <li><a href="/salesOverview">Sales Overview</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <li><a href="/memberInfo"> Membership </a>
+                <ul>
+                    <li><a href="/memberInfo">Member Info</a></li>
+                    <li><a href="/memberFAQ">Member FAQ</a></li>
+                    <li><a href="/signup">Sign up</a></li>
+                    <li><a id='login' href="/login">Log in</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="/visit"> Visit Us </a>
+                <ul>
+                    <li><a href="/visit">Hours & Location</a></li>
+                    <li><a href="/ticketInfo">Ticket Info</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="/visitFAQ">FAQ</a></li>
+                </ul>
+            </li>
+            <li><a href="/animals"> Animals </a>
+                <ul>
+                    <li><a href="/mammals">Mammals</a></li>
+                    <li><a href="/birds">Birds</a></li>
+                    <li><a href="/aquatic">Aquatic</a></li>
+                    <li><a href="/reptiles">Reptiles</a></li>
+                    <li><a href="/amphibians">Amphibians</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="imageContainer">
+        <img class ="fillWidth" src="static/images/chameleon.jpg" alt="Chameleon Picture">
+    </div>
+
+    <p class="header">Membership FAQ</p>
+    <br><br>
+
+
+    <a id="Q1" class="question" href="javascript:toggle2('A1', 'Q1');">WHAT TYPE OF MEMBERSHIP IS BEST FOR ME?</a>
+    <div class="answer" id="A1">We offer several levels to fit your needs. Check out our Member Info for more information.</div>
+    <br>
+
+    <a id="Q2" class="question" href="javascript:toggle2('A2','Q2');" >WHO IS CONSIDERED AN ELIGIBLE CHILD?</a>
+    <p id="A2" class="answer">"Eligible children" are children under age 18 residing in the same household OR the grandchildren of the primary member. Children under age 2 are always admitted free.</p>
+    <br>
+
+    <a id="Q3" class="question" href="javascript:toggle2('A3','Q3');" >ARE DISCOUNTS OFFERED ON MEMBERSHIPS?</a>
+    <p id="A3" class="answer">Renewing, non-lapsed members receive at $10 discount off their renewal with the code that has been emailed or mailed to them prior to their current membership’s expiration.</p>
+    <br>
+
+    <a id="Q4" class="question" href="javascript:toggle2('A4','Q4');" >HOW LONG WILL IT TAKE TO RECEIVE MY MEMBERSHIP CARD?</a>
+    <p id="A4" class="answer">You should receive your membership card three weeks after purchase. Your confirmation of purchase can be used as a temporary pass. If you have not received your card contact us at getintouch@hu-maneteeZoo.com</p>
+    <br>
+
+    <a id="Q5" class="question" href="javascript:toggle2('A5','Q5');" >WHO MAY I BRING AS A GUEST?</a>
+    <p id="A5" class="answer">A guest is anyone ages 2 and older. A guest may only visit with a named member who has a membership card</p>
+    <br>
+
+    <a id="Q6" class="question" href="javascript:toggle2('A6','Q6');" >IS IT POSSIBLE TO GET A REFUND ON MY MEMBERSHIP OR TRANSFER IT TO SOMEBODY ELSE?</a>
+    <p id="A6" class="answer">Memberships are not transferable and in most cases no refund may be issued. It is assumed that every member will have visited often enough to recoup the cost (2-3 visits) regardless of how recently the membership was purchased.</p>
+    <br>
+
+    <a id="Q7" class="question" href="javascript:toggle2('A7','Q7');" >CAN I CHANGE THE NAME ON MY MEMBERSHIP CARD?</a>
+    <p id="A7" class="answer">Yes. All issued cards need to be returned and a change request submitted either at the Membership building or through the mail.</p>
+    <br>
+
+    <a id="Q8" class="question" href="javascript:toggle2('A8','Q8');" >CAN I UPGRADE MY MEMBERSHIP?</a>
+    <p id="A8" class="answer">Memberships may be upgraded at any time during the membership term by paying the difference between the current level and the higher level. Level upgrades do not change the expiration date. </p>
+    <br>
+
+    <a id="Q9" class="question" href="javascript:toggle2('A9','Q9');" >WHY MUST EVERYONE BE LISTED ON THE MEMBERSHIP CARD?</a>
+    <p id="A9" class="answer">Each membership is designed for a specific set of individuals, not an open-ended admission card. By naming each member we are better able to protect the integrity of the membership program and offer more benefits to our participating members.</p>
+    <br>
+
+    <a id="Q10" class="question" href="javascript:toggle2('A10','Q10');" >WHAT IS THE TERM OF MY MEMBERSHIP?</a>
+    <p id="A10" class="answer">Membership is valid for one full year from the date of purchase.</p>
+
+    <br><br><br>
+
+
+<!--Sign up now-->
+    <div id="signup-link">
+        <a href="#signup-popup" class="signup">Don't have an account? Sign up now</a>
+    </div>
+
+    <!--Here there be the popup form (the link is just above)-->
+    <div id="signup-popup" class="overlay">
+        <div class="popup">
+            <h2>Please enter your credentials</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <div class="module">
+                    <label for="username">Username:</label>
+                    <input id="username" type="text">
+                </div>
+                <div class="module">
+                    <label for="email">Email Address:</label>
+                    <input id="email" type="email">
+                </div>
+                <div class="module">
+                    <label for="pw">Password:</label>
+                    <input id="pw" name="pass" type="password">
+                </div>
+                <div class="module">
+                    <label for="pw2">Confirm Password:</label>
+                    <input id="pw2" type="password">
+                </div>
+                <div class="module">
+                    <label for="fn">First Name:</label>
+                    <input id="fn" name="first" type="text">
+                </div>
+                <div class="module">
+                    <label for="ln">Last Name:</label>
+                    <input id="ln" type="text">
+                </div>
+                <div class="module">
+                    <label for="phone">Phone Number (xxx-xxx-xxxx format):</label>
+                    <input id="phone" type="text">
+                </div>
+                <div class="module">
+                    <label for="dob">Date of Birth (YYYY-MM-DD format):</label>
+                    <input id="dob" type="date">
+                </div>
+                <div class="module">
+                    <label for="address">Street Address:</label>
+                    <input id="address" type="text">
+                </div>
+                <div class="module">
+                    <label for="zip">Zipcode (5-digit):</label>
+                    <input id="zip" type="text">
+                </div>
+                <div class="module">
+                    <label for="city">City:</label>
+                    <input id="city" type="text">
+                </div>
+                <div class="module">
+                    <label for="state">State:</label>
+                    <input id="state" type="text">
+                </div>
+                <div class="module">
+                    Type of Membership:
+                    <input type="radio" name="memberType" value="Single" checked> Single
+                    <input type="radio" name="memberType" value="Dual"> Dual
+                    <input type="radio" name="memberType" value="Dual"> Single Family
+                    <input type="radio" name="memberType" value="Family"> Family
+                    <input type="radio" name="memberType" value="FamlyPlus"> Family Plus
+                    <input type="radio" name="memberType" value="Senior"> Grandparent
+                </div>
+            </div>
+            <button type="button"
+                    onclick="addCustomer()">Submit
+            </button>
+        </div>
+    </div>
+
+</body>
+
+<footer>
+    <div class="row">
+
+        <div class="col-4 f-design">
+            <span style="color: mediumvioletred; font-size:13pt; text-align: right;"><br> <span style="padding-left: 20px;"> ACCREDITED BY</span></span> <br>
+            <img width="200" height="120" src="http://i1042.photobucket.com/albums/b422/txusa50/FotoFlexer_Photo_zpsgzmxbj4s.jpg">
+        </div>
+
+        <div class="col-4 f-design2">
+            <!--<span style="color: mediumvioletred; font-size: 13pt; text-align: center;"><br><span style="padding-left:75px;"></span>CONNECT</span><br>-->
+            <a href="https://www.twitter.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/twitterInWhitesmoke_zpsltnzcg8l.jpg"></a>
+            <a href="http://www.facebook.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/facebookInWhitesmoke_zps7w78u6xe.jpg"></a>
+            <a href="http://www.pinterest.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/pinterestInWhitesmoke_zpsdjjdajjt.jpg"></a>
+            <a href="http://www.youtube.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/youtubeInwhitesmoke_zpseknlp7s5.jpg"></a>
+            <a href="http://www.instagram.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/instagramInWhitesmoke_zpszsrboowz.jpg"></a>
+        </div>
+
+        <div class="col-4 f-design3">
+            <span style="color: mediumvioletred; font-size: 13pt;"><br>OUR LOCATION</span><br>
+            <span style="color: midnightblue; font-size: 14pt; font-family: Ubuntu, sans-serif;">The Hu-manatee Zoo<br>
+            4800 Calhoun Rd.<br>
+            Houston, TX 77004<br>
+            (713) 743-1010</span>
+        </div>
+
+    </div>
+</footer>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reptiles</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+
+    <!--Icons-->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="static/stylesheets/animalInfo.css">
+    <script src="static/javascripts/cookieManagement.js"></script>
+
+    <script>
+        //Show-hide text function
+        function toggle2(showHideDiv, switchTextDiv) {
+            var ele = document.getElementById(showHideDiv);
+            var text = document.getElementById(switchTextDiv);
+            if(ele.style.display == "block") {
+                ele.style.display = "none";
+                text.innerHTML = "More info";
+            }
+            else {
+                ele.style.display = "block";
+                text.innerHTML = "Hide";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="addTab();">
+    <!--NavBar -->
+    <nav id="navbar">
+        <ul>
+            <li><a class="title" href="/">Hu-manatee Zoo </a></li>
+            <!--Customer-->
+            <li><a id="customer" href="#"></a>
+                <ul>
+                    <li><a href="/editInfo">Edit Info</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/shoppingCart">Cart</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Keeper/Vet-->
+            <li><a id="keepVet" href="#"></a>
+                <ul>
+                    <li><a href="/yourAnimals">Your Animals</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Manager-->
+            <li><a id="manager" href="#"></a>
+                <ul>
+                    <li><a href="/manageEmployees">Manage Employees</a></li>
+                    <li><a href="/salesOverview">Sales Overview</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <li><a href="/memberInfo"> Membership </a>
+                <ul>
+                    <li><a href="/memberInfo">Member Info</a></li>
+                    <li><a href="/memberFAQ">Member FAQ</a></li>
+                    <li><a href="/signup">Sign up</a></li>
+                    <li><a id='login' href="/login">Log in</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="/visit"> Visit Us </a>
+                <ul>
+                    <li><a href="/visit">Hours & Location</a></li>
+                    <li><a href="/ticketInfo">Ticket Info</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="/visitFAQ">FAQ</a></li>
+                </ul>
+            </li>
+            <li><a href="/animals"> Animals </a>
+                <ul>
+                    <li><a href="/mammals">Mammals</a></li>
+                    <li><a href="/birds">Birds</a></li>
+                    <li><a href="/aquatic">Aquatic</a></li>
+                    <li><a href="/reptiles">Reptiles</a></li>
+                    <li><a href="/amphibians">Amphibians</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="imageContainer">
+        <img class ="fillWidth" src="static/images/animals-1.jpg" alt="Chameleon Picture">
+    </div>
+
+
+    <p class="header">Reptiles</p>
+
+    <!--ROW 1-->
+    <div class="row">
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/g-tortoise.jpg" alt="Galapagos Tortoise">
+                <figcaption>
+                    <p class="name"> GALAPAGOS TORTOISE</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Geochelone nigra</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 100 - 150 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Vulnerable</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Grasses, forbs, fruits, leaves, succulents</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Galapagos Islands</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Semi-arid lowlands and moist uplands</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>Adult male Galapagos tortoises can weigh up to 600 pounds! Females may weigh up to 200 pounds.
+                    <a class="moreLink" id="A11" href="javascript:toggle2('M11', 'A11');">More Info</a>
+                </figcaption>
+                <br>
+                <figcaption class="moreInfo" id="M11">The Galapagos Tortoise is the world's largest tortoise and can only be found in the Galapagos Islands west of South America. The tortoises will spend the cooler parts of the day low on the islands where it is dry and grassy, as the day warms up the tortoises will head to higher elevations where the vegetation is more lush. They usually travel the same path to these locations and will wear a path in the ground. Breeding season is January through August and the female will lay up to 10 eggs.</figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/j-crocodile.jpg" alt="Johnston's Crocodile">
+                <figcaption>
+                    <p class="name"> JOHNSTON’S CROCODILE </p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Crocodylus johnstoni</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> Up to 50 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Threatened </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Amphibians, fish and land mammals. </td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Northern Australia </td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Freshwater lakes, rivers and wetlands.</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i> These crocs bask with their mouths open to prevent overheating.
+                    <a class="moreLink" id="A21" href="javascript:toggle2('M21', 'A21');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M21">Freshwater crocodiles have strong legs, clawed webbed feet and powerful tails. Equally fast on land and water, these crocodiles can move at speeds of up to 18 miles per hour. In the dry season, females lay about 20 eggs in sandy hollows, which they protect until they hatch. Hatchlings call from within the egg before hatching. An adult female responds by excavating the nest, picking them up in her mouth and carrying them to the water.</figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/k-dragon.jpg" alt="Komodo Dragon">
+                <figcaption>
+                    <p class="name"> KOMODO DRAGON </p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Varanus komodoensis </td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 25 - 40 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Endangered </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Pigs, Deer, Water Buffalo </td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Indonesian Islands </td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Open savannah areas</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>By flicking it's tongue out of it's mouth, the Komodo Dragon is able to "taste" scent particles in the air.
+                    <a class="moreLink" id="A13" href="javascript:toggle2('M13', 'A13');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M13">Komodo dragons change drastically throughout their lives. When they hatch they are about 10-13 inches long and yellow, green, and black. By the time they reach about 10 years of age they will be 7-9 feet and can weigh almost 300 pounds and be a dull gray or brown. As juveniles the Komodo dragons will live in trees and roll in fecal matter to protect themselves from getting eaten by adults.</figcaption>
+            </figure>
+        </div>
+    </div>
+
+
+    <!--ROW 2-->
+    <div class="row">
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/python.jpg" alt="Reticulated Python">
+                <figcaption>
+                    <p class="name">RETICULATED PYTHON</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Broghammerus reticulatus</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> Up to 40 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Stable</td>
+
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> small mammals such as rats, pigs, civets </td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Southeast Asia</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Rainforests, woodlands, and grasslands</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>Longest snake in the world!
+                    <a class="moreLink" id="A12" href="javascript:toggle2('M12', 'A12');">More Info</a>
+                </figcaption>
+                <br>
+                <figcaption class="moreInfo" id="M12">The reticulated python has a complex, geometric pattern, which incorporates a number of different colors. A series of irregular diamond shapes are positioned dorsally along the back, usually flanked with smaller markings which have light centers. This gives the snake a netlike pattern, which is where it gets its common and Latin name. The head of this species is unmarked with only a conspicuous line running from each eye to the angle of the jaws. </figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/iguana.jpg" alt="Rhinoceros Iguana">
+                <figcaption>
+                    <p class="name"> RHINOCEROS IGUANA </p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Cyclura cornuta </td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 12 - 20 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Vulnerable </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Fruits and vegetation </td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Island of Hispaniola </td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Dry, rocky coastal & mainland forests </td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i> Gets its name from the bumps on its snout which are most pronounced on male iguanas.
+                    <a class="moreLink" id="A22" href="javascript:toggle2('M22', 'A22');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M22">Breeding will happen at 2 to 3 years of age. Males bob their heads and their spines along their back to attract females. Females will dig burrows to incubate the eggs, there is no parental care after the eggs hatch. Rhinoceros iguanas are diurnal, meaning they are active during the day. They spend their nights in rock crevices, caves, or burrows they have dug. Rhinoceros iguanas are threatened by habitat destruction, invasive species, and illegal hunting. </figcaption>
+            </figure>
+        </div>
+
+
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/monitor.jpg" alt="Spiny-Tailed Monitor">
+                <figcaption>
+                    <p class="name"> SPINY-TAILED MONITOR</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i>Varanus acanthurus</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> Up to 30 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Stable </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Smaller reptiles and mammals</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Northwestern Australia </td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Tropical escarpment to red sand deserts </td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i> This monitor uses its tail to wedge itself into tight crevices.
+                    <a class="moreLink" id="A23" href="javascript:toggle2('M23', 'A23');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M23">The spikes ring the tail, directed backward from the body, making it difficult to pull the monitor from a rocky crevice where it may be hiding. The tail is also useful in hunting, as the lizard can whip it around as a large, spiky club to attack prey.</figcaption>
+            </figure>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <div class="row">
+
+        <div class="col-4 f-design">
+            <span style="color: mediumvioletred; font-size:13pt; text-align: right;"><br> <span style="padding-left: 20px;"> ACCREDITED BY</span></span> <br>
+            <img width="200" height="120" src="http://i1042.photobucket.com/albums/b422/txusa50/FotoFlexer_Photo_zpsgzmxbj4s.jpg">
+        </div>
+
+        <div class="col-4 f-design2">
+            <!--<span style="color: mediumvioletred; font-size: 13pt; text-align: center;"><br><span style="padding-left:75px;"></span>CONNECT</span><br>-->
+            <a href="https://www.twitter.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/twitterInWhitesmoke_zpsltnzcg8l.jpg"></a>
+            <a href="http://www.facebook.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/facebookInWhitesmoke_zps7w78u6xe.jpg"></a>
+            <a href="http://www.pinterest.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/pinterestInWhitesmoke_zpsdjjdajjt.jpg"></a>
+            <a href="http://www.youtube.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/youtubeInwhitesmoke_zpseknlp7s5.jpg"></a>
+            <a href="http://www.instagram.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/instagramInWhitesmoke_zpszsrboowz.jpg"></a>
+        </div>
+
+        <div class="col-4 f-design3">
+            <span style="color: mediumvioletred; font-size: 13pt;"><br>OUR LOCATION</span><br>
+            <span style="color: midnightblue; font-size: 14pt; font-family: Ubuntu, sans-serif;">The Hu-manatee Zoo<br>
+            4800 Calhoun Rd.<br>
+            Houston, TX 77004<br>
+            (713) 743-1010</span>
+        </div>
+
+    </div>
+</footer>
+</html>

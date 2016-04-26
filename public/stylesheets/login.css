@@ -75,6 +75,19 @@
     /*z-index: 100;*/
 }
 
+/*Hidden tabs*/
+#navbar #customer {
+    display: none;
+}
+
+#navbar #keepVet {
+    display: none;
+}
+
+#navbar #manager {
+    display: none;
+}
+
 /*image formatting*/
 #bg {
     position: fixed;

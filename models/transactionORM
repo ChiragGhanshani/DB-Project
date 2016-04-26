@@ -1,0 +1,28 @@
+var db = require('./db.js');
+var async = require('async');
+
+module.exports = {
+  getUUID : function(sendResultBack) {
+    db.query('SELECT UUID(), UTC_DATE();').spread(function(rows) {
+      if(rows.length < 1)
+        sendResultBack(new Error('Invalid Query'), null);
+      else{
+        sendResultBack(null, rows[0]);
+      }
+    }).catch(function(error) {
+      sendResultBack(error, null);
+    });
+  },
+  insertTransaction : function(member_id, transaction_type, sendResultsBack) {
+    if(typeof member_id === "undefined" || typeof transaction_type === "undefined")
+      sendResultsBack(new Error('Invalid data type'), null);
+    else if(member_id == "" || transaction_type == "")
+      sendResultsBack(new Error('Empty Input'), null);
+
+    else {
+      var id = null;
+      var date = null;
+      this.getUUID()
+    }
+  }
+}

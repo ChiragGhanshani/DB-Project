@@ -4,6 +4,32 @@
     font-family: Ubuntu, sans-serif;
 }
 
+/*Defines how many columns the section should span*/
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+[class*="col-"] { /*Makes all columns float left*/
+    float: left;
+}
+
+
+.row:after { /*Prevents other elements to be placed as if the columns were not there*/
+    content: "";
+    clear: both;
+    display: block;
+}
+
 /*Navbar*/
 #navbar ul {
     list-style-type: none;
@@ -72,6 +98,24 @@
     display: block;
 }
 
+/*Hidden tabs*/
+#navbar #customer {
+    display: none;
+}
+
+#navbar #keepVet {
+    display: none;
+}
+
+
+#navbar #manager {
+    display: none;
+}
+
+.test {
+    visibility: visible;
+}
+
 /*Image*/
 .imageContainer {
     position: relative;
@@ -84,3 +128,51 @@
     width: 100%;
     position: relative;
 }
+
+.header {
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 70px;
+    font-family: Lobster, sans-serif;
+    color: black;
+}
+
+table {
+    margin: auto;
+    width: 1200px;
+    border-spacing: 20px;
+}
+
+table td {
+    color: midnightblue;
+    font-size: 20px;
+    width: 650px;
+}
+
+.des {
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.f-design {
+    font-size: 20px;
+    text-align: center;
+}
+
+.f-design2 {
+    margin-top: 50px;
+    /*border-left: 3px solid darkgray;*/
+    line-height: 100px;
+    text-align: center;
+}
+
+.f-design2 a {
+    text-align: center;
+}
+
+.f-design3 {
+    /*border-left: 3px solid darkgray;*/
+    text-align: center;
+}
+

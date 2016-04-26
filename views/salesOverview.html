@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sales Reporting</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" type="text/css"
+          href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster"/>
+
+    <!--Icons-->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="static/stylesheets/salesOverview.css">
+    <script src="static/javascripts/cookieManagement.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
+
+</head>
+
+
+<body onload="addTab();">
+<!--NavBar -->
+<nav id="navbar">
+    <ul>
+        <li><a class="title" href="/">Hu-manatee Zoo </a></li>
+        <!--Customer-->
+        <li><a id="customer" href="#"></a>
+            <ul>
+                <li><a href="/editInfo">Edit Info</a></li>
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/shoppingCart">Cart</a></li>
+                <li><a href="javascript:logOut();">Log out</a></li>
+            </ul>
+        </li>
+        <!--Keeper/Vet-->
+        <li><a id="keepVet" href="#"></a>
+            <ul>
+                <li><a href="/yourAnimals">Your Animals</a></li>
+                <li><a href="javascript:logOut();">Log out</a></li>
+            </ul>
+        </li>
+        <!--Manager-->
+        <li><a id="manager" href="#"></a>
+            <ul>
+                <li><a href="/manageEmployees">Manage Employees</a></li>
+                <li><a href="/salesOverview">Sales Overview</a></li>
+                <li><a href="javascript:logOut();">Log out</a></li>
+            </ul>
+        </li>
+        <li><a href="/memberInfo"> Membership </a>
+            <ul>
+                <li><a href="/memberInfo">Member Info</a></li>
+                <li><a href="/memberFAQ">Member FAQ</a></li>
+                <li><a id='login' href="/login">Join/Log in</a></li>
+            </ul>
+        </li>
+        <li class="active"><a href="/visit"> Visit Us </a>
+            <ul>
+                <li><a href="/visit">Hours & Location</a></li>
+                <li><a href="/ticketInfo">Ticket Info</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Park Map</a></li>
+                <li><a href="/visitFAQ">FAQ</a></li>
+            </ul>
+        </li>
+        <li><a href="/animals"> Animals </a>
+            <ul>
+                <li><a href="/mammals">Mammals</a></li>
+                <li><a href="/birds">Birds</a></li>
+                <li><a href="/aquatic">Aquatic</a></li>
+                <li><a href="/reptiles">Reptiles</a></li>
+                <li><a href="/amphibians">Amphibians</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+
+<div class="imageContainer">
+    <img class="fillWidth" src="static/images/sloth_hanging_out.jpg" alt="Baby sloth">
+</div>
+
+<p class="header">Sales Reporting:</p>
+<div class="des">
+    <p>Please use the following tools to view sales information from the zoo.</p>
+</div>
+
+<canvas id="myCanvas" width="600" height="600"></canvas>
+<div id="tablePrint"></div>
+
+</body>
+</html>
+
+<script>
+
+    var transactionsList = httpGet('/salesOverview/getTransactions');
+    var transactionsKeys = Object.keys(transactionsList);
+    var type_count = new Object();
+    type_count.child = 0;
+    type_count.adult = 0;
+    type_count.senior = 0;
+    type_count.single = 0;
+    type_count.dual = 0;
+    type_count.single_fam = 0;
+    type_count.family = 0;
+    type_count.family_plus = 0;
+    type_count.grandparent = 0;
+
+    for (var j in transactionsKeys) {
+        console.log(transactionsList[j]);
+        if (transactionsList[j].item_type == "Child"){
+            type_count.child += transactionsList[j].quantity;
+        }
+        else if (transactionsList[j].item_type == "Adult"){
+            type_count.adult += transactionsList[j].quantity;
+        }
+        else if (transactionsList[j].item_type == "Senior"){
+            type_count.senior += transactionsList[j].quantity;
+        }
+        else if (transactionsList[j].item_type == "Single"){
+            type_count.single += transactionsList[j].quantity;
+        }
+        else if (transactionsList[j].item_type == "Dual"){
+            type_count.dual += transactionsList[j].quantity;
+        }
+        else if (transactionsList[j].item_type == "Single Family"){
+            type_count.single_fam += transactionsList[j].quantity;
+        }
+        else if (transactionsList[j].item_type == "Family"){
+            type_count.family += transactionsList[j].quantity;
+        }
+        else if (transactionsList[j].item_type == "Family Plus"){
+            type_count.family_plus += transactionsList[j].quantity;
+        }
+        else if (transactionsList[j].item_type == "Grandparent"){
+            type_count.grandparent += transactionsList[j].quantity;
+        }
+    }
+
+
+    console.log(type_count);
+
+    var barData = {
+        labels: ["Child", "Adult", "Senior", "Single", "Dual", "Single Family", "Family", "Family Plus", "Grandparent"],
+        datasets: [
+            {
+                fillColor: "midnightblue",
+                strokeColor: "#48A4D1",
+                data: [type_count.child, type_count.adult, type_count.senior, type_count.single, type_count.dual, type_count.single_fam, type_count.family, type_count.family_plus, type_count.grandparent]
+            }
+        ]
+    };
+
+    var types = document.getElementById('myCanvas').getContext("2d");
+    new Chart(types).Bar(barData);
+
+
+    var myTable = "<table><tr><td style='width: 100px; color: red;'>Transaction ID</td>";
+    myTable += "<td style='width: 100px; color: red;'>Item Type</td>";
+    myTable += "<td style='width: 100px; color: red;'>Item Cost</td>";
+    myTable += "<td style='width: 100px; color: red;'>Item Quantity</td>";
+    myTable += "<td style='width: 100px; color: red;'>Total Cost</td>";
+    myTable += "<td style='width: 100px; color: red;'>Transaction Time</td></tr>";
+
+
+    for (var i in transactionsKeys) {
+        myTable += "<tr><td style='width: 100px;'>" + transactionsList[i].transaction_id + "</td>";
+        myTable += "<td style='width: 100px;'>" + transactionsList[i].item_type + "</td>";
+        myTable += "<td style='width: 100px;'>" + transactionsList[i].item_cost + "</td>";
+        myTable += "<td style='width: 100px;'>" + transactionsList[i].quantity + "</td>";
+        myTable += "<td style='width: 100px;'>" + transactionsList[i].total + "</td>";
+        myTable += "<td style='width: 100px;'>" + transactionsList[i].transaction_time.toLocaleString() + "</td></tr>";
+    }
+    myTable += "</table>";
+
+    document.getElementById('tablePrint').innerHTML = myTable; /*references a div tag in the html body*/
+
+</script>

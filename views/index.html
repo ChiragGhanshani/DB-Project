@@ -14,38 +14,48 @@
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" type="text/css" href="static/stylesheets/index.css">
+  <script src="static/javascripts/cookieManagement.js"></script>
 
   <!--Enables page scroll-->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script>
-  $(function() {
-    $('a[href*="#"]:not([href="#"])').click(function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-        if (target.length) {
-          $('html, body').animate({
-            scrollTop: target.offset().top
-          }, 1000);
-          return false;
+    $(function() {
+      $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
         }
-      }
+      });
     });
-  });
-</script>
+  </script>
 
 </head>
 
-<body>
+<body onload="addTab();">
+
   <!--NavBar -->
-  <div class="navbar" id="top">
+  <nav class="navbar" id="top">
     <ul>
-      <li><a href="#top"> Hu-manatee Zoo </a></li>
+      <li><a href="#top" class="title"> Hu-manatee Zoo </a></li>
+      <!--Customer-->
+      <li><a id="customer" href="/editInfo"></a></li>
+      <!--Keeper/Vet-->
+      <li><a id="keepVet" href="/yourAnimals"></a></li>
+      <!--Manager-->
+      <li><a id="manager" href="/manageEmployees"></a></li>
+      <!--Login-->
+      <li><a id="login" href="/login">Log in</a></li>
       <li><a href="#members"> Membership </a></li>
       <li><a href="#visit"> Visit Us </a></li>
       <li><a href="#animals"> Animals </a></li>
     </ul>
-  </div>
+  </nav>
 
   <!--Video -->
   <div id="video-container">
@@ -59,6 +69,7 @@
   <div id="animals" class="animalSection">
     <p class="header"><a href="/animals">Animals</a></p>
     <h2 align="center"></h2>
+    <!--MIGHT USE TABLE FOR THIS INSTEAD-->
     <ul id="onHover">
       <li><img src="static/images/RedPanda.jpg" alt="Red Panda"><p>Red Panda</p></li>
       <li><img src="static/images/LionCubs.jpg" alt="Lion cubs"></li>
@@ -66,22 +77,23 @@
       <li><img src="static/images/Giraffe2.jpg" alt="Giraffe"></li>
       <li><img src="static/images/Elephants.jpg" alt="Elephants"></li>
     </ul>
+
     <!--<div class="row animals">-->
-      <!--<div class="col-2">-->
-        <!--<li><img src="static/images/RedPanda.jpg" alt="Red Panda"></li>-->
-      <!--</div>-->
-      <!--<div class="col-2">-->
-        <!--<li><img src="static/images/LionCubs.jpg" alt="Lion cubs"></li>-->
-      <!--</div>-->
-      <!--<div class="col-2">-->
-        <!--<li><img src="static/images/Gorilla.jpg" alt="Gorilla"></li>-->
-      <!--</div>-->
-      <!--<div class="col-2">-->
-        <!--<li><img src="static/images/Giraffe2.jpg" alt="Giraffe"></li>-->
-      <!--</div>-->
-      <!--<div class="col-2">-->
-        <!--<li><img src="static/images/Elephants.jpg" alt="Elephants"></li>-->
-      <!--</div>-->
+    <!--<div class="col-2">-->
+    <!--<li><img src="static/images/RedPanda.jpg" alt="Red Panda"></li>-->
+    <!--</div>-->
+    <!--<div class="col-2">-->
+    <!--<li><img src="static/images/LionCubs.jpg" alt="Lion cubs"></li>-->
+    <!--</div>-->
+    <!--<div class="col-2">-->
+    <!--<li><img src="static/images/Gorilla.jpg" alt="Gorilla"></li>-->
+    <!--</div>-->
+    <!--<div class="col-2">-->
+    <!--<li><img src="static/images/Giraffe2.jpg" alt="Giraffe"></li>-->
+    <!--</div>-->
+    <!--<div class="col-2">-->
+    <!--<li><img src="static/images/Elephants.jpg" alt="Elephants"></li>-->
+    <!--</div>-->
     <!--</div>-->
   </div>
 
@@ -89,25 +101,29 @@
   <div id="visit" class="visitSection">
     <p class="header"><a href="/visit">Visit Us</a></p>
     <div class="row">
+      <!--Hours & events-->
       <div class="col-6 hours">
         <ul>
           <li><h3 id="date"></h3></li>
           <li>Open: 9 am Close: 6 pm</li>
           <li>Last Entry: 5 pm</li>
-          <br>
-          <br>
+          <br><br>
           <ul>
             <li><h3>Ticket Information</h3></li>
             <li>Adults 12-64: $15</li>
             <li>Children under 12: $10</li>
             <li>Children under 2: FREE</li>
             <li>Senior 65+: $8</li>
-          <li>
-            <form action="/visit">
-              <button>Buy Tickets</button></li>
-            </form>
+            <li>
+              <form action="/visit">
+                <button>Buy Tickets</button>
+              </form>
+            </li>
+          </ul>
         </ul>
       </div>
+
+      <!--Directions-->
       <div class="col-6 directions">
         <ul>
           <li><img src="static/images/UHmap.png" alt="UH map"></li>
@@ -121,28 +137,11 @@
         </ul>
       </div>
     </div>
-
   </div>
-
-  <!--&lt;!&ndash; Tickets Section &ndash;&gt;-->
-  <!--<div id="tickets" class="ticketSection">-->
-    <!--<h1>Tickets</h1>-->
-    <!--<div class="row">-->
-      <!--<div class="col-6">-->
-        <!--<ul>-->
-          <!--<li>Adults 12-64: $15</li>-->
-          <!--<li>Children under 12: $10</li>-->
-          <!--<li>Children under 2: FREE</li>-->
-          <!--<li>Senior 65+: $8</li>-->
-          <!--<li><button>Buy Tickets</button></li>-->
-        <!--</ul>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
 
   <!-- Member Section -->
   <div id="members" class="memberSection">
-    <p class="header"><a href="/members">Membership</a></p>
+    <p class="header"><a href="/memberInfo">Membership</a></p>
     <div class="col-6">
       <ul>
         <li><h3>Become a member today!</h3></li>
@@ -169,62 +168,45 @@
         <li><button>Learn more</button></li>
       </ul>
     </div>
-
   </div>
-
-  <div id="footer">
-
-  </div>
-
-
-
-<!--Javascript starts here-->
 
   <!--Retrieves current date, finds 'date' id and sends it there-->
   <script>
     var today = new Date().toDateString();
-    document.getElementById('date').innerHTML = today
+    document.getElementById('date').innerHTML = today;
   </script>
 
 </body>
 
 
 
+
 <footer>
-  <!--
-  <div class="contact">
-    <p>(713) 743-1010 </p>
-    <p> getintouch@hu-manateezoo.com</p>
-    <p>4800 Calhoun Rd. Houston, TX 77004</p>
+  <div class="row">
+
+    <div class="col-4 f-design">
+      <span style="color: mediumvioletred; font-size:13pt; text-align: right;"><br> <span style="padding-left: 20px;"> ACCREDITED BY</span></span> <br>
+      <img width="200" height="120" src="http://i1042.photobucket.com/albums/b422/txusa50/FotoFlexer_Photo_zpsgzmxbj4s.jpg">
+    </div>
+
+    <div class="col-4 f-design2">
+      <span style="color: mediumvioletred; font-size: 13pt; text-align: center;"><br><span style="padding-left:75px;"></span>CONNECT</span><br>
+      <a href="https://www.twitter.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/twitterInWhitesmoke_zpsltnzcg8l.jpg"></a>
+      <a href="http://www.facebook.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/facebookInWhitesmoke_zps7w78u6xe.jpg"></a>
+      <a href="http://www.pinterest.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/pinterestInWhitesmoke_zpsdjjdajjt.jpg"></a>
+      <a href="http://www.youtube.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/youtubeInwhitesmoke_zpseknlp7s5.jpg"></a>
+      <a href="http://www.instagram.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/instagramInWhitesmoke_zpszsrboowz.jpg"></a>
+    </div>
+
+    <div class="col-4 f-design3">
+      <span style="color: mediumvioletred; font-size: 13pt;"><br>OUR LOCATION</span><br>
+          <span style="color: #0b97c4; font-size: 14pt; font-family: Ubuntu, sans-serif;">The Hu-manatee Zoo<br>
+          4800 Calhoun Rd.<br>
+          Houston, TX 77004<br>
+          (713) 743-1010</span>
+    </div>
+
   </div>
 
-    <a href="/about">About Us</a>
-    <span style="float: right">
-      <a href="https://www.instagram.com/universityofhouston/"><i style="color: brown" class="fa fa-instagram fa-lg"></i></a>
-      <a href="https://twitter.com/UHouston?lang=en"><i style="color: deepskyblue" class="fa fa-twitter fa-lg"></i></a>
-      <a href="https://www.facebook.com/universityofhouston/"><i style="color: blue" class="fa fa-facebook-square fa-lg"></i></a>
-      <a href="https://www.pinterest.com/univofhouston/"><i style="color: red" class="fa fa-pinterest fa-lg"></i></a>
-    </span>
-  -->
-  <div class="container">
-    <div class="footerLeft">
-      <h2>
-        <strong>Hours</strong>
-      </h2>
-      <div id="hours">
-        <address>
-          <strong> Mon-Wed 9:00am-6:00pm</strong>
-        </address>
-        <address>
-          <strong>Thurs 9:00am-6:00pm</strong>
-        </address>
-        <address>
-          <strong>Fri-Sat 10:00am-6:00pm</strong>
-        </address>
-        <address>
-          <strong>Sunday 11:00am-6:00pm</strong>
-        </address>
-      </div>
-    </div>
 </footer>
 </html>

@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Ubuntu, sans-serif;
+    /*padding and border included in total width and height of elements*/
+    box-sizing: border-box;
+}
+
+.header {
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 70px;
+    font-family: Lobster, sans-serif;
+    color: black;
+    padding-bottom: 0;
+}
+
+/*Defines how many columns the section should span*/
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+[class*="col-"] { /*Makes all columns float left*/
+    float: left;
+}
+
+
+.row:after { /*Prevents other elements to be placed as if the columns were not there*/
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/*Navbar*/
+#navbar ul {
+    list-style-type: none;
+
+    /*fixed top*/
+    position: fixed;
+    z-index: 1; /*enables links*/
+    top: 0;
+    width: 100%;
+
+    /*background */
+    background-color: rgba(255, 255, 255,0.60);
+    border: none;
+}
+
+#navbar ul li a {
+    display: block;
+    color: mediumvioletred;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 35px 10px 35px;
+    margin: 10px;
+    font-size: 20px;
+    font-family: Ubuntu, sans-serif;
+}
+
+#navbar ul li {
+    float: right;
+    position: relative;
+}
+
+#navbar li:first-child {
+    float: left;
+    position: relative;
+}
+
+#navbar .title{
+    font-size: 35px;
+    padding: 10px 20px 10px 30px;
+}
+
+#navbar ul li:hover {
+    background: #f6f6f6;
+}
+
+#navbar ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /*left: 0;*/
+    background: white;
+    /*padding: 0;*/
+    z-index: 100;
+}
+
+#navbar ul ul li {
+    /*float: none;*/
+    width: inherit;
+}
+
+#navbar ul ul a {
+    font-size: 15px;
+    padding: 0;
+    /*line-height: 120%;*/
+    /*padding: 10px 15px;*/
+}
+
+#navbar ul li:hover > ul {
+    display: block;
+}
+
+/*Hidden tabs*/
+#navbar #customer {
+    display: none;
+}
+
+#navbar #keepVet {
+    display: none;
+}
+
+#navbar #manager {
+    display: none;
+}
+
+/*Image*/
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.fillWidth {
+    width: 100%;
+    position: relative;
+}
+
+/*Info display*/
+table {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+}
+table td {
+    font-size: 25px;
+}
+
+table tr {
+    height: 40px;
+    border-spacing: 0 5px;
+}
+
+table td:first-child {
+    width: 350px;
+}
+
+table td:nth-child(3) {
+    float: right;
+}
+
+table tr td a {
+    text-decoration: none;
+    color: blue;
+}
+
+table input {
+    height: 30px;
+    width: 300px;
+}
+
+table select {
+    height: 30px;
+}
+
+#customer_firstName {
+    width: 50px;
+}
+
+.memInfo ul {
+    list-style-type: none;
+}
+
+.memInfo ul li {
+    display: inline;
+}
+
+.memInfo a {
+    font-size: 15px;
+    text-decoration: none;
+    color: blue;
+}
+
+/*Edit sections*/
+#editEmail { display: none; }
+
+#editNumber { display: none; }
+
+#editAddress { display: none; }
+
+#editPass { display: none; }
+
+
+/*!*Footer*!*/
+/*footer {*/
+    /*padding: 15px;*/
+    /*background: whitesmoke;*/
+    /*height: 200px;*/
+    /*min-height: 100%;*/
+    /*border: solid;*/
+    /*border-top-width: 10px;*/
+    /*border-color: midnightblue;*/
+    /*border-bottom: none;*/
+    /*border-left: none;*/
+    /*border-right: none;*/
+
+/*}*/
+
+/*.f-design {*/
+    /*!*margin: 0 auto;*!*/
+    /*font-size: 20px;*/
+    /*padding-left: 120px;*/
+/*}*/
+
+/*.f-design2 {*/
+    /*padding-left: 120px;*/
+    /*line-height: 34px;*/
+    /*border-left: groove;*/
+    /*border-color: floralwhite;*/
+/*}*/
+
+/*.f-design3 {*/
+    /*border-left: groove;*/
+    /*padding-left: 120px;*/
+    /*line-height: 22px;*/
+/*}*/
+
+

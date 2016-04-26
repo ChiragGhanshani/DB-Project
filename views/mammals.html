@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mammals</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+
+    <!--Icons-->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="static/stylesheets/animalInfo.css">
+    <script src="static/javascripts/cookieManagement.js"></script>
+
+    <script>
+        //Show-hide text function
+        function toggle2(showHideDiv, switchTextDiv) {
+            var ele = document.getElementById(showHideDiv);
+            var text = document.getElementById(switchTextDiv);
+            if(ele.style.display == "block") {
+                ele.style.display = "none";
+                text.innerHTML = "More info";
+            }
+            else {
+                ele.style.display = "block";
+                text.innerHTML = "Hide";
+            }
+        }
+    </script>
+</head>
+
+
+<body onload="addTab();">
+    <!--NavBar -->
+    <nav id="navbar">
+        <ul>
+            <li><a class="title" href="/">Hu-manatee Zoo </a></li>
+            <!--Customer-->
+            <li><a id="customer" href="#"></a>
+                <ul>
+                    <li><a href="/editInfo">Edit Info</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/shoppingCart">Cart</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Keeper/Vet-->
+            <li><a id="keepVet" href="#"></a>
+                <ul>
+                    <li><a href="/yourAnimals">Your Animals</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Manager-->
+            <li><a id="manager" href="#"></a>
+                <ul>
+                    <li><a href="/manageEmployees">Manage Employees</a></li>
+                    <li><a href="/salesOverview">Sales Overview</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <li><a href="/memberInfo"> Membership </a>
+                <ul>
+                    <li><a href="/memberInfo">Member Info</a></li>
+                    <li><a href="/memberFAQ">Member FAQ</a></li>
+                    <li><a href="/signup">Sign up</a></li>
+                    <li><a id='login' href="/login">Log in</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="/visit"> Visit Us </a>
+                <ul>
+                    <li><a href="/visit">Hours & Location</a></li>
+                    <li><a href="/ticketInfo">Ticket Info</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="/visitFAQ">FAQ</a></li>
+                </ul>
+            </li>
+            <li><a href="/animals"> Animals </a>
+                <ul>
+                    <li><a href="/mammals">Mammals</a></li>
+                    <li><a href="/birds">Birds</a></li>
+                    <li><a href="/aquatic">Aquatic</a></li>
+                    <li><a href="/reptiles">Reptiles</a></li>
+                    <li><a href="/amphibians">Amphibians</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="imageContainer">
+        <img class ="fillWidth" src="static/images/animals-1.jpg" alt="Chameleon Picture">
+    </div>
+
+
+    <p class="header">Mammals</p>
+
+    <!--ROW 1-->
+    <div class="row">
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/Lions.jpg" alt="Lions">
+                <figcaption>
+                    <p class="name">AFRICAN LION</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Panthera leo</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 8 - 15 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Vulnerable</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Zebra, giraffe, buffalo</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Sub-Saharan African</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Open woodland, scrub, grassland</td>
+                            <!--Savannah, woodlands, and desert.-->
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>A lion’s roar can be heard up to five miles away!
+                    <a class="moreLink" id="A11" href="javascript:toggle2('M11', 'A11');">More Info</a>
+                </figcaption>
+                <br>
+                <figcaption class="moreInfo" id="M11">Nicknamed "the king of the jungle," the lion possesses both beauty and strength. Lions vary in color but typically sport light yellow-brown coats. Mature male lions are unique among big cats due the thick brown or black manes that encircle their necks and protect them while fighting. They are the only truly social cat species, living in groups called prides. Females rule the family.</figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/lemur.jpg" alt="Lemur">
+                <figcaption>
+                    <p class="name">RING-TAILED LEMUR</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Lemur catta</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 16 – 19 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Endangered </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Plants and fruit</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Southern Madagascar</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Forest, savannah, and rock canyons</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i> Spend 40% of their time on the ground.
+                    <a class="moreLink" id="A21" href="javascript:toggle2('M21', 'A21');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M21">Ring-tailed lemurs live in southern areas of Madagascar in social groups of up to 25 members. These are mixed groups with males and females. Female ring-tailed lemurs are always dominant over males and there is one dominant female in each group. When the group travels together they will raise their long ringed tails to act as flags to locate other members of the group. They will mark their territory by rubbing their scent glands on trees. Breeding usually takes place between April-June with babies being born August-September. Females will usually have 1-2 offspring.</figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/RedPanda2.jpg" alt="Red Panda">
+                <figcaption>
+                    <p class="name">RED PANDA </p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Ailurus fulgens</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 8 - 12 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Endangered </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i>Bamboo, insects, fruit, berries </td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Himalayan Mountains</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> High-altitude mountain forest</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>The red panda was the “original” panda, first described in 1821, 48 years before the giant panda was found.
+                    <a class="moreLink" id="A13" href="javascript:toggle2('M13', 'A13');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M13">The red pandas were once thought to be relatives of raccoons and bears but research has now put them in their own animal family Ailuridae. Red pandas are solitary and they rarely interact with another red panda outside of mating season. Breeding season is in the early winter with most births being in June. Similarly to their giant panda relatives red pandas have a wrist bone that acts like a thumb to help them grip bamboo.</figcaption>
+            </figure>
+        </div>
+    </div>
+
+
+    <!--ROW 2-->
+    <div class="row">
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/Giraffe1.jpg" alt="Giraffe">
+                <figcaption>
+                    <p class="name">GIRAFFE</p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Giraffa camelopardalis</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 20 - 25 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Stable</td>
+
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Leaves, plants, fruits</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Sub-Saharan African</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Open woodland and savannah</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>Giraffe ‘horns’ aren’t actually horns at all – they are called ossicones, which are formed by cartilage and covered in skin.
+                    <a class="moreLink" id="A12" href="javascript:toggle2('M12', 'A12');">More Info</a>
+                </figcaption>
+                <br>
+                <figcaption class="moreInfo" id="M12">Giraffes are the tallest of all land mammals. Giraffes have a neck that is 6 feet long and weighs 600 pounds. Their heart is 2 feet long and weighs 25 pounds. They eat about 75 pounds of food each day which they gather with their 18 inch long tongue. Due to this massive size giraffes do not really need to hide from predators, they do need to be worried about lions, but giraffes have a powerful kick that they will use to defend themselves. </figcaption>
+            </figure>
+        </div>
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/tapir.jpg" alt="Baird's Tapir">
+                <figcaption>
+                    <p class="name">BAIRD'S TAPIR </p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i> Tapirus bairdii</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 20 - 25 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Endangered </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Leaves, fruit, twigs, flowers, grasses  </td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Southern Mexico </td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Swamps, mangroves, rain forests, woodlands</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i>Closest relatives are the horse and rhinoceros families.
+                    <a class="moreLink" id="A22" href="javascript:toggle2('M22', 'A22');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M22">Baird’s tapirs are one of four species of tapirs. Three species live in Central and South America and one species lives in Asia. The upper lip of the tapir forms a proboscis similar to an elephant’s trunk. This is used to help them collect their food as they browse. Tapirs are born brown with white stripes and spots to help with camouflage and turn solid brown with age. Tapirs will poop in nearby bodies of water to hide their scent from predators. </figcaption>
+            </figure>
+        </div>
+
+
+
+        <div class="col-4">
+            <figure class="a-img">
+                <img src="static/images/zebra.jpg" alt="Zebra">
+                <figcaption>
+                    <p class="name">ZEBRA </p>
+                    <table>
+                        <tr>
+                            <td><i class="fa fa-flask" aria-hidden="true"></i>Equus burchellii boehmi</td>
+                            <td><i class="fa fa-hourglass-half" aria-hidden="true"></i> 20 - 30 years</td>
+                            <td><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Stable </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa fa-cutlery" aria-hidden="true"></i> Grasses; some leaves, herbs, twigs</td>
+                            <td><i class="fa fa-globe" aria-hidden="true"></i> Eastern and Southern Africa</td>
+                            <td><i class="fa fa-tree" aria-hidden="true"></i> Open savannahs, grasslands</td>
+                        </tr>
+                    </table>
+                    <i class="fa fa-heart" aria-hidden="true"></i> Gather in large herds numbering several hundred individuals, especially in the dry season.
+                    <a class="moreLink" id="A23" href="javascript:toggle2('M23', 'A23');">More Info</a>
+                    <br>
+                </figcaption>
+                <figcaption class="moreInfo" id="M23">Zebras are members of the equid family which includes horses and donkeys. They are largely grazers and eat the tops of grasses were they live. Each zebra has a different pattern of stripes on their coat. This is called disruptive camouflage. The main predator of zebra are lions who like to hunt for zebra as the sun goes down. Zebra’s stripes help them to blend into tall grasses where they live and confuse the lions. Zebra live in large herds and their stripes make it hard for lions to track a zebra to hunt for a meal when following a large herd. They also have other defenses against predators including great hearing and eyesight, a top speed of 35 miles per hour, and a kick that can seriously injure a predator. Zebra can give birth anytime during the year and will usually give birth to one foal which stays with their mother for up to 3 years. </figcaption>
+            </figure>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <div class="row">
+
+        <div class="col-4 f-design">
+            <span style="color: mediumvioletred; font-size:13pt; text-align: right;"><br> <span style="padding-left: 20px;"> ACCREDITED BY</span></span> <br>
+            <img width="200" height="120" src="http://i1042.photobucket.com/albums/b422/txusa50/FotoFlexer_Photo_zpsgzmxbj4s.jpg">
+        </div>
+
+        <div class="col-4 f-design2">
+            <!--<span style="color: mediumvioletred; font-size: 13pt; text-align: center;"><br><span style="padding-left:75px;"></span>CONNECT</span><br>-->
+            <a href="https://www.twitter.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/twitterInWhitesmoke_zpsltnzcg8l.jpg"></a>
+            <a href="http://www.facebook.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/facebookInWhitesmoke_zps7w78u6xe.jpg"></a>
+            <a href="http://www.pinterest.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/pinterestInWhitesmoke_zpsdjjdajjt.jpg"></a>
+            <a href="http://www.youtube.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/youtubeInwhitesmoke_zpseknlp7s5.jpg"></a>
+            <a href="http://www.instagram.com/Hu-manateeZoo"><img src="http://i1042.photobucket.com/albums/b422/txusa50/instagramInWhitesmoke_zpszsrboowz.jpg"></a>
+        </div>
+
+        <div class="col-4 f-design3">
+            <span style="color: mediumvioletred; font-size: 13pt;"><br>OUR LOCATION</span><br>
+            <span style="color: midnightblue; font-size: 14pt; font-family: Ubuntu, sans-serif;">The Hu-manatee Zoo<br>
+            4800 Calhoun Rd.<br>
+            Houston, TX 77004<br>
+            (713) 743-1010</span>
+        </div>
+
+    </div>
+</footer>
+</html>

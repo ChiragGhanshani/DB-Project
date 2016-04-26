@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shop</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+
+    <link rel="stylesheet" type="text/css" href="static/stylesheets/shop.css">
+    <script src="static/javascripts/cookieManagement.js"></script>
+    <script src="static/javascripts/shoppingCartCookie.js"></script>
+
+</head>
+
+<body onload="addTab();">
+    <!--NavBar -->
+    <nav id="navbar">
+        <ul>
+            <li><a class="title" href="/">Hu-manatee Zoo </a></li>
+            <!--Customer-->
+            <li><a id="customer" href="#"></a>
+                <ul>
+                    <li><a href="/editInfo">Edit Info</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a id="cart" href="/shoppingCart">Cart</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Keeper/Vet-->
+            <li><a id="keepVet" href="#"></a>
+                <ul>
+                    <li><a href="/yourAnimals">Your Animals</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <!--Manager-->
+            <li><a id="manager" href="#"></a>
+                <ul>
+                    <li><a href="/manageEmployees">Manage Employees</a></li>
+                    <li><a href="/salesOverview">Sales Overview</a></li>
+                    <li><a href="javascript:logOut();">Log out</a></li>
+                </ul>
+            </li>
+            <li><a href="/memberInfo"> Membership </a>
+                <ul>
+                    <li><a href="/memberInfo">Member Info</a></li>
+                    <li><a href="/memberFAQ">Member FAQ</a></li>
+                    <li><a id='login' href="/login">Join/Log in</a></li>
+                </ul>
+            </li>
+            <li class="active"><a href="/visit"> Visit Us </a>
+                <ul>
+                    <li><a href="/visit">Hours & Location</a></li>
+                    <li><a href="/ticketInfo">Ticket Info</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Park Map</a></li>
+                    <li><a href="/visitFAQ">FAQ</a></li>
+                </ul>
+            </li>
+            <li><a href="/animals"> Animals </a>
+                <ul>
+                    <li><a href="/mammals">Mammals</a></li>
+                    <li><a href="/birds">Birds</a></li>
+                    <li><a href="/aquatic">Aquatic</a></li>
+                    <li><a href="/reptiles">Reptiles</a></li>
+                    <li><a href="/amphibians">Amphibians</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="imageContainer">
+        <img class ="fillWidth" src="static/images/animals-1.jpg" alt="Macaws flying">
+    </div>
+
+    <!--Tickets-->
+    <h1>Tickets</h1>
+    <div class="row">
+        <div class="col-4">
+            <div class="box">
+                <p class="levelhead">Child (2-11)</p>
+                <label>$12</label>
+                <select name="childTix" id="child">
+                    <option value="0"> 0 </option>
+                    <option value="1"> 1 </option>
+                    <option value="2"> 2 </option>
+                    <option value="3"> 3 </option>
+                    <option value="4"> 4 </option>
+                    <option value="5"> 5 </option>
+                    <option value="6"> 6 </option>
+                    <option value="7"> 7 </option>
+                    <option value="8"> 8 </option>
+                    <option value="9"> 9 </option>
+                    <option value="10"> 10 </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="box">
+                <p class="levelhead">Adult (12-64)</p>
+                <label>$15</label>
+                <select name="adultTix" id="adult">
+                    <option value="0"> 0 </option>
+                    <option value="1"> 1 </option>
+                    <option value="2"> 2 </option>
+                    <option value="3"> 3 </option>
+                    <option value="4"> 4 </option>
+                    <option value="5"> 5 </option>
+                    <option value="6"> 6 </option>
+                    <option value="7"> 7 </option>
+                    <option value="8"> 8 </option>
+                    <option value="9"> 9 </option>
+                    <option value="10"> 10 </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="box">
+                <p class="levelhead">Senior (65+)</p>
+                <label>$10</label>
+                <select name="seniorTix" id="senior">
+                    <option value="0"> 0 </option>
+                    <option value="1"> 1 </option>
+                    <option value="2"> 2 </option>
+                    <option value="3"> 3 </option>
+                    <option value="4"> 4 </option>
+                    <option value="5"> 5 </option>
+                    <option value="6"> 6 </option>
+                    <option value="7"> 7 </option>
+                    <option value="8"> 8 </option>
+                    <option value="9"> 9 </option>
+                    <option value="10"> 10 </option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Member packages-->
+    <h1>Select Membership Level</h1>
+    <div class="row">
+        <div class="col-4">
+            <div class="box">
+                <label class="levelhead" for="single">SINGLE </label>
+                <input id="single" name="single" type="checkbox">
+                <p>$65 </p>
+                <p>Member benefits for one adult + one guest</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="box">
+                <label class="levelhead" for="dual">DUAL </label>
+                <input id="dual" name="dual" type="checkbox">
+                <p>$85 </p>
+                <p>Member benefits for two adults + one guest</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="box">
+                <label class="levelhead" for="singleFam">SINGLE FAMILY</label>
+                <input id="singleFam" name="singleFam" type="checkbox">
+                <p>$110 </p>
+                <p>Member benefits for one adult + eligible children + one guest</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="box">
+                <label class="levelhead" for="family">FAMILY </label>
+                <input id="family" name="family" type="checkbox">
+                <p>$125 </p>
+                <p>Member benefits for two adults + eligible children + one guest</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="box">
+                <label class="levelhead" for="famPlus">FAMILY PLUS </label>
+                <input id="famPlus" name="familyPlus" type="checkbox">
+                <p>$145 </p>
+                <p>Member benefits for three adults + eligible children + one guest</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="box">
+                <label class="levelhead" for="grandparent">GRANDPARENT </label>
+                <input id="grandparent" name="grandparent" type="checkbox">
+                <p>$100 </p>
+                <p>Member benefits for two seniors + eligible children</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="addCart">
+        <a href="javascript:addCartInfo();">Add to cart</a>
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>
