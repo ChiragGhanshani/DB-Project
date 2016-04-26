@@ -86,6 +86,44 @@ function addCustomer() {
     document.getElementById('login').click();
 }
 
+function submitNewEmployee() {
+    var valid = true;
+    var address = document.getElementById('address').value;
+    var fname = document.getElementById("fn").value;
+    var lname = document.getElementById("ln").value;
+    var pass = document.getElementById("pw").value;
+    var city = document.getElementById("city").value;
+    var state = document.getElementById("state").value;
+    var zip = document.getElementById("zip").value;
+    var phone = document.getElementById("phone").value;
+    var uname = document.getElementById("username").value;
+    var dob = document.getElementById("dob").value;
+    var email = document.getElementById("email").value;
+    var nid = document.getElementById("nid").value;
+    var manager_id = document.getElementById("manager_id").value;
+    var salary = document.getElementById("salary").value;
+    var role = document.getElementById("role").value;
+
+
+    if(document.getElementById("pw").value != document.getElementById("pw2").value) {
+        window.alert("Passwords do not match!");
+        valid = false;
+        console.log("nope");
+    }
+
+    if (valid) {
+        window.alert("Passes validation!");
+        location = "#";
+        location.reload(true);
+        httpSend('/login/registerEmployee?username=' + uname + '&password=' + pass + '&firstName=' + fname +
+            '&lastName=' + lname + '&street=' + address + '&city=' + city + '&state=' + state + '&zip=' + zip +
+            '&phone=' + phone + '&dob=' + dob + '&email=' + email.replace('@', '%40') + '&natioanlID=' + nid +
+            '&managerID=' + manager_id + '&salary=' + salary + '&role=' + role);
+    }
+
+    document.getElementById('login').click();
+}
+
 
 function httpSend(theUrl) {
     var xmlHttp = new XMLHttpRequest();

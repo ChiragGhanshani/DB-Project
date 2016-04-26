@@ -61,4 +61,30 @@ router.get('/registerUser', function(req, res, next){
   });
 });
 
+router.get('/registerEmployee', function(req, res, next){
+  var username = req.query.username;
+  var password = req.query.password;
+  var firstName = req.query.firstName;
+  var lastName = req.query.lastName;
+  var streetAddress = req.query.street;
+  var city = req.query.city;
+  var state = parseInt(req.query.state);
+  var zipCode = parseInt(req.query.zip);
+  var phoneNumber = req.query.phone;
+  var DOB = req.query.dob;
+  var email = req.query.email.replace('%40', '@');
+  var nationalID = parseInt(req.query.nationalID);
+  var managerID = req.query.managerID;
+  var salary = parseInt(req.query.salary);
+  var role = parseInt(req.query.role);
+
+  registrationORM.insertEmployee(username, password, firstName, lastName,
+    streetAddress, city, state, zipCode, phoneNumber, DOB, email,
+    nationalID, managerID, salary, role, function(error, result){
+      if(error) console.log(error);
+      if(error) throw error;
+      res.send();
+    });
+});
+
 module.exports = router;

@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" type="text/css" href="static/stylesheets/manageEmployees.css">
     <script src="static/javascripts/cookieManagement.js"></script>
+    <script src="static/javascripts/loginScript.js"></script>
 
 </head>
 
@@ -116,29 +117,39 @@
 
 <script>
     function getEmployees() {
-        /** made a fake row set to simulate return **/
-        var row1 = {id: "3", mem_id: "4", time: "a"};
-        var row2 = {id: "4", mem_id: "4", time: "b"};
-        var row3 = {id: "5", mem_id: "7", time: "be nice..."};
-
-        var fake = [row1, row2, row3];
-
-
-        var myTable = "<table><tr><td style='width: 50px; color: red;'>Column 1</td>";
-        myTable += "<td style='width: 50px; color: red;'>Column 2</td>";
-        myTable += "<td style='width: 50px; color: red;'>Column 3</td></tr>";
-
-        myTable += "<tr><td style='width: 50px;'>---------------</td>";
-        myTable += "<td     style='width: 50px;'>---------------</td>";
-        myTable += "<td     style='width: 50px;'>---------------</td></tr>";
+        var employeesList = httpGet('/manageEmployees/xxxxx');
+        var employeesKeys = Object.keys(employeesList);
+        for(var j in employeesKeys){
+            console.log(employeesList[j]);
+        }
 
 
-        for (var i = 0; i < fake.length; i++) {
-            myTable += "<tr><td style='width: 50px;'>" + fake[i].id + "</td>";
-            myTable += "<td style='width: 50px;'>" + fake[i].mem_id + "</td>";
-            myTable += "<td style='width: 50px;'>" + fake[i].time + "</td></tr>";
+
+        var myTable = "<table><tr><td style='width: 100px; color: red;'>Transaction ID</td>";
+        myTable += "<td style='width: 100px; color: red;'>Item Type</td>";
+        myTable += "<td style='width: 100px; color: red;'>Item Cost</td>";
+        myTable += "<td style='width: 100px; color: red;'>Item Quantity</td>";
+        myTable += "<td style='width: 100px; color: red;'>Total Cost</td>";
+        myTable += "<td style='width: 100px; color: red;'>Transaction Time</td></tr>";
+
+        myTable += "<tr><td style='width: 100px;'>---------------</td>";
+        myTable += "<td     style='width: 100px;'>---------------</td>";
+        myTable += "<td     style='width: 100px;'>---------------</td>";
+        myTable += "<td     style='width: 100px;'>---------------</td>";
+        myTable += "<td     style='width: 100px;'>---------------</td>";
+        myTable += "<td     style='width: 100px;'>---------------</td></tr>";
+
+
+        for (var i in employeesKeys) {
+            myTable += "<tr><td style='width: 100px;'>" + employeesList[i].transaction_id + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].item_type + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].item_cost + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].quantity + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].Total + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].transaction_time + "</td></tr>";
         }
         myTable += "</table>";
+
 
         document.getElementById('tablePrint').innerHTML = myTable;
     }
@@ -248,17 +259,29 @@
                 "</select>" +
                 "</td>" +
                 "</tr>" +
+                "<tr>" +
+                "<td><label for='nid'>National ID:</label></td>" +
+                "<td><input id='nid' type='text'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='manager_id'>Manager ID:</label></td>" +
+                "<td><input id='manager_id' type='text'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='salary'>Salary:</label></td>" +
+                "<td><input id='salary' type='text'></td>" +
+                "</tr>" +
+                "<tr>" +
+                "<td><label for='role'>Role:</label></td>" +
+                "<td><input id='role' type='text' placeholder='00 or 01 or 02'></td>" +
+                "</tr>" +
                 "</table>" +
                 "<div class='buttons'>" +
-                "<a id='submit' href='javascript:submitNewEmployee();'>Submit</a>" +
+                "<a id='submit' href='javascript:submitNewEmployee();'>Submit</a>" + /*see loginScript.js*/
                 "</div>";
 
 
         document.getElementById('tablePrint').innerHTML = myTable;
-    }
-
-    function submitNewEmployee() {
-        window.alert("Validation and Insert Coming soon!");
     }
 
     function deactivateEmployee() {
