@@ -56,8 +56,10 @@ VALUES
 INSERT INTO users
 VALUES
 	('khoffee', 'abc123', '2016-03-14', '1234-1234-1234', 'Customer', '1'),
+	('mrfette', 'coke', '2016-01-01', '5678-1234-7777', 'Customer', '1'),
+	('tdik543', 'coke', '2015-12-25', '9999-0000-1111', 'Customer', '1'),
 	('cdog', 'abc123', '2016-04-24', '1234-5555-1234', 'Employee', '1'),
-	('anabanana', '123abc', '2016-04-20', '1234-7777-1234', 'Employee', '1'),
+	('anabanana', 'abc123', '2016-04-20', '1234-7777-1234', 'Employee', '1'),
 	('ronak', 'hclc', '2016-01-01', '1234-7890-1234', 'Employee', '1');
 
 INSERT INTO employee_roles
@@ -96,16 +98,26 @@ VALUES
 
 INSERT INTO customers
 VALUES
-	('1234-1234-1234', 'Homer', 'Simpson', '12420 Washington St.', 'Houston', 42, 77072, '832-348-3887', '1960-05-14', 'thesimpsons@springfield.com', '1');
+	('1234-1234-1234', 'Homer', 'Simpson', '12420 Washington St.', 'Houston', 42, 77072, '832-348-3887', '1960-05-14', 'thesimpsons@springfield.com', '1'),
+	('5678-1234-7777', 'Chad', 'Roekel', '420 Blaze St.', 'Houston', 42, 77012, '832-123-4444', '2001-09-20', 'chad@email.com', '1'),
+	('9999-0000-1111', 'Tim', 'Dickson', '12355 Game St', 'Houston', 42, 77123, '281-123-4421', '2000-05-12', 'tim@library.com', '1');
 
 SET @transaction_id_variable = uuid();
+SET @transaction_id_variable2 = uuid();
+SET @transaction_id_variable3 = uuid();
 INSERT INTO transactions
 VALUES
-	(@transaction_id_variable, '1234-1234-1234', '2016-01-02 00:00:00.000');
+	(@transaction_id_variable, '1234-1234-1234', '2016-01-02 00:00:00.000'),
+	(@transaction_id_variable2, '5678-1234-7777','2016-03-14 18:43:16.000'),
+	(@transaction_id_variable3, '9999-0000-1111', '2016-04-26 19:55:12.000');
 
 INSERT INTO transaction_items
 VALUES
-	(@transaction_id_variable, 01, 1);
+	(@transaction_id_variable, 1, 1),
+	(@transaction_id_variable2, 7, 2),
+	(@transaction_id_variable2, 5, 3),
+	(@transaction_id_variable3, 3, 2),
+	(@transaction_id_variable3, 2, 4);
 
 INSERT INTO areas(id, area)
 VALUES
