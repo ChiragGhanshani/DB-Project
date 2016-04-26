@@ -18,8 +18,7 @@ router.get('/getAnimals', function(req, res, next){
 });
 
 router.get('/getIllnesses', function(req, res, next){
-  var ID = req.query.ID.replace(/%2D/g, '-');
-  reportsORM.getIllnessesReportOneFilter('tag_number', ID,
+  reportsORM.getIllnessesReportNoFilter(
     function(error, result){
       if (error) throw error;
       else{
