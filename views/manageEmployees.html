@@ -293,7 +293,9 @@
     }
 
     function submitRemoveEmployee() {
-        window.alert("Validation and Update Coming soon!");
+        var username = document.getElementById("username").value;
+        httpSend('/manageEmployees/removeEmployee?user=' + username);
+        window.alert("User removed");
     }
 
 </script>
