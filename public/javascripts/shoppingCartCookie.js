@@ -44,11 +44,6 @@ function populateCart() {
     document.getElementById('total').innerHTML = 'Total:  $' + total;
 }
 
-function runOnLoad() {
-    addTab();
-    populateCart();
-}
-
 function displayCheckoutForm() {
   document.getElementById('checkOut').style.display = "block";
   document.getElementById('clickCheckOut').style.display = "none";
@@ -65,7 +60,6 @@ function completeTransaction(){
     }
     httpSend('/shoppingCart/completeTransaction' + queries);
     setCookie('shoppingCartCookie', '', .04);
-
 
     if(!alert('Purchase complete')){window.location.reload();}
 
