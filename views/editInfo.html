@@ -63,8 +63,7 @@
                 <ul>
                     <li><a href="/visit">Hours & Location</a></li>
                     <li><a href="/ticketInfo">Ticket Info</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Park Map</a></li>
+                    <li><a href="/events">Events</a></li>
                     <li><a href="/visitFAQ">FAQ</a></li>
                 </ul>
             </li>
@@ -127,10 +126,62 @@
 
         <tr id="editAddress">
             <td></td>
-            <td>
+            <td class="memInfo">
                 <input id="address" style="width: 505px;" type="text" placeholder="Street address">
                 <input id="city" type="text" placeholder="City">
-                <input id="state" type="text" placeholder="TX">
+                <label for="state"></label>
+                <select id="state">
+                    <option value="0">AL</option>
+                    <option value="1">AK</option>
+                    <option value="2">AZ</option>
+                    <option value="3">AR</option>
+                    <option value="4">CA</option>
+                    <option value="5">CO</option>
+                    <option value="6">CT</option>
+                    <option value="7">DE</option>
+                    <option value="8">FL</option>
+                    <option value="9">GA</option>
+                    <option value="10">HI</option>
+                    <option value="11">ID</option>
+                    <option value="12">IL</option>
+                    <option value="13">IN</option>
+                    <option value="14">IA</option>
+                    <option value="15">KS</option>
+                    <option value="16">KY</option>
+                    <option value="17">LA</option>
+                    <option value="18">ME</option>
+                    <option value="19">MD</option>
+                    <option value="20">MA</option>
+                    <option value="21">MI</option>
+                    <option value="22">MN</option>
+                    <option value="23">MS</option>
+                    <option value="24">MO</option>
+                    <option value="25">MT</option>
+                    <option value="26">NE</option>
+                    <option value="27">NV</option>
+                    <option value="28">NH</option>
+                    <option value="29">NJ</option>
+                    <option value="30">NM</option>
+                    <option value="31">NY</option>
+                    <option value="32">NC</option>
+                    <option value="33">ND</option>
+                    <option value="34">OH</option>
+                    <option value="35">OK</option>
+                    <option value="36">OR</option>
+                    <option value="37">PA</option>
+                    <option value="38">RI</option>
+                    <option value="39">SC</option>
+                    <option value="40">SD</option>
+                    <option value="41">TN</option>
+                    <option value="42">TX</option>
+                    <option value="43">UT</option>
+                    <option value="44">VT</option>
+                    <option value="45">VA</option>
+                    <option value="46">WA</option>
+                    <option value="47">WV</option>
+                    <option value="48">WI</option>
+                    <option value="49">WY</option>
+                </select>
                 <input id="zipcode" type="text" placeholder="Zip code">
                 <a href="javascript:updateUserInfo('editAddress')">Save changes</a>
             </td>

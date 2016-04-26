@@ -128,12 +128,19 @@ VALUES
 
 INSERT INTO habitats
 VALUES
-	(1, '1234-5555-1234', '2016-03-15 05:13:00', 01);
+	(1, '1234-5555-1234', '2016-03-15 05:13:00', 01),
+	(2, '1234-7777-1234', '2016-04-20 04:20:00', 02),
+	(3, '1234-7890-1234', '2016-03-17 12:00:05', 03);
 
 SET @tag_number_variable = uuid();
+SET @tag_number_variable2 = uuid();
+SET @tag_number_variable3 = uuid();
+SET @tag_number_variable4 = uuid();
 INSERT INTO animals
 VALUES
-	(@tag_number_variable, 'Female', '2001-06-11', '1980-01-02', '2010-03-05', '2011-02-07', '2015-11-30', 'A+', 'Ailurus fulgens', 1);
+	(@tag_number_variable, 'Female', '2001-06-11', '1980-01-02', '2010-03-05', '2011-02-07', '2015-11-30', 'A+', 'Ailurus fulgens', 1),
+	(@tag_number_variable2, 'Male', '2002-01-01', '1999-05-05', '2009-03-02', '2012-12-25', '2013-01-30', 'O-', 'Panthera leo', 2),
+	(@tag_number_variable3, 'Female', '2010-08-13', '2002-04-14', '2008-09-20', null, null, 'AB+', 'Phoenicopterus chilensis', 3);
 
 INSERT INTO animal_illnesses
 VALUES

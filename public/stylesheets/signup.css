@@ -197,21 +197,23 @@ footer {
 }
 
 .f-design {
-    /*margin: 0 auto;*/
     font-size: 20px;
-    padding-left: 120px;
+    text-align: center;
 }
 
 .f-design2 {
-    padding-left: 120px;
-    line-height: 34px;
-    border-left: groove;
-    border-color: floralwhite;
+    margin-top: 50px;
+    /*border-left: 3px solid darkgray;*/
+    line-height: 100px;
+    text-align: center;
+}
+
+.f-design2 a {
+    text-align: center;
 }
 
 .f-design3 {
-    border-left: groove;
-    padding-left: 120px;
-    line-height: 22px;
+    /*border-left: 3px solid darkgray;*/
+    text-align: center;
 }
 

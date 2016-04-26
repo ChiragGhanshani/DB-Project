@@ -82,6 +82,8 @@ function addCustomer() {
             '&lastName=' + lname + '&street=' + address + '&city=' + city + '&state=' + state + '&zip=' + zip +
             '&phone=' + phone + '&dob=' + dob + '&email=' + email.replace('@', '%40'));
     }
+
+    document.getElementById('login').click();
 }
 
 
