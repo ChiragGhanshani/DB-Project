@@ -117,7 +117,7 @@
 
 <script>
     function getEmployees() {
-        var employeesList = httpGet('/manageEmployees/xxxxx');
+        var employeesList = httpGet('/manageEmployees/getEmployees');
         var employeesKeys = Object.keys(employeesList);
         for(var j in employeesKeys){
             console.log(employeesList[j]);
@@ -125,28 +125,19 @@
 
 
 
-        var myTable = "<table><tr><td style='width: 100px; color: red;'>Transaction ID</td>";
-        myTable += "<td style='width: 100px; color: red;'>Item Type</td>";
-        myTable += "<td style='width: 100px; color: red;'>Item Cost</td>";
-        myTable += "<td style='width: 100px; color: red;'>Item Quantity</td>";
-        myTable += "<td style='width: 100px; color: red;'>Total Cost</td>";
-        myTable += "<td style='width: 100px; color: red;'>Transaction Time</td></tr>";
-
-        myTable += "<tr><td style='width: 100px;'>---------------</td>";
-        myTable += "<td     style='width: 100px;'>---------------</td>";
-        myTable += "<td     style='width: 100px;'>---------------</td>";
-        myTable += "<td     style='width: 100px;'>---------------</td>";
-        myTable += "<td     style='width: 100px;'>---------------</td>";
-        myTable += "<td     style='width: 100px;'>---------------</td></tr>";
+        var myTable = "<table><tr><td style='width: 100px; color: red;'>Employee ID</td>";
+        myTable += "<td style='width: 100px; color: red;'>First Name</td>";
+        myTable += "<td style='width: 100px; color: red;'>Last Name</td>";
+        myTable += "<td style='width: 100px; color: red;'>Manager ID</td>";
+        myTable += "<td style='width: 100px; color: red;'>Salary</td></tr>";
 
 
         for (var i in employeesKeys) {
-            myTable += "<tr><td style='width: 100px;'>" + employeesList[i].transaction_id + "</td>";
-            myTable += "<td style='width: 100px;'>" + employeesList[i].item_type + "</td>";
-            myTable += "<td style='width: 100px;'>" + employeesList[i].item_cost + "</td>";
-            myTable += "<td style='width: 100px;'>" + employeesList[i].quantity + "</td>";
-            myTable += "<td style='width: 100px;'>" + employeesList[i].Total + "</td>";
-            myTable += "<td style='width: 100px;'>" + employeesList[i].transaction_time + "</td></tr>";
+            myTable += "<tr><td style='width: 100px;'>" + employeesList[i].Employee_ID + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].First_Name + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].Last_Name + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].Manager_ID + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].salary + "</td></tr>";
         }
         myTable += "</table>";
 
@@ -289,10 +280,6 @@
                 "<table>" +
                 "<col width='500px'>" +
                 "<col width='400px'>" +
-                "<tr>" +
-                "<td><label for='userid'>User ID:</label></td>" +
-                "<td><input id='userid' type='text'></td>" +
-                "</tr>" +
                 "<tr>" +
                 "<td><label for='username'>Username:</label></td>" +
                 "<td><input id='username' type='text'></td>" +
