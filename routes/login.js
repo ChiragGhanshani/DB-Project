@@ -80,7 +80,7 @@ router.get('/registerEmployee', function(req, res, next){
 
   registrationORM.insertEmployee(username, password, firstName, lastName,
     streetAddress, city, state, zipCode, phoneNumber, DOB, email,
-    nationalID, managerID, salary, role, 1, function(error, result){
+    nationalID, managerID, salary, role, function(error, result){
       if(error) console.log(error);
       if(error) throw error;
       res.send();
