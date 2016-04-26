@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS users(
 	user_id varchar(36) NOT NULL, /*uuid*/
 	role enum('Customer','Employee'),
 	active varchar(1) NOT NULL,
-	
+
 	PRIMARY KEY (username),
 	UNIQUE KEY (user_id)
 );
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS item_types(
 
 CREATE TABLE IF NOT EXISTS transaction_items(
 	trans_id varchar(36) NOT NULL, /*uuid*/
-	item_id int(2) NOT NULL, /*uuid*/
+	item_id int(2) NOT NULL,
 	quantity int NOT NULL,
 
 	PRIMARY KEY(trans_id, item_id),
