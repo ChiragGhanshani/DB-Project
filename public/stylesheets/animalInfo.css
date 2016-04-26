@@ -172,3 +172,24 @@ table td {
 figcaption {
     width: 400px;
 }
+
+.f-design {
+    font-size: 20px;
+    text-align: center;
+}
+
+.f-design2 {
+    margin-top: 50px;
+    /*border-left: 3px solid darkgray;*/
+    line-height: 100px;
+    text-align: center;
+}
+
+.f-design2 a {
+    text-align: center;
+}
+
+.f-design3 {
+    /*border-left: 3px solid darkgray;*/
+    text-align: center;
+}

@@ -170,7 +170,11 @@ table tr td a {
 
 table input {
     height: 30px;
-    width: 250px;
+    width: 300px;
+}
+
+table select {
+    height: 30px;
 }
 
 #customer_firstName {
