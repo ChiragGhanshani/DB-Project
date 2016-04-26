@@ -116,29 +116,39 @@
 
 <script>
     function getEmployees() {
-        /** made a fake row set to simulate return **/
-        var row1 = {id: "3", mem_id: "4", time: "a"};
-        var row2 = {id: "4", mem_id: "4", time: "b"};
-        var row3 = {id: "5", mem_id: "7", time: "be nice..."};
-
-        var fake = [row1, row2, row3];
-
-
-        var myTable = "<table><tr><td style='width: 50px; color: red;'>Column 1</td>";
-        myTable += "<td style='width: 50px; color: red;'>Column 2</td>";
-        myTable += "<td style='width: 50px; color: red;'>Column 3</td></tr>";
-
-        myTable += "<tr><td style='width: 50px;'>---------------</td>";
-        myTable += "<td     style='width: 50px;'>---------------</td>";
-        myTable += "<td     style='width: 50px;'>---------------</td></tr>";
+        var employeesList = httpGet('/manageEmployees/xxxxx');
+        var employeesKeys = Object.keys(employeesList);
+        for(var j in employeesKeys){
+            console.log(employeesList[j]);
+        }
 
 
-        for (var i = 0; i < fake.length; i++) {
-            myTable += "<tr><td style='width: 50px;'>" + fake[i].id + "</td>";
-            myTable += "<td style='width: 50px;'>" + fake[i].mem_id + "</td>";
-            myTable += "<td style='width: 50px;'>" + fake[i].time + "</td></tr>";
+
+        var myTable = "<table><tr><td style='width: 100px; color: red;'>Transaction ID</td>";
+        myTable += "<td style='width: 100px; color: red;'>Item Type</td>";
+        myTable += "<td style='width: 100px; color: red;'>Item Cost</td>";
+        myTable += "<td style='width: 100px; color: red;'>Item Quantity</td>";
+        myTable += "<td style='width: 100px; color: red;'>Total Cost</td>";
+        myTable += "<td style='width: 100px; color: red;'>Transaction Time</td></tr>";
+
+        myTable += "<tr><td style='width: 100px;'>---------------</td>";
+        myTable += "<td     style='width: 100px;'>---------------</td>";
+        myTable += "<td     style='width: 100px;'>---------------</td>";
+        myTable += "<td     style='width: 100px;'>---------------</td>";
+        myTable += "<td     style='width: 100px;'>---------------</td>";
+        myTable += "<td     style='width: 100px;'>---------------</td></tr>";
+
+
+        for (var i in employeesKeys) {
+            myTable += "<tr><td style='width: 100px;'>" + employeesList[i].transaction_id + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].item_type + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].item_cost + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].quantity + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].Total + "</td>";
+            myTable += "<td style='width: 100px;'>" + employeesList[i].transaction_time + "</td></tr>";
         }
         myTable += "</table>";
+
 
         document.getElementById('tablePrint').innerHTML = myTable;
     }
