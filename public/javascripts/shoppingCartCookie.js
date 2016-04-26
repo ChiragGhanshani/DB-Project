@@ -55,14 +55,18 @@ function displayCheckoutForm() {
 }
 
 function completeTransaction(){
-  var itemsMap = {'child': '1', 'adult': '2', 'senior': '3', 'single': '4', 'dual': '5',
+    var itemsMap = {'child': '1', 'adult': '2', 'senior': '3', 'single': '4', 'dual': '5',
     'singleFam': '6', 'family': '7', 'famPlus': '8', 'grandparent': '9'};
-  var items = JSON.parse(getCookie('shoppingCartCookie'));
-  var memberID = JSON.parse(getCookie('zooLoginCookie')).user_id.replace(/-/g, '%2D');
-  var queries = '?ID=' + memberID;
-  for (key in items){
+    var items = JSON.parse(getCookie('shoppingCartCookie'));
+    var memberID = JSON.parse(getCookie('zooLoginCookie')).user_id.replace(/-/g, '%2D');
+    var queries = '?ID=' + memberID;
+    for (key in items){
     queries = queries + '&item' + itemsMap[key] + '=' + items[key].toString();
-  }
-  httpSend('/shoppingCart/completeTransaction' + queries);
-  setCookie('shoppingCartCookie', '', .04);
+    }
+    httpSend('/shoppingCart/completeTransaction' + queries);
+    setCookie('shoppingCartCookie', '', .04);
+
+
+    if(!alert('Purchase complete')){window.location.reload();}
+
 }
