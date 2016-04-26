@@ -339,11 +339,14 @@ img {
 h1 {
     padding-top: 15px;
     padding-bottom: 10px;
+    font-size: 45px;
 }
 
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 85px;
+    margin-bottom: 80px;
 }
 
 td {
@@ -356,6 +359,7 @@ th {
 
 footer {
     padding: 15px;
+
     background: whitesmoke;
     height: 200px;
     min-height: 100%;
