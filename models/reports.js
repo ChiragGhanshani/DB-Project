@@ -92,7 +92,7 @@ module.exports = {
 
 
   getEmployeesReportNoFilter : function(sendResultBack) {
-    var queryString = 'SELECT employee_id AS "Employee ID", employee_firstname AS "First Name", employee_lastname AS "Last Name", salary, manager_id AS "Manager ID" FROM employees;';
+    var queryString = 'SELECT employee_id AS Employee_ID, employee_firstname AS First_Name, employee_lastname AS Last_Name, salary, manager_id AS Manager_ID FROM employees;';
     db.query(queryString).spread(function(rows) {
       if(rows.length > 0) {
         sendResultBack(null, rows);
@@ -103,7 +103,7 @@ module.exports = {
     if([typeof column, typeof value].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT employee_id AS "Employee ID", employee_firstname AS "First Name", employee_lastname AS "Last Name", salary, manager_id AS "Manager ID" FROM employees WHERE ?? = ?;';
+      var queryString = 'SELECT employee_id AS Employee_ID, employee_firstname AS First_Name, employee_lastname AS Last_Name, salary, manager_id AS Manager_ID FROM employees WHERE ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
@@ -115,7 +115,7 @@ module.exports = {
     if([typeof column1, typeof value1, typeof column2, typeof value2].indexOf("undefined") >= 0)
       sendResultBack(new Error('Invalid filter'), null);
     else {
-      var queryString = 'SELECT employee_id AS "Employee ID", employee_firstname AS "First Name", employee_lastname AS "Last Name", salary, manager_id AS "Manager ID" FROM employees WHERE ?? = ? AND ?? = ?;';
+      var queryString = 'SELECT employee_id AS Employee_ID, employee_firstname AS First_Name, employee_lastname AS Last_Name, salary, manager_id AS Manager_ID FROM employees WHERE ?? = ? AND ?? = ?;';
       db.query(queryString, [column, value]).spread(function(rows) {
         if(rows.length > 0) {
           sendResultBack(null, rows);
