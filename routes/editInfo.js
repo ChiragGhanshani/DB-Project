@@ -23,7 +23,7 @@ router.get('/editAddress', function(req, res, next){
             if(err) throw err;
             else{
               updateORM.updateTable('customers', 'customer_state', state,
-                'membershi_id', ID, function(Error, Results){
+                'membership_id', ID, function(Error, Results){
                   if(Error) throw Error;
                   else{
                     updateORM.updateTable('customers', 'customer_zipCode',
@@ -52,11 +52,12 @@ router.get('/updatePass', function(req, res, next){
   var username = req.query.username;
   var password = req.query.pass;
   var newPass = req.query.newpass;
-  loginORM.getUserInfo(username, password, function(error, result){
+  loginORM.getUserID(username, password, function(error, result){
     if (error) throw error;
     else{
       updateORM.updateTable('users', 'password', newPass, 'username',
         username, function(err, results){
+          console.log(err);
           if (err) throw error;
         });
     }
@@ -66,7 +67,7 @@ router.get('/updatePass', function(req, res, next){
 router.get('/updatePhone', function(req, res, next){
   var ID = req.query.ID.replace(/%2D/g, '-');
   var phone = req.query.phone.replace(/%2D/g, '-');
-  updateORM.update('customers', 'customer_phoneNumber', phone,
+  updateORM.updateTable('customers', 'customer_phoneNumber', phone,
     'membership_id', ID, function(error, result){
       if (error) throw error;
     });

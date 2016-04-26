@@ -111,7 +111,7 @@ function addTab() {
         document.getElementById('customer_streetAddress').innerHTML = customer['customer_streetAddress'];
         document.getElementById('customer_city').innerHTML = customer['customer_city'];
         document.getElementById('state_name').innerHTML = customer['state_name'];
-        document.getElementById('customer_zipcode').innerHTML = customer['customer_zipcode'];
+        document.getElementById('customer_zipCode').innerHTML = customer['customer_zipcode'];
 
         document.getElementById(sectionEdit).style.display = "none";
         httpSend('/editInfo/editAddress?ID=' + customer['membership_id'].replace(/-/g, '%2D') +
