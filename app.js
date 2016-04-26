@@ -36,6 +36,8 @@ var feedingGraphs = require('./routes/feedingGraphs');
 //Manager routes
 var manageEmployees = require('./routes/manageEmployees');
 var salesOverview = require('./routes/salesOverview');
+//Events routes
+var events = require('./routes/events')
 
 var app = express();
 
@@ -84,6 +86,8 @@ app.use('/feedingGraphs', feedingGraphs);
 //Manager pages
 app.use('/manageEmployees', manageEmployees);
 app.use('/salesOverview', salesOverview);
+//Events pages
+app.use('/events', events);
 
 
 // catch 404 and forward to error handler

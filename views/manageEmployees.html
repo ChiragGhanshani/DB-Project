@@ -146,6 +146,12 @@
     }
 
     function addEmployee() {
+        var employee = getCookie('employeeCookie');
+        if(employee != "") {
+            var employee = JSON.parse(employee);
+        }
+        var currentID = employee.employee_id;
+
         var myTable = "<table>" +
                 "<col width='500px'>" +
                 "<col width='400px'>" +
@@ -256,7 +262,7 @@
                 "</tr>" +
                 "<tr>" +
                 "<td><label for='manager_id'>Manager ID:</label></td>" +
-                "<td><input id='manager_id' type='text'></td>" +
+                "<td><input id='manager_id' type='text' value='"+currentID+"'></td>" +
                 "</tr>" +
                 "<tr>" +
                 "<td><label for='salary'>Salary:</label></td>" +
